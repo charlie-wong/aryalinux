@@ -11,6 +11,5 @@ DESCRIPTION="Icons collection for AryaLinux XFCE and Mate Desktops"
 VERSION="2016.08"
 
 #REQ:numix-icons
-#REQ:numix-icons-circle
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
