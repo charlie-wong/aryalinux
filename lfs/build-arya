@@ -128,7 +128,7 @@ def freshBuild(startFrom):
 		inputBuildProperties()
 		startFrom = startFrom + 1
 	else:
-		with f = open('/sources/build-log'):
+		with open('/sources/build-log') as f:
 			buildlog = f.read()
 			if not 'root-and-admin-passwords' in buildlog:
 				passwords['root'] = getpassword('Enter the root password : ', 'Re-enter the root password : ')
