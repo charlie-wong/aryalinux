@@ -189,7 +189,7 @@ def freshBuild(startFrom):
 			files = os.listdir('/mnt/lfs/sources')
 			found = False
 			for file in files:
-				if file.startswith('aryalinux') and 'base-system' in file and file.endswith('.tar.xz'):
+				if file.startswith('aryalinux') and 'base-system' in file and file.endswith('.tar.gz'):
 					found = True
 					break
 			if not found:
