@@ -231,3 +231,6 @@ else
 mkisofs -o $LFS/sources/$OUTFILE -R -J -A "$LABEL" -hide-rr-moved -v -d -N -no-emul-boot -boot-load-size 4 -boot-info-table -b isolinux/isolinux.bin -c isolinux/isolinux.boot -no-emul-boot -V "ARYALIVE" live
 isohybrid $LFS/sources/$OUTFILE
 fi
+
+rm -rvf $LFS/boot/initram.fs
+rm -rvf $LFS/boot/id_label
