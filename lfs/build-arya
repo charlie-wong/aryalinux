@@ -128,8 +128,11 @@ def freshBuild(startFrom):
 		inputBuildProperties()
 		startFrom = startFrom + 1
 	else:
-		passwords['root'] = getpassword('Enter the root password : ', 'Re-enter the root password : ')
-	        passwords['user'] = getpassword('Enter the user password : ', 'Re-enter the user password : ')
+		with f = open('/sources/build-log'):
+			buildlog = f.read()
+			if not 'root-and-admin-passwords' in buildlog:
+				passwords['root'] = getpassword('Enter the root password : ', 'Re-enter the root password : ')
+				passwords['user'] = getpassword('Enter the user password : ', 'Re-enter the user password : ')
 
 	if startFrom == 2:
 		try:
