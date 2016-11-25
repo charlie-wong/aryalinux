@@ -10,6 +10,11 @@ export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc \
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+SOURCE_ONLY=n
+NAME="firefox-bin"
+DESCRIPTION="Firefox is a very popular open source browser that stands for the freedom of internet. This package simply downloads and installs the latest firefox binaries"
+VERSION="latest"
+
 #REQ:curl
 #REQ:alsa-lib
 #REQ:gtk2

@@ -10,8 +10,10 @@ export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc \
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+SOURCE_ONLY=n
 NAME="thunderbird-bin"
-VERSION="`date`"
+DESCRIPTION="Thunderbird is a mail client from mozilla. This package simply downloads and installs the most current version of Thunderbird (which is not very current)"
+VERSION="latest"
 
 #REQ:curl
 #REQ:alsa-lib
