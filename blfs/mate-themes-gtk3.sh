@@ -6,7 +6,9 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="mate-themes"
+SOURCE_ONLY=n
+NAME="mate-themes-gtk3"
+DESCRIPTION="GTK+3 themes for Mate desktop environment"
 VERSION="3.20.8"
 
 cd $SOURCE_DIR
