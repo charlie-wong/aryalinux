@@ -62,3 +62,5 @@ fi
 
 
 rm -rf grub-2.02~beta3
+
+grub-install /dev/sda
