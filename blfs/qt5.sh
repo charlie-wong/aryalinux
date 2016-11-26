@@ -68,11 +68,6 @@ fi
 cd $DIRECTORY
 fi
 
-export QT5DIR=/opt/qt5
-export QT5PREFIX=/opt/qt5
-export QT5BINDIR=/opt/qt5/bin
-export PATH=$PATH:$QT5BINDIR
-
 whoami > /tmp/currentuser
 
 export QT5PREFIX=/opt/qt5
@@ -93,7 +88,7 @@ patch -Np1 -i ../qt-5.7.0-qtwebengine_glibc224-1.patch
 
 
 export CXXFLAGS=-fno-delete-null-pointer-checks &&
-./configure -prefix         $QT5PREFIX \
+./configure -prefix         /opt/qt5 \
             -sysconfdir     /etc/xdg   \
             -confirm-license           \
             -opensource                \
@@ -119,7 +114,7 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-find $QT5PREFIX/lib/pkgconfig -name "*.pc" -exec perl -pi -e "s, -L$PWD/?\S+,,g" {} \;
+find /opt/qt5/lib/pkgconfig -name "*.pc" -exec perl -pi -e "s, -L$PWD/?\S+,,g" {} \;
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
@@ -129,9 +124,9 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-find $QT5PREFIX/ -name qt_lib_bootstrap_private.pri \
-   -exec sed -i -e "s:$PWD/qtbase:/$QT5PREFIX/lib/:g" {} \; &&
-find $QT5PREFIX/ -name \*.prl \
+find /opt/qt5/ -name qt_lib_bootstrap_private.pri \
+   -exec sed -i -e "s:$PWD/qtbase://opt/qt5/lib/:g" {} \; &&
+find /opt/qt5/ -name \*.prl \
    -exec sed -i -e '/^QMAKE_PRL_BUILD_DIR/d' {} \;
 
 ENDOFROOTSCRIPT
@@ -142,7 +137,7 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-QT5BINDIR=$QT5PREFIX/bin
+QT5BINDIR=/opt/qt5/bin
 install -v -dm755 /usr/share/pixmaps/                  &&
 install -v -Dm644 qttools/src/assistant/assistant/images/assistant-128.png \
                   /usr/share/pixmaps/assistant-qt5.png &&
