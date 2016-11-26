@@ -229,7 +229,7 @@ sudo rm rootscript.sh
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 cat > /etc/profile.d/qt5.sh << EOF
 # Begin /etc/profile.d/qt5.sh
-QT5DIR=/usr
+QT5DIR=/opt/qt5
 export QT5DIR
 pathappend $QT5DIR/bin/qt5
 # End /etc/profile.d/qt5.sh
