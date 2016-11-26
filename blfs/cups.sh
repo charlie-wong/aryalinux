@@ -13,7 +13,6 @@ VERSION=2.2.1
 NAME="cups"
 
 #REQ:gnutls
-#REQ:cups-filters
 #REC:colord
 #REC:dbus
 #REC:libusb
