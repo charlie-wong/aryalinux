@@ -55,7 +55,7 @@ sudo rm rootscript.sh
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 install -dm755 /usr/share/hwdata/ &&
-pushd $SOURCE_DIR && wget -nc http://www.linux-usb.org/usb.ids && cp -v usb.ids /usr/share/hwdata/usb.ids && popd
+pushd /var/cache/alps/sources/ && wget -nc http://www.linux-usb.org/usb.ids && cp -v usb.ids /usr/share/hwdata/usb.ids && popd
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
@@ -65,7 +65,7 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-pushd $SOURCE_DIR && wget -nc http://www.linux-usb.org/usb.ids && cp -v usb.ids /usr/share/hwdata/usb.ids && popd
+pushd /var/cache/alps/sources/ && wget -nc http://www.linux-usb.org/usb.ids && cp -v usb.ids /usr/share/hwdata/usb.ids && popd
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
