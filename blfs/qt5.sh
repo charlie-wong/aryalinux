@@ -84,16 +84,6 @@ sudo ./rootscript.sh
 sudo rm rootscript.sh
 
 
--bindir         /usr/bin/qt5                \
--plugindir      /usr/lib/qt5/plugins        \
--importdir      /usr/lib/qt5/imports        \
--headerdir      /usr/include/qt5            \
--datadir        /usr/share/qt5              \
--docdir         /usr/share/doc/qt5          \
--translationdir /usr/share/qt5/translations \
--examplesdir    /usr/share/doc/qt5/examples \
-
-
 patch -Np1 -i ../qt-5.7.0-qtwebengine_glibc224-1.patch
 
 
