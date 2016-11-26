@@ -68,6 +68,11 @@ fi
 cd $DIRECTORY
 fi
 
+export QT5DIR=/opt/qt5
+export QT5PREFIX=/opt/qt5
+export QT5BINDIR=/opt/qt5/bin
+export PATH=$PATH:$QT5BINDIR
+
 whoami > /tmp/currentuser
 
 export QT5PREFIX=/opt/qt5
