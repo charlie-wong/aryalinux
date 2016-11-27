@@ -66,7 +66,7 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-find $QT5DIR/lib/pkgconfig -name "*.pc" -exec perl -pi -e "s, -L$PWD/?\S+,,g" {} \;
+find /opt/qt5/lib/pkgconfig -name "*.pc" -exec perl -pi -e "s, -L$PWD/?\S+,,g" {} \;
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
@@ -76,9 +76,9 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-find $QT5DIR/ -name qt_lib_bootstrap_private.pri \
-   -exec sed -i -e "s:$PWD/qtbase:/$QT5DIR/lib/:g" {} \; &&
-find $QT5DIR/ -name \*.prl \
+find /opt/qt5/ -name qt_lib_bootstrap_private.pri \
+   -exec sed -i -e "s:$PWD/qtbase://opt/qt5/lib/:g" {} \; &&
+find /opt/qt5/ -name \*.prl \
    -exec sed -i -e '/^QMAKE_PRL_BUILD_DIR/d' {} \;
 
 ENDOFROOTSCRIPT
