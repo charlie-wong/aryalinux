@@ -50,7 +50,7 @@ cp doc/gsl-ref.html/* /usr/share/doc/gsl-2.2.1
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

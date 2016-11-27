@@ -54,7 +54,7 @@ useradd -c "Print Service User" -d /var/spool/cups -g lp -s /bin/false -u 9 lp
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -64,7 +64,7 @@ groupadd -g 19 lpadmin
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -97,7 +97,7 @@ ln -svnf ../cups/doc-2.2.1 /usr/share/doc/cups-2.2.1
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -107,7 +107,7 @@ echo "ServerName /var/run/cups/cups.sock" > /etc/cups/client.conf
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -117,7 +117,7 @@ gtk-update-icon-cache
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -133,7 +133,7 @@ EOF
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -143,7 +143,7 @@ systemctl enable org.cups.cupsd
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

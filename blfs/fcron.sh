@@ -45,7 +45,7 @@ useradd -d /dev/null -c "Fcron User" -g fcron -s /bin/false -u 22 fcron
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -63,7 +63,7 @@ make install
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -73,7 +73,7 @@ systemctl enable fcron
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

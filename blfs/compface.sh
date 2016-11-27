@@ -46,7 +46,7 @@ install -m755 -v xbm2xface.pl /usr/bin
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

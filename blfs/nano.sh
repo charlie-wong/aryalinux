@@ -51,7 +51,7 @@ install -v -m644 doc/texinfo/nano.html /usr/share/doc/nano-2.6.3
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

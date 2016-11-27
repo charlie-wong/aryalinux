@@ -57,7 +57,7 @@ chgrp -v -R root /usr/share/doc/lynx-2.8.8rel.2/lynx_doc
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -68,7 +68,7 @@ sed -e '/#LOCALE/     a LOCALE_CHARSET:TRUE'     \
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -79,7 +79,7 @@ sed -e '/#DEFAULT_ED/ a DEFAULT_EDITOR:vi'       \
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -90,7 +90,7 @@ sed -e '/#PERSIST/    a PERSISTENT_COOKIES:TRUE' \
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

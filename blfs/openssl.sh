@@ -56,7 +56,7 @@ cp -vfr doc/*     /usr/share/doc/openssl-1.0.2j
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

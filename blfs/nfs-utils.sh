@@ -46,7 +46,7 @@ if ! grep nogroup /etc/group &>/dev/null; then groupadd -g 99 nogroup; fi
 if ! grep nobody /etc/passwd &>/dev/null; then useradd -c "Unprivileged Nobody" -d /dev/null -g nogroup -s /bin/false -u 99 nobody; fi
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -65,7 +65,7 @@ chmod u+w,go+r /sbin/mount.nfs
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -81,7 +81,7 @@ cd $SOURCE_DIR
 rm -rf blfs-systemd-units-20160602
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

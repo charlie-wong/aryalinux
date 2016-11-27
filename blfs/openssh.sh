@@ -55,7 +55,7 @@ useradd  -c 'sshd PrivSep' \
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -78,7 +78,7 @@ install -v -m644    INSTALL LICENCE OVERVIEW README* \
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -88,7 +88,7 @@ echo "PermitRootLogin no" >> /etc/ssh/sshd_config
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -99,7 +99,7 @@ echo "ChallengeResponseAuthentication no" >> /etc/ssh/sshd_config
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -111,7 +111,7 @@ echo "UsePAM yes" >> /etc/ssh/sshd_config
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -127,7 +127,7 @@ cd $SOURCE_DIR
 rm -rf blfs-systemd-units-20160602
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

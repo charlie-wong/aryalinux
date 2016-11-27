@@ -49,7 +49,7 @@ make libgfbgraphdocdir=/usr/share/doc/gfbgraph-0.2.3 install
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

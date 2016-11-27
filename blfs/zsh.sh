@@ -65,7 +65,7 @@ install -v -m644 Doc/zsh.{html,txt} /usr/share/doc/zsh-5.2
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -76,7 +76,7 @@ install -v -m644 Doc/zsh.dvi /usr/share/doc/zsh-5.2
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -86,7 +86,7 @@ install -v -m644 Doc/zsh.pdf /usr/share/doc/zsh-5.2
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -99,7 +99,7 @@ ln -v -sf ../../lib/libgdbm.so.3 /usr/lib/libgdbm.so
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -111,7 +111,7 @@ EOF
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

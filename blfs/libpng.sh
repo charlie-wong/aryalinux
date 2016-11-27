@@ -51,7 +51,7 @@ cp -v README libpng-manual.txt /usr/share/doc/libpng-1.6.26
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

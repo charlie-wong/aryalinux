@@ -52,7 +52,7 @@ make pkghtmldir=/usr/share/doc/lame-3.99.5 install
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

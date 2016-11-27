@@ -49,7 +49,7 @@ install -v -m644 docs/graphics/*.{html,png,svg} /usr/share/gtk-doc/html/babl/gra
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

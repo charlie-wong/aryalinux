@@ -51,7 +51,7 @@ install -v -m644 doc/links_cal/* KEYS BRAILLE_HOWTO \
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

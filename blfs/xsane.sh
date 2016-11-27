@@ -51,7 +51,7 @@ ln -v -s ../../doc/xsane-0.999 /usr/share/sane/xsane/doc
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -61,7 +61,7 @@ ln -v -s <browser> /usr/bin/netscape
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -71,7 +71,7 @@ ln -v -s /usr/bin/xsane /usr/lib/gimp/2.0/plug-ins/
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

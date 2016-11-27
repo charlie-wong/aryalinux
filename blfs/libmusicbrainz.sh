@@ -54,7 +54,7 @@ install -v -m644 -D docs/mb_howto.txt \
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -64,7 +64,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

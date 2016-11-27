@@ -56,7 +56,7 @@ cp -v -R docs/*     /usr/share/doc/freetype-2.7
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

@@ -71,7 +71,7 @@ install -v -m644 docs/images/*.{png,ico,svg} /usr/share/gtk-doc/html/gegl/images
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

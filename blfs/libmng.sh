@@ -49,7 +49,7 @@ install -v -m644 doc/*.txt /usr/share/doc/libmng-2.0.3
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

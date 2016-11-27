@@ -53,7 +53,7 @@ ln -sfv gc_malloc.3 /usr/share/man/man3/gc.3
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

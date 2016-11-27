@@ -51,7 +51,7 @@ cp -v -R Doc/* /usr/share/doc/swig-3.0.10
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

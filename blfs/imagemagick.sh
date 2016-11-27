@@ -81,7 +81,7 @@ make DOCUMENTATION_PATH=/usr/share/doc/imagemagick-6.9.6 install
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

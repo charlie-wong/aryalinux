@@ -144,7 +144,7 @@ unset CFLAGS_HOLD CXXFLAGS_HOLD
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -170,7 +170,7 @@ ln -sfv /usr/lib/thunderbird-45.4.0/chrome/icons/default/default256.png \
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

@@ -66,7 +66,7 @@ install -vm644 ../doc/*.1 /usr/share/man/man1
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

@@ -40,7 +40,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -85,7 +85,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -95,7 +95,7 @@ install -v -dm755 $XORG_PREFIX/share/doc/libinput-1.5.0 &&
 cp -rv doc/html/* $XORG_PREFIX/share/doc/libinput-1.5.0
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -134,7 +134,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -172,7 +172,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -212,7 +212,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -250,7 +250,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -287,7 +287,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -324,7 +324,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -362,7 +362,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -377,7 +377,7 @@ EndSection
 EOF
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -414,7 +414,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -429,7 +429,7 @@ EndSection
 EOF
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -466,7 +466,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -576,7 +576,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -589,7 +589,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -631,7 +631,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -680,7 +680,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -689,7 +689,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 echo "export VDPAU_DRIVER=va_gl" >> /etc/profile.d/xorg.sh
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

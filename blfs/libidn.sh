@@ -54,7 +54,7 @@ cp -r -v doc/* /usr/share/doc/libidn-1.33
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

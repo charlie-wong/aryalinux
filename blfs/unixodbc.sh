@@ -51,7 +51,7 @@ cp      -v -R doc/* /usr/share/doc/unixODBC-2.3.4
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

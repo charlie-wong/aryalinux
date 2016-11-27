@@ -39,7 +39,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 python setup.py install --optimize=1
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -48,7 +48,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 python3 setup.py install --optimize=1
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

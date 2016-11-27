@@ -53,7 +53,7 @@ chmod -v 755 /usr/lib/libslang.so.2.2.4 \
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

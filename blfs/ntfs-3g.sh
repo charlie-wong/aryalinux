@@ -48,7 +48,7 @@ ln -sv ntfs-3g.8 /usr/share/man/man8/mount.ntfs.8
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -58,7 +58,7 @@ chmod -v 4755 /sbin/mount.ntfs
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

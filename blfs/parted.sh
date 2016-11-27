@@ -64,7 +64,7 @@ install -v -m644    doc/{FAT,API,parted.{txt,html}} \
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

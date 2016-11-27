@@ -45,7 +45,7 @@ make docdir=/usr/share/doc/check-0.10.0 install
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

@@ -53,7 +53,7 @@ install -v -m644 doc/Vorbis* /usr/share/doc/libvorbis-1.3.5
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

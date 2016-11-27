@@ -48,7 +48,7 @@ install -v -m644 README /usr/share/doc/libao-1.2.0
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

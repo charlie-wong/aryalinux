@@ -69,7 +69,7 @@ chmod -v 755 /usr/lib/libtcl8.6.so
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -80,7 +80,7 @@ cp -v -r  ../html/* /usr/share/doc/tcl-8.6.6
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

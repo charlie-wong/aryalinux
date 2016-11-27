@@ -52,7 +52,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make -C python2 install
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -61,7 +61,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make -C python3 install
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

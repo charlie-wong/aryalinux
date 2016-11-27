@@ -40,7 +40,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 python setup.py install --optimize=1
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -50,7 +50,7 @@ sed -i "s:mako-render:&3:g" setup.py &&
 python3 setup.py install --optimize=1
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

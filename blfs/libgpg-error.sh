@@ -46,7 +46,7 @@ install -v -m644 -D README /usr/share/doc/libgpg-error-1.24/README
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

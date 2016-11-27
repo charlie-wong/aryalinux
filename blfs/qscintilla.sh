@@ -50,7 +50,7 @@ ln -sfv libqscintilla2.so.12.0.2 $QT5DIR/lib/libqt5scintilla2.so.12
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -62,7 +62,7 @@ install -v -m644    ../doc/html-Qt4Qt5/* \
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

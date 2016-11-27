@@ -56,7 +56,7 @@ cp -v hamcrest-1.3/hamcrest-core*.jar /usr/share/java/junit-4.11
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

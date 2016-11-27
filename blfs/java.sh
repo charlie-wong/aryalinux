@@ -48,7 +48,7 @@ chown -R root:root /opt/OpenJDK-1.8.0.112-bin
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -58,7 +58,7 @@ ln -sfn OpenJDK-1.8.0.112-bin /opt/jdk
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 

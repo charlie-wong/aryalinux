@@ -145,7 +145,7 @@ ln    -sfv   ../../mozilla/plugins /usr/lib/firefox-49.0.1/browser
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
@@ -177,7 +177,7 @@ ln -sfv /usr/lib/firefox-49.0.1/browser/icons/mozicon128.png \
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
+sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
