@@ -152,7 +152,7 @@ cat > /usr/share/applications/assistant-qt5.desktop << EOF
 [Desktop Entry]
 Name=Qt5 Assistant
 Comment=Shows Qt5 documentation and examples
-Exec=$QT5BINDIR/assistant
+Exec=/opt/qt5/bin/assistant
 Icon=assistant-qt5.png
 Terminal=false
 Encoding=UTF-8
@@ -164,7 +164,7 @@ cat > /usr/share/applications/designer-qt5.desktop << EOF
 Name=Qt5 Designer
 GenericName=Interface Designer
 Comment=Design GUIs for Qt5 applications
-Exec=$QT5BINDIR/designer
+Exec=/opt/qt5/bin/designer
 Icon=designer-qt5.png
 MimeType=application/x-designer;
 Terminal=false
@@ -176,7 +176,7 @@ cat > /usr/share/applications/linguist-qt5.desktop << EOF
 [Desktop Entry]
 Name=Qt5 Linguist
 Comment=Add translations to Qt5 applications
-Exec=$QT5BINDIR/linguist
+Exec=/opt/qt5/bin/linguist
 Icon=linguist-qt5.png
 MimeType=text/vnd.trolltech.linguist;application/x-linguist;
 Terminal=false
@@ -189,7 +189,7 @@ cat > /usr/share/applications/qdbusviewer-qt5.desktop << EOF
 Name=Qt5 QDbusViewer
 GenericName=D-Bus Debugger
 Comment=Debug D-Bus applications
-Exec=$QT5BINDIR/qdbusviewer
+Exec=/opt/qt5/bin/qdbusviewer
 Icon=qdbusviewer-qt5.png
 Terminal=false
 Encoding=UTF-8
@@ -206,7 +206,7 @@ sudo rm rootscript.sh
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 for file in moc uic rcc qmake lconvert lrelease lupdate; do
-  ln -sfrvn $QT5BINDIR/$file /usr/bin/$file-qt5
+  ln -sfrvn /opt/qt5/bin/$file /usr/bin/$file-qt5
 done
 
 ENDOFROOTSCRIPT
@@ -221,7 +221,7 @@ cat > /etc/profile.d/qt5.sh << EOF
 # Begin /etc/profile.d/qt5.sh
 QT5DIR=/opt/qt5
 export QT5DIR
-pathappend $QT5DIR/bin/qt5
+pathappend /opt/qt5/bin/qt5
 # End /etc/profile.d/qt5.sh
 EOF
 
@@ -251,8 +251,8 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 cat > /etc/profile.d/qt5.sh << "EOF"
 # Begin /etc/profile.d/qt5.sh
 QT5DIR=/opt/qt5
-pathappend $QT5DIR/bin PATH
-pathappend $QT5DIR/lib/pkgconfig PKG_CONFIG_PATH
+pathappend /opt/qt5/bin PATH
+pathappend /opt/qt5/lib/pkgconfig PKG_CONFIG_PATH
 export QT5DIR
 # End /etc/profile.d/qt5.sh
 EOF

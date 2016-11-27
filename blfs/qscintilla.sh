@@ -45,8 +45,8 @@ make "-j`nproc`" || make
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install &&
-ln -sfv libqscintilla2.so.12.0.2 $QT5DIR/lib/libqt5scintilla2.so &&
-ln -sfv libqscintilla2.so.12.0.2 $QT5DIR/lib/libqt5scintilla2.so.12
+ln -sfv libqscintilla2.so.12.0.2 /opt/qt5/lib/libqt5scintilla2.so &&
+ln -sfv libqscintilla2.so.12.0.2 /opt/qt5/lib/libqt5scintilla2.so.12
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
@@ -56,9 +56,9 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -v -m755 -d $QT5DIR/share/doc/QScintilla-2.9.3/html &&
+install -v -m755 -d /opt/qt5/share/doc/QScintilla-2.9.3/html &&
 install -v -m644    ../doc/html-Qt4Qt5/* \
-                    $QT5DIR/share/doc/QScintilla-2.9.3/html
+                    /opt/qt5/share/doc/QScintilla-2.9.3/html
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

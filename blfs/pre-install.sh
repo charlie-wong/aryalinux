@@ -65,7 +65,7 @@ EOF
 cat >> /etc/profile.d/qt5.sh << "EOF"
 
 # Begin Qt5 changes for LXQt
-pathappend $QT5DIR/plugins QT_PLUGIN_PATH
+pathappend /opt/qt5/plugins QT_PLUGIN_PATH
 # End Qt5 changes for LXQt
 EOF
 

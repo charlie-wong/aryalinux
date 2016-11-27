@@ -171,8 +171,8 @@ while read -r line; do
     pushd $packagedir
       mkdir build
       cd    build
-      cmake -DCMAKE_INSTALL_PREFIX=$KF5_PREFIX \
-            -DCMAKE_PREFIX_PATH=$QT5DIR        \
+      cmake -DCMAKE_INSTALL_PREFIX=/opt/kf5 \
+            -DCMAKE_PREFIX_PATH=/opt/qt5        \
             -DCMAKE_BUILD_TYPE=Release         \
             -DLIB_INSTALL_DIR=lib              \
             -DBUILD_TESTING=OFF                \

@@ -133,7 +133,7 @@ while read -r line; do
     pushd $packagedir
        mkdir build
        cd    build
-       cmake -DCMAKE_INSTALL_PREFIX=$KF5_PREFIX \
+       cmake -DCMAKE_INSTALL_PREFIX=/opt/kf5 \
              -DCMAKE_BUILD_TYPE=Release         \
              -DLIB_INSTALL_DIR=lib              \
              -DBUILD_TESTING=OFF                \
@@ -145,14 +145,14 @@ while read -r line; do
     as_root /sbin/ldconfig
 done < plasma-5.7.3.md5
 exit
-cd $KF5_PREFIX/share/plasma/plasmoids
+cd /opt/kf5/share/plasma/plasmoids
 for j in $(find -name \*.js); do
   as_root ln -sfv ../code/$(basename $j) $(dirname $j)/../ui/
 done
 
 
 cat > ~/.xinitrc << "EOF"
-dbus-launch --exit-with-session $KF5_PREFIX/bin/startkde
+dbus-launch --exit-with-session /opt/kf5/bin/startkde
 EOF
 startx
 

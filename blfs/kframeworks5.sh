@@ -5,6 +5,10 @@ set -e
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+SOURCE_ONLY=n
+NAME="kframeworks5"
+DESCRIPTION="KDE Frameworks 5 is a collection of libraries based on top of Qt5 and QML derived from the monolithic KDE 4 libraries."
+VERSION=5.27
 
 #REQ:boost
 #REQ:extra-cmake-modules

@@ -40,8 +40,8 @@ whoami > /tmp/currentuser
             --enable-gpl3            \
             --enable-opengl          \
             --disable-gtk2           \
-            --qt-libdir=$QT5DIR/lib  \
-            --qt-includedir=$QT5DIR/include &&
+            --qt-libdir=/opt/qt5/lib  \
+            --qt-includedir=/opt/qt5/include &&
 make "-j`nproc`" || make
 
 

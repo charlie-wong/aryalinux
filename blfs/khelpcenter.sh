@@ -41,7 +41,7 @@ whoami > /tmp/currentuser
 
 mkdir build &&
 cd    build &&
-cmake -DCMAKE_INSTALL_PREFIX=$KF5_PREFIX \
+cmake -DCMAKE_INSTALL_PREFIX=/opt/kf5 \
       -DCMAKE_BUILD_TYPE=Release         \
       -DLIB_INSTALL_DIR=lib              \
       -DBUILD_TESTING=OFF                \
@@ -52,8 +52,8 @@ make "-j`nproc`" || make
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install  &&
-mv -v $KF5_PREFIX/share/kde4/services/khelpcenter.desktop /usr/share/applications/ &&
-rm -rv $KF5_PREFIX/share/kde4
+mv -v /opt/kf5/share/kde4/services/khelpcenter.desktop /usr/share/applications/ &&
+rm -rv /opt/kf5/share/kde4
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

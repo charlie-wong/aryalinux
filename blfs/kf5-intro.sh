@@ -41,9 +41,9 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 cat >> /etc/profile.d/qt5.sh << "EOF"
 # Begin kf5 extension for /etc/profile.d/qt5.sh
 pathappend /usr/lib/qt5/plugins QT_PLUGIN_PATH
-pathappend $QT5DIR/lib/plugins QT_PLUGIN_PATH
+pathappend /opt/qt5/lib/plugins QT_PLUGIN_PATH
 pathappend /usr/lib/qt5/qml QML2_IMPORT_PATH
-pathappend $QT5DIR/lib/qml QML2_IMPORT_PATH
+pathappend /opt/qt5/lib/qml QML2_IMPORT_PATH
 # End extension for /etc/profile.d/qt5.sh
 EOF
 cat > /etc/profile.d/kf5.sh << "EOF"
@@ -66,21 +66,21 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 cat > /etc/profile.d/kf5.sh << "EOF"
 # Begin /etc/profile.d/kf5.sh
 export KF5_PREFIX=/opt/kf5
-pathappend $KF5_PREFIX/bin PATH
-pathappend $KF5_PREFIX/lib/pkgconfig PKG_CONFIG_PATH
+pathappend /opt/kf5/bin PATH
+pathappend /opt/kf5/lib/pkgconfig PKG_CONFIG_PATH
 pathappend /etc/xdg XDG_CONFIG_DIRS
-pathappend $KF5_PREFIX/etc/xdg XDG_CONFIG_DIRS
+pathappend /opt/kf5/etc/xdg XDG_CONFIG_DIRS
 pathappend /usr/share XDG_DATA_DIRS
-pathappend $KF5_PREFIX/share XDG_DATA_DIRS
-pathappend $KF5_PREFIX/lib/plugins QT_PLUGIN_PATH
-pathappend $KF5_PREFIX/lib/qml QML2_IMPORT_PATH
-pathappend $KF5_PREFIX/lib/python2.7/site-packages PYTHONPATH
+pathappend /opt/kf5/share XDG_DATA_DIRS
+pathappend /opt/kf5/lib/plugins QT_PLUGIN_PATH
+pathappend /opt/kf5/lib/qml QML2_IMPORT_PATH
+pathappend /opt/kf5/lib/python2.7/site-packages PYTHONPATH
 # End /etc/profile.d/kf5.sh
 EOF
 cat >> /etc/profile.d/qt5.sh << "EOF"
 # Begin Qt5 changes for KF5
-pathappend $QT5DIR/plugins QT_PLUGIN_PATH
-pathappend $QT5DIR/qml QML2_IMPORT_PATH
+pathappend /opt/qt5/plugins QT_PLUGIN_PATH
+pathappend /opt/qt5/qml QML2_IMPORT_PATH
 # End Qt5 changes for KF5
 EOF
 
@@ -106,9 +106,9 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -v -dm755           $KF5_PREFIX/{etc,share} &&
-ln -sfv /etc/dbus-1         $KF5_PREFIX/etc         &&
-ln -sfv /usr/share/dbus-1   $KF5_PREFIX/share
+install -v -dm755           /opt/kf5/{etc,share} &&
+ln -sfv /etc/dbus-1         /opt/kf5/etc         &&
+ln -sfv /usr/share/dbus-1   /opt/kf5/share
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
@@ -118,8 +118,8 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -v -dm755                $KF5_PREFIX/share/icons &&
-ln -sfv /usr/share/icons/hicolor $KF5_PREFIX/share/icons
+install -v -dm755                /opt/kf5/share/icons &&
+ln -sfv /usr/share/icons/hicolor /opt/kf5/share/icons
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
