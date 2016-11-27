@@ -114,9 +114,6 @@ as_root()
 export -f as_root
 
 
-bash -e
-
-
 while read -r line; do
     # Get the file name, ignoring comments and blank lines
     if $(echo $line | grep -E -q '^ *$|^#' ); then continue; fi
