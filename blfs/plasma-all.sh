@@ -57,7 +57,7 @@ fi
 whoami > /tmp/currentuser
 
 url=http://download.kde.org/stable/plasma/5.7.3/
-wget -r -nH --cut-dirs=3 -A '*.xz' -np $url
+wget -nc -r -nH --cut-dirs=3 -A '*.xz' -np $url
 
 
 cat > plasma-5.7.3.md5 << "EOF"
