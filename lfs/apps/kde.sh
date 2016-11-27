@@ -5,6 +5,7 @@ set +h
 
 USERNAME="$1"
 
+echo "Installing kde..."
 alps selfupdate
 alps updatescripts
 
