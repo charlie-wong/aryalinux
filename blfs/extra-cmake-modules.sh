@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Extra Cmake Modules packagebr3ak contains extra CMake modules usedbr3ak by KDE Frameworks 5 and otherbr3ak packages.br3ak"
 SECTION="kde"
-VERSION=5.25.0
+VERSION=5.28
 NAME="extra-cmake-modules"
 
 #REQ:cmake
@@ -17,11 +17,11 @@ NAME="extra-cmake-modules"
 
 cd $SOURCE_DIR
 
-URL=http://download.kde.org/stable/frameworks/5.27/extra-cmake-modules-5.27.0.tar.xz
+URL=http://download.kde.org/stable/frameworks/$VERSION/extra-cmake-modules-$VERSION-0.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://download.kde.org/stable/frameworks/5.27/extra-cmake-modules-5.27.0.tar.xz
+wget -nc http://download.kde.org/stable/frameworks/$VERSION/extra-cmake-modules-$VERSION-0.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
