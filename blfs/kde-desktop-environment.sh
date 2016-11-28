@@ -13,6 +13,7 @@ VERSION=5.8.4
 
 #REQ:gtk2
 #REQ:gtk3
+#REQ:GConf
 #REQ:pulseaudio
 #REQ:qt5
 #REQ:extra-cmake-modules
