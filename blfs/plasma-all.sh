@@ -114,8 +114,9 @@ as_root()
 }
 export -f as_root
 
-
+touch /tmp/plasma-build-list
 while read -r line; do
+    if grep "$line" /tmp/plasma-build-list; then continue; fi
     # Get the file name, ignoring comments and blank lines
     if $(echo $line | grep -E -q '^ *$|^#' ); then continue; fi
     file=$(echo $line | cut -d" " -f2)
@@ -141,6 +142,7 @@ while read -r line; do
     popd
     as_root rm -rf $packagedir
     as_root /sbin/ldconfig
+    echo "$line" >> /tmp/plasma-build-list
 done < plasma-$VERSION.md5
 exit
 cd /opt/kf5/share/plasma/plasmoids
