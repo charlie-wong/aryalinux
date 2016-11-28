@@ -108,13 +108,16 @@ EOF
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 . /etc/alps/alps.conf
-wget -nc http://aryalinux.org/releases/2016.11/blfs-systemd-units-20160602.tar.bz2 -O $SOURCE_DIR/blfs-systemd-units-20160602.tar.bz2
-tar xf $SOURCE_DIR/blfs-systemd-units-20160602.tar.bz2 -C $SOURCE_DIR
-cd $SOURCE_DIR/blfs-systemd-units-20160602
+
+pushd $SOURCE_DIR
+wget -nc http://aryalinux.org/releases/2016.11/blfs-systemd-units-20160602.tar.bz2
+tar xf blfs-systemd-units-20160602.tar.bz2
+cd blfs-systemd-units-20160602
 make install-vsftpd
 
-cd $SOURCE_DIR
+cd ..
 rm -rf blfs-systemd-units-20160602
+popd
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
