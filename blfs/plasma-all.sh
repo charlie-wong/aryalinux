@@ -93,7 +93,7 @@ b2fa225d57fcf8579322d58cf43a8759 polkit-kde-agent-1-$VERSION.tar.xz
 3083f945aebfc156ba0e8b64db4615b0 kdeplasma-addons-$VERSION.tar.xz
 9f336c20cee1f1e5db98ca95eea7ccd5 kgamma5-$VERSION.tar.xz
 8048a6ec5e69327691236d980a74b2a2 ksshaskpass-$VERSION.tar.xz
-a92b968f0ebd5f35cb7483679a54520b plasma-mediacenter-$VERSION.tar.xz
+#a92b968f0ebd5f35cb7483679a54520b plasma-mediacenter-$VERSION.tar.xz
 #e92b6d4c644591b16f700303eacd3ffe plasma-sdk-$VERSION.tar.xz
 e82aed1e04ae3e39fa91b7c16e4338e2 sddm-kcm-$VERSION.tar.xz
 635eef411376423f8f746ae41bb90f1b user-manager-$VERSION.tar.xz
