@@ -249,7 +249,7 @@ def freshBuild(startFrom):
 				elif getParamValue('DESKTOP_ENVIRONMENT') == '3':
 					desktopEnv = 'kde5'
 					runScriptWithArgs('/sources/enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'kde-desktop-environment'])
-				elif getParamValue('DESKTOP_ENVIRONMENT') == '5':
+				elif getParamValue('DESKTOP_ENVIRONMENT') == '4':
 					desktopEnv = 'gnome'
 					runScriptWithArgs('/sources/enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'gnome-desktop-environment']);
 				startFrom = startFrom + 1
