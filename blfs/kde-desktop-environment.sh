@@ -106,7 +106,7 @@ if [ ! -f /usr/share/pixmaps/aryalinux.org ]
 then
 pushd /var/cache/alps/sources &&
 wget -nc aryalinux.org/releases/2016.04/aryalinux.png
-cp aryalinux.png /usr/share/pixmaps/
+sudo cp aryalinux.png /usr/share/pixmaps/
 popd
 fi
 
