@@ -35,7 +35,10 @@ VERSION=5.8.4
 #REQ:libkdcraw
 #REQ:gwenview5
 #REQ:plasma-all
-#REQ:sddm
+#REQ:lightdm
+
+sudo mkdir -pv /usr/share/xsessions/
+sudo cp -v /opt/kf5/share/xsessions/* /usr/share/xsessions/
 
 sudo tee /etc/gtk-2.0/gtkrc <<"EOF"
 include "/usr/share/themes/Clearlooks/gtk-2.0/gtkrc"
