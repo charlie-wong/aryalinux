@@ -6,6 +6,11 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+SOURCE_ONLY=n
+NAME="gnome-desktop-environment"
+VERSION="3.22"
+DESCRIPTION="GNOME is a desktop environment that is composed entirely of free and open-source software. GNOME was originally an acronym for GNU Network Object Model Environment."
+
 #REQ:accountsservice
 #REQ:desktop-file-utils
 #REQ:gcr
