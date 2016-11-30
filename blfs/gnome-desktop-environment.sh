@@ -69,7 +69,6 @@ set +h
 #REQ:file-roller
 #REQ:gedit
 #REQ:gnome-calculator
-#REQ:gnome-color-manager
 #REQ:gnome-disk-utility
 #REQ:gnome-logs
 #REQ:gnome-maps
