@@ -65,9 +65,7 @@ set +h
 #REQ:brasero
 #REQ:cheese
 #REQ:eog
-#REQ:epiphany
 #REQ:evince
-#OPT:evolution
 #REQ:file-roller
 #REQ:gedit
 #REQ:gnome-calculator
