@@ -36,7 +36,7 @@ fi
 
 mkdir -pv build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX=/usr &&
+cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DLIB_INSTALL_DIR=lib -DBUILD_TESTING=OFF -Wno-dev .. &&
 make -j$(nproc)
 sudo make install
 
