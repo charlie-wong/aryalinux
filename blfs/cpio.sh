@@ -47,10 +47,6 @@ makeinfo --html --no-split -o doc/cpio.html doc/cpio.texi &&
 makeinfo --plaintext       -o doc/cpio.txt  doc/cpio.texi
 
 
-make -C doc pdf &&
-make -C doc ps
-
-
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install &&
@@ -59,17 +55,6 @@ install -v -m644    doc/html/* \
                     /usr/share/doc/cpio-2.12/html &&
 install -v -m644    doc/cpio.{html,txt} \
                     /usr/share/doc/cpio-2.12
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -v -m644 doc/cpio.{pdf,ps,dvi} \
-                 /usr/share/doc/cpio-2.12
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
