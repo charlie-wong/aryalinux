@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="grilo"
+NAME="grilo2"
 VERSION="0.2.12"
 
 cd $SOURCE_DIR

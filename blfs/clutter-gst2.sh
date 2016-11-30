@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="clutter-gst"
+NAME="clutter-gst2"
 VERSION="2.0.14"
 
 cd $SOURCE_DIR
