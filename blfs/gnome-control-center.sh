@@ -56,8 +56,6 @@ fi
 
 whoami > /tmp/currentuser
 
-patch -Np1 -i ../gnome-control-center-3.16.3-tzdata_fix-1.patch
-
 ./configure --prefix=/usr &&
 make "-j`nproc`" || make
 
