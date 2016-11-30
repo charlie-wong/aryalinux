@@ -39,4 +39,3 @@ cd $SOURCE_DIR
 cleanup "$NAME" "$DIRECTORY"
 
 register_installed "$NAME=>`date`" "$VERSION" "$INSTALLED_LIST"
-
