@@ -81,8 +81,6 @@ set +h
 #REQ:gucharmap
 #REQ:network-manager-applet
 #REQ:seahorse
-#REQ:vinagre
-#REQ:vino
 #REQ:notification-daemon
 #REQ:polkit-gnome
 
