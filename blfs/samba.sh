@@ -39,11 +39,11 @@ NAME="samba"
 
 cd $SOURCE_DIR
 
-URL=https://download.samba.org/pub/samba/stable/samba-4.4.2.tar.gz
+URL=https://download.samba.org/pub/samba/stable/samba-4.5.1.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://download.samba.org/pub/samba/stable/samba-4.4.2.tar.gz
+wget -nc https://download.samba.org/pub/samba/stable/samba-4.5.1.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -70,6 +70,10 @@ make "-j`nproc`" || make
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+if [ -L /var/lock ]; then
+rm /var/lock
+mkdir -pv /var/lock/subsys/
+fi
 make install &&
 mv -v /usr/lib/libnss_win{s,bind}.so*   /lib                       &&
 ln -v -sf ../../lib/libnss_winbind.so.2 /usr/lib/libnss_winbind.so &&
