@@ -6,7 +6,7 @@ set +h
 
 cd $SOURCE_DIR
 
-URL=https://sourceforge.net/projects/libvncserver/files/x11vnc/0.9.13/x11vnc-0.9.13.tar.gz/download
+URL=https://sourceforge.net/projects/libvncserver/files/x11vnc/0.9.13/x11vnc-0.9.13.tar.gz
 wget -nc $URL
 TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 DIRECTORY=$(tar -tf $TARBALL | sed -e 's@/.*@@' | uniq)
