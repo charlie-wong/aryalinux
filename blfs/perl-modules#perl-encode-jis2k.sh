@@ -10,7 +10,7 @@ set +h
 SOURCE_ONLY=y
 URL="http://www.cpan.org/authors/id/D/DA/DANKOGAI/Encode-JIS2K-0.03.tar.gz"
 VERSION=0.03
-NAME="perl-modules#encode-jis2k"
+NAME="perl-modules#perl-encode-jis2k"
 
 cd $SOURCE_DIR
 wget -nc $URL

@@ -10,7 +10,7 @@ set +h
 SOURCE_ONLY=y
 URL="http://www.cpan.org/authors/id/K/KH/KHW/Unicode-Normalize-1.25.tar.gz"
 VERSION=1.25
-NAME="perl-modules#unicode-normalize"
+NAME="perl-modules#perl-unicode-normalize"
 
 cd $SOURCE_DIR
 wget -nc $URL

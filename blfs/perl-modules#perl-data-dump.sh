@@ -10,7 +10,7 @@ set +h
 SOURCE_ONLY=y
 URL="http://www.cpan.org/authors/id/G/GA/GAAS/Data-Dump-1.23.tar.gz"
 VERSION=1.23
-NAME="perl-modules#data-dump"
+NAME="perl-modules#perl-data-dump"
 
 cd $SOURCE_DIR
 wget -nc $URL

@@ -10,7 +10,7 @@ set +h
 SOURCE_ONLY=y
 URL="http://search.cpan.org/CPAN/authors/id/S/SA/SADAHIRO/Unicode-Collate-1.14.tar.gz"
 VERSION=1.14
-NAME="perl-modules#unicode-collate"
+NAME="perl-modules#perl-unicode-collate"
 
 cd $SOURCE_DIR
 wget -nc $URL

@@ -10,7 +10,7 @@ set +h
 SOURCE_ONLY=y
 URL="http://www.cpan.org/authors/id/A/AB/ABIGAIL/Regexp-Common-2016060801.tar.gz"
 VERSION=2016060801
-NAME="perl-modules#regexp-common"
+NAME="perl-modules#perl-regexp-common"
 
 cd $SOURCE_DIR
 wget -nc $URL

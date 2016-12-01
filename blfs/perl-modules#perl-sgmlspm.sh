@@ -10,7 +10,7 @@ set +h
 SOURCE_ONLY=y
 URL="http://anduin.linuxfromscratch.org/BLFS/perl-modules/SGMLSpm-1.1.tar.gz"
 VERSION=1.1
-NAME="perl-modules#sgmlspm"
+NAME="perl-modules#perl-sgmlspm"
 
 cd $SOURCE_DIR
 wget -nc $URL

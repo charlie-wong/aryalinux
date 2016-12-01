@@ -10,7 +10,7 @@ set +h
 SOURCE_ONLY=y
 URL="http://www.cpan.org/authors/id/A/AM/AMBS/Text-BibTeX-0.76.tar.gz"
 VERSION=0.76
-NAME="perl-modules#text-bibtex"
+NAME="perl-modules#perl-text-bibtex"
 
 cd $SOURCE_DIR
 wget -nc $URL

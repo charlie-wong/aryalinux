@@ -10,7 +10,7 @@ set +h
 SOURCE_ONLY=y
 URL="http://www.cpan.org/authors/id/J/JO/JOSEPHW/XML-Writer-0.625.tar.gz"
 VERSION=0.625
-NAME="perl-modules#xml-writer"
+NAME="perl-modules#perl-xml-writer"
 
 cd $SOURCE_DIR
 wget -nc $URL

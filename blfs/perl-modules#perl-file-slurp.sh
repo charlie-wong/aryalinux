@@ -10,7 +10,7 @@ set +h
 SOURCE_ONLY=y
 URL="http://www.cpan.org/authors/id/U/UR/URI/File-Slurp-9999.19.tar.gz"
 VERSION=9999.19
-NAME="perl-modules#file-slurp"
+NAME="perl-modules#perl-file-slurp"
 
 cd $SOURCE_DIR
 wget -nc $URL

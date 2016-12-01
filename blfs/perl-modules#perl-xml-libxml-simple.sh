@@ -13,7 +13,7 @@ set +h
 SOURCE_ONLY=y
 URL="http://cpan.org/authors/id/M/MA/MARKOV/XML-LibXML-Simple-0.97.tar.gz"
 VERSION=0.97
-NAME="perl-modules#xml-libxml-simple"
+NAME="perl-modules#perl-xml-libxml-simple"
 
 cd $SOURCE_DIR
 wget -nc $URL

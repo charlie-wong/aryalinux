@@ -8,9 +8,9 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://www.linuxfromscratch.org/patches/blfs/7.10/Data-Uniqid-0.12-disable_failing_test-1.patch"
-VERSION=1
-NAME="perl-modules#data-uniqid-0.2-disable_failing_test-.patch"
+URL="http://search.cpan.org/CPAN/authors/id/M/MW/MWX/Data-Uniqid-0.11.tar.gz"
+VERSION=0.11
+NAME="perl-modules#perl-data-uniqid"
 
 cd $SOURCE_DIR
 wget -nc $URL

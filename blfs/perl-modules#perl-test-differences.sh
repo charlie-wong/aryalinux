@@ -12,7 +12,7 @@ set +h
 SOURCE_ONLY=y
 URL="http://www.cpan.org/authors/id/D/DC/DCANTRELL/Test-Differences-0.64.tar.gz"
 VERSION=0.64
-NAME="perl-modules#test-differences"
+NAME="perl-modules#perl-test-differences"
 
 cd $SOURCE_DIR
 wget -nc $URL

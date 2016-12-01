@@ -10,7 +10,7 @@ set +h
 SOURCE_ONLY=y
 URL="http://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Which-1.21.tar.gz"
 VERSION=1.21
-NAME="perl-modules#file-which"
+NAME="perl-modules#perl-file-which"
 
 cd $SOURCE_DIR
 wget -nc $URL

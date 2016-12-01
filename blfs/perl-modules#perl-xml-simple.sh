@@ -14,7 +14,7 @@ set +h
 SOURCE_ONLY=y
 URL="http://cpan.org/authors/id/G/GR/GRANTM/XML-Simple-2.22.tar.gz"
 VERSION=2.22
-NAME="perl-modules#xml-simple"
+NAME="perl-modules#perl-xml-simple"
 
 cd $SOURCE_DIR
 wget -nc $URL

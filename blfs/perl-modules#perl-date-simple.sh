@@ -10,7 +10,7 @@ set +h
 SOURCE_ONLY=y
 URL="http://www.cpan.org/authors/id/I/IZ/IZUT/Date-Simple-3.03.tar.gz"
 VERSION=3.03
-NAME="perl-modules#date-simple"
+NAME="perl-modules#perl-date-simple"
 
 cd $SOURCE_DIR
 wget -nc $URL

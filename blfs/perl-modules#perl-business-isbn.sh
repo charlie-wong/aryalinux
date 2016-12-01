@@ -11,7 +11,7 @@ set +h
 SOURCE_ONLY=y
 URL="http://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISBN-3.002.tar.gz"
 VERSION=3.002
-NAME="perl-modules#business-isbn"
+NAME="perl-modules#perl-business-isbn"
 
 cd $SOURCE_DIR
 wget -nc $URL

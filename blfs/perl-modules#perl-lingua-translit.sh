@@ -10,7 +10,7 @@ set +h
 SOURCE_ONLY=y
 URL="http://www.cpan.org/authors/id/A/AL/ALINKE/Lingua-Translit-0.26.tar.gz"
 VERSION=0.26
-NAME="perl-modules#lingua-translit"
+NAME="perl-modules#perl-lingua-translit"
 
 cd $SOURCE_DIR
 wget -nc $URL

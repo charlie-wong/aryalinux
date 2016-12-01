@@ -11,7 +11,7 @@ set +h
 SOURCE_ONLY=y
 URL="http://www.cpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-0.416.tar.gz"
 VERSION=0.416
-NAME="perl-modules#list-moreutils"
+NAME="perl-modules#perl-list-moreutils"
 
 cd $SOURCE_DIR
 wget -nc $URL

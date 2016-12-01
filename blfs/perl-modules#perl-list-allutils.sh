@@ -16,7 +16,7 @@ set +h
 SOURCE_ONLY=y
 URL="http://www.cpan.org/authors/id/D/DR/DROLSKY/List-AllUtils-0.11.tar.gz"
 VERSION=0.11
-NAME="perl-modules#list-allutils"
+NAME="perl-modules#perl-list-allutils"
 
 cd $SOURCE_DIR
 wget -nc $URL

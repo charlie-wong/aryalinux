@@ -11,7 +11,7 @@ set +h
 SOURCE_ONLY=y
 URL="http://www.cpan.org/authors/id/N/NE/NEZUMI/Unicode-LineBreak-2016.003.tar.gz"
 VERSION=2016.003
-NAME="perl-modules#unicode-linebreak"
+NAME="perl-modules#perl-unicode-linebreak"
 
 cd $SOURCE_DIR
 wget -nc $URL

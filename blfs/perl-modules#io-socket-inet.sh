@@ -11,7 +11,7 @@ set +h
 SOURCE_ONLY=y
 URL="http://search.cpan.org/CPAN/authors/id/G/GB/GBARR/IO-1.25.tar.gz"
 VERSION=1.25
-NAME="perl-modules#io"
+NAME="perl-modules#io-socket-inet"
 
 cd $SOURCE_DIR
 wget -nc $URL
