@@ -1,3 +1,5 @@
+N.B. Build scripts are present in the branches corresponding to the version of aryalinux you are trying to build. Please checkout the appropriate branch to view the build scripts.
+
 ABOUT PROJECT
 
 This project stores all the scripts that are used to build AryaLinux from scratch
