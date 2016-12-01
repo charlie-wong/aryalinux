@@ -37,9 +37,9 @@ fi
 whoami > /tmp/currentuser
 
 export XORG_PREFIX=/usr
-export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
+export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
-./configure $XORG_CONFIG &&
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static &&
 make "-j`nproc`" || make
 
 

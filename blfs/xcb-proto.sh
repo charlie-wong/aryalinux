@@ -41,7 +41,7 @@ fi
 whoami > /tmp/currentuser
 
 export XORG_PREFIX=/usr
-export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
+export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
 
 patch -Np1 -i ../xcb-proto-1.12-schema-1.patch
@@ -50,7 +50,7 @@ patch -Np1 -i ../xcb-proto-1.12-schema-1.patch
 patch -Np1 -i ../xcb-proto-1.12-python3-1.patch
 
 
-./configure $XORG_CONFIG
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static
 
 
 

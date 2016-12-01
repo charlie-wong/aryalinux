@@ -55,12 +55,12 @@ fi
 whoami > /tmp/currentuser
 
 export XORG_PREFIX=/usr
-export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
+export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
 patch -Np1 -i ../xorg-server-1.18.4-add_prime_support-1.patch
 
 
-./configure $XORG_CONFIG          \
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static          \
             --enable-glamor       \
             --enable-suid-wrapper \
             --with-xkb-output=/var/lib/xkb &&

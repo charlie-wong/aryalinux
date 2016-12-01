@@ -47,7 +47,7 @@ fi
 whoami > /tmp/currentuser
 
 export XORG_PREFIX=/usr
-export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
+export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
 patch -Np1 -i ../tigervnc-1.7.0-gethomedir-1.patch &&
 mkdir -vp build &&
@@ -64,7 +64,7 @@ tar -xf ../xorg-server-1.18.4.tar.bz2 -C unix/xserver --strip-components=1      
 pushd unix/xserver &&
   patch -Np1 -i ../../../unix/xserver117.patch &&
   autoreconf -fi   &&
-  ./configure $XORG_CONFIG \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
       --disable-xwayland    --disable-dri        --disable-dmx         \
       --disable-xorg        --disable-xnest      --disable-xvfb        \
       --disable-xwin        --disable-xephyr     --disable-kdrive      \
@@ -85,7 +85,7 @@ make install &&
 pushd unix/xserver/hw/vnc &&
   make install &&
 popd &&
-[ -e /usr/bin/Xvnc ] || ln -svf $XORG_PREFIX/bin/Xvnc /usr/bin/Xvnc
+[ -e /usr/bin/Xvnc ] || ln -svf /usr/bin/Xvnc /usr/bin/Xvnc
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

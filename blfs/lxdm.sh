@@ -41,7 +41,7 @@ fi
 whoami > /tmp/currentuser
 
 export XORG_PREFIX=/usr
-export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
+export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
 cat > pam/lxdm << "EOF" &&
 #%PAM-1.0
@@ -56,7 +56,7 @@ sed -i 's:/etc/xprofile:/etc/profile:g' data/Xsession &&
 sed -e 's/^bg/#&/'        \
     -e '/reset=1/ s/# //' \
     -e 's/logou$/logout/' \
-    -e "/arg=/a arg=$XORG_PREFIX/bin/X" \
+    -e "/arg=/a arg=/usr/bin/X" \
     -i data/lxdm.conf.in
 
 

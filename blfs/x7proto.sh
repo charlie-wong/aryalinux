@@ -41,7 +41,7 @@ fi
 whoami > /tmp/currentuser
 
 export XORG_PREFIX=/usr
-export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
+export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
 cat > proto-7.7.md5 << "EOF"
 1a05fb01fa1d5198894c931cf925c025 bigreqsproto-1.1.2.tar.bz2
@@ -98,7 +98,7 @@ do
   packagedir=${package%.tar.bz2}
   tar -xf $package
   pushd $packagedir
-  ./configure $XORG_CONFIG
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static
   as_root make install
   popd
   rm -rf $packagedir

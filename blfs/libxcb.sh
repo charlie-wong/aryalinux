@@ -43,13 +43,13 @@ fi
 whoami > /tmp/currentuser
 
 export XORG_PREFIX=/usr
-export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
+export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
 patch -Np1 -i ../libxcb-1.12-python3-1.patch
 
 
 sed -i "s/pthread-stubs//" configure &&
-./configure $XORG_CONFIG      \
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static      \
             --enable-xinput   \
             --without-doxygen \
             --docdir='${datadir}'/doc/libxcb-1.12 &&

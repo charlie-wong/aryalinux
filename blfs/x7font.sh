@@ -35,7 +35,7 @@ fi
 whoami > /tmp/currentuser
 
 export XORG_PREFIX=/usr
-export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
+export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
 cat > font-7.7.md5 << "EOF"
 23756dab809f9ec5011bb27fb2c3c7d6 font-util-1.3.1.tar.bz2
@@ -103,7 +103,7 @@ do
   packagedir=${package%.tar.bz2}
   tar -xf $package
   pushd $packagedir
-  ./configure $XORG_CONFIG
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static
   make "-j`nproc`" || make
   as_root make install
   popd
@@ -117,8 +117,8 @@ done
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 install -v -d -m755 /usr/share/fonts                               &&
-ln -svfn $XORG_PREFIX/share/fonts/X11/OTF /usr/share/fonts/X11-OTF &&
-ln -svfn $XORG_PREFIX/share/fonts/X11/TTF /usr/share/fonts/X11-TTF
+ln -svfn /usr/share/fonts/X11/OTF /usr/share/fonts/X11-OTF &&
+ln -svfn /usr/share/fonts/X11/TTF /usr/share/fonts/X11-TTF
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

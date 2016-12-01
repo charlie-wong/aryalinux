@@ -41,7 +41,7 @@ fi
 whoami > /tmp/currentuser
 
 export XORG_PREFIX=/usr
-export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
+export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
 cat > lib-7.7.md5 << "EOF"
 c5ba432dd1514d858053ffe9f4737dd8 xtrans-1.3.5.tar.bz2
@@ -107,17 +107,17 @@ do
   case $packagedir in
     libX11-[0-9]* )
       sed -i "/seems to be moved/s/^/#/" ltmain.sh
-      ./configure $XORG_CONFIG
+      ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static
     ;;
     libXfont-[0-9]* )
-      ./configure $XORG_CONFIG --disable-devel-docs
+      ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static --disable-devel-docs
     ;;
     libXt-[0-9]* )
-      ./configure $XORG_CONFIG \
+      ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
                   --with-appdefaultdir=/etc/X11/app-defaults
     ;;
     * )
-      ./configure $XORG_CONFIG
+      ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static
     ;;
   esac
   make "-j`nproc`" || make

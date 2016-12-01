@@ -39,7 +39,7 @@ fi
 whoami > /tmp/currentuser
 
 export XORG_PREFIX=/usr
-export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
+export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
 cat > app-7.7.md5 << "EOF"
 53a48e1fdfec29ab2e89f86d4b7ca902 bdftopcf-1.0.5.tar.bz2
@@ -121,7 +121,7 @@ do
       sed -e 's/\$(CPP) \$(DEFS)/$(CPP) -P $(DEFS)/' -i man/Makefile.in
     ;;
   esac
-  ./configure $XORG_CONFIG
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static
   make "-j`nproc`" || make
   as_root make install
   popd
@@ -132,7 +132,7 @@ done
 
 
 
-as_root rm -f $XORG_PREFIX/bin/xkeystone
+as_root rm -f /usr/bin/xkeystone
 
 
 

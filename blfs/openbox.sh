@@ -44,9 +44,9 @@ fi
 whoami > /tmp/currentuser
 
 export XORG_PREFIX=/usr
-export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
+export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
-export LIBRARY_PATH=$XORG_PREFIX/lib
+export LIBRARY_PATH=/usr/lib
 
 
 2to3 -w data/autostart/openbox-xdg-autostart &&
