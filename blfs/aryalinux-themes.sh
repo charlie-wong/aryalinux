@@ -10,7 +10,6 @@ NAME="aryalinux-themes"
 DESCRIPTION="GTK+ themes for AryaLinux XFCE and Mate Desktop Environments"
 VERSION="2016.11"
 
-#REQ:numix-gtk-theme
 #REQ:greybird-gtk-theme
 #REQ:breeze-gtk-theme
 #REQ:arc-gtk-theme

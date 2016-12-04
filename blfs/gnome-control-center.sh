@@ -54,6 +54,8 @@ fi
 cd $DIRECTORY
 fi
 
+patch -Np1 -i ../gnome-control-center-3.16.3-tzdata_fix-1.patch
+
 whoami > /tmp/currentuser
 
 ./configure --prefix=/usr &&
