@@ -21,7 +21,7 @@ tar -xf $TARBALL
 cd $DIRECTORY
 
 patch -Np1 -i ../mongodb-gcc6-parse_number_test-literal-comment-out.patch &&
-scons all --disable-warnings-as-errors -j$(nproc) &&
+scons core --disable-warnings-as-errors -j$(nproc) &&
 sudo scons install
 
 cd $SOURCE_DIR
