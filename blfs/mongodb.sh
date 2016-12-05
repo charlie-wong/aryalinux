@@ -8,13 +8,13 @@ set +h
 SOURCE_ONLY=n
 NAME="mongodb-src-r"
 DESCRIPTION="MongoDB is an open-source document database and leading NoSQL database. MongoDB is written in C++."
-VERSION="3.2.11"
+VERSION="3.4.0"
 
 #REQ:scons
 
 cd $SOURCE_DIR
 
-URL=https://fastdl.mongodb.org/src/mongodb-src-r3.2.11.tar.gz
+URL=https://fastdl.mongodb.org/src/mongodb-src-r3.4.0.tar.gz
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | sed -e 's@/.*@@' | uniq `
@@ -23,7 +23,8 @@ tar -xf $TARBALL
 
 cd $DIRECTORY
 
-sudo scons all --disable-warnings-as-errors --prefix=/usr install
+scons all --disable-warnings-as-errors -j$(nproc) &&
+sudo scons install
 
 cd $SOURCE_DIR
 cleanup "$NAME" "$DIRECTORY"
