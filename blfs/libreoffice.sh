@@ -92,10 +92,6 @@ whoami > /tmp/currentuser
 read -p "Enter language : " LANGUAGE
 
 
-tar -xf libreoffice-5.2.2.2.tar.xz --no-overwrite-dir &&
-cd libreoffice-5.2.2.2
-
-
 install -dm755 external/tarballs &&
 ln -sv ../../../libreoffice-dictionaries-5.2.2.2.tar.xz external/tarballs/ &&
 ln -sv ../../../libreoffice-help-5.2.2.2.tar.xz         external/tarballs/
