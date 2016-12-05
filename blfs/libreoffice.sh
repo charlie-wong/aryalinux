@@ -75,6 +75,7 @@ then
 wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-5.2.2.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-5.2.2.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-5.2.2.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-5.2.2.2.tar.xz || wget -nc http://download.documentfoundation.org/libreoffice/src/5.2.2/libreoffice-5.2.2.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-5.2.2.2.tar.xz
 wget -nc http://download.documentfoundation.org/libreoffice/src/5.2.2/libreoffice-dictionaries-5.2.2.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.2.2.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.2.2.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.2.2.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.2.2.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.2.2.2.tar.xz
 wget -nc http://download.documentfoundation.org/libreoffice/src/5.2.2/libreoffice-translations-5.2.2.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-translations-5.2.2.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-translations-5.2.2.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-translations-5.2.2.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-translations-5.2.2.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-translations-5.2.2.2.tar.xz
+wget -nc https://raw.githubusercontent.com/FluidIdeas/patches/2016.11/libreoffice-icu.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -89,8 +90,9 @@ fi
 
 whoami > /tmp/currentuser
 
-read -p "Enter language : " LANGUAGE
+patch -Np1 -i ../libreoffice-icu.patch
 
+if [ -z "$LANGUAGE" ]; then export LANGUAGE=en-US; fi
 
 install -dm755 external/tarballs &&
 ln -sv ../../../libreoffice-dictionaries-5.2.2.2.tar.xz external/tarballs/ &&
