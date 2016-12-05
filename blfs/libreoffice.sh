@@ -164,33 +164,6 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-if [ "$LO_PREFIX" != "/usr" ]; then
-  # This symlink is necessary for the desktop menu entries
-  ln -svf $LO_PREFIX/lib/libreoffice/program/soffice /usr/bin/libreoffice &&
-  # Icons
-  mkdir -vp /usr/share/pixmaps
-  for i in $LO_PREFIX/share/icons/hicolor/32x32/apps/*; do
-    ln -svf $i /usr/share/pixmaps
-  done &&
-  # Desktop menu entries
-  for i in $LO_PREFIX/lib/libreoffice/share/xdg/*; do
-    ln -svf $i /usr/share/applications/libreoffice-$(basename $i)
-  done &&
-  # Man pages
-  for i in $LO_PREFIX/share/man/man1/*; do
-    ln -svf $i /usr/share/man/man1/
-  done
-  unset i
-fi
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 update-desktop-database
 
 ENDOFROOTSCRIPT
