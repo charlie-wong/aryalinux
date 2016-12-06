@@ -157,13 +157,24 @@ sudo chmod 755 rootscript.sh
 sudo ./rootscript.sh
 sudo rm rootscript.sh
 
+sudo ln -svf /usr/lib/libreoffice/program/soffice /usr/bin/libreoffice
 
-update-desktop-database
+sudo mkdir -vp /usr/share/pixmaps
+for i in /usr/share/icons/hicolor/32x32/apps/*; do
+    sudo ln -svf $i /usr/share/pixmaps
+done
 
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo ./rootscript.sh
-sudo rm rootscript.sh
+for i in /usr/lib/libreoffice/share/xdg/*; do
+    sudo ln -svf $i /usr/share/applications/libreoffice-$(basename $i)
+done
+
+for i in /usr/share/man/man1/*; do
+    sudo ln -svf $i /usr/share/man/man1/
+done
+
+unset i
+
+sudo update-desktop-database
 
 
 cd $SOURCE_DIR
