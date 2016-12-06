@@ -168,10 +168,6 @@ for i in /usr/lib/libreoffice/share/xdg/*; do
     sudo ln -svf $i /usr/share/applications/libreoffice-$(basename $i)
 done
 
-for i in /usr/share/man/man1/*; do
-    sudo ln -svf $i /usr/share/man/man1/
-done
-
 unset i
 
 sudo update-desktop-database
