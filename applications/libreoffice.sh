@@ -172,6 +172,23 @@ sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
+sudo ln -svf /usr/lib/libreoffice/program/soffice /usr/bin/libreoffice
+
+sudo mkdir -vp /usr/share/pixmaps
+for i in /usr/share/icons/hicolor/32x32/apps/*; do
+    sudo ln -svf $i /usr/share/pixmaps
+done
+
+for i in /usr/lib/libreoffice/share/xdg/*; do
+    sudo ln -svf $i /usr/share/applications/libreoffice-$(basename $i)
+done
+
+for i in /usr/share/man/man1/*; do
+    sudo ln -svf $i /usr/share/man/man1/
+done
+
+unset i
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
