@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak LibreOffice is a full-featuredbr3ak office suite. It is largely compatible with Microsoft Office and is descended frombr3ak OpenOffice.org.br3ak"
 SECTION="xsoft"
-VERSION=5.2.2.2
+VERSION=5.2.3.3
 NAME="libreoffice"
 
 #REQ:perl-modules#perl-archive-zip
@@ -17,6 +17,7 @@ NAME="libreoffice"
 #REQ:wget
 #REQ:general_which
 #REQ:zip
+#REC:apache-ant
 #REC:apr
 #REC:boost
 #REC:clucene
@@ -48,17 +49,16 @@ NAME="libreoffice"
 #REC:redland
 #REC:serf
 #REC:unixodbc
-#OPT:apache-ant
 #OPT:avahi
 #OPT:bluez
 #OPT:dconf
 #OPT:desktop-file-utils
 #OPT:doxygen
 #OPT:gdb
+#OPT:junit
 #OPT:mariadb
 #OPT:mitkrb
 #OPT:nasm
-#OPT:openjdk
 #OPT:sane
 #OPT:valgrind
 #OPT:vlc
@@ -68,13 +68,14 @@ NAME="libreoffice"
 
 cd $SOURCE_DIR
 
-URL=http://download.documentfoundation.org/libreoffice/src/5.2.2/libreoffice-5.2.2.2.tar.xz
+URL=http://download.documentfoundation.org/libreoffice/src/5.2.3/libreoffice-5.2.3.3.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-5.2.2.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-5.2.2.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-5.2.2.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-5.2.2.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-5.2.2.2.tar.xz || wget -nc http://download.documentfoundation.org/libreoffice/src/5.2.2/libreoffice-5.2.2.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-5.2.2.2.tar.xz
-wget -nc http://download.documentfoundation.org/libreoffice/src/5.2.2/libreoffice-dictionaries-5.2.2.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.2.2.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.2.2.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.2.2.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.2.2.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.2.2.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.2.2.2.tar.xz
-wget -nc http://download.documentfoundation.org/libreoffice/src/5.2.2/libreoffice-translations-5.2.2.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-translations-5.2.2.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-translations-5.2.2.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-translations-5.2.2.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-translations-5.2.2.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-translations-5.2.2.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-translations-5.2.2.2.tar.xz
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-5.2.3.3.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-5.2.3.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-5.2.3.3.tar.xz || wget -nc http://download.documentfoundation.org/libreoffice/src/5.2.3/libreoffice-5.2.3.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-5.2.3.3.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-5.2.3.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-5.2.3.3.tar.xz
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.2.3.3.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.2.3.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.2.3.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.2.3.3.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.2.3.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.2.3.3.tar.xz || wget -nc http://download.documentfoundation.org/libreoffice/src/5.2.3/libreoffice-dictionaries-5.2.3.3.tar.xz
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-translations-5.2.3.3.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-translations-5.2.3.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-translations-5.2.3.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-translations-5.2.3.3.tar.xz || wget -nc http://download.documentfoundation.org/libreoffice/src/5.2.3/libreoffice-translations-5.2.3.3.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-translations-5.2.3.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-translations-5.2.3.3.tar.xz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/libreoffice-5.2.3.3-icu_58-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/libreoffice/libreoffice-5.2.3.3-icu_58-1.patch
 wget -nc https://raw.githubusercontent.com/FluidIdeas/patches/2016.11/libreoffice-icu.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
@@ -95,14 +96,17 @@ patch -Np1 -i ../libreoffice-icu.patch
 if [ -z "$LANGUAGE" ]; then export LANGUAGE=en-US; fi
 
 install -dm755 external/tarballs &&
-ln -sv ../../../libreoffice-dictionaries-5.2.2.2.tar.xz external/tarballs/ &&
-ln -sv ../../../libreoffice-help-5.2.2.2.tar.xz         external/tarballs/
+ln -sv ../../../libreoffice-dictionaries-5.2.3.3.tar.xz external/tarballs/ &&
+ln -sv ../../../libreoffice-help-5.2.3.3.tar.xz         external/tarballs/
 
 
-ln -sv ../../../libreoffice-translations-5.2.2.2.tar.xz external/tarballs/
+ln -sv ../../../libreoffice-translations-5.2.3.3.tar.xz external/tarballs/
 
 
 export LO_PREFIX=/usr
+
+
+patch -Np1 -i ../libreoffice-5.2.3.3-icu_58-1.patch
 
 
 sed -e "/gzip -f/d"   \
@@ -116,7 +120,7 @@ sed -e "/distro-install-file-lists/d" -i Makefile.in &&
              --with-help                 \
              --with-myspell-dicts        \
              --with-alloc=system         \
-             --without-java              \
+             --without-junit             \
              --without-system-dicts      \
              --disable-dconf             \
              --disable-odk               \
@@ -124,7 +128,7 @@ sed -e "/distro-install-file-lists/d" -i Makefile.in &&
              --enable-release-build=yes  \
              --enable-python=system      \
              --with-system-apr           \
-             --with-system-boost=yes     \
+             --with-system-boost         \
              --with-system-cairo         \
              --with-system-clucene       \
              --with-system-curl          \

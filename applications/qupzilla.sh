@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak QupZilla is a fast, feature-richbr3ak and lightweight QtWebEngine basedbr3ak browser, originally intended only for educational purposes.br3ak"
 SECTION="lxqt"
-VERSION=2.0.1
+VERSION=2.0.2
 NAME="qupzilla"
 
 #REQ:cmake
@@ -20,11 +20,11 @@ NAME="qupzilla"
 
 cd $SOURCE_DIR
 
-URL=https://github.com/QupZilla/qupzilla/releases/download/v2.0.1/QupZilla-2.0.1.tar.xz
+URL=https://github.com/QupZilla/qupzilla/releases/download/v2.0.2/QupZilla-2.0.2.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/qupzilla/QupZilla-2.0.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/qupzilla/QupZilla-2.0.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/qupzilla/QupZilla-2.0.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/qupzilla/QupZilla-2.0.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/qupzilla/QupZilla-2.0.1.tar.xz || wget -nc https://github.com/QupZilla/qupzilla/releases/download/v2.0.1/QupZilla-2.0.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/qupzilla/QupZilla-2.0.1.tar.xz
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/qupzilla/QupZilla-2.0.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/qupzilla/QupZilla-2.0.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/qupzilla/QupZilla-2.0.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/qupzilla/QupZilla-2.0.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/qupzilla/QupZilla-2.0.2.tar.xz || wget -nc https://github.com/QupZilla/qupzilla/releases/download/v2.0.2/QupZilla-2.0.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/qupzilla/QupZilla-2.0.2.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

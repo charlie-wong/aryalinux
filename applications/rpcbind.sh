@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The rpcbind program is abr3ak replacement for portmap. It isbr3ak required for import or export of Network File System (NFS) sharedbr3ak directories.br3ak"
 SECTION="basicnet"
-VERSION=0.2.3
+VERSION=0.2.4
 NAME="rpcbind"
 
 #REQ:libtirpc
@@ -17,12 +17,11 @@ NAME="rpcbind"
 
 cd $SOURCE_DIR
 
-URL=http://downloads.sourceforge.net/rpcbind/rpcbind-0.2.3.tar.bz2
+URL=http://downloads.sourceforge.net/rpcbind/rpcbind-0.2.4.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/rpcbind/rpcbind-0.2.3.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/rpcbind/rpcbind-0.2.3.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/rpcbind/rpcbind-0.2.3.tar.bz2 || wget -nc http://downloads.sourceforge.net/rpcbind/rpcbind-0.2.3.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/rpcbind/rpcbind-0.2.3.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/rpcbind/rpcbind-0.2.3.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/rpcbind/rpcbind-0.2.3.tar.bz2
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/rpcbind-0.2.3-tirpc_fix-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/rpcbind/rpcbind-0.2.3-tirpc_fix-1.patch
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/rpcbind/rpcbind-0.2.4.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/rpcbind/rpcbind-0.2.4.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/rpcbind/rpcbind-0.2.4.tar.bz2 || wget -nc http://downloads.sourceforge.net/rpcbind/rpcbind-0.2.4.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/rpcbind/rpcbind-0.2.4.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/rpcbind/rpcbind-0.2.4.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/rpcbind/rpcbind-0.2.4.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -49,10 +48,9 @@ sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
-sed -i "/servname/s:rpcbind:sunrpc:" src/rpcbind.c &&
+sed -i "/servname/s:rpcbind:sunrpc:" src/rpcbind.c
 
 
-patch -Np1 -i ../rpcbind-0.2.3-tirpc_fix-1.patch &&
 ./configure --prefix=/usr  \
             --bindir=/sbin \
             --with-rpcuser=rpc &&

@@ -46,6 +46,10 @@ fi
 
 whoami > /tmp/currentuser
 
+sed 's@#include <stdio\.h>@#include <sys/stat.h>\n#include <stdio.h>@' \
+    -i src/helpers/job-drive-detach.c
+
+
 ./configure --prefix=/usr        \
             --sysconfdir=/etc    \
             --localstatedir=/var &&

@@ -13,6 +13,8 @@ VERSION=8.15.2
 NAME="sendmail"
 
 #REQ:openldap
+#REC:openssl
+#REC:cyrus-sasl
 #OPT:gs
 #OPT:procmail
 

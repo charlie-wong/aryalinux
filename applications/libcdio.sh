@@ -51,8 +51,8 @@ sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
-tar -xf ../libcdio-paranoia-10.2+0.94+1.tar.bz2 &&
-cd libcdio-paranoia-10.2+0.94+1
+tar -xf ../libcdio-paranoia-10.2+0.93+1.tar.bz2 &&
+cd libcdio-paranoia-10.2+0.93+1 &&
 ./configure --prefix=/usr --disable-static &&
 make "-j`nproc`" || make
 

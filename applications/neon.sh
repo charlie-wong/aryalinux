@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak neon is an HTTP and WebDAV clientbr3ak library, with a C interface.br3ak"
 SECTION="basicnet"
-VERSION=0.30.1
+VERSION=0.30.2
 NAME="neon"
 
 #REC:openssl
@@ -20,11 +20,11 @@ NAME="neon"
 
 cd $SOURCE_DIR
 
-URL=http://www.webdav.org/neon/neon-0.30.1.tar.gz
+URL=http://www.webdav.org/neon/neon-0.30.2.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/neon/neon-0.30.1.tar.gz || wget -nc http://www.webdav.org/neon/neon-0.30.1.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/neon/neon-0.30.1.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/neon/neon-0.30.1.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/neon/neon-0.30.1.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/neon/neon-0.30.1.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/neon/neon-0.30.1.tar.gz
+wget -nc http://www.webdav.org/neon/neon-0.30.2.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/neon/neon-0.30.2.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/neon/neon-0.30.2.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/neon/neon-0.30.2.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/neon/neon-0.30.2.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/neon/neon-0.30.2.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/neon/neon-0.30.2.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

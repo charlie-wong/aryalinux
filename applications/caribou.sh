@@ -16,6 +16,7 @@ NAME="caribou"
 #REQ:gtk3
 #REQ:libgee
 #REQ:libxklavier
+#REQ:python-modules#pygobject2
 #REQ:python-modules#pygobject3
 #REC:vala
 #OPT:gtk2

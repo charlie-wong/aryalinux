@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The LXDE Common package provides abr3ak set of default configuration for LXDE.br3ak"
 SECTION="lxde"
-VERSION=0.99.1
+VERSION=0.99.2
 NAME="lxde-common"
 
 #REQ:lxde-icon-theme
@@ -23,15 +23,17 @@ NAME="lxde-common"
 #REC:dbus
 #OPT:notification-daemon
 #OPT:xfce4-notifyd
+#OPT:lxdm
+#OPT:sddm
 
 
 cd $SOURCE_DIR
 
-URL=http://downloads.sourceforge.net/lxde/lxde-common-0.99.1.tar.xz
+URL=http://downloads.sourceforge.net/lxde/lxde-common-0.99.2.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/lxde-common/lxde-common-0.99.1.tar.xz || wget -nc http://downloads.sourceforge.net/lxde/lxde-common-0.99.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/lxde-common/lxde-common-0.99.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/lxde-common/lxde-common-0.99.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/lxde-common/lxde-common-0.99.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/lxde-common/lxde-common-0.99.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/lxde-common/lxde-common-0.99.1.tar.xz
+wget -nc http://downloads.sourceforge.net/lxde/lxde-common-0.99.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/lxde-common/lxde-common-0.99.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/lxde-common/lxde-common-0.99.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/lxde-common/lxde-common-0.99.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/lxde-common/lxde-common-0.99.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/lxde-common/lxde-common-0.99.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/lxde-common/lxde-common-0.99.2.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -73,7 +75,8 @@ sudo rm rootscript.sh
 
 
 cat > ~/.xinitrc << "EOF"
-ck-launch-session dbus-launch --exit-with-session startlxde
+# No need to run dbus-launch, since it is run by startlxde
+ck-launch-session startlxde
 EOF
 startx
 

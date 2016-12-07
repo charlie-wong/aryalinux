@@ -224,7 +224,8 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-echo 'allow br0' > /etc/qemu/bridge.conf
+install -vdm 755 /etc/qemu &&
+echo allow br0 > /etc/qemu/bridge.conf
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

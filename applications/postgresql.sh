@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak PostgreSQL is an advancedbr3ak object-relational database management system (ORDBMS), derived frombr3ak the Berkeley Postgres database management system.br3ak"
 SECTION="server"
-VERSION=9.6.0
+VERSION=9.6.1
 NAME="postgresql"
 
 #OPT:python2
@@ -28,11 +28,11 @@ NAME="postgresql"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.postgresql.org/pub/source/v9.6.0/postgresql-9.6.0.tar.bz2
+URL=http://ftp.postgresql.org/pub/source/v9.6.1/postgresql-9.6.1.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/postgresql/postgresql-9.6.0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/postgresql/postgresql-9.6.0.tar.bz2 || wget -nc ftp://ftp.postgresql.org/pub/source/v9.6.0/postgresql-9.6.0.tar.bz2 || wget -nc http://ftp.postgresql.org/pub/source/v9.6.0/postgresql-9.6.0.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/postgresql/postgresql-9.6.0.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/postgresql/postgresql-9.6.0.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/postgresql/postgresql-9.6.0.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/postgresql/postgresql-9.6.0.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/postgresql/postgresql-9.6.1.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/postgresql/postgresql-9.6.1.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/postgresql/postgresql-9.6.1.tar.bz2 || wget -nc ftp://ftp.postgresql.org/pub/source/v9.6.1/postgresql-9.6.1.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/postgresql/postgresql-9.6.1.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/postgresql/postgresql-9.6.1.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/postgresql/postgresql-9.6.1.tar.bz2 || wget -nc http://ftp.postgresql.org/pub/source/v9.6.1/postgresql-9.6.1.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -50,7 +50,7 @@ whoami > /tmp/currentuser
 sed -i '/DEFAULT_PGSOCKET_DIR/s@/tmp@/run/postgresql@' src/include/pg_config_manual.h &&
 ./configure --prefix=/usr          \
             --enable-thread-safety \
-            --docdir=/usr/share/doc/postgresql-9.6.0 &&
+            --docdir=/usr/share/doc/postgresql-9.6.1 &&
 make "-j`nproc`" || make
 
 

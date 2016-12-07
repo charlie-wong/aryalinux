@@ -6,7 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:perl-modules#encode-jisx0213
 
 SOURCE_ONLY=y
 URL="http://search.cpan.org/CPAN/authors/id/N/NE/NEZUMI/MIME-Charset-1.012.tar.gz"

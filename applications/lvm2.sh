@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The LVM2 package is a set of toolsbr3ak that manage logical partitions. It allows spanning of file systemsbr3ak across multiple physical disks and disk partitions and provides forbr3ak dynamic growing or shrinking of logical partitions, mirroring andbr3ak low storage footprint snapshots.br3ak"
 SECTION="postlfs"
-VERSION=2.2.02.164
+VERSION=2.2.02.167
 NAME="lvm2"
 
 #OPT:mdadm
@@ -21,11 +21,11 @@ NAME="lvm2"
 
 cd $SOURCE_DIR
 
-URL=ftp://sources.redhat.com/pub/lvm2/releases/LVM2.2.02.164.tgz
+URL=ftp://sources.redhat.com/pub/lvm2/releases/LVM2.2.02.167.tgz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/lvm2/LVM2.2.02.164.tgz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/lvm2/LVM2.2.02.164.tgz || wget -nc ftp://sources.redhat.com/pub/lvm2/releases/LVM2.2.02.164.tgz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/lvm2/LVM2.2.02.164.tgz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/lvm2/LVM2.2.02.164.tgz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/lvm2/LVM2.2.02.164.tgz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/lvm2/LVM2.2.02.164.tgz
+wget -nc ftp://sources.redhat.com/pub/lvm2/releases/LVM2.2.02.167.tgz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/lvm2/LVM2.2.02.167.tgz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/lvm2/LVM2.2.02.167.tgz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/lvm2/LVM2.2.02.167.tgz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/lvm2/LVM2.2.02.167.tgz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/lvm2/LVM2.2.02.167.tgz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/lvm2/LVM2.2.02.167.tgz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

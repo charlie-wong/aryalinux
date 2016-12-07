@@ -6,6 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+#REQ:perl-modules#xsloader
 #REQ:perl-modules#exporter-tiny
 
 SOURCE_ONLY=y

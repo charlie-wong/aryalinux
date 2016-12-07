@@ -57,7 +57,7 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-echo ca-directory=/etc/ssl/certs >> /etc/wgetrc
+echo certificate=/etc/ssl/ca-bundle.crt >> /etc/wgetrc
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

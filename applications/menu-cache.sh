@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Menu Cache package contains abr3ak library for creating and utilizing caches to speed up thebr3ak manipulation for freedesktop.org defined application menus.br3ak"
 SECTION="lxde"
-VERSION=1.0.1
+VERSION=1.0.2
 NAME="menu-cache"
 
 #REQ:libfm-extra
@@ -18,11 +18,11 @@ NAME="menu-cache"
 
 cd $SOURCE_DIR
 
-URL=http://downloads.sourceforge.net/lxde/menu-cache-1.0.1.tar.xz
+URL=http://downloads.sourceforge.net/lxde/menu-cache-1.0.2.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/menu-cache/menu-cache-1.0.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/menu-cache/menu-cache-1.0.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/menu-cache/menu-cache-1.0.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/menu-cache/menu-cache-1.0.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/menu-cache/menu-cache-1.0.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/menu-cache/menu-cache-1.0.1.tar.xz || wget -nc http://downloads.sourceforge.net/lxde/menu-cache-1.0.1.tar.xz
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/menu-cache/menu-cache-1.0.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/menu-cache/menu-cache-1.0.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/menu-cache/menu-cache-1.0.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/menu-cache/menu-cache-1.0.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/menu-cache/menu-cache-1.0.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/menu-cache/menu-cache-1.0.2.tar.xz || wget -nc http://downloads.sourceforge.net/lxde/menu-cache-1.0.2.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

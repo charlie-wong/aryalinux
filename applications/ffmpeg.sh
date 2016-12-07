@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak FFmpeg is a solution to record,br3ak convert and stream audio and video. It is a very fast video andbr3ak audio converter and it can also acquire from a live audio/videobr3ak source. Designed to be intuitive, the command-line interfacebr3ak (<span class=\"command\"><strong>ffmpeg</strong>) tries tobr3ak figure out all the parameters, when possible. FFmpeg can also convert from any sample ratebr3ak to any other, and resize video on the fly with a high qualitybr3ak polyphase filter. FFmpeg can use abr3ak Video4Linux compatible video source and any Open Sound System audiobr3ak source.br3ak"
 SECTION="multimedia"
-VERSION=3.1.4
+VERSION=3.2.1
 NAME="ffmpeg"
 
 #REC:libass
@@ -23,7 +23,6 @@ NAME="ffmpeg"
 #REC:x264
 #REC:x265
 #REC:yasm
-#OPT:faac
 #OPT:fontconfig
 #OPT:frei0r
 #OPT:libcdio
@@ -43,11 +42,11 @@ NAME="ffmpeg"
 
 cd $SOURCE_DIR
 
-URL=http://ffmpeg.org/releases/ffmpeg-3.1.4.tar.xz
+URL=http://ffmpeg.org/releases/ffmpeg-3.2.1.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/ffmpeg/ffmpeg-3.1.4.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/ffmpeg/ffmpeg-3.1.4.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/ffmpeg/ffmpeg-3.1.4.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/ffmpeg/ffmpeg-3.1.4.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/ffmpeg/ffmpeg-3.1.4.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/ffmpeg/ffmpeg-3.1.4.tar.xz || wget -nc http://ffmpeg.org/releases/ffmpeg-3.1.4.tar.xz
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/ffmpeg/ffmpeg-3.2.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/ffmpeg/ffmpeg-3.2.1.tar.xz || wget -nc http://ffmpeg.org/releases/ffmpeg-3.2.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/ffmpeg/ffmpeg-3.2.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/ffmpeg/ffmpeg-3.2.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/ffmpeg/ffmpeg-3.2.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/ffmpeg/ffmpeg-3.2.1.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -81,7 +80,7 @@ sed -i 's/-lflite"/-lflite -lasound"/' configure &&
             --enable-libx264     \
             --enable-libx265     \
             --enable-x11grab     \
-            --docdir=/usr/share/doc/ffmpeg-3.1.4 &&
+            --docdir=/usr/share/doc/ffmpeg-3.2.1 &&
 make &&
 gcc tools/qt-faststart.c -o tools/qt-faststart
 
@@ -91,7 +90,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install &&
 install -v -m755    tools/qt-faststart /usr/bin &&
 install -v -m644    doc/*.txt \
-                    /usr/share/doc/ffmpeg-3.1.4
+                    /usr/share/doc/ffmpeg-3.2.1
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

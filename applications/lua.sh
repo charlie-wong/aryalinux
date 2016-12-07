@@ -37,8 +37,6 @@ fi
 
 whoami > /tmp/currentuser
 
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 cat > lua.pc << "EOF"
 V=5.3
 R=5.3.3
@@ -59,11 +57,6 @@ Requires:
 Libs: -L${libdir} -llua -lm
 Cflags: -I${includedir}
 EOF
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
 
 
 patch -Np1 -i ../lua-5.3.3-shared_library-1.patch &&

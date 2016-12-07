@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The libusb package contains abr3ak library used by some applications for USB device access.br3ak"
 SECTION="general"
-VERSION=1.0.20
+VERSION=1.0.21
 NAME="libusb"
 
 #OPT:doxygen
@@ -17,11 +17,11 @@ NAME="libusb"
 
 cd $SOURCE_DIR
 
-URL=http://downloads.sourceforge.net/libusb/libusb-1.0.20.tar.bz2
+URL=https://github.com//libusb/libusb/releases/download/v1.0.21/libusb-1.0.21.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libusb/libusb-1.0.20.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libusb/libusb-1.0.20.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libusb/libusb-1.0.20.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libusb/libusb-1.0.20.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libusb/libusb-1.0.20.tar.bz2 || wget -nc http://downloads.sourceforge.net/libusb/libusb-1.0.20.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libusb/libusb-1.0.20.tar.bz2
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libusb/libusb-1.0.21.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libusb/libusb-1.0.21.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libusb/libusb-1.0.21.tar.bz2 || wget -nc https://github.com//libusb/libusb/releases/download/v1.0.21/libusb-1.0.21.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libusb/libusb-1.0.21.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libusb/libusb-1.0.21.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libusb/libusb-1.0.21.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -36,6 +36,7 @@ fi
 
 whoami > /tmp/currentuser
 
+sed -i "s/^PROJECT_LOGO/#&/" doc/doxygen.cfg.in &&
 ./configure --prefix=/usr --disable-static &&
 make -j1
 

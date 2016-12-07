@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="%DESCRIPTION%"
 SECTION="general"
-VERSION=27.2.0
+VERSION=30.2.0
 NAME="python-modules#setuptools"
 
 #REQ:python2
@@ -18,11 +18,11 @@ NAME="python-modules#setuptools"
 
 cd $SOURCE_DIR
 
-URL=https://pypi.python.org/packages/87/ba/54197971d107bc06f5f3fbdc0d728a7ae0b10cafca46acfddba65a0899d8/setuptools-27.2.0.tar.gz
+URL=https://pypi.python.org/packages/f1/92/12c7251039b274c30106c3e0babdcb040cbd13c3ad4b3f0ef9a7c217e36a/setuptools-30.2.0.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/setuptools/setuptools-27.2.0.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/setuptools/setuptools-27.2.0.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/setuptools/setuptools-27.2.0.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/setuptools/setuptools-27.2.0.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/setuptools/setuptools-27.2.0.tar.gz || wget -nc https://pypi.python.org/packages/87/ba/54197971d107bc06f5f3fbdc0d728a7ae0b10cafca46acfddba65a0899d8/setuptools-27.2.0.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/setuptools/setuptools-27.2.0.tar.gz
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/setuptools/setuptools-30.2.0.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/setuptools/setuptools-30.2.0.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/setuptools/setuptools-30.2.0.tar.gz || wget -nc https://pypi.python.org/packages/f1/92/12c7251039b274c30106c3e0babdcb040cbd13c3ad4b3f0ef9a7c217e36a/setuptools-30.2.0.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/setuptools/setuptools-30.2.0.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/setuptools/setuptools-30.2.0.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/setuptools/setuptools-30.2.0.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

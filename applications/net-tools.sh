@@ -39,6 +39,7 @@ whoami > /tmp/currentuser
 
 patch -Np1 -i ../net-tools-1.60-kernel_headers-3.patch &&
 patch -Np1 -i ../net-tools-CVS_20101030-remove_dups-1.patch &&
+sed -i '/#include <netinet\/ip.h>/d'  iptunnel.c &&
 yes "" | make config &&
 make "-j`nproc`" || make
 

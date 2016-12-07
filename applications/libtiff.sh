@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The LibTIFF package contains thebr3ak TIFF libraries and associated utilities. The libraries are used bybr3ak many programs for reading and writing TIFF files and the utilitiesbr3ak are used for general work with TIFF files.br3ak"
 SECTION="general"
-VERSION=4.0.6
+VERSION=4.0.7
 NAME="libtiff"
 
 #OPT:freeglut
@@ -18,11 +18,11 @@ NAME="libtiff"
 
 cd $SOURCE_DIR
 
-URL=http://download.osgeo.org/libtiff/tiff-4.0.6.tar.gz
+URL=http://download.osgeo.org/libtiff/tiff-4.0.7.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/tiff/tiff-4.0.6.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/tiff/tiff-4.0.6.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/tiff/tiff-4.0.6.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/tiff/tiff-4.0.6.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/tiff/tiff-4.0.6.tar.gz || wget -nc http://download.osgeo.org/libtiff/tiff-4.0.6.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/tiff/tiff-4.0.6.tar.gz
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/tiff/tiff-4.0.7.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/tiff/tiff-4.0.7.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/tiff/tiff-4.0.7.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/tiff/tiff-4.0.7.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/tiff/tiff-4.0.7.tar.gz || wget -nc http://download.osgeo.org/libtiff/tiff-4.0.7.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/tiff/tiff-4.0.7.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Kwayland is a Qt-style API tobr3ak interact with the wayland-clientbr3ak and wayland-server API.br3ak"
 SECTION="lxqt"
-VERSION=5.25.0
+VERSION=5.28.0
 NAME="lxqt-kwayland"
 
 #REQ:extra-cmake-modules
@@ -20,11 +20,11 @@ NAME="lxqt-kwayland"
 
 cd $SOURCE_DIR
 
-URL=http://download.kde.org/stable/frameworks/5.25/kwayland-5.25.0.tar.xz
+URL=http://download.kde.org/stable/frameworks/5.28/kwayland-5.28.0.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://download.kde.org/stable/frameworks/5.25/kwayland-5.25.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/kwayland/kwayland-5.25.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/kwayland/kwayland-5.25.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/kwayland/kwayland-5.25.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/kwayland/kwayland-5.25.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/kwayland/kwayland-5.25.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/kwayland/kwayland-5.25.0.tar.xz
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/kwayland/kwayland-5.28.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/kwayland/kwayland-5.28.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/kwayland/kwayland-5.28.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/kwayland/kwayland-5.28.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/kwayland/kwayland-5.28.0.tar.xz || wget -nc http://download.kde.org/stable/frameworks/5.28/kwayland-5.28.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/kwayland/kwayland-5.28.0.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

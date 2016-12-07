@@ -14,6 +14,9 @@ NAME="pavucontrol-qt"
 
 #REQ:liblxqt
 #REQ:pulseaudio
+#REQ:glib2
+#OPT:git
+#OPT:lxqt-l10n
 
 
 cd $SOURCE_DIR
@@ -41,6 +44,7 @@ mkdir -v build &&
 cd       build &&
 cmake -DCMAKE_BUILD_TYPE=Release  \
       -DCMAKE_INSTALL_PREFIX=/usr \
+      -DPULL_TRANSLATIONS=no      \
       ..       &&
 make "-j`nproc`" || make
 

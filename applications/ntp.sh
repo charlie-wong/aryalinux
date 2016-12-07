@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The ntp package contains a clientbr3ak and server to keep the time synchronized between various computersbr3ak over a network. This package is the official referencebr3ak implementation of the NTP protocol.br3ak"
 SECTION="basicnet"
-VERSION=8
+VERSION=9
 NAME="ntp"
 
 #REQ:wget
@@ -21,11 +21,11 @@ NAME="ntp"
 
 cd $SOURCE_DIR
 
-URL=https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p8.tar.gz
+URL=https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p9.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/ntp/ntp-4.2.8p8.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/ntp/ntp-4.2.8p8.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/ntp/ntp-4.2.8p8.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/ntp/ntp-4.2.8p8.tar.gz || wget -nc https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p8.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/ntp/ntp-4.2.8p8.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/ntp/ntp-4.2.8p8.tar.gz
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/ntp/ntp-4.2.8p9.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/ntp/ntp-4.2.8p9.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/ntp/ntp-4.2.8p9.tar.gz || wget -nc https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p9.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/ntp/ntp-4.2.8p9.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/ntp/ntp-4.2.8p9.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/ntp/ntp-4.2.8p9.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -57,7 +57,7 @@ sudo rm rootscript.sh
             --sysconfdir=/etc     \
             --enable-linuxcaps    \
             --with-lineeditlibs=readline \
-            --docdir=/usr/share/doc/ntp-4.2.8p8 &&
+            --docdir=/usr/share/doc/ntp-4.2.8p9 &&
 make "-j`nproc`" || make
 
 

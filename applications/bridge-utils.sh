@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The bridge-utils package containsbr3ak a utility needed to create and manage bridge devices. This isbr3ak useful in setting up networks for a hosted virtual machine (VM).br3ak"
 SECTION="basicnet"
-VERSION=1.5
+VERSION=1.6
 NAME="bridge-utils"
 
 #OPT:net-tools
@@ -17,12 +17,11 @@ NAME="bridge-utils"
 
 cd $SOURCE_DIR
 
-URL=http://sourceforge.net/projects/bridge/files/bridge/bridge-utils-1.5.tar.gz
+URL=https://www.kernel.org/pub/linux/utils/net/bridge-utils/bridge-utils-1.6.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/bridge-utils/bridge-utils-1.5.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/bridge-utils/bridge-utils-1.5.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/bridge-utils/bridge-utils-1.5.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/bridge-utils/bridge-utils-1.5.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/bridge-utils/bridge-utils-1.5.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/bridge-utils/bridge-utils-1.5.tar.gz || wget -nc http://sourceforge.net/projects/bridge/files/bridge/bridge-utils-1.5.tar.gz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/bridge-utils-1.5-linux_3.8_fix-2.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/bridge-utils/bridge-utils-1.5-linux_3.8_fix-2.patch
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/bridge-utils/bridge-utils-1.6.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/bridge-utils/bridge-utils-1.6.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/bridge-utils/bridge-utils-1.6.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/bridge-utils/bridge-utils-1.6.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/bridge-utils/bridge-utils-1.6.tar.xz || wget -nc https://www.kernel.org/pub/linux/utils/net/bridge-utils/bridge-utils-1.6.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/bridge-utils/bridge-utils-1.6.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -37,9 +36,9 @@ fi
 
 whoami > /tmp/currentuser
 
-patch -Np1 -i ../bridge-utils-1.5-linux_3.8_fix-2.patch &&
-autoconf -o configure configure.in &&
-./configure --prefix=/usr          &&
+
+autoconf                  &&
+./configure --prefix=/usr &&
 make "-j`nproc`" || make
 
 

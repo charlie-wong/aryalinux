@@ -24,7 +24,6 @@ URL=https://archive.apache.org/dist/ant/source/apache-ant-1.9.7-src.tar.bz2
 if [ ! -z $URL ]
 then
 wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/apache-ant/apache-ant-1.9.7-src.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/apache-ant/apache-ant-1.9.7-src.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/apache-ant/apache-ant-1.9.7-src.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/apache-ant/apache-ant-1.9.7-src.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/apache-ant/apache-ant-1.9.7-src.tar.bz2 || wget -nc https://archive.apache.org/dist/ant/source/apache-ant-1.9.7-src.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/apache-ant/apache-ant-1.9.7-src.tar.bz2
-wget -nc http://hamcrest.googlecode.com/files/hamcrest-1.3.tgz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -39,9 +38,8 @@ fi
 
 whoami > /tmp/currentuser
 
-tar -xvf ../hamcrest-1.3.tgz &&
 cp -v ../junit-4.11.jar \
-      hamcrest-1.3/hamcrest-core-1.3.jar lib/optional
+      ../hamcrest-core-1.3.jar lib/optional
 
 
 
@@ -57,13 +55,11 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-cat >> /etc/profile.d/extrapaths.sh << EOF
-
-# Begin Apache-ant addition
+cat > /etc/profile.d/ant.sh << EOF
+# Begin /etc/profile.d/ant.sh
 pathappend /opt/ant/bin
 export ANT_HOME=/opt/ant
-# End Apache-ant addition
-
+# End /etc/profile.d/ant.sh
 EOF
 
 ENDOFROOTSCRIPT

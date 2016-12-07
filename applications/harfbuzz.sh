@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The HarfBuzz package contains anbr3ak OpenType text shaping engine.br3ak"
 SECTION="general"
-VERSION=1.3.2
+VERSION=1.3.3
 NAME="harfbuzz"
 
 #REC:glib2
@@ -23,11 +23,11 @@ NAME="harfbuzz"
 
 cd $SOURCE_DIR
 
-URL=http://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.3.2.tar.bz2
+URL=http://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.3.3.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/harfbuzz/harfbuzz-1.3.2.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/harfbuzz/harfbuzz-1.3.2.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/harfbuzz/harfbuzz-1.3.2.tar.bz2 || wget -nc http://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.3.2.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/harfbuzz/harfbuzz-1.3.2.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/harfbuzz/harfbuzz-1.3.2.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/harfbuzz/harfbuzz-1.3.2.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/harfbuzz/harfbuzz-1.3.3.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/harfbuzz/harfbuzz-1.3.3.tar.bz2 || wget -nc http://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.3.3.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/harfbuzz/harfbuzz-1.3.3.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/harfbuzz/harfbuzz-1.3.3.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/harfbuzz/harfbuzz-1.3.3.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/harfbuzz/harfbuzz-1.3.3.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

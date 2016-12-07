@@ -41,13 +41,27 @@ fi
 
 whoami > /tmp/currentuser
 
-./configure --prefix=/usr --sysconfdir=/etc &&
+./configure --prefix=/usr     \
+            --sysconfdir=/etc \
+            --with-trust-paths=/etc/pki/anchors &&
 make "-j`nproc`" || make
 
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
+
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+readlink /usr/lib/libnssckbi.so || \
+mv -v /usr/lib/libnssckbi.so /usr/lib/libnssckbi.so.orig &&
+ln -sfv libp11-kit.so /usr/lib/libnssckbi.so
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

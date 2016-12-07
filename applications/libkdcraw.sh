@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Libkdcraw is a KDE wrapper aroundbr3ak the <a class=\"xref\" href=\"../general/libraw.html\" title=\"libraw-0.17.2\">libraw-0.17.2</a> library for manipulating imagebr3ak metadata.br3ak"
 SECTION="kde"
-VERSION=16.08.0
+VERSION=16.08.3
 NAME="libkdcraw"
 
 #REQ:libraw
@@ -18,11 +18,11 @@ NAME="libkdcraw"
 
 cd $SOURCE_DIR
 
-URL=http://download.kde.org/stable/applications/16.08.0/src/libkdcraw-16.08.0.tar.xz
+URL=http://download.kde.org/stable/applications/16.08.3/src/libkdcraw-16.08.3.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libkdcraw/libkdcraw-16.08.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libkdcraw/libkdcraw-16.08.0.tar.xz || wget -nc http://download.kde.org/stable/applications/16.08.0/src/libkdcraw-16.08.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libkdcraw/libkdcraw-16.08.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libkdcraw/libkdcraw-16.08.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libkdcraw/libkdcraw-16.08.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libkdcraw/libkdcraw-16.08.0.tar.xz
+wget -nc http://download.kde.org/stable/applications/16.08.3/src/libkdcraw-16.08.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libkdcraw/libkdcraw-16.08.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libkdcraw/libkdcraw-16.08.3.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libkdcraw/libkdcraw-16.08.3.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libkdcraw/libkdcraw-16.08.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libkdcraw/libkdcraw-16.08.3.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libkdcraw/libkdcraw-16.08.3.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

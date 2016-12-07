@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Cairomm package provides a C++br3ak interface to Cairo.br3ak"
 SECTION="x"
-VERSION=1.12.0
+VERSION=1.12.2
 NAME="cairomm"
 
 #REQ:cairo
@@ -20,11 +20,11 @@ NAME="cairomm"
 
 cd $SOURCE_DIR
 
-URL=http://cairographics.org/releases/cairomm-1.12.0.tar.gz
+URL=http://cairographics.org/releases/cairomm-1.12.2.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/cairo/cairomm-1.12.0.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/cairo/cairomm-1.12.0.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/cairo/cairomm-1.12.0.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/cairo/cairomm-1.12.0.tar.gz || wget -nc http://cairographics.org/releases/cairomm-1.12.0.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/cairo/cairomm-1.12.0.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/cairo/cairomm-1.12.0.tar.gz
+wget -nc http://cairographics.org/releases/cairomm-1.12.2.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/cairo/cairomm-1.12.2.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/cairo/cairomm-1.12.2.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/cairo/cairomm-1.12.2.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/cairo/cairomm-1.12.2.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/cairo/cairomm-1.12.2.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/cairo/cairomm-1.12.2.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -39,7 +39,7 @@ fi
 
 whoami > /tmp/currentuser
 
-sed -e '/^libdocdir =/ s/$(book_name)/cairomm-1.12.0/' \
+sed -e '/^libdocdir =/ s/$(book_name)/cairomm-1.12.2/' \
     -i docs/Makefile.in
 
 

@@ -14,6 +14,7 @@ NAME="lxqt-session"
 
 #REQ:liblxqt
 #REQ:lxqt-kwindowsystem
+#REQ:xdg-user-dirs
 #REQ:kframeworks5
 #OPT:git
 #OPT:lxqt-l10n

@@ -9,18 +9,18 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Tcsh package containsbr3ak “<span class=\"quote\">an enhanced but completely compatiblebr3ak version of the Berkeley Unix C shell (<span class=\"command\"><strong>csh</strong>)”. This isbr3ak useful as an alternative shell for those who prefer C syntax tobr3ak that of the <span class=\"command\"><strong>bash</strong>br3ak shell, and also because some programs require the C shell in orderbr3ak to perform installation tasks.br3ak"
 SECTION="postlfs"
-VERSION=6.19.00
+VERSION=6.20.00
 NAME="tcsh"
 
 
 
 cd $SOURCE_DIR
 
-URL=http://fossies.org/linux/misc/tcsh-6.19.00.tar.gz
+URL=http://fossies.org/linux/misc/tcsh-6.20.00.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/tcsh/tcsh-6.19.00.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/tcsh/tcsh-6.19.00.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/tcsh/tcsh-6.19.00.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/tcsh/tcsh-6.19.00.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/tcsh/tcsh-6.19.00.tar.gz || wget -nc ftp://ftp.astron.com/pub/tcsh/tcsh-6.19.00.tar.gz || wget -nc http://fossies.org/linux/misc/tcsh-6.19.00.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/tcsh/tcsh-6.19.00.tar.gz
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/tcsh/tcsh-6.20.00.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/tcsh/tcsh-6.20.00.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/tcsh/tcsh-6.20.00.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/tcsh/tcsh-6.20.00.tar.gz || wget -nc http://fossies.org/linux/misc/tcsh-6.20.00.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/tcsh/tcsh-6.20.00.tar.gz || wget -nc ftp://ftp.astron.com/pub/tcsh/tcsh-6.20.00.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/tcsh/tcsh-6.20.00.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -35,16 +35,10 @@ fi
 
 whoami > /tmp/currentuser
 
-sed -e 's/ i)/ k)/' \
-    -e '/ k)/  i \    k = i;' \
-    -e '/\*cp/ a \    volatile size_t k;' \
-    -i tc.alloc.c  &&
-    sed -i 's|SVID_SOURCE|DEFAULT_SOURCE|g' config/linux  &&
-    sed -i 's|BSD_SOURCE|DEFAULT_SOURCE|g'  config/linux  &&
-    sed -i 's|^    union wait|int|' sh.proc.c
+sed -i 's|SVID_SOURCE|DEFAULT_SOURCE|g' config/linux  &&
+sed -i 's|BSD_SOURCE|DEFAULT_SOURCE|g'  config/linux
 
 
-sed -i 's|fR/g|&m|' tcsh.man2html       &&
 ./configure --prefix=/usr --bindir=/bin &&
 make &&
 sh ./tcsh.man2html
@@ -55,9 +49,9 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install install.man &&
 ln -v -sf tcsh   /bin/csh &&
 ln -v -sf tcsh.1 /usr/share/man/man1/csh.1 &&
-install -v -m755 -d          /usr/share/doc/tcsh-6.19.00/html &&
-install -v -m644 tcsh.html/* /usr/share/doc/tcsh-6.19.00/html &&
-install -v -m644 FAQ         /usr/share/doc/tcsh-6.19.00
+install -v -m755 -d          /usr/share/doc/tcsh-6.20.00/html &&
+install -v -m644 tcsh.html/* /usr/share/doc/tcsh-6.20.00/html &&
+install -v -m644 FAQ         /usr/share/doc/tcsh-6.20.00
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

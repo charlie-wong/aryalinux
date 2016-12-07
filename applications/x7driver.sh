@@ -65,9 +65,9 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=http://www.freedesktop.org/software/libinput/libinput-1.5.0.tar.xz
+URL=http://www.freedesktop.org/software/libinput/libinput-1.5.2.tar.xz
 
-wget -nc http://www.freedesktop.org/software/libinput/libinput-1.5.0.tar.xz
+wget -nc http://www.freedesktop.org/software/libinput/libinput-1.5.2.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
@@ -91,8 +91,8 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -v -dm755 $XORG_PREFIX/share/doc/libinput-1.5.0 &&
-cp -rv doc/html/* $XORG_PREFIX/share/doc/libinput-1.5.0
+install -v -dm755 $XORG_PREFIX/share/doc/libinput-1.5.2 &&
+cp -rv doc/html/* $XORG_PREFIX/share/doc/libinput-1.5.2
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
@@ -153,10 +153,10 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=http://ftp.x.org/pub/individual/driver/xf86-input-synaptics-1.8.3.tar.bz2
+URL=http://ftp.x.org/pub/individual/driver/xf86-input-synaptics-1.9.0.tar.bz2
 
-wget -nc http://ftp.x.org/pub/individual/driver/xf86-input-synaptics-1.8.3.tar.bz2
-wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-input-synaptics-1.8.3.tar.bz2
+wget -nc http://ftp.x.org/pub/individual/driver/xf86-input-synaptics-1.9.0.tar.bz2
+wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-input-synaptics-1.9.0.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
@@ -268,10 +268,10 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=http://ftp.x.org/pub/individual/driver/xf86-video-ati-7.7.1.tar.bz2
+URL=http://ftp.x.org/pub/individual/driver/xf86-video-ati-7.8.0.tar.bz2
 
-wget -nc http://ftp.x.org/pub/individual/driver/xf86-video-ati-7.7.1.tar.bz2
-wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-ati-7.7.1.tar.bz2
+wget -nc http://ftp.x.org/pub/individual/driver/xf86-video-ati-7.8.0.tar.bz2
+wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-ati-7.8.0.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
@@ -447,10 +447,10 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=http://ftp.x.org/pub/individual/driver/xf86-video-vmware-13.1.0.tar.bz2
+URL=http://ftp.x.org/pub/individual/driver/xf86-video-vmware-13.2.1.tar.bz2
 
-wget -nc http://ftp.x.org/pub/individual/driver/xf86-video-vmware-13.1.0.tar.bz2
-wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-vmware-13.1.0.tar.bz2
+wget -nc http://ftp.x.org/pub/individual/driver/xf86-video-vmware-13.2.1.tar.bz2
+wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-vmware-13.2.1.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
@@ -486,106 +486,106 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=http://www.freedesktop.org/software/vaapi/releases/libva/libva-1.7.2.tar.bz2
+URL=http://www.freedesktop.org/software/vaapi/releases/libva/libva-1.7.3.tar.bz2
 
-wget -nc http://www.freedesktop.org/software/vaapi/releases/libva/libva-1.7.2.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.2.tar.bz2
-wget -nc http://www.freedesktop.org/software/vaapi/releases/libva-intel-driver/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.2.tar.bz2
+wget -nc http://www.freedesktop.org/software/vaapi/releases/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://www.freedesktop.org/software/vaapi/releases/libva-intel-driver/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`

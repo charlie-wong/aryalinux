@@ -21,6 +21,7 @@ NAME="cogl"
 #OPT:gst10-plugins-base
 #OPT:gtk-doc
 #OPT:sdl
+#OPT:sdl2
 #OPT:wayland
 
 

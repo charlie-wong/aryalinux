@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Thunderbird is a stand-alonebr3ak mail/news client based on the Mozilla codebase. It uses the Gecko renderingbr3ak engine to enable it to display and compose HTML emails.br3ak"
 SECTION="xsoft"
-VERSION=45.4.0
+VERSION=45.5.0
 NAME="thunderbird"
 
 #REQ:alsa-lib
@@ -40,11 +40,11 @@ NAME="thunderbird"
 
 cd $SOURCE_DIR
 
-URL=https://ftp.mozilla.org/pub/mozilla.org/thunderbird/releases/45.4.0/source/thunderbird-45.4.0.source.tar.xz
+URL=https://ftp.mozilla.org/pub/mozilla.org/thunderbird/releases/45.5.0/source/thunderbird-45.5.0.source.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/thunderbird/thunderbird-45.4.0.source.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/thunderbird/thunderbird-45.4.0.source.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/thunderbird/thunderbird-45.4.0.source.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/thunderbird/thunderbird-45.4.0.source.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/thunderbird/thunderbird-45.4.0.source.tar.xz || wget -nc https://ftp.mozilla.org/pub/mozilla.org/thunderbird/releases/45.4.0/source/thunderbird-45.4.0.source.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/thunderbird/thunderbird-45.4.0.source.tar.xz
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/thunderbird/thunderbird-45.5.0.source.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/thunderbird/thunderbird-45.5.0.source.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/thunderbird/thunderbird-45.5.0.source.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/thunderbird/thunderbird-45.5.0.source.tar.xz || wget -nc https://ftp.mozilla.org/pub/mozilla.org/thunderbird/releases/45.5.0/source/thunderbird-45.5.0.source.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/thunderbird/thunderbird-45.5.0.source.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/thunderbird/thunderbird-45.5.0.source.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -93,6 +93,10 @@ ac_add_options --with-system-libvpx
 ac_add_options --with-system-nspr
 ac_add_options --with-system-nss
 ac_add_options --with-system-icu
+# Set CFLAGS and CXXFLAGS to prevent segfaults due to agressive
+# optimizations in GCC-6:
+export CFLAGS+=" -fno-delete-null-pointer-checks -fno-lifetime-dse -fno-schedule-insns2"
+export CXXFLAGS+=" -fno-delete-null-pointer-checks -fno-lifetime-dse -fno-schedule-insns2"
 # The BLFS editors recommend not changing anything below this line:
 ac_add_options --prefix=/usr
 ac_add_options --enable-application=mail
@@ -127,20 +131,13 @@ sed -e '/#include/i\
 sed -e '/#include/a\
     print OUT "#undef _GLIBCXX_INCLUDE_NEXT_C_HEADERS\\n"\;' \
     -i mozilla/nsprpub/config/make-system-wrappers.pl &&
-export CFLAGS_HOLD=$CFLAGS &&
-export CXXFLAGS_HOLD=$CXXFLAGS &&
-export CFLAGS+=" -fno-delete-null-pointer-checks -fno-lifetime-dse -fno-schedule-insns2" &&
-export CXXFLAGS+=" -fno-delete-null-pointer-checks -fno-lifetime-dse -fno-schedule-insns2" &&
 make -f client.mk
 
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make -f client.mk install INSTALL_SDK= &&
-chown -R 0:0 /usr/lib/thunderbird-45.4.0 &&
-export CFLAGS=$CFLAGS_HOLD &&
-export CXXFLAGS=$CFLAGS_HOLD &&
-unset CFLAGS_HOLD CXXFLAGS_HOLD
+chown -R 0:0 /usr/lib/thunderbird-45.5.0
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
@@ -165,7 +162,7 @@ Categories=Application;Network;Email;
 MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/xml;application/rss+xml;x-scheme-handler/mailto;
 StartupNotify=true
 EOF
-ln -sfv /usr/lib/thunderbird-45.4.0/chrome/icons/default/default256.png \
+ln -sfv /usr/lib/thunderbird-45.5.0/chrome/icons/default/default256.png \
         /usr/share/pixmaps/thunderbird.png
 
 ENDOFROOTSCRIPT

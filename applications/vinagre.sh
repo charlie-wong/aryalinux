@@ -43,7 +43,7 @@ fi
 
 whoami > /tmp/currentuser
 
-./configure --prefix=/usr 
+./configure --prefix=/usr \
             --enable-compile-warnings=minimum &&
 make "-j`nproc`" || make
 

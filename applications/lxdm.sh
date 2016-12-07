@@ -43,13 +43,16 @@ whoami > /tmp/currentuser
 export XORG_PREFIX=/usr
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
-cat > pam/lxdm << "EOF" &&
-#%PAM-1.0
-auth required pam_unix.so
+cat > pam/lxdm << "EOF"
+# Begin /etc/pam.d/lxdm
 auth requisite pam_nologin.so
-account required pam_unix.so
-password required pam_unix.so
-session required pam_unix.so
+auth required pam_env.so
+auth include system-auth
+account include system-account
+password include system-password
+session required pam_limits.so
+session include system-session
+# End /etc/pam.d/lxdm
 EOF
 sed -i 's:sysconfig/i18n:profile.d/i18n.sh:g' data/lxdm.in &&
 sed -i 's:/etc/xprofile:/etc/profile:g' data/Xsession &&
@@ -62,7 +65,8 @@ sed -e 's/^bg/#&/'        \
 
 ./configure --prefix=/usr     \
             --sysconfdir=/etc \
-            --with-pam        &&
+            --with-pam        \
+            --with-systemdsystemunitdir=/lib/systemd/system &&
 make "-j`nproc`" || make
 
 
@@ -78,17 +82,8 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-. /etc/alps/alps.conf
+systemctl enable lxdm
 
-pushd $SOURCE_DIR
-wget -nc http://aryalinux.org/releases/2016.11/blfs-systemd-units-20160602.tar.bz2
-tar xf blfs-systemd-units-20160602.tar.bz2
-cd blfs-systemd-units-20160602
-make install-lxdm
-
-cd ..
-rm -rf blfs-systemd-units-20160602
-popd
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh

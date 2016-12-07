@@ -37,7 +37,8 @@ fi
 
 whoami > /tmp/currentuser
 
-./configure --prefix=/usr \
+./configure --prefix=/usr        \
+            --disable-static     \
             --localstatedir=/var &&
 make "-j`nproc`" || make
 

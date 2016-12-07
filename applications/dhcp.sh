@@ -90,6 +90,7 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+install -vdm755 /etc/dhcp &&
 cat > /etc/dhcp/dhclient.conf << "EOF"
 # Begin /etc/dhcp/dhclient.conf
 #

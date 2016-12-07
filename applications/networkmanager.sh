@@ -98,6 +98,23 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+/sbin/usermod -a -G netdev <em class="replaceable"><code><username></em>
+cat > /usr/share/polkit-1/rules.d/org.freedesktop.NetworkManager.rules << "EOF"
+polkit.addRule(function(action, subject) {
+ if (action.id.indexOf("org.freedesktop.NetworkManager.") == 0 && subject.isInGroup("netdev")) {
+ return polkit.Result.YES;
+ }
+});
+EOF
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
+
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 systemctl enable NetworkManager
 
 ENDOFROOTSCRIPT

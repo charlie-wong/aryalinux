@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Ninja is a small build system withbr3ak a focus on speed.br3ak"
 SECTION="general"
-VERSION=1.7.1
+VERSION=1.7.2
 NAME="ninja"
 
 #REQ:python2
@@ -20,11 +20,11 @@ NAME="ninja"
 
 cd $SOURCE_DIR
 
-URL=https://github.com/ninja-build/ninja/archive/v1.7.1.tar.gz
+URL=https://github.com/ninja-build/ninja/archive/v1.7.2.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://github.com/ninja-build/ninja/archive/v1.7.1.tar.gz
+wget -nc https://github.com/ninja-build/ninja/archive/v1.7.2.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -39,8 +39,8 @@ fi
 
 whoami > /tmp/currentuser
 
-wget https://github.com/ninja-build/ninja/archive/v1.7.1.tar.gz \
-     -O ninja-1.7.1.tar.gz
+wget https://github.com/ninja-build/ninja/archive/v1.7.2.tar.gz \
+     -O ninja-1.7.2.tar.gz
 
 
 ./configure.py --bootstrap

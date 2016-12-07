@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The BlueZ package contains thebr3ak Bluetooth protocol stack for Linux.br3ak"
 SECTION="general"
-VERSION=5.42
+VERSION=5.43
 NAME="bluez"
 
 #REQ:dbus
@@ -19,12 +19,12 @@ NAME="bluez"
 
 cd $SOURCE_DIR
 
-URL=http://www.kernel.org/pub/linux/bluetooth/bluez-5.42.tar.xz
+URL=http://www.kernel.org/pub/linux/bluetooth/bluez-5.43.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/bluez/bluez-5.42.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/bluez/bluez-5.42.tar.xz || wget -nc http://www.kernel.org/pub/linux/bluetooth/bluez-5.42.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/bluez/bluez-5.42.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/bluez/bluez-5.42.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/bluez/bluez-5.42.tar.xz || wget -nc ftp://ftp.kernel.org/pub/linux/bluetooth/bluez-5.42.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/bluez/bluez-5.42.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/downloads/bluez/bluez-5.42-obexd_without_systemd-1.patch || wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/bluez-5.42-obexd_without_systemd-1.patch
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/bluez/bluez-5.43.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/bluez/bluez-5.43.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/bluez/bluez-5.43.tar.xz || wget -nc ftp://ftp.kernel.org/pub/linux/bluetooth/bluez-5.43.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/bluez/bluez-5.43.tar.xz || wget -nc http://www.kernel.org/pub/linux/bluetooth/bluez-5.43.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/bluez/bluez-5.43.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/bluez/bluez-5.43.tar.xz
+wget -nc http://www.linuxfromscratch.org/patches/downloads/bluez/bluez-5.43-obexd_without_systemd-1.patch || wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/bluez-5.43-obexd_without_systemd-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -39,7 +39,7 @@ fi
 
 whoami > /tmp/currentuser
 
-patch -Np1 -i ../bluez-5.42-obexd_without_systemd-1.patch
+patch -Np1 -i ../bluez-5.43-obexd_without_systemd-1.patch
 
 
 ./configure --prefix=/usr         \
@@ -73,8 +73,8 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -v -dm755 /usr/share/doc/bluez-5.42 &&
-install -v -m644 doc/*.txt /usr/share/doc/bluez-5.42
+install -v -dm755 /usr/share/doc/bluez-5.43 &&
+install -v -m644 doc/*.txt /usr/share/doc/bluez-5.43
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

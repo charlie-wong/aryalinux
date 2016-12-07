@@ -73,7 +73,9 @@ ac_add_options --disable-dbus
 ac_add_options --disable-necko-wifi
 # GStreamer is necessary for H.264 video playback in HTML5 Video Player;
 # to be enabled, also remember to set "media.gstreamer.enabled" to "true"
-# in about:config. If you have GStreamer 1.x.y, uncomment this line:
+# in about:config. If you have GStreamer 1.x.y, comment out this line and
+# uncomment the following one:
+ac_add_options --disable-gstreamer
 #ac_add_options --enable-gstreamer=1.0
 # Uncomment these lines if you have installed optional dependencies:
 #ac_add_options --enable-system-hunspell
@@ -133,18 +135,19 @@ make -f client.mk
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-
-make  -f client.mk install INSTALL_SDK=                              &&
-chown -R 0:0 /usr/lib/seamonkey-2.40                  &&
-cp    -v moz-build-dir/dist/man/man1/seamonkey.1 /usr/share/man/man1 &&
-export CFLAGS=$CFLAGS_HOLD &&
-export CXXFLAGS=$CXXFLAGS_HOLD &&
-unset CFLAGS_HOLD CXXFLAGS_HOLD
+make  -f client.mk install INSTALL_SDK= &&
+chown -R 0:0 /usr/lib/seamonkey-2.40    &&
+cp    -v moz-build-dir/dist/man/man1/seamonkey.1 /usr/share/man/man1
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
+
+
+export CFLAGS=$CFLAGS_HOLD     &&
+export CXXFLAGS=$CXXFLAGS_HOLD &&
+unset CFLAGS_HOLD CXXFLAGS_HOLD
 
 
 

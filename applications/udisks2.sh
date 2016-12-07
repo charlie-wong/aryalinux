@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The UDisks package provides abr3ak daemon, tools and libraries to access and manipulate disks andbr3ak storage devices.br3ak"
 SECTION="general"
-VERSION=2.1.7
+VERSION=2.1.8
 NAME="udisks2"
 
 #REQ:libatasmart
@@ -26,11 +26,11 @@ NAME="udisks2"
 
 cd $SOURCE_DIR
 
-URL=http://udisks.freedesktop.org/releases/udisks-2.1.7.tar.bz2
+URL=http://udisks.freedesktop.org/releases/udisks-2.1.8.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/udisks/udisks-2.1.7.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/udisks/udisks-2.1.7.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/udisks/udisks-2.1.7.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/udisks/udisks-2.1.7.tar.bz2 || wget -nc http://udisks.freedesktop.org/releases/udisks-2.1.7.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/udisks/udisks-2.1.7.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/udisks/udisks-2.1.7.tar.bz2
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/udisks/udisks-2.1.8.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/udisks/udisks-2.1.8.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/udisks/udisks-2.1.8.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/udisks/udisks-2.1.8.tar.bz2 || wget -nc http://udisks.freedesktop.org/releases/udisks-2.1.8.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/udisks/udisks-2.1.8.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/udisks/udisks-2.1.8.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

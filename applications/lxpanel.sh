@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The LXPanel package contains abr3ak lightweight X11 desktop panel.br3ak"
 SECTION="lxde"
-VERSION=0.8.2
+VERSION=0.9.1
 NAME="lxpanel"
 
 #REQ:keybinder2
@@ -23,11 +23,11 @@ NAME="lxpanel"
 
 cd $SOURCE_DIR
 
-URL=http://downloads.sourceforge.net/lxde/lxpanel-0.8.2.tar.xz
+URL=http://downloads.sourceforge.net/lxde/lxpanel-0.9.1.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/lxpanel/lxpanel-0.8.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/lxpanel/lxpanel-0.8.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/lxpanel/lxpanel-0.8.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/lxpanel/lxpanel-0.8.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/lxpanel/lxpanel-0.8.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/lxpanel/lxpanel-0.8.2.tar.xz || wget -nc http://downloads.sourceforge.net/lxde/lxpanel-0.8.2.tar.xz
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/lxpanel/lxpanel-0.9.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/lxpanel/lxpanel-0.9.1.tar.xz || wget -nc http://downloads.sourceforge.net/lxde/lxpanel-0.9.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/lxpanel/lxpanel-0.9.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/lxpanel/lxpanel-0.9.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/lxpanel/lxpanel-0.9.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/lxpanel/lxpanel-0.9.1.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak While systemd was installed whenbr3ak building LFS, there are many features provided by the package thatbr3ak were not included in the initial installation because Linux-PAM was not yet installed. Thebr3ak systemd package needs to bebr3ak rebuilt to provide a working <span class=\"command\"><strong>systemd-logind</strong> service, whichbr3ak provides many additional features for dependent packages.br3ak"
 SECTION="general"
-VERSION=231
+VERSION=232
 NAME="systemd"
 
 #REQ:linux-pam
@@ -22,8 +22,7 @@ NAME="systemd"
 #OPT:libgcrypt
 #OPT:libidn
 #OPT:libxkbcommon
-#OPT:python2
-#OPT:python3
+#OPT:python-modules#lxml
 #OPT:qemu
 #OPT:valgrind
 #OPT:zsh
@@ -34,12 +33,11 @@ NAME="systemd"
 
 cd $SOURCE_DIR
 
-URL=http://anduin.linuxfromscratch.org/sources/other/systemd/systemd-231.tar.xz
+URL=http://anduin.linuxfromscratch.org/sources/other/systemd/systemd-232.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/systemd/systemd-231.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/systemd/systemd-231.tar.xz || wget -nc http://anduin.linuxfromscratch.org/sources/other/systemd/systemd-231.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/systemd/systemd-231.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/systemd/systemd-231.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/systemd/systemd-231.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/systemd/systemd-231.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/downloads/systemd/systemd-231-security_fix-1.patch || wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/systemd-231-security_fix-1.patch
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/systemd/systemd-232.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/systemd/systemd-232.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/systemd/systemd-232.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/systemd/systemd-232.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/systemd/systemd-232.tar.xz || wget -nc http://anduin.linuxfromscratch.org/sources/other/systemd/systemd-232.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/systemd/systemd-232.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -53,9 +51,6 @@ cd $DIRECTORY
 fi
 
 whoami > /tmp/currentuser
-
-patch -Np1 -i ../systemd-231-security_fix-1.patch
-
 
 sed -e 's:test/udev-test.pl ::g'  \
     -e 's:test-copy$(EXEEXT) ::g' \
@@ -75,23 +70,13 @@ XSLTPROC="/usr/bin/xsltproc"         \
             --disable-sysusers       \
             --without-python         \
             --with-default-dnssec=no \
-            --docdir=/usr/share/doc/systemd-231 &&
+            --docdir=/usr/share/doc/systemd-232 &&
 make "-j`nproc`" || make
 
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-mv -v /usr/lib/libnss_{myhostname,mymachines,resolve}.so.2 /lib
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

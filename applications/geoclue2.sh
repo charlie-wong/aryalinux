@@ -14,8 +14,8 @@ NAME="geoclue2"
 
 #REQ:json-glib
 #REQ:libsoup
-#REQ:avahi
 #REC:ModemManager
+#REC:avahi
 #OPT:libnotify
 
 

@@ -50,7 +50,16 @@ make "-j`nproc`" || make
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make install &&
+make install
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
+
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 ln -svf $LXQT_PREFIX/share/applications/lximage-qt.desktop \
         /usr/share/applications &&
 ln -svf $LXQT_PREFIX/share/applications/lximage-qt-screenshot.desktop \

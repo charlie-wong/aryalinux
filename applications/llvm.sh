@@ -12,7 +12,7 @@ SECTION="general"
 VERSION=3.9.0
 NAME="llvm"
 
-#REC:cmake
+#REQ:cmake
 #REC:libffi
 #REC:python2
 #OPT:doxygen

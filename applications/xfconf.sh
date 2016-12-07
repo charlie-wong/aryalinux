@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Xfconf is the configurationbr3ak storage system for Xfce.br3ak"
 SECTION="xfce"
-VERSION=4.12.0
+VERSION=4.12.1
 NAME="xfconf"
 
 #REQ:dbus-glib
@@ -21,11 +21,11 @@ NAME="xfconf"
 
 cd $SOURCE_DIR
 
-URL=http://archive.xfce.org/src/xfce/xfconf/4.12/xfconf-4.12.0.tar.bz2
+URL=http://archive.xfce.org/src/xfce/xfconf/4.12/xfconf-4.12.1.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/xfconf/xfconf-4.12.0.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/xfconf/xfconf-4.12.0.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/xfconf/xfconf-4.12.0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/xfconf/xfconf-4.12.0.tar.bz2 || wget -nc http://archive.xfce.org/src/xfce/xfconf/4.12/xfconf-4.12.0.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/xfconf/xfconf-4.12.0.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/xfconf/xfconf-4.12.0.tar.bz2
+wget -nc http://archive.xfce.org/src/xfce/xfconf/4.12/xfconf-4.12.1.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/xfconf/xfconf-4.12.1.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/xfconf/xfconf-4.12.1.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/xfconf/xfconf-4.12.1.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/xfconf/xfconf-4.12.1.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/xfconf/xfconf-4.12.1.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/xfconf/xfconf-4.12.1.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

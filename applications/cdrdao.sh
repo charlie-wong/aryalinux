@@ -39,7 +39,7 @@ fi
 
 whoami > /tmp/currentuser
 
-sed -i '/ioctl/a #include <sys/stat.h>' dao/ScsiIf-linux.cc    &&
+sed -i '/ioctl.h/a #include <sys/stat.h>' dao/ScsiIf-linux.cc  &&
 sed -i 's/\(char .*REMOTE\)/unsigned \1/' dao/CdrDriver.{cc,h} &&
 ./configure --prefix=/usr --mandir=/usr/share/man &&
 make "-j`nproc`" || make
