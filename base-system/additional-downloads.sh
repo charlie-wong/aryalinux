@@ -46,7 +46,7 @@ wget -nc http://aryalinux.org/releases/2016.08/0.21-nvme_ioctl.h.patch
 
 # wget -nc http://aryalinux.org/releases/$VERSION/alps-scripts-2016.11.tar.gz
 
-pushd ~/aryalinux/blfs
+pushd ~/aryalinux/applications
 git checkout $VERSION
 git pull
 tar -czf alps-scripts-$VERSION.tar.gz *.sh
