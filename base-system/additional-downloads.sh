@@ -3,7 +3,7 @@
 set -e
 set +h
 
-VERSION=2016.11
+VERSION=2016.12
 
 pushd ~/sources
 
@@ -52,7 +52,7 @@ git pull
 tar -czf alps-scripts-$VERSION.tar.gz *.sh
 popd
 
-mv -f ~/aryalinux/blfs/alps-scripts-$VERSION.tar.gz .
+mv -f ~/aryalinux/applications/alps-scripts-$VERSION.tar.gz .
 
 wget -nc https://sourceforge.net/projects/cdrtools/files/cdrtools-3.01.tar.bz2
 wget -nc https://launchpad.net/ubuntu/+archive/primary/+files/cdrkit_1.1.11.orig.tar.gz
