@@ -10,6 +10,11 @@ export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc \
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+SOURCE_ONLY=n
+NAME="chromium-bin"
+VERSION="SVN"
+DESCRIPTION="Chromium is an open source browser from which google chrome is forked"
+
 #REQ:cups
 #REQ:GConf
 
