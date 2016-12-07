@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="086-coreutils.sh"
-TARBALL="coreutils-8.25.tar.xz"
+TARBALL="coreutils-8.26.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,7 +29,7 @@ then
 	cd $DIRECTORY
 fi
 
-patch -Np1 -i ../coreutils-8.25-i18n-2.patch
+patch -Np1 -i ../coreutils-8.26-i18n-1.patch
 FORCE_UNSAFE_CONFIGURE=1 ./configure \
             --prefix=/usr            \
             --enable-no-install-program=kill,uptime

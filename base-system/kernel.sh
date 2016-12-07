@@ -3,7 +3,7 @@
 set -e
 set +h
 
-. /sources/build-properties
+. ./build-properties
 
 STEPNAME="kernel"
 LOGFILE="/sources/build-log"
@@ -152,7 +152,6 @@ turnOn CONFIG_USB_OHCI_HCD
 turnOn CONFIG_USB_OHCI_HCD_PCI
 turnOn CONFIG_USB_OHCI_HCD_PLATFORM
 turnOn CONFIG_USB_UHCI_HCD
-turnOn CONFIG_X25
 
 turnOn CONFIG_USB_STORAGE
 turnOff CONFIG_CHARGER_ISP1704

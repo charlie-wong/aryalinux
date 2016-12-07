@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="017-coreutils.sh"
-TARBALL="coreutils-8.25.tar.xz"
+TARBALL="coreutils-8.26.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 

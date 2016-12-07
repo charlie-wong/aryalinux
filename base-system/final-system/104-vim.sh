@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="104-vim.sh"
-TARBALL="vim-8.0.tar.bz2"
+TARBALL="vim-8.0.069.tar.bz2"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -37,7 +37,7 @@ ln -sv vim /usr/bin/vi
 for L in  /usr/share/man/{,*/}man1/vim.1; do
     ln -sv vim.1 $(dirname $L)/vi.1
 done
-ln -sv ../vim/vim80/doc /usr/share/doc/vim-8.0
+ln -sv ../vim/vim80/doc /usr/share/doc/vim-8.0.069
 cat > /etc/vimrc << "EOF"
 " Begin /etc/vimrc
 set nocompatible
