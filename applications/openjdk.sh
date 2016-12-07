@@ -12,8 +12,7 @@ SECTION="general"
 VERSION=15
 NAME="openjdk"
 
-#REQ:java
-#REQ:ojdk-conf
+#REQ:java8
 #REQ:alsa-lib
 #REQ:cpio
 #REQ:cups
@@ -35,7 +34,7 @@ URL=http://hg.openjdk.java.net/jdk8u/jdk8u/archive/jdk8u112-b15.tar.bz2
 if [ ! -z $URL ]
 then
 wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/jdk/jdk8u112-b15.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/jdk/jdk8u112-b15.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/jdk/jdk8u112-b15.tar.bz2 || wget -nc http://hg.openjdk.java.net/jdk8u/jdk8u/archive/jdk8u112-b15.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/jdk/jdk8u112-b15.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/jdk/jdk8u112-b15.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/jdk/jdk8u112-b15.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/openjdk/jtreg-4.2-b03-675.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/openjdk/jtreg-4.2-b03-675.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/openjdk/jtreg-4.2-b03-675.tar.gz || wget -nc http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-1.8.0.112/jtreg-4.2-b03-675.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/openjdk/jtreg-4.2-b03-675.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/openjdk/jtreg-4.2-b03-675.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/openjdk/jtreg-4.2-b03-675.tar.gz
+wget -nc https://sourceforge.net/projects/aryalinux-bin/files/releases/2016.11/jtreg-4.2-b03-675.tar.gz
 wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/icedtea/icedtea-web-1.6.2.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/icedtea/icedtea-web-1.6.2.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/icedtea/icedtea-web-1.6.2.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/icedtea/icedtea-web-1.6.2.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/icedtea/icedtea-web-1.6.2.tar.gz || wget -nc http://icedtea.classpath.org/download/source/icedtea-web-1.6.2.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/icedtea/icedtea-web-1.6.2.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
@@ -78,7 +77,7 @@ unset JAVA_HOME               &&
 sh ./configure                \
    --with-update-version=112   \
    --with-build-number=b15    \
-   --with-milestone=BLFS      \
+   --with-milestone=AryaLinux \
    --enable-unlimited-crypto  \
    --with-zlib=system         \
    --with-giflib=system       \
@@ -88,77 +87,12 @@ make DEBUG_BINARIES=true SCTP_WERROR= all  &&
 find build/*/images/j2sdk-image -iname \*.diz -delete
 
 
-if [ -n "$DISPLAY" ]; then
-  OLD_DISP=$DISPLAY
-fi
-export DISPLAY=:20
-nohup Xvfb $DISPLAY                              \
-           -fbdir $(pwd)                         \
-           -pixdepths 8 16 24 32 > Xvfb.out 2>&1 &
-echo $! > Xvfb.pid
-echo Waiting for Xvfb to initialize; sleep 1
-nohup twm -display $DISPLAY \
-          -f /dev/null > twm.out 2>&1            &
-echo $! > twm.pid
-echo Waiting for twm to initialize; sleep 1
-xhost +
-
-
-echo -e "
-jdk_all = :jdk_core           \\
-          :jdk_svc            \\
-          :jdk_beans          \\
-          :jdk_imageio        \\
-          :jdk_sound          \\
-          :jdk_sctp           \\
-          com/sun/awt         \\
-          javax/accessibility \\
-          javax/print         \\
-          sun/pisces          \\
-          com/sun/java/swing" >> jdk/test/TEST.groups &&
-sed -e 's/all:.*jck.*/all: jtreg/'      \
-    -e '/^JTREG /s@\$(JT_PLATFORM)/@@'  \
-    -i langtools/test/Makefile
-
-
-JT_JAVA=$(type -p javac | sed 's@/bin.*@@') &&
-JT_HOME=$(pwd)/jtreg                        &&
-PRODUCT_HOME=$(echo $(pwd)/build/*/images/j2sdk-image)
-
-
-LANG=C make -k -C test                      \
-            JT_HOME=${JT_HOME}              \
-            JT_JAVA=${JT_JAVA}              \
-            PRODUCT_HOME=${PRODUCT_HOME} all
-LANG=C ${JT_HOME}/bin/jtreg -a -v:fail,error \
-                -dir:$(pwd)/hotspot/test     \
-                -k:\!ignore                  \
-                -jdk:${PRODUCT_HOME}         \
-                :jdk
-
-
-kill -9 `cat twm.pid`  &&
-kill -9 `cat Xvfb.pid` &&
-rm -f Xvfb.out twm.out &&
-rm -f Xvfb.pid twm.pid &&
-if [ -n "$OLD_DISP" ]; then
-  DISPLAY=$OLD_DISP
-fi
-
-
-
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+if [ -d /opt/OpenJDK-1.8.0.112 ]; then rm -r /opt/OpenJDK-1.8.0.112; fi
+
 cp -RT build/*/images/j2sdk-image /opt/OpenJDK-1.8.0.112 &&
 chown -R root:root /opt/OpenJDK-1.8.0.112
 
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 ln -v -nsf OpenJDK-1.8.0.112 /opt/jdk
 
 ENDOFROOTSCRIPT
