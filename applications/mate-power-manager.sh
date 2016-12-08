@@ -9,13 +9,13 @@ set +h
 SOURCE_ONLY=n
 NAME="mate-power-manager"
 DESCRIPTION="Power management tool for the MATE desktop"
-VERSION="1.16.0"
+VERSION="1.17.0"
 
 #REQ:gnome-keyring
 
 cd $SOURCE_DIR
 
-URL="http://pub.mate-desktop.org/releases/1.16/mate-power-manager-1.16.0.tar.xz"
+URL="http://pub.mate-desktop.org/releases/1.17/mate-power-manager-1.17.0.tar.xz"
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`

@@ -9,14 +9,14 @@ set +h
 SOURCE_ONLY=n
 NAME="atril"
 DESCRIPTION="PDF file reader for the mate desktop environment"
-VERSION="1.16.1"
+VERSION="1.17.0"
 
 #REQ:poppler
 #REQ:qpdf
 
 cd $SOURCE_DIR
 
-URL="http://pub.mate-desktop.org/releases/1.16/atril-1.16.1.tar.xz"
+URL="http://pub.mate-desktop.org/releases/1.17/atril-1.17.0.tar.xz"
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`

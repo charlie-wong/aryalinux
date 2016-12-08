@@ -9,11 +9,11 @@ set +h
 SOURCE_ONLY=n
 NAME="caja-extensions"
 DESCRIPTION="Extensions for caja file browser"
-VERSION="1.16.1"
+VERSION="1.17.1"
 
 cd $SOURCE_DIR
 
-URL="http://pub.mate-desktop.org/releases/1.16/caja-extensions-1.16.0.tar.xz"
+URL="http://pub.mate-desktop.org/releases/1.17/caja-extensions-1.17.0.tar.xz"
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
