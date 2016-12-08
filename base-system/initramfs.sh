@@ -40,6 +40,7 @@ rm -rf dash-0.5.9.1
 
 tar xf dracut-master.tar.xz
 cd dracut-master
+sed -i "s/enable_documentation=yes/enable_documentation=no/g" configure
 ./configure
 make
 make install
