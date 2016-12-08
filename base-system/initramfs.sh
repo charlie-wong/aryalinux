@@ -38,14 +38,14 @@ make install
 cd /sources
 rm -rf dash-0.5.8
 
-tar xf dracut-044.tar.xz
-cd dracut-044
+tar xf dracut-master.tar.xz
+cd dracut-master
 ./configure
 make
 make install
 
 cd /sources
-rm -rf dracut-044
+rm -rf dracut-master
 
 echo "initramfs" | tee -a /sources/build-log
 

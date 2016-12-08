@@ -34,7 +34,11 @@ wget -nc http://www.openssl.org/source/openssl-1.0.1i.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/7.6-systemd/openssl-1.0.1i-fix_parallel_build-1.patch
 wget -nc http://www.kernel.org/pub/linux/utils/boot/syslinux/syslinux-4.06.tar.xz
 wget -nc http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.8.tar.gz
-wget -nc https://www.kernel.org/pub/linux/utils/boot/dracut/dracut-044.tar.xz
+wget -nc https://github.com/dracutdevs/dracut/archive/master.zip
+unzip master.zip
+tar -cJvf dracut-master.tar.xz dracut-master
+rm -r dracut-master
+rm -r master.zip
 wget -nc ftp://sources.redhat.com/pub/lvm2/releases/LVM2.2.02.155.tgz
 wget -nc http://aryalinux.org/releases/$VERSION/aufs-4.8.tar.gz
 wget -nc http://aryalinux.org/releases/$VERSION/aufs4-base.patch
