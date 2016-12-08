@@ -3,6 +3,7 @@
 set -e
 set +h
 
+cd /sources/
 . ./build-properties
 
 STEPNAME="kernel"
