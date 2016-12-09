@@ -38,7 +38,6 @@ sudo usermod -a -G video `cat /tmp/currentuser`
 #REQ:x7driver
 #REQ:xf86-video-cirrus
 #REQ:xf86-video-mach64
-#REQ:xf86-video-mga
 #REQ:xf86-video-openchrome
 #REQ:xf86-video-r128
 #REQ:xf86-video-savage
