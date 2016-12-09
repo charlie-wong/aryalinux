@@ -12,6 +12,7 @@ SECTION="postlfs"
 VERSION=0.23.2
 NAME="p11-kit"
 
+#REQ:nss
 #REC:cacerts
 #REC:libtasn1
 #REC:libffi
