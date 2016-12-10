@@ -43,7 +43,7 @@ sudo usermod -a -G video `cat /tmp/currentuser`
 #REQ:xf86-video-openchrome
 #OPT:xf86-video-r128
 #OPT:xf86-video-savage
-#REQ:xf86-video-tdfx
+#OPT:xf86-video-tdfx
 #REQ:xf86-video-vesa
 #REQ:libva
 #REQ:libva-intel-driver
