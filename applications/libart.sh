@@ -6,7 +6,9 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="libart_lgpl"
+SOURCE_ONLY=n
+NAME="libart"
+DESCRIPTION="Libart is a free software graphics library with a vector-based API."
 VERSION="2.3.21"
 
 cd $SOURCE_DIR
