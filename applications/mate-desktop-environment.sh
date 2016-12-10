@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=y
 NAME=mate-desktop-environment
 DESCRIPTION="The classic linux desktop environment forked from the gnome 2 desktop environment."
-VERSION=1.16
+VERSION=1.17
 
 #REQ:gobject-introspection
 #REQ:desktop-file-utils

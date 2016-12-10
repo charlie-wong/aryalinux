@@ -36,6 +36,8 @@ sudo usermod -a -G video `cat /tmp/currentuser`
 #REQ:xkeyboard-config
 #REQ:xorg-server
 #REQ:x7driver
+#OPT:xf86-video-mga
+#OPT:xf86-video-sis
 #REQ:xf86-video-cirrus
 #REQ:xf86-video-mach64
 #REQ:xf86-video-openchrome
