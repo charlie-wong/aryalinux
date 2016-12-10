@@ -98,7 +98,7 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-/sbin/usermod -a -G netdev <em class="replaceable"><code><username></em>
+/sbin/usermod -a -G netdev $(cat /tmp/currentuser)
 cat > /usr/share/polkit-1/rules.d/org.freedesktop.NetworkManager.rules << "EOF"
 polkit.addRule(function(action, subject) {
  if (action.id.indexOf("org.freedesktop.NetworkManager.") == 0 && subject.isInGroup("netdev")) {
