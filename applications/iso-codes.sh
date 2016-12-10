@@ -42,7 +42,7 @@ make "-j`nproc`" || make
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-find /usr/share/xml/iso-codes -type l -delete
+if [ -L /usr/share/xml/iso-codes ]; then find /usr/share/xml/iso-codes -type l -delete; fi
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
