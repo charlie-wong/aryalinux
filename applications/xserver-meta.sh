@@ -42,7 +42,7 @@ sudo usermod -a -G video `cat /tmp/currentuser`
 #REQ:xf86-video-mach64
 #REQ:xf86-video-openchrome
 #OPT:xf86-video-r128
-#REQ:xf86-video-savage
+#OPT:xf86-video-savage
 #REQ:xf86-video-tdfx
 #REQ:xf86-video-vesa
 #REQ:libva
