@@ -9,11 +9,11 @@ set +h
 SOURCE_ONLY=n
 NAME="mate-desktop"
 DESCRIPTION="Library with common API for various MATE modules"
-VERSION="1.17.1"
+VERSION="1.17.0"
 
 cd $SOURCE_DIR
 
-URL="http://pub.mate-desktop.org/releases/1.17/mate-desktop-1.17.1.tar.xz"
+URL="http://pub.mate-desktop.org/releases/1.17/mate-desktop-1.17.0.tar.xz"
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
