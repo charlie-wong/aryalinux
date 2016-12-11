@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 NAME="caja-extensions"
 DESCRIPTION="Extensions for caja file browser"
-VERSION="1.17.1"
+VERSION="1.17.0"
 
 cd $SOURCE_DIR
 
