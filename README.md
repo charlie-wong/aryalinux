@@ -51,21 +51,16 @@ HOW TO USE THE SCRIPTS
 Download the scripts into the /root directory inside a directory named scripts. So all scripts
 in the scripts directory should be present in /root/scripts. Then execute the following commands:
 
-cd scripts
-./download-sources.sh
-./additional-downloads.sh
-./1.sh
+cd scripts && ./download-sources.sh && ./additional-downloads.sh && ./build-arya
 
-As soon as 1.sh is executed you would be asked for several inputs in an interactive manner. Just
-enter the details asked for and wait for the scripts to finish one by one. When one script would
-end, it would print instructions to run the next script. Just follow the instructions as given.
-Once 4.sh finishes, your system would be ready. You can reboot to log into the new system.
+As soon as build-arya is executed you would be asked for several inputs in an interactive manner. Just
+enter the details asked for and wait for the script to finish running. Once done, you can reboot to
+log into the new system.
 
-Once this is done, to build the rest of the system you can follow our online documentation that
-is available in aryalinux.org/documentation/
+To build the rest of the system you can use alps. Alps downloads source tarballs and builds packages
+from scratch.
 
-* Boot into the system that you used to build Aryalinux. In case your grub menu does not show that
-option any more, just boot into AryaLinux and run this command:
+* Boot into the system that you used to build Aryalinux. In case your grub menu does not show that option any more, just boot into AryaLinux and run this command:
 
 grub-mkconfig -o /boot/grub/grub.cfg
 
