@@ -82,7 +82,7 @@ EOF
 
 mkdir -pv lib &&
 cd lib &&
-grep -v '^#' ../lib-7.7.md5 | awk '{print $2}' | wget -i- -c \
+grep -v '^#' ../lib-7.7.md5 | awk '{print $2}' | wget -i- -nc \
     -B http://ftp.x.org/pub/individual/lib/ &&
 md5sum -c ../lib-7.7.md5
 

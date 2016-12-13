@@ -75,7 +75,7 @@ EOF
 
 mkdir -pv proto &&
 cd proto &&
-grep -v '^#' ../proto-7.7.md5 | awk '{print $2}' | wget -i- -c \
+grep -v '^#' ../proto-7.7.md5 | awk '{print $2}' | wget -i- -nc \
     -B http://ftp.x.org/pub/individual/proto/ &&
 md5sum -c ../proto-7.7.md5
 

@@ -80,7 +80,7 @@ EOF
 
 mkdir -pv font &&
 cd font &&
-grep -v '^#' ../font-7.7.md5 | awk '{print $2}' | wget -i- -c \
+grep -v '^#' ../font-7.7.md5 | awk '{print $2}' | wget -i- -nc \
     -B http://ftp.x.org/pub/individual/font/ &&
 md5sum -c ../font-7.7.md5
 
