@@ -10,6 +10,7 @@ export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc \
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+SOURCE_ONLY=n
 DESCRIPTION="The Whisker Menu presents a Windows-Like start menu for XFCE panel"
 NAME="xfce4-whiskermenu-plugin"
 VERSION="1.6.2"

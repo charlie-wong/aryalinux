@@ -62,13 +62,13 @@ VERSION=4.12
 #REQ:murrine-gtk-engine
 #REQ:adwaita-icon-theme
 
-#OPT:wireless_tools
-#OPT:wpa_supplicant
-#OPT:networkmanager
-#OPT:ModemManager
-#OPT:network-manager-applet
-#OPT:net-tools
-#OPT:usb_modeswitch
+#REQ:wireless_tools
+#REQ:wpa_supplicant
+#REQ:networkmanager
+#REQ:ModemManager
+#REQ:network-manager-applet
+#REQ:net-tools
+#REQ:usb_modeswitch
 #REQ:compton
 
 cd $SOURCE_DIR
