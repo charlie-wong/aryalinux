@@ -20,7 +20,7 @@ sudo tar -xf $TARBALL -C /opt/
 sudo ln -s /opt/$DIRECTORY /opt/tomcat
 sudo tee /etc/profile.d/tomcat.sh<<"EOF"
 export CATALINA_HOME=/opt/tomcat
-pathappend $M2_HOME/bin
+pathappend $CATALINA_HOME/bin
 EOF
 
 cd $SOURCE_DIR
