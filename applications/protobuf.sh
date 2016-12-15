@@ -6,10 +6,12 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="protobuf_.orig"
-VERSION="2.6.1"
+SOURCE_ONLY=n
+NAME="protobuf"
+DESCRIPTION="Protocol Buffers (a.k.a., protobuf) are Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data."
+VERSION="3.0.0"
 
-URL=http://archive.ubuntu.com/ubuntu/pool/main/p/protobuf/protobuf_2.6.1.orig.tar.gz
+URL=https://github.com/google/protobuf/archive/v3.0.0.tar.gz
 
 cd $SOURCE_DIR
 

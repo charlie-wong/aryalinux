@@ -6,6 +6,10 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+SOURCE_ONLY=n
+NAME="clementine"
+DESCRIPTION="Clementine is a multiplatform music player. It is inspired by Amarok 1.4, focusing on a fast and easy-to-use interface for searching and playing your music."
+VERSION="1.3.1"
 
 #REQ:audio-video-plugins
 #REQ:protobuf

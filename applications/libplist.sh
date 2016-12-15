@@ -6,10 +6,12 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="libplist_.orig"
+SOURCE_ONLY=n
+NAME="libplist"
+DESCRIPTION="A small portable C library to handle Apple Property List files in binary or XML."
 VERSION="1.12"
 
-URL=http://archive.ubuntu.com/ubuntu/pool/main/libp/libplist/libplist_1.12.orig.tar.bz2
+URL=https://github.com/libimobiledevice/libplist/archive/1.12.tar.gz
 
 cd $SOURCE_DIR
 

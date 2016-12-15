@@ -6,12 +6,14 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="libmygpo-qt_1.0.9~git.orig"
-VERSION="20151122"
+SOURCE_ONLY=n
+NAME="libmygpo-qt1"
+DESCRIPTION="libmygpo-qt is a Qt Library that wraps the gpodder.net Web API"
+VERSION="1.0.9"
 
 #REQ:libqjson0
 
-URL=http://archive.ubuntu.com/ubuntu/pool/universe/libm/libmygpo-qt/libmygpo-qt_1.0.9~git20151122.orig.tar.gz
+URL=https://github.com/gpodder/libmygpo-qt/archive/1.0.9.tar.gz
 
 cd $SOURCE_DIR
 

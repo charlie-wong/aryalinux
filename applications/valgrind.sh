@@ -50,9 +50,6 @@ sed -i 's|/doc/valgrind||' docs/Makefile.in &&
 make "-j`nproc`" || make
 
 
-ln -sfv ld-2.24.so.dbg /lib/ld-linux-x86-64.so.2
-
-
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install

@@ -6,12 +6,14 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="libgpod_.orig"
+SOURCE_ONLY=n
+NAME="libgpod"
+DESCRIPTION="Library and GUI for Apple's iPod"
 VERSION="0.8.3"
 
 #REQ:libplist
 
-URL=http://archive.ubuntu.com/ubuntu/pool/main/libg/libgpod/libgpod_0.8.3.orig.tar.bz2
+URL=https://sourceforge.net/projects/gtkpod/files/libgpod/libgpod-0.8/libgpod-0.8.3.tar.bz2
 
 cd $SOURCE_DIR
 

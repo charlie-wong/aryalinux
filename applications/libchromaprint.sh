@@ -6,12 +6,14 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="chromaprint_.orig"
-VERSION="1.3"
+SOURCE_ONLY=n
+NAME="libchromaprint"
+DESCRIPTION="Chromaprint is the core component of the AcoustID project. It's a client-side library that implements a custom algorithm for extracting fingerprints from any audio source."
+VERSION="1.4"
 
 #REQ:ffmpeg
 
-URL=http://archive.ubuntu.com/ubuntu/pool/universe/c/chromaprint/chromaprint_1.3.orig.tar.gz
+URL=https://bitbucket.org/acoustid/chromaprint/downloads/chromaprint-1.4.tar.gz
 
 cd $SOURCE_DIR
 

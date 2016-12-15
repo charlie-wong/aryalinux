@@ -6,13 +6,15 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="libimobiledevice_+dfsg.orig"
+SOURCE_ONLY=n
+NAME="libimobiledevice"
+DESCRIPTION="A cross-platform software protocol library and tools to communicate with iOS® devices natively."
 VERSION="1.2.0"
 
 #REQ:libplist
 #REQ:libusbmuxd
 
-URL=http://archive.ubuntu.com/ubuntu/pool/main/libi/libimobiledevice/libimobiledevice_1.2.0+dfsg.orig.tar.bz2
+URL=http://www.libimobiledevice.org/downloads/libimobiledevice-1.2.0.tar.bz2
 
 cd $SOURCE_DIR
 
