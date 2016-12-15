@@ -11,7 +11,7 @@ NAME="protobuf"
 DESCRIPTION="Protocol Buffers (a.k.a., protobuf) are Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data."
 VERSION="3.1.0"
 
-URL=https://github.com/google/protobuf/archive/v3.1.0.tar.gz
+URL=https://sourceforge.net/projects/aryalinux-bin/files/releases/2016.12/protobuf-3.1.0.tar.xz
 
 cd $SOURCE_DIR
 
