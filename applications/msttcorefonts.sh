@@ -6,10 +6,13 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+SOURCE_ONLY=n
+NAME="msttcorefonts"
+DESCRIPTION="Microsoft core fonts"
+VERSION=""
 cd $SOURCE_DIR
 
-FONTS="wd97vwr32.exe webdin32.exe verdan32.exe trebuc32.exe times32.exe impact32.exe georgi32.exe courie32.exe comic32.exe arialb32.exe arial32.exe 
-andale32.exe"
+FONTS="wd97vwr32.exe webdin32.exe verdan32.exe trebuc32.exe times32.exe impact32.exe georgi32.exe courie32.exe comic32.exe arialb32.exe arial32.exe andale32.exe"
 
 mkdir msttcorefonts
 cd msttcorefonts
