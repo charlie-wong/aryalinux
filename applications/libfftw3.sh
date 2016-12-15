@@ -6,10 +6,12 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="fftw"
-VERSION="3.3.4"
+SOURCE_ONLY=n
+NAME="libfftw3"
+DESCRIPTION="FFTW is a C subroutine library for computing the discrete Fourier transform (DFT) in one or more dimensions, of arbitrary input size, and of both real and complex data (as well as of even/odd data, i.e. the discrete cosine/sine transforms or DCT/DST)"
+VERSION="3.3.5"
 
-URL=http://www.fftw.org/fftw-3.3.4.tar.gz
+URL=http://www.fftw.org/fftw-3.3.5.tar.gz
 
 cd $SOURCE_DIR
 

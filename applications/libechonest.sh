@@ -6,7 +6,9 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="libechonest_.orig"
+SOURCE_ONLY=n
+NAME="libechonest"
+DESCRIPTION="libechonest is a collection of C++/Qt classes designed to make a developer's life easy when trying to use the APIs provided by The Echo Nest."
 VERSION="2.3.1"
 
 URL=http://archive.ubuntu.com/ubuntu/pool/universe/libe/libechonest/libechonest_2.3.1.orig.tar.gz

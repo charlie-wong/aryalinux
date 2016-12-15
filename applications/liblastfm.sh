@@ -6,7 +6,9 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="liblastfm_.orig"
+SOURCE_ONLY=n
+NAME="liblastfm"
+DESCRIPTION="A Qt C++ library for the Last.fm webservices"
 VERSION="1.0.9"
 
 #REQ:libfftw3

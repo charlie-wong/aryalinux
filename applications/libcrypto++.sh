@@ -6,7 +6,9 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="libcrypto++_.orig"
+SOURCE_ONLY=n
+NAME="libcrypto++"
+DESCRIPTION="Crypto++ Library is a free C++ class library of cryptographic schemes."
 VERSION="5.6.3"
 
 URL=http://archive.ubuntu.com/ubuntu/pool/universe/libc/libcrypto++/libcrypto++_5.6.3.orig.tar.xz

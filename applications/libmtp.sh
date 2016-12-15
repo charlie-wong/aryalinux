@@ -6,10 +6,12 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="libmtp_.orig"
-VERSION="1.1.11"
+SOURCE_ONLY=n
+NAME="libmtp"
+DESCRIPTION="Library to access MTP players (Mp3 players, Android Phones)"
+VERSION="1.1.12"
 
-URL=http://archive.ubuntu.com/ubuntu/pool/main/libm/libmtp/libmtp_1.1.11.orig.tar.gz
+URL=https://sourceforge.net/projects/libmtp/files/libmtp/1.1.12/libmtp-1.1.12.tar.gz
 
 cd $SOURCE_DIR
 

@@ -6,10 +6,12 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="glew_.orig"
-VERSION="1.13.0"
+SOURCE_ONLY=n
+NAME="libglew"
+DESCRIPTION="The OpenGL Extension Wrangler Library (GLEW) is a cross-platform open-source C/C++ extension loading library. GLEW provides efficient run-time mechanisms for determining which OpenGL extensions are supported on the target platform."
+VERSION="2.0.0"
 
-URL=http://archive.ubuntu.com/ubuntu/pool/main/g/glew/glew_1.13.0.orig.tar.gz
+URL=https://sourceforge.net/projects/glew/files/glew/2.0.0/glew-2.0.0.tgz
 
 cd $SOURCE_DIR
 
