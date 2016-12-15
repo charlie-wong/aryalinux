@@ -6,10 +6,12 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="qjson_.orig"
+SOURCE_ONLY=n
+NAME="libqjson0"
+DESCRIPTION="QJson is a qt-based library that maps JSON data to QVariant objects. JSON arrays will be mapped to QVariantList instances, while JSON's objects will be mapped to QVariantMap."
 VERSION="0.8.1"
 
-URL=http://archive.ubuntu.com/ubuntu/pool/universe/q/qjson/qjson_0.8.1.orig.tar.bz2
+URL=https://github.com/flavio/qjson/archive/0.9.0.tar.gz
 
 cd $SOURCE_DIR
 
