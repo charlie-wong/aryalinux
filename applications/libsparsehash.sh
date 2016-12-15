@@ -7,7 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 SOURCE_ONLY=n
-NAME="sparsehash"
+NAME="libsparsehash"
 DESCRIPTION="C++ associative containers"
 VERSION="2.0.3"
 

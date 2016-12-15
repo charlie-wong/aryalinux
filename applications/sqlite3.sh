@@ -5,10 +5,10 @@ set -e
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="sqlite-autoconf"
+SOURCE_ONLY=n
+NAME="sqlite3"
 VERSION="3110000"
-NAME="sqlite-doc"
-VERSION="3110000"
+DESCRIPTION="SQLite is a relational database management system contained in a C programming library."
 
 #OPT:unzip
 
