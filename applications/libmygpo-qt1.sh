@@ -11,6 +11,7 @@ NAME="libmygpo-qt1"
 DESCRIPTION="libmygpo-qt is a Qt Library that wraps the gpodder.net Web API"
 VERSION="1.0.9"
 
+#REQ:qt5
 #REQ:libqjson0
 
 URL=https://github.com/gpodder/libmygpo-qt/archive/1.0.9.tar.gz
@@ -26,7 +27,7 @@ cd $DIRECTORY
 
 mkdir build &&
 cd build &&
-cmake -DCMAKE_INSTALL_PREFIX=/usr .. &&
+cmake -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_WITH_QT4=off .. &&
 make "-j`nproc`"
 sudo make install
 
