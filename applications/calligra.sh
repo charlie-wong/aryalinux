@@ -20,7 +20,7 @@ URL=https://github.com/KDE/calligra/archive/v3.0.0.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc $URL -O $NAME-$VERSION.tar.gz
+wget -c $URL -O $NAME-$VERSION.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

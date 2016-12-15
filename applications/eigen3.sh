@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 URL=http://bitbucket.org/eigen/eigen/get/3.3.1.tar.bz2
 TARBALL=$NAME-$VERSION.tar.bz2
 
-wget -nc $URL -O $TARBALL
+wget -c $URL -O $TARBALL
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -28,6 +28,6 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr ..
 sudo make install
 
 cd $SOURCE_DIR
-rm -r $DIRECTORY
+sudo rm -r $DIRECTORY
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
