@@ -24,7 +24,7 @@ cd $DIRECTORY
 
 mkdir build &&
 cd build &&
-cmake -DCMAKE_INSTALL_PREFIX=/usr .. &&
+cmake -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_WITH_QT4=off .. &&
 make "-j`nproc`"
 sudo make install
 
