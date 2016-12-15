@@ -16,13 +16,13 @@ NAME="calligra"
 
 cd $SOURCE_DIR
 
-URL=https://github.com/KDE/calligra/archive/v3.0.0.tar.gz
+URL=https://sourceforge.net/projects/aryalinux-bin/files/releases/2016.12/calligra-3.0.0.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -c $URL -O $NAME-$VERSION.tar.gz
+wget -nc $URL
 
-TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
+TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
 	DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$"`
 	tar --no-overwrite-dir -xf $TARBALL
