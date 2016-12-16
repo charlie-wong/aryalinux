@@ -20,16 +20,15 @@ NAME="oracle-java8"
 cd $SOURCE_DIR
 
 URL=http://download.oracle.com/otn-pub/java/jdk/8u112-b15/jdk-8u112-linux-x64.tar.gz
-wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" $URL
+wget -nc --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" $URL
 TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-tar xf $TARBALL -C /opt &&
-chown -R root:root /opt/$DIRECTORY
-ln -sfn /opt/$DIRECTORY /opt/jdk
+sudo tar xvf $TARBALL -C /opt &&
+sudo chown -R root:root /opt/$DIRECTORY
+sudo ln -svfn /opt/$DIRECTORY /opt/jdk
 
-cat > /etc/profile.d/jdk.sh << "EOF"
+sudo tee /etc/profile.d/jdk.sh << "EOF"
 # Begin /etc/profile.d/jdk.sh
 
 # Set JAVA_HOME directory
@@ -62,22 +61,6 @@ unset AUTO_CLASSPATH_DIR dir jar
 
 # End /etc/profile.d/jdk.sh
 EOF
-
-cat >> /etc/man_db.conf << "EOF" &&
-# Begin Java addition
-MANDATORY_MANPATH     /opt/jdk/man
-MANPATH_MAP           /opt/jdk/bin     /opt/jdk/man
-MANDB_MAP             /opt/jdk/man     /var/cache/man/jdk
-# End Java addition
-EOF
-
-mkdir -p /var/cache/man
-mandb -c /opt/jdk/man
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
