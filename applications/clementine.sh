@@ -27,7 +27,7 @@ VERSION="1.3.1"
 
 cd $SOURCE_DIR
 
-URL="https://github.com/clementine-player/Clementine/archive/1.3.1.tar.gz"
+URL="https://sourceforge.net/projects/aryalinux-bin/files/releases/2016.12/Clementine-qt5.tar.xz"
 
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`

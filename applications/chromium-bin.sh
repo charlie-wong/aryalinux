@@ -15,6 +15,7 @@ NAME="chromium-bin"
 VERSION="SVN"
 DESCRIPTION="Chromium is an open source browser from which google chrome is forked"
 
+#REQ:git
 #REQ:cups
 #REQ:GConf
 
