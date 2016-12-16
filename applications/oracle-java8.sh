@@ -15,7 +15,6 @@ NAME="oracle-java8"
 #REQ:alsa-lib
 #REQ:cups
 #REQ:giflib
-#REQ:x7lib
 
 
 cd $SOURCE_DIR
