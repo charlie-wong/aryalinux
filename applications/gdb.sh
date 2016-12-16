@@ -44,16 +44,6 @@ whoami > /tmp/currentuser
 make "-j`nproc`" || make
 
 
-make -C gdb/doc doxy
-
-
-pushd gdb/testsuite &&
-make  site.exp      &&
-echo  "set gdb_test_timeout 120" >> site.exp &&
-runtest TRANSCRIPT=y
-popd
-
-
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make -C gdb install
