@@ -6,6 +6,11 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+SOURCE_ONLY=n
+NAME="audio-video-plugins"
+VERSION="N.A."
+DESCRIPTION="Meta package to install audio-video codecs for multimedia applications."
+
 #REQ:fltk
 #REQ:alsa-plugins
 #REQ:alsa-utils
