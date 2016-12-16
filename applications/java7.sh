@@ -28,8 +28,8 @@ tar xf OpenJDK-1.7.0.9-x86_64-bin.tar.xz -C /opt &&
 chown -R root:root /opt/OpenJDK-1.7.0.5-x86_64-bin
 ln -sfn /opt/OpenJDK-1.7.0.5-x86_64-bin /opt/jdk
 
-cat > /etc/profile.d/openjdk.sh << "EOF"
-# Begin /etc/profile.d/openjdk.sh
+cat > /etc/profile.d/jdk.sh << "EOF"
+# Begin /etc/profile.d/jdk.sh
 
 # Set JAVA_HOME directory
 JAVA_HOME=/opt/jdk
@@ -59,7 +59,7 @@ done
 export JAVA_HOME
 unset AUTO_CLASSPATH_DIR dir jar
 
-# End /etc/profile.d/openjdk.sh
+# End /etc/profile.d/jdk.sh
 EOF
 
 cat >> /etc/man_db.conf << "EOF" &&
