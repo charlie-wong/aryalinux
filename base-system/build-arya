@@ -125,10 +125,6 @@ def inputBuildProperties():
 		print '    3) Compile using "make menuconfig" (You would be presented with the kernel configuration menu and would have do to it yourself somewhere in the middle of build process and build would not proceed unless you provide the config options and ask the build to proceed)'
 		print '    4) Compile using "make localmodconfig" (This gives you a smaller kernel than generic and better hardware support than defconfig)'
 		readInput('Enter you choice (1 - 4) If in doubt choose 1 : ', 'KERNEL_CONFIG_OPT', propsFile, '1')
-		# Application prompts
-		readInput('Do you want me to install applications like media players and browsers for you? (y/N) : ', 'INSTALL_APPS', propsFile, 'n')
-		if getParamValue('INSTALL_APPS') == 'y' or getParamValue('INSTALL_APPS') == 'Y':
-			readInput('Do you want me to install printer support through the cups package? (y/N) : ', 'INSTALL_CUPS', propsFile, 'n')
 	passwords['root'] = getpassword('Enter the root password : ', 'Re-enter the root password : ')
 	passwords['user'] = getpassword('Enter the user password : ', 'Re-enter the user password : ')
 
@@ -275,6 +271,8 @@ def freshBuild(startFrom):
 					desktopEnv = 'gnome'
 					print 'Installing ' + desktopEnv
 					runScriptWithArgs('/sources/enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'gnome-desktop-environment']);
+				if os.path.exists('/sources/distro-build.sh'):
+					runScriptWithArgs('/sources/enteral.sh', '/sources', ['/sources/apps/executioner.sh', getParamValue('USERNAME'), '/sources/distro-build.sh']);
 				startFrom = startFrom + 1
 				if getParamValue('CREATE_BACKUPS') == 'y' or getParamValue('CREATE_BACKUPS') == 'Y':
 					try:
