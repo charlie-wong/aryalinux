@@ -151,4 +151,8 @@ StartupWMClass=chromium-browser
 
 EOF
 
+cd $SOURCE_DIR
+
+sudo rm -rf chromium-latest-linux
+
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
