@@ -12,9 +12,8 @@ SECTION="general"
 VERSION=1.9.7
 NAME="apache-ant"
 
-#REQ:java#java-bin
-#REQ:openjdk
 #REQ:glib2
+#REQ:java8
 
 
 cd $SOURCE_DIR
