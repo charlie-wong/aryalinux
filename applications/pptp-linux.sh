@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="pptp-linux_.orig"
+NAME="pptp-linux"
 VERSION="1.8.0"
 
 #REQ:ppp

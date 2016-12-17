@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="network-manager-vpnc_.orig"
+NAME="network-manager-vpnc"
 VERSION="0.9.10.0"
 
 #REQ:vpnc

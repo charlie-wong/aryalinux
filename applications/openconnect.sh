@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="openconnect_.orig"
+NAME="openconnect"
 VERSION="7.06"
 
 

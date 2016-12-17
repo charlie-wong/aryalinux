@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="openvpn_.orig"
+NAME="openvpn"
 VERSION="2.3.7"
 
 #REQ:liblzo2

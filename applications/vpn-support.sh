@@ -5,6 +5,10 @@ set -e
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+NAME="vpn-support"
+VERSION="N.A."
+META=y
+
 #REQ:vpnc
 #REQ:network-manager-vpnc
 #REQ:pptp-linux

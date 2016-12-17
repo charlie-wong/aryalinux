@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="NetworkManager-openvpn"
+NAME="network-manager-openvpn"
 VERSION="1.0.8"
 
 #REQ:openvpn
