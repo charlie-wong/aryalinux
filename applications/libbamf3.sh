@@ -23,7 +23,7 @@ tar -xf $TARBALL
 
 cd $DIRECTORY
 
-./configure --prefix=/usr &&
+CFLAGS="-Wno-error=deprecated-declarations" ./configure --prefix=/usr &&
 make
 sudo make install
 
