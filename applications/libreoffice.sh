@@ -74,7 +74,6 @@ wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffi
 wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.2.3.3.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.2.3.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.2.3.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.2.3.3.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.2.3.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.2.3.3.tar.xz || wget -nc http://download.documentfoundation.org/libreoffice/src/5.2.3/libreoffice-dictionaries-5.2.3.3.tar.xz
 wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-translations-5.2.3.3.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-translations-5.2.3.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-translations-5.2.3.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-translations-5.2.3.3.tar.xz || wget -nc http://download.documentfoundation.org/libreoffice/src/5.2.3/libreoffice-translations-5.2.3.3.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-translations-5.2.3.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-translations-5.2.3.3.tar.xz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/libreoffice-5.2.3.3-icu_58-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/libreoffice/libreoffice-5.2.3.3-icu_58-1.patch
-wget -nc https://raw.githubusercontent.com/FluidIdeas/patches/2016.11/libreoffice-icu.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -88,8 +87,6 @@ cd $DIRECTORY
 fi
 
 whoami > /tmp/currentuser
-
-patch -Np1 -i ../libreoffice-icu.patch
 
 if [ -z "$LANGUAGE" ]; then export LANGUAGE=en-US; fi
 
