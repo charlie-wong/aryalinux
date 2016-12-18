@@ -17,7 +17,6 @@ NAME="libreoffice"
 #REQ:wget
 #REQ:general_which
 #REQ:zip
-#REC:apache-ant
 #REC:apr
 #REC:boost
 #REC:clucene
@@ -44,7 +43,6 @@ NAME="libreoffice"
 #REC:openssl
 #REC:gnutls
 #REC:poppler
-#REC:postgresql
 #REC:python3
 #REC:redland
 #REC:serf
@@ -147,7 +145,7 @@ sed -e "/distro-install-file-lists/d" -i Makefile.in &&
              --with-system-openldap      \
              --with-system-openssl       \
              --with-system-poppler       \
-             --with-system-postgresql    \
+             --disable-postgresql-sdbc --without-java    \
              --with-system-redland       \
              --with-system-serf          \
              --with-system-zlib
