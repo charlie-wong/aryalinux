@@ -34,7 +34,10 @@ mkdir build
 cd build
 cmake -DCMAKE_INSTALL_PREFIX=/usr ..
 make
-sudo make install
+sudo cp -v bin/* /usr/bin/
+sudo cp -v lib/* /usr/lib/
+
+sudo ldconfig
 
 cd $SOURCE_DIR
 rm -rf $DIRECTORY
