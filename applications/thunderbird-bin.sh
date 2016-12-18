@@ -46,6 +46,8 @@ VERSION="latest"
 
 cd $SOURCE_DIR
 
+if [ "x$INSTALL_LANGUAGE" == "x" ]; then
+
 echo "These are the languages in which thunderbird is available:"
 echo ""
 wget -O /tmp/langfile https://ftp.mozilla.org/pub/thunderbird/releases/latest/README.txt &> /dev/null
@@ -53,6 +55,10 @@ cat /tmp/langfile | grep "lang=" | grep -v "wget" | grep -v "http" | grep -v "Fo
 echo ""
 read -p "Enter the language for Thunderbird " LANG
 rm /tmp/langfile
+
+else
+	LANG="$INSTALL_LANGUAGE"
+fi
 
 if [ $(uname -m) == "x86_64" ]
 then
