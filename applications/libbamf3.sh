@@ -6,13 +6,15 @@ set +h
 . /var/lib/alps/functions
 
 NAME="libbamf3"
-VERSION="0.5.1"
+DESCRIPTION="bamf Removes the headache of applications matching into a simple DBus daemon and c wrapper library."
+VERSION="0.5.3"
+
 #REQ:libwnck
 #REQ:libgtop
 
 cd $SOURCE_DIR
 
-URL=https://launchpad.net/bamf/0.5/0.5.1/+download/bamf-0.5.1.tar.gz
+URL=https://launchpad.net/bamf/0.5/0.5.3/+download/bamf-0.5.3.tar.gz
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | sed -e 's@/.*@@' | uniq `
