@@ -13,7 +13,6 @@ VERSION=327
 NAME="xterm"
 
 #REQ:x7app
-#REQ:xorg-config#xft-font-protocol
 #OPT:valgrind
 
 
