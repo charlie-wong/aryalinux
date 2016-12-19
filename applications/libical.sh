@@ -42,9 +42,10 @@ whoami > /tmp/currentuser
 
 mkdir build &&
 cd build &&
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
-      -DCMAKE_BUILD_TYPE=Release  \
-      -DSHARED_ONLY=yes           \
+cmake -DCMAKE_INSTALL_PREFIX=/usr      \
+      -DCMAKE_INSTALL_LIBDIR=/usr/lib  \
+      -DCMAKE_BUILD_TYPE=Release       \
+      -DSHARED_ONLY=yes                \
       .. &&
 make "-j`nproc`" || make
 

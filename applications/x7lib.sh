@@ -43,7 +43,7 @@ whoami > /tmp/currentuser
 export XORG_PREFIX=/usr
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
-cat > lib-7.7.md5 << "EOF"
+cat > lib-7.md5 << "EOF"
 c5ba432dd1514d858053ffe9f4737dd8 xtrans-1.3.5.tar.bz2
 6d54227082f3aa2c596f0b3a3fbb9175 libX11-1.6.4.tar.bz2
 52df7c4c1f0badd9f82ab124fb32eb97 libXext-1.3.3.tar.bz2
@@ -61,7 +61,6 @@ f7a218dcbf6f0848599c6c36fc65c51a libXcomposite-0.4.4.tar.bz2
 1e7c17afbbce83e2215917047c57d1b3 libXcursor-1.1.14.tar.bz2
 0cf292de2a9fa2e9a939aefde68fd34f libXdamage-1.1.4.tar.bz2
 0920924c3a9ebc1265517bdd2f9fde50 libfontenc-1.1.3.tar.bz2
-254ee42bd178d18ebc7a73aacfde7f79 libXfont-1.5.2.tar.bz2
 0d9f6dd9c23bf4bcbfb00504b566baf5 libXfont2-2.0.1.tar.bz2
 331b3a2a3a1a78b5b44cfbd43f86fcfe libXft-2.3.2.tar.bz2
 94afc83e553d3c38a153f8f60301fd62 libXi-1.7.8.tar.bz2
@@ -82,9 +81,9 @@ EOF
 
 mkdir -pv lib &&
 cd lib &&
-grep -v '^#' ../lib-7.7.md5 | awk '{print $2}' | wget -i- -nc \
+grep -v '^#' ../lib-7.md5 | awk '{print $2}' | wget -i- -nc \
     -B http://ftp.x.org/pub/individual/lib/ &&
-md5sum -c ../lib-7.7.md5
+md5sum -c ../lib-7.md5
 
 
 as_root()
@@ -100,17 +99,13 @@ export -f as_root
 
 
 
-for package in $(grep -v '^#' ../lib-7.7.md5 | awk '{print $2}')
+for package in $(grep -v '^#' ../lib-7.md5 | awk '{print $2}')
 do
   packagedir=${package%.tar.bz2}
   tar -xf $package
   pushd $packagedir
   case $packagedir in
-    libX11-[0-9]* )
-      sed -i "/seems to be moved/s/^/#/" ltmain.sh
-      ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static
-    ;;
-    libXfont-[0-9]* )
+    libXfont2-[0-9]* )
       ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static --disable-devel-docs
     ;;
     libXt-[0-9]* )

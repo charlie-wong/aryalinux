@@ -19,9 +19,9 @@ set -e
 
 cd $SOURCE_DIR
 
-URL=http://www.freedesktop.org/software/libevdev/libevdev-1.5.4.tar.xz
+URL=http://www.freedesktop.org/software/libevdev/libevdev-1.5.5.tar.xz
 
-wget -nc http://www.freedesktop.org/software/libevdev/libevdev-1.5.4.tar.xz
+wget -nc http://www.freedesktop.org/software/libevdev/libevdev-1.5.5.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
@@ -65,9 +65,9 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=http://www.freedesktop.org/software/libinput/libinput-1.5.2.tar.xz
+URL=http://www.freedesktop.org/software/libinput/libinput-1.5.3.tar.xz
 
-wget -nc http://www.freedesktop.org/software/libinput/libinput-1.5.2.tar.xz
+wget -nc http://www.freedesktop.org/software/libinput/libinput-1.5.3.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
@@ -91,8 +91,8 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -v -dm755 $XORG_PREFIX/share/doc/libinput-1.5.2 &&
-cp -rv doc/html/* $XORG_PREFIX/share/doc/libinput-1.5.2
+install -v -dm755 $XORG_PREFIX/share/doc/libinput-1.5.3 &&
+cp -rv doc/html/* $XORG_PREFIX/share/doc/libinput-1.5.3
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
@@ -232,9 +232,9 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=http://downloads.sourceforge.net/linuxwacom/xf86-input-wacom-0.33.0.tar.bz2
+URL=http://downloads.sourceforge.net/linuxwacom/xf86-input-wacom-0.34.0.tar.bz2
 
-wget -nc http://downloads.sourceforge.net/linuxwacom/xf86-input-wacom-0.33.0.tar.bz2
+wget -nc http://downloads.sourceforge.net/linuxwacom/xf86-input-wacom-0.34.0.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
@@ -242,7 +242,9 @@ DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
 tar xf $TARBALL
 cd $DIRECTORY
 
-./configure $XORG_CONFIG --with-systemd-unit-dir=no &&
+./configure $XORG_CONFIG \
+            --with-udev-rules-dir=/lib/udev/rules.d \
+            --with-systemd-unit-dir=/lib/systemd/system &&
 make
 
 
@@ -593,7 +595,6 @@ DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
 tar xf $TARBALL
 cd $DIRECTORY
 
-sed -i "/seems to be moved/s/^/#/" ltmain.sh &&
 ./configure $XORG_CONFIG &&
 make
 

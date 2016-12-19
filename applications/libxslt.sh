@@ -40,7 +40,6 @@ fi
 
 whoami > /tmp/currentuser
 
-sed -i "/seems to be moved/s/^/#/" ltmain.sh &&
 ./configure --prefix=/usr --disable-static &&
 make "-j`nproc`" || make
 

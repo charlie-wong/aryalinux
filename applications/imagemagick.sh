@@ -65,7 +65,6 @@ fi
 
 whoami > /tmp/currentuser
 
-sed -i '/seems to be moved/ s/^/true #/' config/ltmain.sh &&
 ./configure --prefix=/usr     \
             --sysconfdir=/etc \
             --enable-hdri     \

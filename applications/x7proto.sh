@@ -43,7 +43,7 @@ whoami > /tmp/currentuser
 export XORG_PREFIX=/usr
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
-cat > proto-7.7.md5 << "EOF"
+cat > proto-7.md5 << "EOF"
 1a05fb01fa1d5198894c931cf925c025 bigreqsproto-1.1.2.tar.bz2
 98482f65ba1e74a08bf5b056a4031ef0 compositeproto-0.4.2.tar.bz2
 998e5904764b82642cc63d97b4ba9e95 damageproto-1.2.1.tar.bz2
@@ -75,9 +75,9 @@ EOF
 
 mkdir -pv proto &&
 cd proto &&
-grep -v '^#' ../proto-7.7.md5 | awk '{print $2}' | wget -i- -nc \
+grep -v '^#' ../proto-7.md5 | awk '{print $2}' | wget -i- -nc \
     -B http://ftp.x.org/pub/individual/proto/ &&
-md5sum -c ../proto-7.7.md5
+md5sum -c ../proto-7.md5
 
 
 as_root()
@@ -93,7 +93,7 @@ export -f as_root
 
 
 
-for package in $(grep -v '^#' ../proto-7.7.md5 | awk '{print $2}')
+for package in $(grep -v '^#' ../proto-7.md5 | awk '{print $2}')
 do
   packagedir=${package%.tar.bz2}
   tar -xf $package

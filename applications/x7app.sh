@@ -41,8 +41,7 @@ whoami > /tmp/currentuser
 export XORG_PREFIX=/usr
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
-cat > app-7.7.md5 << "EOF"
-53a48e1fdfec29ab2e89f86d4b7ca902 bdftopcf-1.0.5.tar.bz2
+cat > app-7.md5 << "EOF"
 25dab02f8e40d5b71ce29a07dc901b8c iceauth-1.0.7.tar.bz2
 c4a3664e08e5a47c120ff9263ee2f20c luit-1.1.1.tar.bz2
 18c429148c96c2079edda922a2b67632 mkfontdir-1.0.7.tar.bz2
@@ -85,9 +84,9 @@ EOF
 
 mkdir -pv app &&
 cd app &&
-grep -v '^#' ../app-7.7.md5 | awk '{print $2}' | wget -i- -c \
+grep -v '^#' ../app-7.md5 | awk '{print $2}' | wget -i- -c \
     -B http://ftp.x.org/pub/individual/app/ &&
-md5sum -c ../app-7.7.md5
+md5sum -c ../app-7.md5
 
 
 as_root()
@@ -103,7 +102,7 @@ export -f as_root
 
 
 
-for package in $(grep -v '^#' ../app-7.7.md5 | awk '{print $2}')
+for package in $(grep -v '^#' ../app-7.md5 | awk '{print $2}')
 do
   packagedir=${package%.tar.bz2}
   tar -xf $package

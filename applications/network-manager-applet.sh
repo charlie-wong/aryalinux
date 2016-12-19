@@ -20,6 +20,7 @@ NAME="network-manager-applet"
 #REQ:polkit-gnome
 #REQ:ModemManager
 #REC:gobject-introspection
+#REC:ModemManager
 #OPT:gnome-bluetooth
 
 

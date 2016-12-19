@@ -67,6 +67,7 @@ export PKG_CONFIG_PATH="/usr/lib/pkgconfig:/opt/qt4/lib/pkgconfig"
 mkdir build &&
 cd    build &&
 cmake -DCMAKE_INSTALL_PREFIX=/opt/qt5            \
+      -DCMAKE_INSTALL_LIBDIR=lib                \
       -DCMAKE_BUILD_TYPE=Release                \
       -DQCA_MAN_INSTALL_DIR:PATH=/usr/share/man \
       ..                                        &&

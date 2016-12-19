@@ -9,20 +9,19 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="%DESCRIPTION%"
 SECTION="general"
-VERSION=1.8.1
-NAME="python-modules#Beaker"
+VERSION=1.0.2
+NAME="python-modules#funcsigs"
 
 #REQ:python-modules#setuptools
-#OPT:python-modules#funcsigs
 
 
 cd $SOURCE_DIR
 
-URL=https://pypi.python.org/packages/fe/41/b778351220614d743ffbfac01939db1c172181907e9b42b7c07bfb2002da/Beaker-1.8.1.tar.gz
+URL=https://pypi.python.org/packages/94/4a/db842e7a0545de1cdb0439bb80e6e42dfe82aaeaadd4072f2263a4fbed23/funcsigs-1.0.2.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://pypi.python.org/packages/fe/41/b778351220614d743ffbfac01939db1c172181907e9b42b7c07bfb2002da/Beaker-1.8.1.tar.gz
+wget -nc https://pypi.python.org/packages/94/4a/db842e7a0545de1cdb0439bb80e6e42dfe82aaeaadd4072f2263a4fbed23/funcsigs-1.0.2.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -38,15 +37,6 @@ fi
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 python setup.py install --optimize=1
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-python3 setup.py install --optimize=1
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh

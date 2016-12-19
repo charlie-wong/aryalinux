@@ -45,7 +45,6 @@ whoami > /tmp/currentuser
 
 sed -e 's#l \(gtk-.*\).sgml#& -o \1#' \
     -i docs/{faq,tutorial}/Makefile.in      &&
-sed -i "/seems to be moved/s/^/#/" ltmain.sh &&
 ./configure --prefix=/usr --sysconfdir=/etc &&
 make "-j`nproc`" || make
 

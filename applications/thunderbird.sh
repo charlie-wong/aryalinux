@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Thunderbird is a stand-alonebr3ak mail/news client based on the Mozilla codebase. It uses the Gecko renderingbr3ak engine to enable it to display and compose HTML emails.br3ak"
 SECTION="xsoft"
-VERSION=45.5.0
+VERSION=45.5.1
 NAME="thunderbird"
 
 #REQ:alsa-lib
@@ -40,11 +40,11 @@ NAME="thunderbird"
 
 cd $SOURCE_DIR
 
-URL=https://ftp.mozilla.org/pub/mozilla.org/thunderbird/releases/45.5.0/source/thunderbird-45.5.0.source.tar.xz
+URL=https://ftp.mozilla.org/pub/mozilla.org/thunderbird/releases/45.5.1/source/thunderbird-45.5.1.source.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/thunderbird/thunderbird-45.5.0.source.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/thunderbird/thunderbird-45.5.0.source.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/thunderbird/thunderbird-45.5.0.source.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/thunderbird/thunderbird-45.5.0.source.tar.xz || wget -nc https://ftp.mozilla.org/pub/mozilla.org/thunderbird/releases/45.5.0/source/thunderbird-45.5.0.source.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/thunderbird/thunderbird-45.5.0.source.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/thunderbird/thunderbird-45.5.0.source.tar.xz
+wget -nc https://ftp.mozilla.org/pub/mozilla.org/thunderbird/releases/45.5.1/source/thunderbird-45.5.1.source.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/thunderbird/thunderbird-45.5.1.source.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/thunderbird/thunderbird-45.5.1.source.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/thunderbird/thunderbird-45.5.1.source.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/thunderbird/thunderbird-45.5.1.source.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/thunderbird/thunderbird-45.5.1.source.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/thunderbird/thunderbird-45.5.1.source.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -137,7 +137,7 @@ make -f client.mk
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make -f client.mk install INSTALL_SDK= &&
-chown -R 0:0 /usr/lib/thunderbird-45.5.0
+chown -R 0:0 /usr/lib/thunderbird-45.5.1
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
@@ -162,7 +162,7 @@ Categories=Application;Network;Email;
 MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/xml;application/rss+xml;x-scheme-handler/mailto;
 StartupNotify=true
 EOF
-ln -sfv /usr/lib/thunderbird-45.5.0/chrome/icons/default/default256.png \
+ln -sfv /usr/lib/thunderbird-45.5.1/chrome/icons/default/default256.png \
         /usr/share/pixmaps/thunderbird.png
 
 ENDOFROOTSCRIPT

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Chromium is an open-source browserbr3ak project that aims to build a safer, faster, and more stable way forbr3ak all users to experience the web.br3ak"
 SECTION="xsoft"
-VERSION=54.0.2840.100
+VERSION=55.0.2883.75
 NAME="chromium"
 
 #REQ:alsa-lib
@@ -48,11 +48,11 @@ NAME="chromium"
 
 cd $SOURCE_DIR
 
-URL=https://commondatastorage.googleapis.com/chromium-browser-official/chromium-54.0.2840.100.tar.xz
+URL=https://commondatastorage.googleapis.com/chromium-browser-official/chromium-55.0.2883.75.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/chromium/chromium-54.0.2840.100.tar.xz || wget -nc https://commondatastorage.googleapis.com/chromium-browser-official/chromium-54.0.2840.100.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/chromium/chromium-54.0.2840.100.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/chromium/chromium-54.0.2840.100.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/chromium/chromium-54.0.2840.100.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/chromium/chromium-54.0.2840.100.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/chromium/chromium-54.0.2840.100.tar.xz
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/chromium/chromium-55.0.2883.75.tar.xz || wget -nc https://commondatastorage.googleapis.com/chromium-browser-official/chromium-55.0.2883.75.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/chromium/chromium-55.0.2883.75.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/chromium/chromium-55.0.2883.75.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/chromium/chromium-55.0.2883.75.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/chromium/chromium-55.0.2883.75.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/chromium/chromium-55.0.2883.75.tar.xz
 wget -nc https://github.com/foutrelis/chromium-launcher/archive/v3.tar.gz
 wget -nc https://fpdownload.adobe.com/pub/flashplayer/pdc/23.0.0.207/flash_player_ppapi_linux.x86_64.tar.gz
 wget -nc https://fpdownload.adobe.com/pub/flashplayer/pdc/23.0.0.207/flash_player_ppapi_linux.i386.tar.gz

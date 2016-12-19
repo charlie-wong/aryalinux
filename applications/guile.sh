@@ -40,7 +40,6 @@ fi
 
 whoami > /tmp/currentuser
 
-sed -i "/seems to be moved/s/^/:#/" build-aux/ltmain.sh &&
 ./configure --prefix=/usr    \
             --disable-static \
             --docdir=/usr/share/doc/guile-2.0.13 &&

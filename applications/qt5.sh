@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Qt5 is a cross-platformbr3ak application framework that is widely used for developingbr3ak application software with a graphical user interface (GUI) (inbr3ak which cases Qt5 is classified as abr3ak widget toolkit), and also used for developing non-GUI programs suchbr3ak as command-line tools and consoles for servers. One of the majorbr3ak users of Qt is KDE Frameworks 5 (KF5).br3ak"
 SECTION="x"
-VERSION=5.7.0
+VERSION=5.7.1
 NAME="qt5"
 
 #REQ:python2
@@ -50,12 +50,11 @@ NAME="qt5"
 
 cd $SOURCE_DIR
 
-URL=http://download.qt.io/archive/qt/5.7/5.7.0/single/qt-everywhere-opensource-src-5.7.0.tar.xz
+URL=http://download.qt.io/archive/qt/5.7/5.7.1/single/qt-everywhere-opensource-src-5.7.1.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/qt5/qt-everywhere-opensource-src-5.7.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/qt5/qt-everywhere-opensource-src-5.7.0.tar.xz || wget -nc http://download.qt.io/archive/qt/5.7/5.7.0/single/qt-everywhere-opensource-src-5.7.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/qt5/qt-everywhere-opensource-src-5.7.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/qt5/qt-everywhere-opensource-src-5.7.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/qt5/qt-everywhere-opensource-src-5.7.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/qt5/qt-everywhere-opensource-src-5.7.0.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/qt-5.7.0-qtwebengine_glibc224-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/qt/qt-5.7.0-qtwebengine_glibc224-1.patch
+wget -nc http://download.qt.io/archive/qt/5.7/5.7.1/single/qt-everywhere-opensource-src-5.7.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/qt5/qt-everywhere-opensource-src-5.7.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/qt5/qt-everywhere-opensource-src-5.7.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/qt5/qt-everywhere-opensource-src-5.7.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/qt5/qt-everywhere-opensource-src-5.7.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/qt5/qt-everywhere-opensource-src-5.7.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/qt5/qt-everywhere-opensource-src-5.7.1.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -75,8 +74,8 @@ export QT5PREFIX=/opt/qt5
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-mkdir /opt/qt-5.7.0
-ln -sfnv qt-5.7.0 /opt/qt5
+mkdir /opt/qt-5.7.1
+ln -sfnv qt-5.7.1 /opt/qt5
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
@@ -84,10 +83,6 @@ sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
-patch -Np1 -i ../qt-5.7.0-qtwebengine_glibc224-1.patch
-
-
-export CXXFLAGS=-fno-delete-null-pointer-checks &&
 ./configure -prefix         /opt/qt5 \
             -sysconfdir     /etc/xdg   \
             -confirm-license           \

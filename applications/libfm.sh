@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The libfm package contains abr3ak library used to develop file managers providing some filebr3ak management utilities.br3ak"
 SECTION="lxde"
-VERSION=1.2.4
+VERSION=1.2.5
 NAME="libfm"
 
 #REQ:gtk2
@@ -25,11 +25,11 @@ NAME="libfm"
 
 cd $SOURCE_DIR
 
-URL=http://downloads.sourceforge.net/pcmanfm/libfm-1.2.4.tar.xz
+URL=http://downloads.sourceforge.net/pcmanfm/libfm-1.2.5.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libfm/libfm-1.2.4.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libfm/libfm-1.2.4.tar.xz || wget -nc http://downloads.sourceforge.net/pcmanfm/libfm-1.2.4.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libfm/libfm-1.2.4.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libfm/libfm-1.2.4.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libfm/libfm-1.2.4.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libfm/libfm-1.2.4.tar.xz
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libfm/libfm-1.2.5.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libfm/libfm-1.2.5.tar.xz || wget -nc http://downloads.sourceforge.net/pcmanfm/libfm-1.2.5.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libfm/libfm-1.2.5.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libfm/libfm-1.2.5.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libfm/libfm-1.2.5.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libfm/libfm-1.2.5.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

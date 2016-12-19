@@ -39,7 +39,6 @@ cd $DIRECTORY
 fi
 
 patch -Np1 -i ../pygobject-2.28.6-fixes-1.patch   &&
-sed -i "/seems to be moved/s/^/#/" ltmain.sh &&
 ./configure --prefix=/usr --disable-introspection &&
 make
 

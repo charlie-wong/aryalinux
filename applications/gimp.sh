@@ -59,7 +59,6 @@ sed -i '/gegl/s/2/3/' configure &&
 sed -i '70,75 d' app/core/gimpparamspecs-duplicate.c
 
 
-sed -i "/seems to be moved/s/^/#/" ltmain.sh &&
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
             --without-gvfs &&

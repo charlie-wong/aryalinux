@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The JasPer Project is anbr3ak open-source initiative to provide a free software-based referencebr3ak implementation of the JPEG-2000 codec.br3ak"
 SECTION="general"
-VERSION=2.0.0
+VERSION=2.0.6
 NAME="jasper"
 
 #REC:libjpeg
@@ -20,11 +20,11 @@ NAME="jasper"
 
 cd $SOURCE_DIR
 
-URL=http://www.ece.uvic.ca/~frodo/jasper/software/jasper-2.0.0.tar.gz
+URL=http://www.ece.uvic.ca/~frodo/jasper/software/jasper-2.0.6.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/jasper/jasper-2.0.0.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/jasper/jasper-2.0.0.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/jasper/jasper-2.0.0.tar.gz || wget -nc http://www.ece.uvic.ca/~frodo/jasper/software/jasper-2.0.0.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/jasper/jasper-2.0.0.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/jasper/jasper-2.0.0.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/jasper/jasper-2.0.0.tar.gz
+wget -nc http://www.ece.uvic.ca/~frodo/jasper/software/jasper-2.0.6.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/jasper/jasper-2.0.6.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/jasper/jasper-2.0.6.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/jasper/jasper-2.0.6.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/jasper/jasper-2.0.6.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/jasper/jasper-2.0.6.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/jasper/jasper-2.0.6.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -41,9 +41,9 @@ whoami > /tmp/currentuser
 
 mkdir BUILD &&
 cd    BUILD &&
-cmake -DCMAKE_INSTALL_PREFIX=/usr           \
-      -DCMAKE_BUILD_TYPE=Release            \
-      -DCMAKE_SKIP_INSTALL_RPATH=YES        \
+cmake -DCMAKE_INSTALL_PREFIX=/usr    \
+      -DCMAKE_BUILD_TYPE=Release     \
+      -DCMAKE_SKIP_INSTALL_RPATH=YES \
       ..  &&
 make "-j`nproc`" || make
 

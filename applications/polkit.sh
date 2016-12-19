@@ -59,7 +59,6 @@ sudo rm rootscript.sh
 sed -i "s:/sys/fs/cgroup/systemd/:/sys:g" configure
 
 
-sed -i "/seems to be moved/s/^/#/" ltmain.sh &&
 ./configure --prefix=/usr                    \
             --sysconfdir=/etc                \
             --localstatedir=/var             \

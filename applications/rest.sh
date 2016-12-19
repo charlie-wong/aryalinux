@@ -39,7 +39,6 @@ fi
 
 whoami > /tmp/currentuser
 
-sed -i "/seems to be moved/s/^/#/" build/ltmain.sh &&
 ./configure --prefix=/usr \
     --with-ca-certificates=/etc/ssl/ca-bundle.crt &&
 make "-j`nproc`" || make

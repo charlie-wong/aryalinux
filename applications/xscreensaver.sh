@@ -17,6 +17,7 @@ NAME="xscreensaver"
 #REC:glu
 #OPT:gdm
 #OPT:linux-pam
+#OPT:x7legacy
 
 
 cd $SOURCE_DIR

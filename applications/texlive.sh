@@ -147,6 +147,17 @@ sudo rm rootscript.sh
 
 
 
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+sed -i '/^mpost,/d' /opt/texlive/2016/texmf-dist/web2c/texmf.cnf &&
+fmtutil-sys --all &&
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
+
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

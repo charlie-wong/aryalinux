@@ -124,8 +124,7 @@ mknod /srv/named/dev/urandom c 1 9 &&
 chmod 666 /srv/named/dev/{null,urandom} &&
 cp /etc/localtime etc &&
 touch /srv/named/managed-keys.bind &&
-cp /usr/lib/engines/libgost.so usr/lib/engines &&
-[ $(uname -m) = x86_64 ] && ln -sv lib usr/lib64
+cp /usr/lib/engines/libgost.so usr/lib/engines
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

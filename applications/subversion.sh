@@ -46,7 +46,6 @@ fi
 
 whoami > /tmp/currentuser
 
-sed -i "/seems to be moved/s/^/#/" build/ltmain.sh &&
 ./configure --prefix=/usr    \
             --disable-static \
             --with-apache-libexecdir &&

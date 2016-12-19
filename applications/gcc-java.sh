@@ -40,6 +40,12 @@ fi
 
 whoami > /tmp/currentuser
 
+case $(uname -m) in
+  x86_64)
+    sed -e '/m64=/s/lib64/lib/' \
+        -i.orig gcc/config/i386/t-linux64
+  ;;
+esac
 sed -i 's/\(install.*:\) install-.*recursive/\1/' libffi/Makefile.in         &&
 sed -i 's/\(install-data-am:\).*/\1/'             libffi/include/Makefile.in &&
 sed -i 's/absolute/file normalize/' libjava/testsuite/lib/libjava.exp &&

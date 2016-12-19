@@ -18,7 +18,7 @@ NAME="tigervnc"
 #REQ:libgcrypt
 #REQ:libjpeg
 #REQ:pixman
-#REQ:x7app
+#REQ:x7legacy
 #REC:imagemagick
 #REC:linux-pam
 

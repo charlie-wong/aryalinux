@@ -54,9 +54,6 @@ fi
 
 whoami > /tmp/currentuser
 
-sed -i "/seems to be moved/s/^/#/" build-aux/ltmain.sh
-
-
 ./configure --prefix=/usr        \
             --sysconfdir=/etc    \
             --localstatedir=/var \
