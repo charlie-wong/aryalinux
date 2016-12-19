@@ -26,7 +26,7 @@ http://ftp.gnu.org/gnu/gettext/gettext-0.19.8.1.tar.xz
 http://ftp.gnu.org/gnu/glibc/glibc-2.24.tar.xz
 http://ftp.gnu.org/gnu/gmp/gmp-6.1.1.tar.xz
 http://ftp.gnu.org/gnu/gperf/gperf-3.0.4.tar.gz
-http://ftp.gnu.org/gnu/grep/grep-2.26.tar.xz
+http://ftp.gnu.org/gnu/grep/grep-2.27.tar.xz
 http://ftp.gnu.org/gnu/groff/groff-1.22.3.tar.gz
 http://alpha.gnu.org/gnu/grub/grub-2.02~beta3.tar.xz
 http://ftp.gnu.org/gnu/gzip/gzip-1.8.tar.xz
@@ -41,7 +41,7 @@ http://www.linuxfromscratch.org/lfs/downloads/development/lfs-bootscripts-201502
 https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.25.tar.xz
 http://download.savannah.gnu.org/releases/libpipeline/libpipeline-1.4.1.tar.gz
 http://ftp.gnu.org/gnu/libtool/libtool-2.4.6.tar.xz
-https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.8.12.tar.xz
+https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.9.tar.xz
 http://ftp.gnu.org/gnu/m4/m4-1.4.17.tar.xz
 http://ftp.gnu.org/gnu/make/make-4.2.1.tar.bz2
 http://download.savannah.gnu.org/releases/man-db/man-db-2.7.5.tar.xz

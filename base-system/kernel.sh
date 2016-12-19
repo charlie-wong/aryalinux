@@ -3,7 +3,6 @@
 set -e
 set +h
 
-cd /sources/
 . ./build-properties
 
 STEPNAME="kernel"
@@ -56,27 +55,9 @@ make mrproper
 
 if [ `uname -m` != "x86_64" ]
 then
-	if [ "$KERNEL_CONFIG_OPT" == "1" ]; then
-		cp ../config-32 ./.config
-	elif [ "$KERNEL_CONFIG_OPT" == "2" ]; then
-		make defconfig
-	elif [ "$KERNEL_CONFIG_OPT" == "3" ]; then
-		make menuconfig
-	elif [ "$KERNEL_CONFIG_OPT" == "4" ]; then
-		make defconfig
-		make localmodconfig
-	fi
+	cp ../config-32 ./.config
 else
-        if [ "$KERNEL_CONFIG_OPT" == "1" ]; then
-                cp ../config-64 ./.config
-        elif [ "$KERNEL_CONFIG_OPT" == "2" ]; then
-                make defconfig
-        elif [ "$KERNEL_CONFIG_OPT" == "3" ]; then
-                make menuconfig
-        elif [ "$KERNEL_CONFIG_OPT" == "4" ]; then
-                make defconfig
-                make localmodconfig
-        fi
+	cp ../config-64 ./.config
 fi
 
 if [ `uname -m` != "x86_64" ]

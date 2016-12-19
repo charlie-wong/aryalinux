@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="005-linux-headers.sh"
-TARBALL="linux-4.8.12.tar.xz"
+TARBALL="linux-4.9.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 

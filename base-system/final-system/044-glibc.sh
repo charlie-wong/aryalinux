@@ -30,11 +30,19 @@ then
 fi
 
 patch -Np1 -i ../glibc-2.24-fhs-1.patch
+case $(uname -m) in
+    x86) ln -s ld-linux.so.2 /lib/ld-lsb.so.3
+    ;;
+    x86_64) ln -s ../lib/ld-linux-x86-64.so.2 /lib64
+            ln -s ../lib/ld-linux-x86-64.so.2 /lib64/ld-lsb-x86-64.so.3
+    ;;
+esac
 mkdir -v build
 cd       build
 ../configure --prefix=/usr          \
              --enable-kernel=2.6.32 \
-             --enable-obsolete-rpc
+             --enable-obsolete-rpc        \
+             libc_cv_slibdir=/lib
 make
 touch /etc/ld.so.conf
 make install
