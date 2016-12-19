@@ -60,11 +60,6 @@ sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
-cd test &&
-./configure &&
-make "-j`nproc`" || make
-
-
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
