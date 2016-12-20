@@ -13,6 +13,7 @@ VERSION=2.12.4
 NAME="hexchat"
 
 #REQ:glib2
+#REQ:autoconf-archive
 #REC:gtk2
 #REC:lua
 #OPT:dbus-glib
