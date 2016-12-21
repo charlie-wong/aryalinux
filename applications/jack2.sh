@@ -5,7 +5,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="jack"
+NAME="jack2"
 VERSION="1.9.10"
 
 cd $SOURCE_DIR

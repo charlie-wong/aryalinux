@@ -5,6 +5,9 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+NAME="simple-screen-recorder"
+VERSION="SVN"
+
 #REQ:jack2
 #REQ:qt5
 #REQ:ffmpeg
