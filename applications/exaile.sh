@@ -19,6 +19,8 @@ NAME="exaile"
 #REQ:gstreamer-0.10-ffmpeg
 #REQ:mutagen
 #REQ:gstreamer-0.10-python
+#REQ:python-cddb
+#REQ:python-modules#dbus-python
 
 cd $SOURCE_DIR
 URL="http://archive.ubuntu.com/ubuntu/pool/universe/e/exaile/exaile_3.4.5.orig.tar.gz"
