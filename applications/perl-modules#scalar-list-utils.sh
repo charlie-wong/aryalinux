@@ -8,8 +8,8 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.46.tar.gz"
-VERSION=1.46
+URL="http://search.cpan.org/CPAN/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.47.tar.gz"
+VERSION=1.47
 NAME="perl-modules#scalar-list-utils"
 
 cd $SOURCE_DIR
