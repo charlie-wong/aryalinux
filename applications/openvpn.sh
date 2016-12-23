@@ -10,6 +10,7 @@ NAME="openvpn"
 VERSION="2.3.14"
 
 #REQ:liblzo2
+#REQ:net-tools
 
 URL=https://swupdate.openvpn.org/community/releases/openvpn-2.3.14.tar.xz
 
