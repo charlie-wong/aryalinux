@@ -21,6 +21,28 @@ cat > $LFS/tools/bin/stripdebug <<EOF
 /tools/bin/find /{bin,sbin} /usr/{bin,sbin,libexec} -type f \
     -exec /tools/bin/strip --strip-all {} ';'
 
+if [ -L /opt/qt5 ]; then
+/tools/bin/find /opt/qt5/usr/lib -type f -name \*.a \
+   -exec /tools/bin/strip --strip-debug {} ';'
+
+/tools/bin/find /opt/qt5/lib /opt/qt5/usr/lib -type f -name \*.so* \
+   -exec /tools/bin/strip --strip-unneeded {} ';'
+
+/tools/bin/find /opt/qt5/{bin,sbin} /opt/qt5/usr/{bin,sbin,libexec} -type f \
+    -exec /tools/bin/strip --strip-all {} ';'
+fi
+
+if [ -L /opt/kf5 ]; then
+/tools/bin/find /opt/kf5/usr/lib -type f -name \*.a \
+   -exec /tools/bin/strip --strip-debug {} ';'
+
+/tools/bin/find /opt/kf5/lib /opt/kf5/usr/lib -type f -name \*.so* \
+   -exec /tools/bin/strip --strip-unneeded {} ';'
+
+/tools/bin/find /opt/kf5/{bin,sbin} /opt/kf5/usr/{bin,sbin,libexec} -type f \
+    -exec /tools/bin/strip --strip-all {} ';'
+fi 
+
 EOF
 
 chmod a+x $LFS/tools/bin/stripdebug
