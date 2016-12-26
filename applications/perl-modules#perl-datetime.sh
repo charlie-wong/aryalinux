@@ -11,8 +11,8 @@ set +h
 #REQ:perl-modules#cpan-meta-check
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org//CPAN/authors/id/D/DR/DROLSKY/DateTime-1.41.tar.gz"
-VERSION=1.41
+URL="http://search.cpan.org//CPAN/authors/id/D/DR/DROLSKY/DateTime-1.42.tar.gz"
+VERSION=1.42
 NAME="perl-modules#perl-datetime"
 
 cd $SOURCE_DIR
