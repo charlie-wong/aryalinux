@@ -49,6 +49,15 @@ whoami > /tmp/currentuser
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+touch /var/lock/sane
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
+
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 if ! grep scanner /etc/group; then groupadd -g 70 scanner; fi
 
 ENDOFROOTSCRIPT
