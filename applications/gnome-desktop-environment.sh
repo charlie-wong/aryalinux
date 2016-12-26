@@ -87,5 +87,7 @@ DESCRIPTION="GNOME is a desktop environment that is composed entirely of free an
 #REQ:seahorse
 #REQ:notification-daemon
 #REQ:polkit-gnome
+#REQ:xdg-user-dirs
+#REQ:xdg-utils
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
