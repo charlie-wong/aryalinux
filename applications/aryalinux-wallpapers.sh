@@ -8,13 +8,14 @@ set +h
 SOURCE_ONLY=n
 NAME="aryalinux-wallpapers"
 DESCRIPTION="Wallpapers for AryaLinux"
-VERSION="2016.04"
+VERSION="2016.12"
 
 cd $SOURCE_DIR
 
-URL=http://aryalinux.org/releases/2016.04/aryalinux-wallpapers-2016.04.tar.gz
+URL=https://sourceforge.net/projects/aryalinux-bin/files/releases/2016.12/aryalinux-wallpapers-2016.12.tar.xz
 wget -nc $URL
 
-sudo tar -xf aryalinux-wallpapers-2016.04.tar.gz -C /
+sudo mkdir -pv /usr/share/backgrounds/aryalinux/
+sudo tar -xf aryalinux-wallpapers-2016.12.tar.xz -C /usr/share/backgrounds/aryalinux/
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
