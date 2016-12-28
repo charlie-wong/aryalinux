@@ -59,7 +59,17 @@ else
 # read -p "Enter the default label for the boot entry in the Live System : " LABEL
 # read -p "Enter the name of the ISO file to be generated : " OUTFILE
 if [ "x$INSTALL_DESKTOP_ENVIRONMENT" == "xy" ]; then
-	if [ "x$DESKTOP_ENVIRONMENT" == "x1" ]; then DE="XFCE"; elif [ "x$DESKTOP_ENVIRONMENT" == "x2" ]; then DE="Mate"; else DE=""; fi
+	if [ "x$DESKTOP_ENVIRONMENT" == "x1" ]; then
+		DE="XFCE"
+	elif [ "x$DESKTOP_ENVIRONMENT" == "x2" ]; then
+		DE="Mate";
+	elif [ "x$DESKTOP_ENVIRONMENT" == "x3" ]; then
+		DE="KDE5"
+	elif [ "x$DESKTOP_ENVIRONMENT" == "x4" ]; then
+		DE="GNOME"
+	else
+		DE=""
+	fi
 	LABEL="$OS_NAME $DE $OS_VERSION"
 else
 	LABEL="OS_NAME $OS_VERSION"
