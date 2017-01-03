@@ -9,6 +9,10 @@ DESCRIPTION="A cross platform UI library for which bindings are available in C++
 NAME="wxwidgets"
 VERSION="3.0.2"
 
+#REQ:gtk2
+#REQ:gtk3
+#REQ:glu
+
 cd $SOURCE_DIR
 
 URL=https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.2/wxWidgets-3.0.2.tar.bz2
