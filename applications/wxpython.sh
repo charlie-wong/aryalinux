@@ -26,8 +26,8 @@ cd wxPython
 export CC="gcc"
 export CXX="g++"
 
-echo "BUILD_GLCANVAS = 0" >> wxPython/wx/build/build_options.py
-echo "BUILD_OGL = 0" >> wxPython/wx/build/build_options.py
+echo "BUILD_GLCANVAS = 0" >> wx/build/build_options.py
+echo "BUILD_OGL = 0" >> wx/build/build_options.py
 
 python setup.py build
 sudo python setup.py install
