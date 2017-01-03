@@ -68,7 +68,7 @@ if [ "x$INSTALL_DESKTOP_ENVIRONMENT" == "xy" ]; then
 	elif [ "x$DESKTOP_ENVIRONMENT" == "x4" ]; then
 		DE="GNOME"
 	else
-		DE=""
+		DE="Builder"
 	fi
 	LABEL="$OS_NAME $DE $OS_VERSION"
 else
