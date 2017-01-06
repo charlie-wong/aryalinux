@@ -14,10 +14,11 @@ NAME="slim-display-manager"
 cd $SOURCE_DIR
 
 URL="https://sourceforge.net/projects/aryalinux-bin/files/releases/2017/sources/slim-display-manager.tar.xz"
+wget -nc $URL
+
 TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
-wget -nc $URL
 tar xf $TARBALL
 cd $DIRECTORY
 
