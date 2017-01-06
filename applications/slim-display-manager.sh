@@ -22,7 +22,7 @@ DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 tar xf $TARBALL
 cd $DIRECTORY
 
-cmake . -DUSE_PAM=yes
+cmake . -DCMAKE_INSTALL_PREFIX=/usr -DUSE_PAM=yes
 make
 sudo make install
 
