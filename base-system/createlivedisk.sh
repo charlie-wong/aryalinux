@@ -53,11 +53,6 @@ done
 
 else
 
-# read -p "Enter the root partition name E.g. /dev/sda7 : " ROOT_PART
-# read -p "Enter the home partition name E.g. /dev/sda3 : " HOME_PART
-# read -p "Enter the username that would be logged into live system by default : " USERNAME
-# read -p "Enter the default label for the boot entry in the Live System : " LABEL
-# read -p "Enter the name of the ISO file to be generated : " OUTFILE
 if [ "x$INSTALL_DESKTOP_ENVIRONMENT" == "xy" ]; then
 	if [ "x$DESKTOP_ENVIRONMENT" == "x1" ]; then
 		DE="XFCE"
@@ -135,15 +130,8 @@ then
 	mount $HOME_PART $LFS/home
 fi
 
-if [ "x$CREATE_ROOTSFS" == "xy" ] || [ "x$CREATE_ROOTSFS" == "xY" ]
+if [ ! -f $LFS/etc/lightdm/lightdm.conf ]
 then
-
-if [ -f $LFS/etc/lightdm/lightdm.conf ]
-then
-	sed -i "s@#autologin-user=@autologin-user=$USERNAME@g" $LFS/etc/lightdm/lightdm.conf
-	# sed -i "s@#autologin-user-timeout=0@autologin-user-timeout=0@g" $LFS/etc/lightdm/lightdm.conf
-	# sed -i "s@#pam-service=lightdm-autologin@pam-service=lightdm-autologin@g" $LFS/etc/lightdm/lightdm.conf
-else
 	mkdir -pv $LFS/etc/systemd/system/getty@tty1.service.d/
 	pushd $LFS/etc/systemd/system/getty@tty1.service.d/
 cat >override.conf<<EOF
@@ -155,17 +143,70 @@ EOF
 	popd
 fi
 
+if [ -f $LFS/etc/slim.conf ]; then
+
+cp $LFS/etc/slim.conf $LFS/etc/slim.conf.bak
+sed -i "s@sessiondir@#sessiondir@g" $LFS/etc/slim.conf
+sed -i "s@#default_user@default_user@g" $LFS/etc/slim.conf
+sed -i "s@simone@$USERNAME@g" $LFS/etc/slim.conf
+sed -i "s@#auto_login          no@auto_login          yes@g" $LFS/etc/slim.conf
+
+if [ "$DE" == "1" ]; then
+	SESSION="xfce4-session"
+elif [ "$DE" == "2" ]; then
+	SESSION="mate-session"
+elif [ "$DE" == "3" ]; then
+	SESSION="startkde"
+elif [ "$DE" == "4" ]; then
+	SESSION="gnome-session"
+else
+	SESSION="xfce4-session"
+fi
+
+cat > $LFS/home/$USERNAME/.xinitrc <<EOF
+exec $SESSION
+EOF
+chown $USERNAME:$USERNAME $LFS/home/$USERNAME/.xinitrc
+
+chroot "$LFS" /usr/bin/env -i              \
+    HOME=/root TERM="$TERM" PS1='\u:\w\$ ' \
+    PATH=/bin:/usr/bin:/sbin:/usr/sbin     \
+    /bin/bash /sources/enable-disable-service.sh disable lightdm
+
+chroot "$LFS" /usr/bin/env -i              \
+    HOME=/root TERM="$TERM" PS1='\u:\w\$ ' \
+    PATH=/bin:/usr/bin:/sbin:/usr/sbin     \
+    /bin/bash /sources/enable-disable-service.sh enable slim
+
+fi
+
 rm -f $LFS/sources/root.sfs
 sudo mksquashfs $LFS $LFS/sources/root.sfs -b 1048576 -comp xz -Xdict-size 100% -e $LFS/sources -e $LFS/var/cache/alps/sources/* -e $LFS/tools -e $LFS/etc/fstab
 
-if [ -f $LFS/etc/lightdm/lightdm.conf ]
+if [ ! -f $LFS/etc/lightdm/lightdm.conf ]
 then
-	sed -i "s@autologin-user=$USERNAME@#autologin-user=@g" $LFS/etc/lightdm/lightdm.conf
-	# sed -i "s@autologin-user-timeout=0@#autologin-user-timeout=0@g" $LFS/etc/lightdm/lightdm.conf
-        # sed -i "s@pam-service=lightdm-autologin@#pam-service=lightdm-autologin@g" $LFS/etc/lightdm/lightdm.conf
-else
 	rm -fv /etc/systemd/system/getty@tty1.service.d/override.conf
 fi
+
+if [ -f $LFS/etc/slim.conf ]; then
+
+cp $LFS/etc/slim.conf $LFS/etc/slim.conf.bak
+sed -i "s@#sessiondir@sessiondir@g" $LFS/etc/slim.conf
+sed -i "s@default_user@#default_user@g" $LFS/etc/slim.conf
+sed -i "s@$USERNAME@simone@g" $LFS/etc/slim.conf
+sed -i "s@auto_login          yes@#auto_login          no@g" $LFS/etc/slim.conf
+
+rm $LFS/home/$USERNAME/.xinitrc
+
+chroot "$LFS" /usr/bin/env -i              \
+    HOME=/root TERM="$TERM" PS1='\u:\w\$ ' \
+    PATH=/bin:/usr/bin:/sbin:/usr/sbin     \
+    /bin/bash /sources/enable-disable-service.sh disable slim
+
+chroot "$LFS" /usr/bin/env -i              \
+    HOME=/root TERM="$TERM" PS1='\u:\w\$ ' \
+    PATH=/bin:/usr/bin:/sbin:/usr/sbin     \
+    /bin/bash /sources/enable-disable-service.sh enable lightdm
 
 fi
 
