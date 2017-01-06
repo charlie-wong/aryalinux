@@ -166,7 +166,6 @@ fi
 cat > $LFS/home/$USERNAME/.xinitrc <<EOF
 exec $SESSION
 EOF
-chown $USERNAME:$USERNAME $LFS/home/$USERNAME/.xinitrc
 
 chroot "$LFS" /usr/bin/env -i              \
     HOME=/root TERM="$TERM" PS1='\u:\w\$ ' \
