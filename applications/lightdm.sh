@@ -13,7 +13,7 @@ export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc \
 SOURCE_ONLY=n
 NAME="lightdm"
 DESCRIPTION="A light-weight desktop manager with greeters available in GTK/QT."
-VERSION=1.10.5
+VERSION=1.21.3
 
 #REQ:xserver-meta
 #REQ:itstool
@@ -25,12 +25,10 @@ VERSION=1.10.5
 
 cd $SOURCE_DIR
 
-wget -nc https://launchpad.net/lightdm/1.10/1.10.5/+download/lightdm-1.10.5.tar.xz
-wget -nc https://launchpad.net/lightdm-gtk-greeter/2.0/2.0.1/+download/lightdm-gtk-greeter-2.0.1.tar.gz
+wget -nc https://launchpad.net/lightdm/1.21/1.21.3/+download/lightdm-1.21.3.tar.xz
 
-
-TARBALL=lightdm-1.10.5.tar.xz
-DIRECTORY=lightdm-1.10.5
+TARBALL=lightdm-1.21.3.tar.xz
+DIRECTORY=lightdm-1.21.3
 
 tar -xf $TARBALL
 
@@ -56,6 +54,7 @@ make "-j`nproc`"
 
 cat > 1434987998845.sh << "ENDOFFILE"
 make install
+cp -v data/lightdm.conf /etc/lightdm/
 ENDOFFILE
 chmod a+x 1434987998845.sh
 sudo ./1434987998845.sh
@@ -63,174 +62,17 @@ sudo rm -rf 1434987998845.sh
 
 cat > 1434987998845.sh << "ENDOFFILE"
 rm -rf /etc/apparmor.d /etc/init
-install -dm770 /var/lib/lightdm
-install -dm711 /var/log/lightdm
+install -dm770 /var/lib/lightdm-data
+install -dm711 /var/log/lightdm-data
 
-chmod +t /var/lib/lightdm
+chmod +t /var/lib/lightdm-data
 
-echo "GDK_CORE_DEVICE_EVENTS=true" > /var/lib/lightdm/.pam_environment
+echo "GDK_CORE_DEVICE_EVENTS=true" > /var/lib/lightdm-data/.pam_environment
 
-chmod 644 /var/lib/lightdm/.pam_environment
+chmod 644 /var/lib/lightdm-data/.pam_environment
 
 install -dm755 /etc/lightdm
 
-ENDOFFILE
-chmod a+x 1434987998845.sh
-sudo ./1434987998845.sh
-sudo rm -rf 1434987998845.sh
-
-cat > 1434987998845.sh << "ENDOFFILE"
-cat > /etc/lightdm/lightdm.conf << "EOF"
-#
-# General configuration
-#
-# start-default-seat = True to always start one seat if none are defined in the configuration
-# greeter-user = User to run greeter as
-# minimum-display-number = Minimum display number to use for X servers
-# minimum-vt = First VT to run displays on
-# lock-memory = True to prevent memory from being paged to disk
-# user-authority-in-system-dir = True if session authority should be in the system location
-# guest-account-script = Script to be run to setup guest account
-# log-directory = Directory to log information to
-# run-directory = Directory to put running state in
-# cache-directory = Directory to cache to
-# sessions-directory = Directory to find sessions
-# remote-sessions-directory = Directory to find remote sessions
-# greeters-directory = Directory to find greeters
-#
-[LightDM]
-#start-default-seat=true
-greeter-user=lightdm
-#minimum-display-number=0
-minimum-vt=1
-#lock-memory=true
-#user-authority-in-system-dir=false
-#guest-account-script=guest-account
-log-directory=/var/log/lightdm
-run-directory=/run/lightdm
-#cache-directory=/var/cache/lightdm
-#sessions-directory=/usr/share/lightdm/sessions:/usr/share/xsessions
-#remote-sessions-directory=/usr/share/lightdm/remote-sessions
-#greeters-directory=/usr/share/lightdm/greeters:/usr/share/xgreeters
-
-#
-# Seat defaults
-#
-# type = Seat type (xlocal, xremote)
-# xdg-seat = Seat name to set pam_systemd XDG_SEAT variable and name to pass to X server
-# xserver-command = X server command to run (can also contain arguments e.g. X -special-option)
-# xserver-layout = Layout to pass to X server
-# xserver-config = Config file to pass to X server
-# xserver-allow-tcp = True if TCP/IP connections are allowed to this X server
-# xserver-share = True if the X server is shared for both greeter and session
-# xserver-hostname = Hostname of X server (only for type=xremote)
-# xserver-display-number = Display number of X server (only for type=xremote)
-# xdmcp-manager = XDMCP manager to connect to (implies xserver-allow-tcp=true)
-# xdmcp-port = XDMCP UDP/IP port to communicate on
-# xdmcp-key = Authentication key to use for XDM-AUTHENTICATION-1 (stored in keys.conf)
-# unity-compositor-command = Unity compositor command to run (can also contain arguments e.g. unity-system-compositor -special-option)
-# unity-compositor-timeout = Number of seconds to wait for compositor to start
-# greeter-session = Session to load for greeter
-# greeter-hide-users = True to hide the user list
-# greeter-allow-guest = True if the greeter should show a guest login option
-# greeter-show-manual-login = True if the greeter should offer a manual login option
-# greeter-show-remote-login = True if the greeter should offer a remote login option
-# user-session = Session to load for users
-# allow-guest = True if guest login is allowed
-# guest-session = Session to load for guests (overrides user-session)
-# session-wrapper = Wrapper script to run session with
-# greeter-wrapper = Wrapper script to run greeter with
-# guest-wrapper = Wrapper script to run guest sessions with
-# display-setup-script = Script to run when starting a greeter session (runs as root)
-# greeter-setup-script = Script to run when starting a greeter (runs as root)
-# session-setup-script = Script to run when starting a user session (runs as root)
-# session-cleanup-script = Script to run when quitting a user session (runs as root)
-# autologin-guest = True to log in as guest by default
-# autologin-user = User to log in with by default (overrides autologin-guest)
-# autologin-user-timeout = Number of seconds to wait before loading default user
-# autologin-session = Session to load for automatic login (overrides user-session)
-# autologin-in-background = True if autologin session should not be immediately activated
-# exit-on-failure = True if the daemon should exit if this seat fails
-#
-[SeatDefaults]
-#type=xlocal
-#xdg-seat=seat0
-#xserver-command=X
-#xserver-layout=
-#xserver-config=
-#xserver-allow-tcp=false
-#xserver-share=true
-#xserver-hostname=
-#xserver-display-number=
-#xdmcp-manager=
-#xdmcp-port=177
-#xdmcp-key=
-#unity-compositor-command=unity-system-compositor
-#unity-compositor-timeout=60
-greeter-session=lightdm-gtk-greeter
-#greeter-hide-users=false
-#greeter-allow-guest=true
-#greeter-show-manual-login=false
-#greeter-show-remote-login=true
-#user-session=default
-#allow-guest=true
-#guest-session=UNIMPLEMENTED
-session-wrapper=/etc/lightdm/Xsession
-#greeter-wrapper=
-#guest-wrapper=
-#display-setup-script=
-#greeter-setup-script=
-#session-setup-script=
-#session-cleanup-script=
-#autologin-guest=false
-#autologin-user=
-#autologin-user-timeout=0
-#autologin-in-background=false
-#autologin-session=UNIMPLEMENTED
-#pam-service=lightdm-autologin
-#exit-on-failure=false
-
-#
-# Seat configuration
-#
-# Each seat must start with "Seat:".
-# Uses settings from [SeatDefaults], any of these can be overriden by setting them in this section.
-#
-#[Seat:0]
-
-#
-# XDMCP Server configuration
-#
-# enabled = True if XDMCP connections should be allowed
-# port = UDP/IP port to listen for connections on
-# key = Authentication key to use for XDM-AUTHENTICATION-1 or blank to not use authentication (stored in keys.conf)
-#
-# The authentication key is a 56 bit DES key specified in hex as 0xnnnnnnnnnnnnnn.  Alternatively
-# it can be a word and the first 7 characters are used as the key.
-#
-[XDMCPServer]
-#enabled=false
-#port=177
-#key=
-
-#
-# VNC Server configuration
-#
-# enabled = True if VNC connections should be allowed
-# command = Command to run Xvnc server with
-# port = TCP/IP port to listen for connections on
-# width = Width of display to use
-# height = Height of display to use
-# depth = Color depth of display to use
-#
-[VNCServer]
-#enabled=false
-#command=Xvnc
-#port=5900
-#width=1024
-#height=768
-#depth=8
-EOF
 ENDOFFILE
 chmod a+x 1434987998845.sh
 sudo ./1434987998845.sh
@@ -433,9 +275,9 @@ sudo rm -rf 1434987998845.sh
 
 cat > 1434987998845.sh << "ENDOFFILE"
 getent group lightdm > /dev/null || groupadd -g 63 lightdm
-getent passwd lightdm > /dev/null || useradd -c "Light Display Manager" -u 63 -g lightdm -d /var/lib/lightdm -s /sbin/nologin lightdm
+getent passwd lightdm > /dev/null || useradd -c "Light Display Manager" -u 63 -g lightdm -d /var/lib/lightdm-data -s /sbin/nologin lightdm
 
-chown -R lightdm:lightdm /var/lib/lightdm /var/log/lightdm
+chown -R lightdm:lightdm /var/lib/lightdm-data /var/log/lightdm
 
 chmod 700 /usr/share/polkit-1/rules.d
 chmod 600 /usr/share/polkit-1/rules.d/*
@@ -447,9 +289,6 @@ ENDOFFILE
 chmod a+x 1434987998845.sh
 sudo ./1434987998845.sh
 sudo rm -rf 1434987998845.sh
-
-sudo mkdir -pv /var/lib/lightdm-data
-sudo chown lightdm:lightdm /var/lib/lightdm-data
 
 
 cd $SOURCE_DIR
