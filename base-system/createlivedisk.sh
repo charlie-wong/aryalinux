@@ -119,6 +119,11 @@ chroot "$LFS" /usr/bin/env -i              \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin     \
     /bin/bash /sources/mkliveinitramfs.sh
 
+chroot "$LFS" /usr/bin/env -i              \
+    HOME=/root TERM="$TERM" PS1='\u:\w\$ ' \
+    PATH=/bin:/usr/bin:/sbin:/usr/sbin     \
+    /bin/bash usermod -a -G autologin $USERNAME
+
 sleep 5
 set +e
 ./umountal.sh
@@ -132,9 +137,11 @@ fi
 
 if [ -f $LFS/etc/lightdm/lightdm.conf ]
 then
+	sed -i "s@#pam-service=lightdm@pam-service=lightdm@g" $LFS/etc/lightdm/lightdm.conf
+	sed -i "s@#pam-autologin-service=lightdm-autologin@pam-autologin-service=lightdm-autologin@g" $LFS/etc/lightdm/lightdm.conf
 	sed -i "s@#autologin-user=@autologin-user=$USERNAME@g" $LFS/etc/lightdm/lightdm.conf
 	sed -i "s@#autologin-user-timeout=0@autologin-user-timeout=0@g" $LFS/etc/lightdm/lightdm.conf
-	sed -i "s@#pam-service=lightdm-autologin@pam-service=lightdm-autologin@g" $LFS/etc/lightdm/lightdm.conf
+	sed -i "s@#session-wrapper=lightdm-session@session-wrapper=/etc/lightdm/Xsession@g" $LFS/etc/lightdm/lightdm.conf
 else
 	mkdir -pv $LFS/etc/systemd/system/getty@tty1.service.d/
 	pushd $LFS/etc/systemd/system/getty@tty1.service.d/
@@ -160,12 +167,19 @@ sudo mksquashfs $LFS $LFS/sources/root.sfs -b 1048576 -comp xz -Xdict-size 100% 
 
 if [ -f $LFS/etc/lightdm/lightdm.conf ]
 then
+	sed -i "s@pam-service=lightdm@#pam-service=lightdm@g" $LFS/etc/lightdm/lightdm.conf
+	sed -i "s@pam-autologin-service=lightdm-autologin@#pam-autologin-service=lightdm-autologin@g" $LFS/etc/lightdm/lightdm.conf
 	sed -i "s@autologin-user=$USERNAME@#autologin-user=@g" $LFS/etc/lightdm/lightdm.conf
 	sed -i "s@autologin-user-timeout=0@#autologin-user-timeout=0@g" $LFS/etc/lightdm/lightdm.conf
-        sed -i "s@pam-service=lightdm-autologin@#pam-service=lightdm-autologin@g" $LFS/etc/lightdm/lightdm.conf
+	sed -i "s@session-wrapper=/etc/lightdm/Xsession@#session-wrapper=lightdm-session@g" $LFS/etc/lightdm/lightdm.conf
 else
 	rm -fv /etc/systemd/system/getty@tty1.service.d/override.conf
 fi
+
+chroot "$LFS" /usr/bin/env -i              \
+    HOME=/root TERM="$TERM" PS1='\u:\w\$ ' \
+    PATH=/bin:/usr/bin:/sbin:/usr/sbin     \
+    /bin/bash gpasswd -d $USERNAME autologin
 
 cd $LFS/sources/
 
