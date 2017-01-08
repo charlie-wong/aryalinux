@@ -21,6 +21,7 @@ VERSION=1.21.3
 #REQ:libxklavier
 #REQ:systemd
 #REQ:polkit
+#REQ:python-modules#dbus-python
 #REQ:accountsservice
 
 cd $SOURCE_DIR
