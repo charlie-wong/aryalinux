@@ -53,11 +53,6 @@ done
 
 else
 
-# read -p "Enter the root partition name E.g. /dev/sda7 : " ROOT_PART
-# read -p "Enter the home partition name E.g. /dev/sda3 : " HOME_PART
-# read -p "Enter the username that would be logged into live system by default : " USERNAME
-# read -p "Enter the default label for the boot entry in the Live System : " LABEL
-# read -p "Enter the name of the ISO file to be generated : " OUTFILE
 if [ "x$INSTALL_DESKTOP_ENVIRONMENT" == "xy" ]; then
 	if [ "x$DESKTOP_ENVIRONMENT" == "x1" ]; then
 		DE="XFCE"
@@ -68,7 +63,7 @@ if [ "x$INSTALL_DESKTOP_ENVIRONMENT" == "xy" ]; then
 	elif [ "x$DESKTOP_ENVIRONMENT" == "x4" ]; then
 		DE="GNOME"
 	else
-		if [ "x$BUILDER" == "xy" ]; then DE="Builder"; else DE=""; fi
+		DE="Builder"
 	fi
 	LABEL="$OS_NAME $DE $OS_VERSION"
 else
@@ -135,15 +130,11 @@ then
 	mount $HOME_PART $LFS/home
 fi
 
-if [ "x$CREATE_ROOTSFS" == "xy" ] || [ "x$CREATE_ROOTSFS" == "xY" ]
-then
-
 if [ -f $LFS/etc/lightdm/lightdm.conf ]
 then
-	echo ""
-	#sed -i "s@#autologin-user=@autologin-user=$USERNAME@g" $LFS/etc/lightdm/lightdm.conf
-	#sed -i "s@#autologin-user-timeout=0@autologin-user-timeout=0@g" $LFS/etc/lightdm/lightdm.conf
-	#sed -i "s@#pam-service=lightdm-autologin@pam-service=lightdm-autologin@g" $LFS/etc/lightdm/lightdm.conf
+	sed -i "s@#autologin-user=@autologin-user=$USERNAME@g" $LFS/etc/lightdm/lightdm.conf
+	sed -i "s@#autologin-user-timeout=0@autologin-user-timeout=0@g" $LFS/etc/lightdm/lightdm.conf
+	sed -i "s@#pam-service=lightdm-autologin@pam-service=lightdm-autologin@g" $LFS/etc/lightdm/lightdm.conf
 else
 	mkdir -pv $LFS/etc/systemd/system/getty@tty1.service.d/
 	pushd $LFS/etc/systemd/system/getty@tty1.service.d/
@@ -156,19 +147,24 @@ EOF
 	popd
 fi
 
+if [ -f $LFS/etc/slim.conf ]; then
+
+cp $LFS/etc/slim.conf $LFS/etc/slim.conf.bak
+sed -i "s@sessiondir@#sessiondir@g" $LFS/etc/slim.conf
+sed -i "s@#default_user@default_user@g" $LFS/etc/slim.conf
+sed -i "s@simone@$USERNAME@g" $LFS/etc/slim.conf
+sed -i "s@#auto_login          no@auto_login          yes@g" $LFS/etc/slim.conf
+
 rm -f $LFS/sources/root.sfs
 sudo mksquashfs $LFS $LFS/sources/root.sfs -b 1048576 -comp xz -Xdict-size 100% -e $LFS/sources -e $LFS/var/cache/alps/sources/* -e $LFS/tools -e $LFS/etc/fstab
 
 if [ -f $LFS/etc/lightdm/lightdm.conf ]
 then
-	echo ""
-	#sed -i "s@autologin-user=$USERNAME@#autologin-user=@g" $LFS/etc/lightdm/lightdm.conf
-	#sed -i "s@autologin-user-timeout=0@#autologin-user-timeout=0@g" $LFS/etc/lightdm/lightdm.conf
-        #sed -i "s@pam-service=lightdm-autologin@#pam-service=lightdm-autologin@g" $LFS/etc/lightdm/lightdm.conf
+	sed -i "s@autologin-user=$USERNAME@#autologin-user=@g" $LFS/etc/lightdm/lightdm.conf
+	sed -i "s@autologin-user-timeout=0@#autologin-user-timeout=0@g" $LFS/etc/lightdm/lightdm.conf
+        sed -i "s@pam-service=lightdm-autologin@#pam-service=lightdm-autologin@g" $LFS/etc/lightdm/lightdm.conf
 else
 	rm -fv /etc/systemd/system/getty@tty1.service.d/override.conf
-fi
-
 fi
 
 cd $LFS/sources/

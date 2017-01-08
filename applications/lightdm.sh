@@ -21,7 +21,7 @@ VERSION=1.10.5
 #REQ:libxklavier
 #REQ:systemd
 #REQ:polkit
-
+#REQ:accountsservice
 
 cd $SOURCE_DIR
 
@@ -448,8 +448,10 @@ chmod a+x 1434987998845.sh
 sudo ./1434987998845.sh
 sudo rm -rf 1434987998845.sh
 
+sudo mkdir -pv /var/lib/lightdm-data
+sudo chown lightdm:lightdm /var/lib/lightdm-data
 
- 
+
 cd $SOURCE_DIR
 cleanup "$NAME" "$DIRECTORY"
  
