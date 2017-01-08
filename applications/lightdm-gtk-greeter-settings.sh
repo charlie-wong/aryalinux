@@ -4,10 +4,8 @@ set -e
 set +h
 
 . /etc/alps/alps.conf
-. /var/lib/alps/functions
 
-NAME="lightdm-gtk-greeter-settings"
-VERSION="1.2.1"
+#VER:lightdm-gtk-greeter-settings:1.2.1
 
 #REQ:python-distutils-extra
 
@@ -26,6 +24,6 @@ python3 setup.py build &&
 sudo python3 setup.py install
 
 cd $SOURCE_DIR
-cleanup "$NAME" "$DIRECTORY"
+sudo rm -rf $DIRECTORY
 
-register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+echo "lightdm-gtk-greeter-settings=>`date`" | sudo tee -a $INSTALLED_LIST
