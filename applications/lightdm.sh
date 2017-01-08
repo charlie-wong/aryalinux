@@ -285,6 +285,9 @@ chown -R polkitd:polkitd /usr/share/polkit-1/rules.d
 
 systemctl enable lightdm
 
+groupadd -r autologin
+groupadd -r nopasswdlogin
+
 ENDOFFILE
 chmod a+x 1434987998845.sh
 sudo ./1434987998845.sh
