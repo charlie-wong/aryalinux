@@ -154,14 +154,6 @@ EOF
 	popd
 fi
 
-if [ -f $LFS/etc/slim.conf ]; then
-
-cp $LFS/etc/slim.conf $LFS/etc/slim.conf.bak
-sed -i "s@sessiondir@#sessiondir@g" $LFS/etc/slim.conf
-sed -i "s@#default_user@default_user@g" $LFS/etc/slim.conf
-sed -i "s@simone@$USERNAME@g" $LFS/etc/slim.conf
-sed -i "s@#auto_login          no@auto_login          yes@g" $LFS/etc/slim.conf
-
 rm -f $LFS/sources/root.sfs
 sudo mksquashfs $LFS $LFS/sources/root.sfs -b 1048576 -comp xz -Xdict-size 100% -e $LFS/sources -e $LFS/var/cache/alps/sources/* -e $LFS/tools -e $LFS/etc/fstab
 
