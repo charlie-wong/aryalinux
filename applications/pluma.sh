@@ -9,14 +9,14 @@ set +h
 SOURCE_ONLY=n
 NAME="pluma"
 DESCRIPTION="Official text editor of the MATE desktop environment"
-VERSION="1.17.0"
+VERSION="1.17.3"
 
 #REQ:gtksourceview2
 #REQ:enchant
 
 cd $SOURCE_DIR
 
-URL="http://pub.mate-desktop.org/releases/1.17/pluma-1.17.0.tar.xz"
+URL="http://pub.mate-desktop.org/releases/1.17/pluma-1.17.3.tar.xz"
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
