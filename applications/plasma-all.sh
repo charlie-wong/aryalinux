@@ -10,7 +10,7 @@ SOURCE_ONLY=n
 DESCRIPTION="%DESCRIPTION%"
 SECTION="kde"
 NAME="plasma-all"
-VERSION="5.8.4"
+VERSION="5.8.5"
 
 #REQ:fontforge
 #REQ:gtk2
