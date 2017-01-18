@@ -5,6 +5,11 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+NAME=eclipse-ide
+VERSION=neon
+DESCRIPTION="Eclipse is an IDE that has a lot of variants for various programming languages. This version of eclipse ide supports Java out of the box"
+SOURCE_ONLY=n
+
 cd $SOURCE_DIR
 
 ARCH=$(uname -m)

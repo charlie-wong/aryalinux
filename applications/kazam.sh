@@ -7,13 +7,13 @@ set +h
 . /var/lib/alps/functions
 
 NAME="kazam_.orig"
-VERSION="1.0.6"
+VERSION="1.4.5"
 
 #REQ:python-modules#setuptools
 #REQ:python-distutils-extra
 #REQ:python-modules#pyxdg
 
-URL=http://archive.ubuntu.com/ubuntu/pool/universe/k/kazam/kazam_1.0.6.orig.tar.gz
+URL=http://archive.ubuntu.com/ubuntu/pool/universe/k/kazam/kazam_1.4.5.orig.tar.gz
 
 cd $SOURCE_DIR
 
