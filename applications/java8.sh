@@ -25,8 +25,8 @@ wget -nc $URL
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 tar xf OpenJDK-1.8.0.112-x86_64-bin.tar.xz -C /opt &&
-chown -R root:root /opt/OpenJDK-1.8.0.112-bin
-ln -sfn /opt/OpenJDK-1.8.0.112-bin /opt/jdk
+chown -R root:root /opt/OpenJDK-1.8.0.112-x86_64-bin
+ln -svf /opt/OpenJDK-1.8.0.112-x86_64-bin /opt/jdk
 
 cat > /etc/profile.d/jdk.sh << "EOF"
 # Begin /etc/profile.d/jdk.sh
