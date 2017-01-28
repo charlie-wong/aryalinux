@@ -22,7 +22,7 @@ NAME="emacs"
 #OPT:gpm
 #OPT:gtk2
 #OPT:gtk3
-#OPT:imagemagick
+#OPT:imagemagick6
 #OPT:libjpeg
 #OPT:libpng
 #OPT:librsvg

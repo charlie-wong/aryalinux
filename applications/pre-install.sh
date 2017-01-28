@@ -109,8 +109,8 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-mv /opt/lxqt{,-0.11.0}
-ln -sfv lxqt-0.11.0 /opt/lxqt
+mv /opt/lxqt{,-0.11.1}
+ln -sfv lxqt-0.11.1 /opt/lxqt
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

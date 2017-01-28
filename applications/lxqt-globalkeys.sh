@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The lxqt-globalkeys packagebr3ak contains a daemon used to register global keyboard shortcuts and abr3ak key shortcut GUI editor.br3ak"
 SECTION="lxqt"
-VERSION=0.11.0
+VERSION=0.11.1
 NAME="lxqt-globalkeys"
 
 #REQ:liblxqt
@@ -19,11 +19,11 @@ NAME="lxqt-globalkeys"
 
 cd $SOURCE_DIR
 
-URL=http://downloads.lxqt.org/lxqt/0.11.0/lxqt-globalkeys-0.11.0.tar.xz
+URL=http://downloads.lxqt.org/lxqt/0.11.1/lxqt-globalkeys-0.11.1.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/lxqt-globalkeys/lxqt-globalkeys-0.11.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/lxqt-globalkeys/lxqt-globalkeys-0.11.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/lxqt-globalkeys/lxqt-globalkeys-0.11.0.tar.xz || wget -nc http://downloads.lxqt.org/lxqt/0.11.0/lxqt-globalkeys-0.11.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/lxqt-globalkeys/lxqt-globalkeys-0.11.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/lxqt-globalkeys/lxqt-globalkeys-0.11.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/lxqt-globalkeys/lxqt-globalkeys-0.11.0.tar.xz
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/lxqt-globalkeys/lxqt-globalkeys-0.11.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/lxqt-globalkeys/lxqt-globalkeys-0.11.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/lxqt-globalkeys/lxqt-globalkeys-0.11.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/lxqt-globalkeys/lxqt-globalkeys-0.11.1.tar.xz || wget -nc http://downloads.lxqt.org/lxqt/0.11.1/lxqt-globalkeys-0.11.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/lxqt-globalkeys/lxqt-globalkeys-0.11.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/lxqt-globalkeys/lxqt-globalkeys-0.11.1.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

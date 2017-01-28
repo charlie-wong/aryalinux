@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Ruby package contains thebr3ak Ruby development environment. Thisbr3ak is useful for object-oriented scripting.br3ak"
 SECTION="general"
-VERSION=2.3.3
+VERSION=2.4.0
 NAME="ruby"
 
 #OPT:db
@@ -24,11 +24,11 @@ NAME="ruby"
 
 cd $SOURCE_DIR
 
-URL=http://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.3.tar.xz
+URL=http://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.0.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/ruby/ruby-2.3.3.tar.xz || wget -nc http://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.3.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/ruby/ruby-2.3.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/ruby/ruby-2.3.3.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/ruby/ruby-2.3.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/ruby/ruby-2.3.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/ruby/ruby-2.3.3.tar.xz
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/ruby/ruby-2.4.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/ruby/ruby-2.4.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/ruby/ruby-2.4.0.tar.xz || wget -nc http://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/ruby/ruby-2.4.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/ruby/ruby-2.4.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/ruby/ruby-2.4.0.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -45,7 +45,7 @@ whoami > /tmp/currentuser
 
 ./configure --prefix=/usr   \
             --enable-shared \
-            --docdir=/usr/share/doc/ruby-2.3.3 &&
+            --docdir=/usr/share/doc/ruby-2.4.0 &&
 make "-j`nproc`" || make
 
 

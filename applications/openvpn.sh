@@ -7,12 +7,11 @@ set +h
 . /var/lib/alps/functions
 
 NAME="openvpn"
-VERSION="2.3.14"
+VERSION="2.3.7"
 
 #REQ:liblzo2
-#REQ:net-tools
 
-URL=https://swupdate.openvpn.org/community/releases/openvpn-2.3.14.tar.xz
+URL=http://archive.ubuntu.com/ubuntu/pool/main/o/openvpn/openvpn_2.3.7.orig.tar.gz
 
 cd $SOURCE_DIR
 

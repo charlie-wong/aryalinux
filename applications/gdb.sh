@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak GDB, the GNU Project debugger,br3ak allows you to see what is going on “<span class=\"quote\">inside” another program while it executes --br3ak or what another program was doing at the moment it crashed. Notebr3ak that GDB is most effective whenbr3ak tracing programs and libraries that were built with debuggingbr3ak symbols and not stripped.br3ak"
 SECTION="general"
-VERSION=7.12
+VERSION=7.12.1
 NAME="gdb"
 
 #OPT:dejagnu
@@ -21,11 +21,11 @@ NAME="gdb"
 
 cd $SOURCE_DIR
 
-URL=https://ftp.gnu.org/gnu/gdb/gdb-7.12.tar.xz
+URL=https://ftp.gnu.org/gnu/gdb/gdb-7.12.1.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gdb/gdb-7.12.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gdb/gdb-7.12.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gdb/gdb-7.12.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gdb/gdb-7.12.tar.xz || wget -nc ftp://ftp.gnu.org/gnu/gdb/gdb-7.12.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gdb/gdb-7.12.tar.xz || wget -nc https://ftp.gnu.org/gnu/gdb/gdb-7.12.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gdb/gdb-7.12.tar.xz
+wget -nc https://ftp.gnu.org/gnu/gdb/gdb-7.12.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gdb/gdb-7.12.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gdb/gdb-7.12.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gdb/gdb-7.12.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gdb/gdb-7.12.1.tar.xz || wget -nc ftp://ftp.gnu.org/gnu/gdb/gdb-7.12.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gdb/gdb-7.12.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gdb/gdb-7.12.1.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

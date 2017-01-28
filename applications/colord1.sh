@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Colord is a system service thatbr3ak makes it easy to manage, install, and generate color profiles. Itbr3ak is used mainly by GNOME Colorbr3ak Manager for system integration and use when no users arebr3ak logged in.br3ak"
 SECTION="general"
-VERSION=1.3.3
+VERSION=1.3.4
 NAME="colord1"
 
 #REQ:dbus
@@ -32,11 +32,11 @@ NAME="colord1"
 
 cd $SOURCE_DIR
 
-URL=http://www.freedesktop.org/software/colord/releases/colord-1.3.3.tar.xz
+URL=http://www.freedesktop.org/software/colord/releases/colord-1.3.4.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/colord/colord-1.3.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/colord/colord-1.3.3.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/colord/colord-1.3.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/colord/colord-1.3.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/colord/colord-1.3.3.tar.xz || wget -nc http://www.freedesktop.org/software/colord/releases/colord-1.3.3.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/colord/colord-1.3.3.tar.xz
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/colord/colord-1.3.4.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/colord/colord-1.3.4.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/colord/colord-1.3.4.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/colord/colord-1.3.4.tar.xz || wget -nc http://www.freedesktop.org/software/colord/releases/colord-1.3.4.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/colord/colord-1.3.4.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/colord/colord-1.3.4.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The GNOME Shell Extensions packagebr3ak contains a collection of extensions providing additional andbr3ak optional functionality to the GNOMEbr3ak Shell.br3ak"
 SECTION="gnome"
-VERSION=3.22.0
+VERSION=3.22.2
 NAME="gnome-shell-extensions"
 
 #REQ:libgtop
@@ -17,11 +17,11 @@ NAME="gnome-shell-extensions"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-shell-extensions/3.22/gnome-shell-extensions-3.22.0.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-shell-extensions/3.22/gnome-shell-extensions-3.22.2.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gnome-shell-extensions/gnome-shell-extensions-3.22.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gnome-shell-extensions/gnome-shell-extensions-3.22.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gnome-shell-extensions/gnome-shell-extensions-3.22.0.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-shell-extensions/3.22/gnome-shell-extensions-3.22.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gnome-shell-extensions/gnome-shell-extensions-3.22.0.tar.xz || wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-shell-extensions/3.22/gnome-shell-extensions-3.22.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnome-shell-extensions/gnome-shell-extensions-3.22.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnome-shell-extensions/gnome-shell-extensions-3.22.0.tar.xz
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnome-shell-extensions/gnome-shell-extensions-3.22.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gnome-shell-extensions/gnome-shell-extensions-3.22.2.tar.xz || wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-shell-extensions/3.22/gnome-shell-extensions-3.22.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gnome-shell-extensions/gnome-shell-extensions-3.22.2.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-shell-extensions/3.22/gnome-shell-extensions-3.22.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gnome-shell-extensions/gnome-shell-extensions-3.22.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnome-shell-extensions/gnome-shell-extensions-3.22.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gnome-shell-extensions/gnome-shell-extensions-3.22.2.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

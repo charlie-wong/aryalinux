@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Python 2 package contains thebr3ak Python development environment. Itbr3ak is useful for object-oriented programming, writing scripts,br3ak prototyping large programs or developing entire applications. Thisbr3ak version is for backward compatibility with other dependentbr3ak packages.br3ak"
 SECTION="general"
-VERSION=2.7.12
+VERSION=2.7.13
 NAME="python2"
 
 #REC:libffi
@@ -22,12 +22,12 @@ NAME="python2"
 
 cd $SOURCE_DIR
 
-URL=https://www.python.org/ftp/python/2.7.12/Python-2.7.12.tar.xz
+URL=https://www.python.org/ftp/python/2.7.13/Python-2.7.13.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/Python/Python-2.7.12.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/Python/Python-2.7.12.tar.xz || wget -nc https://www.python.org/ftp/python/2.7.12/Python-2.7.12.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/Python/Python-2.7.12.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/Python/Python-2.7.12.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/Python/Python-2.7.12.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/Python/Python-2.7.12.tar.xz
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/Python/python-2.7.12-docs-html.tar.bz2 || wget -nc https://docs.python.org/2.7/archives/python-2.7.12-docs-html.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/Python/python-2.7.12-docs-html.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/Python/python-2.7.12-docs-html.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/Python/python-2.7.12-docs-html.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/Python/python-2.7.12-docs-html.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/Python/python-2.7.12-docs-html.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/Python/Python-2.7.13.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/Python/Python-2.7.13.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/Python/Python-2.7.13.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/Python/Python-2.7.13.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/Python/Python-2.7.13.tar.xz || wget -nc https://www.python.org/ftp/python/2.7.13/Python-2.7.13.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/Python/Python-2.7.13.tar.xz
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/Python/python-2.7.13-docs-html.tar.bz2 || wget -nc https://docs.python.org/2.7/archives/python-2.7.13-docs-html.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/Python/python-2.7.13-docs-html.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/Python/python-2.7.13-docs-html.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/Python/python-2.7.13-docs-html.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/Python/python-2.7.13-docs-html.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/Python/python-2.7.13-docs-html.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -63,13 +63,13 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -v -dm755 /usr/share/doc/python-2.7.12 &&
+install -v -dm755 /usr/share/doc/python-2.7.13 &&
 tar --strip-components=1                     \
     --no-same-owner                          \
-    --directory /usr/share/doc/python-2.7.12 \
-    -xvf ../python-2.7.12-docs-html.tar.bz2 &&
-find /usr/share/doc/python-2.7.12 -type d -exec chmod 0755 {} \; &&
-find /usr/share/doc/python-2.7.12 -type f -exec chmod 0644 {} \;
+    --directory /usr/share/doc/python-2.7.13 \
+    -xvf ../python-2.7.13-docs-html.tar.bz2 &&
+find /usr/share/doc/python-2.7.13 -type d -exec chmod 0755 {} \; &&
+find /usr/share/doc/python-2.7.13 -type f -exec chmod 0644 {} \;
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
@@ -79,7 +79,7 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-export PYTHONDOCS=/usr/share/doc/python-2.7.12
+export PYTHONDOCS=/usr/share/doc/python-2.7.13
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The elfutils package contains abr3ak set of utilities and libraries for handling ELF (Executable andbr3ak Linkable Format) files.br3ak"
 SECTION="general"
-VERSION=0.167
+VERSION=0.168
 NAME="elfutils"
 
 #OPT:valgrind
@@ -17,11 +17,11 @@ NAME="elfutils"
 
 cd $SOURCE_DIR
 
-URL=https://fedorahosted.org/releases/e/l/elfutils/0.167/elfutils-0.167.tar.bz2
+URL=https://sourceware.org/elfutils/ftp/0.168/elfutils-0.168.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/elfutils/elfutils-0.167.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/elfutils/elfutils-0.167.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/elfutils/elfutils-0.167.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/elfutils/elfutils-0.167.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/elfutils/elfutils-0.167.tar.bz2 || wget -nc https://fedorahosted.org/releases/e/l/elfutils/0.167/elfutils-0.167.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/elfutils/elfutils-0.167.tar.bz2
+wget -nc ftp://sourceware.org/pub/elfutils/0.168/elfutils-0.168.tar.bz2 || wget -nc https://sourceware.org/elfutils/ftp/0.168/elfutils-0.168.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/elfutils/elfutils-0.168.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/elfutils/elfutils-0.168.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/elfutils/elfutils-0.168.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/elfutils/elfutils-0.168.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/elfutils/elfutils-0.168.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/elfutils/elfutils-0.168.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

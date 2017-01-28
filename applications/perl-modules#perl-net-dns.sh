@@ -11,8 +11,8 @@ set +h
 #REQ:perl-modules#io-socket-inet
 
 SOURCE_ONLY=y
-URL="http://www.cpan.org/authors/id/N/NL/NLNETLABS/Net-DNS-1.06.tar.gz"
-VERSION=1.06
+URL="http://www.cpan.org/authors/id/N/NL/NLNETLABS/Net-DNS-1.07.tar.gz"
+VERSION=1.07
 NAME="perl-modules#perl-net-dns"
 
 cd $SOURCE_DIR

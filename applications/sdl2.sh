@@ -13,6 +13,7 @@ VERSION=2.0.5
 NAME="sdl2"
 
 #OPT:doxygen
+#OPT:ibus
 #OPT:nasm
 #OPT:pulseaudio
 #OPT:xorg-server
@@ -43,6 +44,11 @@ whoami > /tmp/currentuser
 make "-j`nproc`" || make
 
 
+pushd docs  &&
+  doxygen   &&
+popd
+
+
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install              &&
@@ -52,6 +58,11 @@ ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
+
+
+cd test &&
+./configure &&
+make "-j`nproc`" || make
 
 
 

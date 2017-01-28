@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="100-util-linux.sh"
-TARBALL="util-linux-2.29.tar.xz"
+TARBALL="util-linux-2.29.1.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -31,7 +31,7 @@ fi
 
 mkdir -pv /var/lib/hwclock
 ./configure ADJTIME_PATH=/var/lib/hwclock/adjtime   \
-            --docdir=/usr/share/doc/util-linux-2.29 \
+            --docdir=/usr/share/doc/util-linux-2.29.1 \
             --disable-chfn-chsh  \
             --disable-login      \
             --disable-nologin    \

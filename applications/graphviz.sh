@@ -59,6 +59,7 @@ fi
 whoami > /tmp/currentuser
 
 patch -Np1 -i ../graphviz-2.38.0-consolidated_fixes-1.patch &&
+sed -i '/LIBPOSTFIX="64"/s/64//' configure.ac &&
 autoreconf                               &&
 ./configure --prefix=/usr --disable-php  &&
 make "-j`nproc`" || make

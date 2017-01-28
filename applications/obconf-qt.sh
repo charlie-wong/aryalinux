@@ -43,9 +43,9 @@ whoami > /tmp/currentuser
 
 mkdir -v build &&
 cd       build &&
-cmake -DCMAKE_BUILD_TYPE=Release  \
-      -DCMAKE_INSTALL_PREFIX=/usr \
-      -DPULL_TRANSLATIONS=no      \
+cmake -DCMAKE_BUILD_TYPE=Release          \
+      -DCMAKE_INSTALL_PREFIX=$LXQT_PREFIX \
+      -DPULL_TRANSLATIONS=no              \
       ..       &&
 make "-j`nproc`" || make
 

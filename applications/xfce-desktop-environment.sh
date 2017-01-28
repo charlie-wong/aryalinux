@@ -72,7 +72,7 @@ VERSION=4.12
 #REQ:compton
 
 cd $SOURCE_DIR
-wget -nc https://sourceforge.net/projects/aryalinux-bin/files/releases/2017/aryalinux-xfce-config.tar.gz
+wget -nc aryalinux.org/releases/latest/aryalinux-xfce-config.tar.gz
 tar xf aryalinux-xfce-config.tar.gz -C ~
 sudo tar xf aryalinux-xfce-config.tar.gz -C /etc/skel/
 
@@ -138,7 +138,7 @@ EOF
 if [ ! -f /usr/share/pixmaps/aryalinux.org ]
 then
 cd $SOURCE_DIR
-wget -nc https://sourceforge.net/projects/aryalinux-bin/files/releases/2017/aryalinux.png
+wget -nc aryalinux.org/releases/2016.04/aryalinux.png
 pushd /usr/share/pixmaps/
 sudo cp -v $SOURCE_DIR/aryalinux.png .
 popd

@@ -19,9 +19,9 @@ set -e
 
 cd $SOURCE_DIR
 
-URL=http://www.freedesktop.org/software/libevdev/libevdev-1.5.5.tar.xz
+URL=http://www.freedesktop.org/software/libevdev/libevdev-1.5.6.tar.xz
 
-wget -nc http://www.freedesktop.org/software/libevdev/libevdev-1.5.5.tar.xz
+wget -nc http://www.freedesktop.org/software/libevdev/libevdev-1.5.6.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
@@ -65,9 +65,9 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=http://www.freedesktop.org/software/libinput/libinput-1.5.3.tar.xz
+URL=http://www.freedesktop.org/software/libinput/libinput-1.6.0.tar.xz
 
-wget -nc http://www.freedesktop.org/software/libinput/libinput-1.5.3.tar.xz
+wget -nc http://www.freedesktop.org/software/libinput/libinput-1.6.0.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
@@ -91,8 +91,8 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -v -dm755 $XORG_PREFIX/share/doc/libinput-1.5.3 &&
-cp -rv doc/html/* $XORG_PREFIX/share/doc/libinput-1.5.3
+install -v -dm755 $XORG_PREFIX/share/doc/libinput-1.6.0 &&
+cp -rv doc/html/* $XORG_PREFIX/share/doc/libinput-1.6.0
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
@@ -115,10 +115,10 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=http://ftp.x.org/pub/individual/driver/xf86-input-evdev-2.10.4.tar.bz2
+URL=http://ftp.x.org/pub/individual/driver/xf86-input-evdev-2.10.5.tar.bz2
 
-wget -nc http://ftp.x.org/pub/individual/driver/xf86-input-evdev-2.10.4.tar.bz2
-wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-input-evdev-2.10.4.tar.bz2
+wget -nc http://ftp.x.org/pub/individual/driver/xf86-input-evdev-2.10.5.tar.bz2
+wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-input-evdev-2.10.5.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`

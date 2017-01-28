@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Qtwebkit is a Qt based web browserbr3ak engine.br3ak"
 SECTION="x"
-VERSION=5.7.1
+VERSION=5.8.0
 NAME="qtwebkit5"
 
 #REQ:icu
@@ -25,11 +25,11 @@ NAME="qtwebkit5"
 
 cd $SOURCE_DIR
 
-URL=http://download.qt.io/community_releases/5.7/5.7.1/qtwebkit-opensource-src-5.7.1.tar.xz
+URL=http://download.qt.io/community_releases/5.8/5.8.0-final/qtwebkit-opensource-src-5.8.0.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://download.qt.io/community_releases/5.7/5.7.1/qtwebkit-opensource-src-5.7.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/qtwebkit/qtwebkit-opensource-src-5.7.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/qtwebkit/qtwebkit-opensource-src-5.7.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/qtwebkit/qtwebkit-opensource-src-5.7.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/qtwebkit/qtwebkit-opensource-src-5.7.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/qtwebkit/qtwebkit-opensource-src-5.7.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/qtwebkit/qtwebkit-opensource-src-5.7.1.tar.xz
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/qtwebkit/qtwebkit-opensource-src-5.8.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/qtwebkit/qtwebkit-opensource-src-5.8.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/qtwebkit/qtwebkit-opensource-src-5.8.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/qtwebkit/qtwebkit-opensource-src-5.8.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/qtwebkit/qtwebkit-opensource-src-5.8.0.tar.xz || wget -nc http://download.qt.io/community_releases/5.8/5.8.0-final/qtwebkit-opensource-src-5.8.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/qtwebkit/qtwebkit-opensource-src-5.8.0.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

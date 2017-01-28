@@ -9,11 +9,12 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The WebKitGTK+ package is a portbr3ak of the portable web rendering engine WebKit to the GTK+br3ak 3 and GTK+ 2 platforms.br3ak"
 SECTION="x"
-VERSION=2.14.2
+VERSION=2.14.3
 NAME="webkitgtk"
 
 #REQ:cairo
 #REQ:cmake
+#REQ:enchant
 #REQ:gst10-plugins-base
 #REQ:gtk2
 #REQ:gtk3
@@ -26,7 +27,6 @@ NAME="webkitgtk"
 #REQ:ruby
 #REQ:sqlite
 #REQ:general_which
-#REC:enchant
 #REC:geoclue2
 #REC:geoclue
 #REC:gobject-introspection
@@ -40,11 +40,11 @@ NAME="webkitgtk"
 
 cd $SOURCE_DIR
 
-URL=http://webkitgtk.org/releases/webkitgtk-2.14.2.tar.xz
+URL=http://webkitgtk.org/releases/webkitgtk-2.14.3.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/webkit/webkitgtk-2.14.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/webkit/webkitgtk-2.14.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/webkit/webkitgtk-2.14.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/webkit/webkitgtk-2.14.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/webkit/webkitgtk-2.14.2.tar.xz || wget -nc http://webkitgtk.org/releases/webkitgtk-2.14.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/webkit/webkitgtk-2.14.2.tar.xz
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/webkit/webkitgtk-2.14.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/webkit/webkitgtk-2.14.3.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/webkit/webkitgtk-2.14.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/webkit/webkitgtk-2.14.3.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/webkit/webkitgtk-2.14.3.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/webkit/webkitgtk-2.14.3.tar.xz || wget -nc http://webkitgtk.org/releases/webkitgtk-2.14.3.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

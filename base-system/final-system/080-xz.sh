@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="080-xz.sh"
-TARBALL="xz-5.2.2.tar.xz"
+TARBALL="xz-5.2.3.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,11 +29,9 @@ then
 	cd $DIRECTORY
 fi
 
-sed -e '/mf\.buffer = NULL/a next->coder->mf.size = 0;' \
-     -i src/liblzma/lz/lz_encoder.c
 ./configure --prefix=/usr    \
             --disable-static \
-            --docdir=/usr/share/doc/xz-5.2.2
+            --docdir=/usr/share/doc/xz-5.2.3
 make
 make install
 mv -v   /usr/bin/{lzma,unlzma,lzcat,xz,unxz,xzcat} /bin

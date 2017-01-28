@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The OpenSSH package containsbr3ak <span class=\"command\"><strong>ssh</strong> clients and thebr3ak <span class=\"command\"><strong>sshd</strong> daemon. This isbr3ak useful for encrypting authentication and subsequent traffic over abr3ak network. The <span class=\"command\"><strong>ssh</strong> andbr3ak <span class=\"command\"><strong>scp</strong> commands arebr3ak secure implementations of <span class=\"command\"><strong>telnet</strong> and <span class=\"command\"><strong>rcp</strong> respectively.br3ak"
 SECTION="postlfs"
-VERSION=7.3p1
+VERSION=7.4p1
 NAME="openssh"
 
 #REQ:openssl
@@ -23,11 +23,11 @@ NAME="openssh"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.3p1.tar.gz
+URL=http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.4p1.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/openssh/openssh-7.3p1.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/openssh/openssh-7.3p1.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/openssh/openssh-7.3p1.tar.gz || wget -nc http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.3p1.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/openssh/openssh-7.3p1.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/openssh/openssh-7.3p1.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/openssh/openssh-7.3p1.tar.gz
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/openssh/openssh-7.4p1.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/openssh/openssh-7.4p1.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/openssh/openssh-7.4p1.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/openssh/openssh-7.4p1.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/openssh/openssh-7.4p1.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/openssh/openssh-7.4p1.tar.gz || wget -nc http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.4p1.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -72,9 +72,9 @@ make install &&
 install -v -m755    contrib/ssh-copy-id /usr/bin     &&
 install -v -m644    contrib/ssh-copy-id.1 \
                     /usr/share/man/man1              &&
-install -v -m755 -d /usr/share/doc/openssh-7.3p1     &&
+install -v -m755 -d /usr/share/doc/openssh-7.4p1     &&
 install -v -m644    INSTALL LICENCE OVERVIEW README* \
-                    /usr/share/doc/openssh-7.3p1
+                    /usr/share/doc/openssh-7.4p1
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
@@ -120,7 +120,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 . /etc/alps/alps.conf
 
 pushd $SOURCE_DIR
-wget -nc http://aryalinux.org/releases/2016.11/blfs-systemd-units-20160602.tar.bz2
+wget -nc http://www.linuxfromscratch.org/blfs/downloads/svn/blfs-systemd-units-20160602.tar.bz2
 tar xf blfs-systemd-units-20160602.tar.bz2
 cd blfs-systemd-units-20160602
 make install-sshd

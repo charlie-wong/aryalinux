@@ -39,7 +39,7 @@ fi
 
 whoami > /tmp/currentuser
 
-export QUPZILLA_PREFIX=/usr &&
+export QUPZILLA_PREFIX=$LXQT_PREFIX &&
 qmake                       &&
 make "-j`nproc`" || make
 

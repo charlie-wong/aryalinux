@@ -14,6 +14,7 @@ NAME="systemd"
 
 #REQ:linux-pam
 #REC:polkit
+#REC:python3
 #OPT:cacerts
 #OPT:curl
 #OPT:elfutils
@@ -22,7 +23,6 @@ NAME="systemd"
 #OPT:libgcrypt
 #OPT:libidn
 #OPT:libxkbcommon
-#OPT:python-modules#lxml
 #OPT:qemu
 #OPT:valgrind
 #OPT:zsh

@@ -42,6 +42,7 @@ cat > /etc/vimrc << "EOF"
 " Begin /etc/vimrc
 set nocompatible
 set backspace=2
+set mouse=r
 syntax on
 if (&term == "iterm") || (&term == "putty")
  set background=dark

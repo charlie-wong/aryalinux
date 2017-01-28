@@ -10,8 +10,8 @@ set +h
 #REQ:perl-modules#mozilla-ca
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/S/SU/SULLR/IO-Socket-SSL-2.040.tar.gz"
-VERSION=2.040
+URL="http://search.cpan.org/CPAN/authors/id/S/SU/SULLR/IO-Socket-SSL-2.044.tar.gz"
+VERSION=2.044
 NAME="perl-modules#io-socket-ssl"
 
 cd $SOURCE_DIR

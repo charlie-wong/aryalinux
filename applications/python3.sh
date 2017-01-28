@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Python 3 package contains thebr3ak Python development environment.br3ak This is useful for object-oriented programming, writing scripts,br3ak prototyping large programs or developing entire applications.br3ak"
 SECTION="general"
-VERSION=3.5.2
+VERSION=3.6.0
 NAME="python3"
 
 #REC:libffi
@@ -24,12 +24,12 @@ NAME="python3"
 
 cd $SOURCE_DIR
 
-URL=https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tar.xz
+URL=https://www.python.org/ftp/python/3.6.0/Python-3.6.0.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/Python/Python-3.5.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/Python/Python-3.5.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/Python/Python-3.5.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/Python/Python-3.5.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/Python/Python-3.5.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/Python/Python-3.5.2.tar.xz
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/Python/python-3.5.2-docs-html.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/Python/python-3.5.2-docs-html.tar.bz2 || wget -nc https://docs.python.org/3.5/archives/python-3.5.2-docs-html.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/Python/python-3.5.2-docs-html.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/Python/python-3.5.2-docs-html.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/Python/python-3.5.2-docs-html.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/Python/python-3.5.2-docs-html.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/Python/Python-3.6.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/Python/Python-3.6.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/Python/Python-3.6.0.tar.xz || wget -nc https://www.python.org/ftp/python/3.6.0/Python-3.6.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/Python/Python-3.6.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/Python/Python-3.6.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/Python/Python-3.6.0.tar.xz
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/Python/python-3.6.0-docs-html.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/Python/python-3.6.0-docs-html.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/Python/python-3.6.0-docs-html.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/Python/python-3.6.0-docs-html.tar.bz2 || wget -nc https://docs.python.org/3.6/archives/python-3.6.0-docs-html.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/Python/python-3.6.0-docs-html.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/Python/python-3.6.0-docs-html.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -56,7 +56,7 @@ make "-j`nproc`" || make
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install &&
-chmod -v 755 /usr/lib/libpython3.5m.so &&
+chmod -v 755 /usr/lib/libpython3.6m.so &&
 chmod -v 755 /usr/lib/libpython3.so
 
 ENDOFROOTSCRIPT
@@ -67,12 +67,12 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -v -dm755 /usr/share/doc/python-3.5.2/html &&
+install -v -dm755 /usr/share/doc/python-3.6.0/html &&
 tar --strip-components=1 \
     --no-same-owner \
     --no-same-permissions \
-    -C /usr/share/doc/python-3.5.2/html \
-    -xvf ../python-3.5.2-docs-html.tar.bz2
+    -C /usr/share/doc/python-3.6.0/html \
+    -xvf ../python-3.6.0-docs-html.tar.bz2
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
@@ -82,7 +82,7 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-ln -svfn python-3.5.2 /usr/share/doc/python-3
+ln -svfn python-3.6.0 /usr/share/doc/python-3
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

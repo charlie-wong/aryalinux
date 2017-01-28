@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="101-man-db.sh"
-TARBALL="man-db-2.7.5.tar.xz"
+TARBALL="man-db-2.7.6.1.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -30,9 +30,10 @@ then
 fi
 
 ./configure --prefix=/usr                        \
-            --docdir=/usr/share/doc/man-db-2.7.5 \
+            --docdir=/usr/share/doc/man-db-2.7.6.1 \
             --sysconfdir=/etc                    \
             --disable-setuid                     \
+            --enable-cache-owner=bin             \
             --with-browser=/usr/bin/lynx         \
             --with-vgrind=/usr/bin/vgrind        \
             --with-grap=/usr/bin/grap

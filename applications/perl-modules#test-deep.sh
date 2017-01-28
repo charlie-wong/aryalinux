@@ -8,8 +8,8 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/R/RJ/RJBS/Test-Deep-1.124.tar.gz"
-VERSION=1.124
+URL="http://search.cpan.org/CPAN/authors/id/R/RJ/RJBS/Test-Deep-1.126.tar.gz"
+VERSION=1.126
 NAME="perl-modules#test-deep"
 
 cd $SOURCE_DIR

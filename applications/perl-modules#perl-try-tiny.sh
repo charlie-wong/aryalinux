@@ -8,8 +8,8 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org//CPAN/authors/id/E/ET/ETHER/Try-Tiny-0.27.tar.gz"
-VERSION=0.27
+URL="http://search.cpan.org//CPAN/authors/id/E/ET/ETHER/Try-Tiny-0.28.tar.gz"
+VERSION=0.28
 NAME="perl-modules#perl-try-tiny"
 
 cd $SOURCE_DIR

@@ -10,7 +10,6 @@ NAME="gstreamer-0.10-python"
 VERSION="0.10.22"
 
 #REQ:gstreamer-0.10
-#REQ:python-modules#pygtk
 
 cd $SOURCE_DIR
 URL="http://archive.ubuntu.com/ubuntu/pool/main/g/gst0.10-python/gst0.10-python_0.10.22.orig.tar.bz2"

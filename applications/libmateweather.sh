@@ -9,11 +9,11 @@ set +h
 SOURCE_ONLY=n
 NAME="libmateweather"
 DESCRIPTION="libmateweather is a library to access weather information from online services for numerous locations."
-VERSION="1.17.0"
+VERSION="1.16.1"
 
 cd $SOURCE_DIR
 
-URL="http://pub.mate-desktop.org/releases/1.17/libmateweather-1.17.0.tar.xz"
+URL="http://pub.mate-desktop.org/releases/1.16/libmateweather-1.16.1.tar.xz"
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`

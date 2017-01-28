@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="063-m4.sh"
-TARBALL="m4-1.4.17.tar.xz"
+TARBALL="m4-1.4.18.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The PCRE package containsbr3ak Perl Compatible Regular Expressionbr3ak libraries. These are useful for implementing regular expressionbr3ak pattern matching using the same syntax and semantics asbr3ak Perl 5.br3ak"
 SECTION="general"
-VERSION=8.39
+VERSION=8.40
 NAME="pcre"
 
 #OPT:valgrind
@@ -17,11 +17,11 @@ NAME="pcre"
 
 cd $SOURCE_DIR
 
-URL=ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.39.tar.bz2
+URL=ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.40.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/pcre/pcre-8.39.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/pcre/pcre-8.39.tar.bz2 || wget -nc ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.39.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/pcre/pcre-8.39.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/pcre/pcre-8.39.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/pcre/pcre-8.39.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/pcre/pcre-8.39.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/pcre/pcre-8.40.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/pcre/pcre-8.40.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/pcre/pcre-8.40.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/pcre/pcre-8.40.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/pcre/pcre-8.40.tar.bz2 || wget -nc ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.40.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/pcre/pcre-8.40.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -37,7 +37,7 @@ fi
 whoami > /tmp/currentuser
 
 ./configure --prefix=/usr                     \
-            --docdir=/usr/share/doc/pcre-8.39 \
+            --docdir=/usr/share/doc/pcre-8.40 \
             --enable-unicode-properties       \
             --enable-pcre16                   \
             --enable-pcre32                   \

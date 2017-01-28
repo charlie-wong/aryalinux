@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="046-zlib.sh"
-TARBALL="zlib-1.2.8.tar.xz"
+TARBALL="zlib-1.2.11.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 

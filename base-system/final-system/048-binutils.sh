@@ -32,9 +32,11 @@ fi
 expect -c "spawn ls"
 mkdir -v build
 cd       build
-../configure --prefix=/usr   \
-             --enable-shared \
-             --disable-werror
+../configure --prefix=/usr    \
+             --enable-plugins \
+             --enable-shared  \
+             --disable-werror \
+             --with-system-zlib
 make tooldir=/usr
 make tooldir=/usr install
 

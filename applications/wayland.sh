@@ -13,6 +13,7 @@ VERSION=1.12.0
 NAME="wayland"
 
 #REQ:libffi
+#REQ:libxml2
 #OPT:doxygen
 #OPT:graphviz
 #OPT:xmlto

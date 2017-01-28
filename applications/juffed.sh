@@ -40,11 +40,10 @@ whoami > /tmp/currentuser
 
 mkdir -v build &&
 cd       build &&
-cmake -DCMAKE_BUILD_TYPE=Release  \
-      -DCMAKE_INSTALL_PREFIX=/usr \
-      -DLIB_INSTALL_DIR=/usr/lib  \
-      -DBUILD_TERMINAL=ON         \
-      -DUSE_QT5=true              \
+cmake -DCMAKE_BUILD_TYPE=Release           \
+      -DCMAKE_INSTALL_PREFIX=/$LXQT_PREFIX \
+      -DBUILD_TERMINAL=ON                  \
+      -DUSE_QT5=true                       \
       ..       &&
 make "-j`nproc`" || make
 

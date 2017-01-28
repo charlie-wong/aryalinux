@@ -62,7 +62,7 @@ sed -e 's/avcodec_alloc_frame/av_frame_alloc/'        \
     -e 's/avcodec_free_frame/av_frame_free/'          \
     -i src/combined/ffmpeg/ff_{audio,video}_decoder.c \
        src/dxr3/ffmpeg_encoder.c &&
-sed -e 's|wand/magick_wand.h|ImageMagick-6/wand/MagickWand.h|' \
+sed -e 's|wand/magick_wand.h|MagickWand/MagickWand.h|' \
     -i src/video_dec/image.c &&
 sed -e '/xineplug_vo_out_xcbxv_la_LIBADD/s/$(XCB_LIBS)/$(XCBSHM_LIBS) $(XCB_LIBS)/' \
     -i src/video_out/Makefile.in &&

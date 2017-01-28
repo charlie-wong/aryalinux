@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak QScintilla is a port tobr3ak Qt of <a class=\"ulink\" href=\"http://www.scintilla.org/\">Scintilla</a>. As well as featuresbr3ak found in standard text editing components, it includes featuresbr3ak especially useful when editing and debugging source code: languagebr3ak syntax styling, error indicators, code completion, call tips, codebr3ak folding, margins can contain markers like those used in debuggersbr3ak to indicate breakpoints and the current line, recordable macros,br3ak multiple views and, of course, printing.br3ak"
 SECTION="lxqt"
-VERSION=2.9.3
+VERSION=2.9.4
 NAME="qscintilla"
 
 #REQ:chrpath
@@ -18,11 +18,11 @@ NAME="qscintilla"
 
 cd $SOURCE_DIR
 
-URL=http://downloads.sourceforge.net/pyqt/QScintilla_gpl-2.9.3.tar.gz
+URL=http://downloads.sourceforge.net/pyqt/QScintilla_gpl-2.9.4.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://downloads.sourceforge.net/pyqt/QScintilla_gpl-2.9.3.tar.gz
+wget -nc http://downloads.sourceforge.net/pyqt/QScintilla_gpl-2.9.4.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -56,9 +56,9 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -v -m755 -d /opt/qt5/share/doc/QScintilla-2.9.3/html &&
+install -v -m755 -d /opt/qt5/share/doc/QScintilla-2.9.4/html &&
 install -v -m644    ../doc/html-Qt4Qt5/* \
-                    /opt/qt5/share/doc/QScintilla-2.9.3/html
+                    /opt/qt5/share/doc/QScintilla-2.9.4/html
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

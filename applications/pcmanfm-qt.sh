@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The pcmanfm-qt is a file managerbr3ak and desktop icon manager (Qt portbr3ak of pcmanfm and libfm).br3ak"
 SECTION="lxqt"
-VERSION=0.11.1
+VERSION=0.11.2
 NAME="pcmanfm-qt"
 
 #REQ:liblxqt
@@ -22,11 +22,11 @@ NAME="pcmanfm-qt"
 
 cd $SOURCE_DIR
 
-URL=http://downloads.lxqt.org/pcmanfm-qt/0.11.1/pcmanfm-qt-0.11.1.tar.xz
+URL=http://downloads.lxqt.org/pcmanfm-qt/0.11.2/pcmanfm-qt-0.11.2.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://downloads.lxqt.org/pcmanfm-qt/0.11.1/pcmanfm-qt-0.11.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/pcmanfm/pcmanfm-qt-0.11.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/pcmanfm/pcmanfm-qt-0.11.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/pcmanfm/pcmanfm-qt-0.11.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/pcmanfm/pcmanfm-qt-0.11.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/pcmanfm/pcmanfm-qt-0.11.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/pcmanfm/pcmanfm-qt-0.11.1.tar.xz
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/pcmanfm/pcmanfm-qt-0.11.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/pcmanfm/pcmanfm-qt-0.11.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/pcmanfm/pcmanfm-qt-0.11.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/pcmanfm/pcmanfm-qt-0.11.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/pcmanfm/pcmanfm-qt-0.11.2.tar.xz || wget -nc http://downloads.lxqt.org/pcmanfm-qt/0.11.2/pcmanfm-qt-0.11.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/pcmanfm/pcmanfm-qt-0.11.2.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak libfm-qt is the Qt port of libfm,br3ak a library providing components to build desktop file managers.br3ak"
 SECTION="lxqt"
-VERSION=0.11.1
+VERSION=0.11.2
 NAME="libfm-qt"
 
 #REQ:cmake
@@ -21,11 +21,11 @@ NAME="libfm-qt"
 
 cd $SOURCE_DIR
 
-URL=http://downloads.lxqt.org/libfm-qt/0.11.1/libfm-qt-0.11.1.tar.xz
+URL=http://downloads.lxqt.org/libfm-qt/0.11.2/libfm-qt-0.11.2.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://downloads.lxqt.org/libfm-qt/0.11.1/libfm-qt-0.11.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libfm/libfm-qt-0.11.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libfm/libfm-qt-0.11.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libfm/libfm-qt-0.11.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libfm/libfm-qt-0.11.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libfm/libfm-qt-0.11.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libfm/libfm-qt-0.11.1.tar.xz
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libfm/libfm-qt-0.11.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libfm/libfm-qt-0.11.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libfm/libfm-qt-0.11.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libfm/libfm-qt-0.11.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libfm/libfm-qt-0.11.2.tar.xz || wget -nc http://downloads.lxqt.org/libfm-qt/0.11.2/libfm-qt-0.11.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libfm/libfm-qt-0.11.2.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

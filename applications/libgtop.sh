@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The libgtop package contains thebr3ak GNOME top libraries.br3ak"
 SECTION="gnome"
-VERSION=2.34.1
+VERSION=2.34.2
 NAME="libgtop"
 
 #REQ:glib2
@@ -20,11 +20,11 @@ NAME="libgtop"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/libgtop/2.34/libgtop-2.34.1.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/libgtop/2.34/libgtop-2.34.2.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libgtop/2.34/libgtop-2.34.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libgtop/libgtop-2.34.1.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgtop/2.34/libgtop-2.34.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libgtop/libgtop-2.34.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libgtop/libgtop-2.34.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libgtop/libgtop-2.34.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libgtop/libgtop-2.34.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libgtop/libgtop-2.34.1.tar.xz
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libgtop/libgtop-2.34.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libgtop/libgtop-2.34.2.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgtop/2.34/libgtop-2.34.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libgtop/libgtop-2.34.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libgtop/libgtop-2.34.2.tar.xz || wget -nc http://ftp.gnome.org/pub/gnome/sources/libgtop/2.34/libgtop-2.34.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libgtop/libgtop-2.34.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libgtop/libgtop-2.34.2.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

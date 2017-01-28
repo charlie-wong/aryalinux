@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="065-flex.sh"
-TARBALL="flex-2.6.2.tar.gz"
+TARBALL="flex-2.6.3.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,10 +29,8 @@ then
 	cd $DIRECTORY
 fi
 
-patch -Np1 -i ../flex-2.6.2-fixes-1.patch &&
-touch src/scan.*
 HELP2MAN=/tools/bin/true \
-./configure --prefix=/usr --docdir=/usr/share/doc/flex-2.6.2
+./configure --prefix=/usr --docdir=/usr/share/doc/flex-2.6.3
 make
 make install
 ln -sv flex /usr/bin/lex

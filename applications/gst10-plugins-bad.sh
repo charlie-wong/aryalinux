@@ -71,6 +71,7 @@ whoami > /tmp/currentuser
 
 ./configure --prefix=/usr     \
             --disable-wayland \
+            --disable-opencv  \
             --with-package-name="GStreamer Bad Plugins 1.10.2 BLFS" \
             --with-package-origin="http://www.linuxfromscratch.org/blfs/view/svn/" &&
 make "-j`nproc`" || make

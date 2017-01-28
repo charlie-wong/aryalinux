@@ -9,18 +9,18 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak fdk-aac package provides thebr3ak Fraunhofer FDK AAC library, which is purported to be a high qualitybr3ak Advanced Audio Coding implementation.br3ak"
 SECTION="multimedia"
-VERSION=0.1.4
+VERSION=0.1.5
 NAME="fdk-aac"
 
 
 
 cd $SOURCE_DIR
 
-URL=http://downloads.sourceforge.net/opencore-amr/fdk-aac-0.1.4.tar.gz
+URL=http://downloads.sourceforge.net/opencore-amr/fdk-aac-0.1.5.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/fdk-aac/fdk-aac-0.1.4.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/fdk-aac/fdk-aac-0.1.4.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/fdk-aac/fdk-aac-0.1.4.tar.gz || wget -nc http://downloads.sourceforge.net/opencore-amr/fdk-aac-0.1.4.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/fdk-aac/fdk-aac-0.1.4.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/fdk-aac/fdk-aac-0.1.4.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/fdk-aac/fdk-aac-0.1.4.tar.gz
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/fdk-aac/fdk-aac-0.1.5.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/fdk-aac/fdk-aac-0.1.5.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/fdk-aac/fdk-aac-0.1.5.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/fdk-aac/fdk-aac-0.1.5.tar.gz || wget -nc http://downloads.sourceforge.net/opencore-amr/fdk-aac-0.1.5.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/fdk-aac/fdk-aac-0.1.5.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/fdk-aac/fdk-aac-0.1.5.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -35,9 +35,7 @@ fi
 
 whoami > /tmp/currentuser
 
-CXX='g++ -Wno-narrowing'     \
-./configure --prefix=/usr    \
-            --disable-static &&
+./configure --prefix=/usr --disable-static &&
 make "-j`nproc`" || make
 
 

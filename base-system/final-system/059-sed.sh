@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="059-sed.sh"
-TARBALL="sed-4.2.2.tar.bz2"
+TARBALL="sed-4.3.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,11 +29,14 @@ then
 	cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --bindir=/bin --htmldir=/usr/share/doc/sed-4.2.2
+sed -i 's/usr/tools/'       build-aux/help2man
+sed -i 's/panic-tests.sh//' Makefile.in
+./configure --prefix=/usr --bindir=/bin
 make
 make html
 make install
-make -C doc install-html
+install -d -m755           /usr/share/doc/sed-4.3
+install -m644 doc/sed.html /usr/share/doc/sed-4.3
 
 
 cd $SOURCE_DIR

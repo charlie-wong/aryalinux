@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The GNOME Session package containsbr3ak the GNOME session manager.br3ak"
 SECTION="gnome"
-VERSION=3.22.0
+VERSION=3.22.2
 NAME="gnome-session"
 
 #REQ:dbus-glib
@@ -27,11 +27,11 @@ NAME="gnome-session"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-session/3.22/gnome-session-3.22.0.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-session/3.22/gnome-session-3.22.2.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-session/3.22/gnome-session-3.22.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gnome-session/gnome-session-3.22.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnome-session/gnome-session-3.22.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gnome-session/gnome-session-3.22.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gnome-session/gnome-session-3.22.0.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-session/3.22/gnome-session-3.22.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gnome-session/gnome-session-3.22.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnome-session/gnome-session-3.22.0.tar.xz
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gnome-session/gnome-session-3.22.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gnome-session/gnome-session-3.22.2.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-session/3.22/gnome-session-3.22.2.tar.xz || wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-session/3.22/gnome-session-3.22.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gnome-session/gnome-session-3.22.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnome-session/gnome-session-3.22.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gnome-session/gnome-session-3.22.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnome-session/gnome-session-3.22.2.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -46,7 +46,19 @@ fi
 
 whoami > /tmp/currentuser
 
-./configure --prefix=/usr --docdir=/usr/share/doc/gnome-session-3.22.0 &&
+mv gnome-session/gnome-session.{in,bak} &&
+cat > gnome-session/gnome-session.in << "EOF" &&
+#!/bin/sh
+# Source /etc/profile if running in Xwayland
+if [ "${XDG_SESSION_TYPE}" == "wayland" ]; then
+ . /etc/profile
+fi
+EOF
+sed 's@#!/bin/sh@@' gnome-session/gnome-session.bak >> \
+    gnome-session/gnome-session.in
+
+
+./configure --prefix=/usr --docdir=/usr/share/doc/gnome-session-3.22.2 &&
 make "-j`nproc`" || make
 
 

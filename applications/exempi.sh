@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Exempi is an implementation of XMPbr3ak (Adobe's Extensible Metadata Platform).br3ak"
 SECTION="general"
-VERSION=2.3.0
+VERSION=2.4.0
 NAME="exempi"
 
 #REQ:boost
@@ -18,11 +18,11 @@ NAME="exempi"
 
 cd $SOURCE_DIR
 
-URL=http://libopenraw.freedesktop.org/download/exempi-2.3.0.tar.bz2
+URL=http://libopenraw.freedesktop.org/download/exempi-2.4.0.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/exempi/exempi-2.3.0.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/exempi/exempi-2.3.0.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/exempi/exempi-2.3.0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/exempi/exempi-2.3.0.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/exempi/exempi-2.3.0.tar.bz2 || wget -nc http://libopenraw.freedesktop.org/download/exempi-2.3.0.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/exempi/exempi-2.3.0.tar.bz2
+wget -nc http://libopenraw.freedesktop.org/download/exempi-2.4.0.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/exempi/exempi-2.4.0.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/exempi/exempi-2.4.0.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/exempi/exempi-2.4.0.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/exempi/exempi-2.4.0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/exempi/exempi-2.4.0.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/exempi/exempi-2.4.0.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

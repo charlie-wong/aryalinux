@@ -9,18 +9,18 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The lmdb package is a fast,br3ak compact, key-value embedded data store. It uses memory-mappedbr3ak files, so it has the read performance of a pure in-memory databasebr3ak while still offering the persistence of standard disk-basedbr3ak databases, and is only limited to the size of the virtual addressbr3ak spacebr3ak"
 SECTION="server"
-VERSION=0.9.18
+VERSION=0.9.19
 NAME="lmdb"
 
 
 
 cd $SOURCE_DIR
 
-URL=https://github.com/LMDB/lmdb/archive/LMDB_0.9.18.tar.gz
+URL=https://github.com/LMDB/lmdb/archive/LMDB_0.9.19.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/lmdb/LMDB_0.9.18.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/lmdb/LMDB_0.9.18.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/lmdb/LMDB_0.9.18.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/lmdb/LMDB_0.9.18.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/lmdb/LMDB_0.9.18.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/lmdb/LMDB_0.9.18.tar.gz || wget -nc https://github.com/LMDB/lmdb/archive/LMDB_0.9.18.tar.gz
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/lmdb/LMDB_0.9.19.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/lmdb/LMDB_0.9.19.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/lmdb/LMDB_0.9.19.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/lmdb/LMDB_0.9.19.tar.gz || wget -nc https://github.com/LMDB/lmdb/archive/LMDB_0.9.19.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/lmdb/LMDB_0.9.19.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/lmdb/LMDB_0.9.19.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

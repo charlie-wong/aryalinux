@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak MariaDB is a community-developedbr3ak fork and a drop-in replacement for the MySQL relational database management system.br3ak"
 SECTION="server"
-VERSION=10.1.19
+VERSION=10.1.21
 NAME="mariadb"
 
 #REQ:cmake
@@ -27,11 +27,11 @@ NAME="mariadb"
 
 cd $SOURCE_DIR
 
-URL=ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.1.19/source/mariadb-10.1.19.tar.gz
+URL=ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.1.21/source/mariadb-10.1.21.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/mariadb/mariadb-10.1.19.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/mariadb/mariadb-10.1.19.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/mariadb/mariadb-10.1.19.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/mariadb/mariadb-10.1.19.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/mariadb/mariadb-10.1.19.tar.gz || wget -nc ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.1.19/source/mariadb-10.1.19.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/mariadb/mariadb-10.1.19.tar.gz
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/mariadb/mariadb-10.1.21.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/mariadb/mariadb-10.1.21.tar.gz || wget -nc ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.1.21/source/mariadb-10.1.21.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/mariadb/mariadb-10.1.21.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/mariadb/mariadb-10.1.21.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/mariadb/mariadb-10.1.21.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/mariadb/mariadb-10.1.21.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -62,8 +62,8 @@ mkdir build &&
 cd build    &&
 cmake -DCMAKE_BUILD_TYPE=Release                       \
       -DCMAKE_INSTALL_PREFIX=/usr                      \
-      -DINSTALL_DOCDIR=share/doc/mariadb-10.1.19       \
-      -DINSTALL_DOCREADMEDIR=share/doc/mariadb-10.1.19 \
+      -DINSTALL_DOCDIR=share/doc/mariadb-10.1.21       \
+      -DINSTALL_DOCREADMEDIR=share/doc/mariadb-10.1.21 \
       -DINSTALL_MANDIR=share/man                       \
       -DINSTALL_MYSQLSHAREDIR=share/mysql              \
       -DINSTALL_MYSQLTESTDIR=share/mysql/test          \
@@ -211,7 +211,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 . /etc/alps/alps.conf
 
 pushd $SOURCE_DIR
-wget -nc http://aryalinux.org/releases/2016.11/blfs-systemd-units-20160602.tar.bz2
+wget -nc http://www.linuxfromscratch.org/blfs/downloads/svn/blfs-systemd-units-20160602.tar.bz2
 tar xf blfs-systemd-units-20160602.tar.bz2
 cd blfs-systemd-units-20160602
 make install-mysqld

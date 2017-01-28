@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The ALSA Tools package containsbr3ak advanced tools for certain sound cards.br3ak"
 SECTION="multimedia"
-VERSION=1.1.0
+VERSION=1.1.3
 NAME="alsa-tools"
 
 #REQ:alsa-lib
@@ -20,11 +20,11 @@ NAME="alsa-tools"
 
 cd $SOURCE_DIR
 
-URL=http://alsa.cybermirror.org/tools/alsa-tools-1.1.0.tar.bz2
+URL=http://alsa.cybermirror.org/tools/alsa-tools-1.1.3.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://alsa.cybermirror.org/tools/alsa-tools-1.1.0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/alsa-tools/alsa-tools-1.1.0.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/alsa-tools/alsa-tools-1.1.0.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/alsa-tools/alsa-tools-1.1.0.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/alsa-tools/alsa-tools-1.1.0.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/alsa-tools/alsa-tools-1.1.0.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/alsa-tools/alsa-tools-1.1.0.tar.bz2 || wget -nc ftp://ftp.alsa-project.org/pub/tools/alsa-tools-1.1.0.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/alsa-tools/alsa-tools-1.1.3.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/alsa-tools/alsa-tools-1.1.3.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/alsa-tools/alsa-tools-1.1.3.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/alsa-tools/alsa-tools-1.1.3.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/alsa-tools/alsa-tools-1.1.3.tar.bz2 || wget -nc ftp://ftp.alsa-project.org/pub/tools/alsa-tools-1.1.3.tar.bz2 || wget -nc http://alsa.cybermirror.org/tools/alsa-tools-1.1.3.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/alsa-tools/alsa-tools-1.1.3.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

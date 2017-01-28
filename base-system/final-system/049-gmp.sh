@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="049-gmp.sh"
-TARBALL="gmp-6.1.1.tar.xz"
+TARBALL="gmp-6.1.2.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -32,7 +32,7 @@ fi
 ./configure --prefix=/usr    \
             --enable-cxx     \
             --disable-static \
-            --docdir=/usr/share/doc/gmp-6.1.1
+            --docdir=/usr/share/doc/gmp-6.1.2
 make
 make html
 make install

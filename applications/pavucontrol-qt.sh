@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak pavucontrol-qt is the Qt port ofbr3ak volume control pavucontrol of sound server PulseAudio. Its use isbr3ak not limited to LXQt.br3ak"
 SECTION="lxqt"
-VERSION=0.1.0
+VERSION=0.2.0
 NAME="pavucontrol-qt"
 
 #REQ:liblxqt
@@ -21,11 +21,11 @@ NAME="pavucontrol-qt"
 
 cd $SOURCE_DIR
 
-URL=https://downloads.lxqt.org/pavucontrol-qt/0.1.0/pavucontrol-qt-0.1.0.tar.xz
+URL=https://downloads.lxqt.org/pavucontrol-qt/0.2.0/pavucontrol-qt-0.2.0.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/pavucontrol-qt/pavucontrol-qt-0.1.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/pavucontrol-qt/pavucontrol-qt-0.1.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/pavucontrol-qt/pavucontrol-qt-0.1.0.tar.xz || wget -nc https://downloads.lxqt.org/pavucontrol-qt/0.1.0/pavucontrol-qt-0.1.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/pavucontrol-qt/pavucontrol-qt-0.1.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/pavucontrol-qt/pavucontrol-qt-0.1.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/pavucontrol-qt/pavucontrol-qt-0.1.0.tar.xz
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/pavucontrol-qt/pavucontrol-qt-0.2.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/pavucontrol-qt/pavucontrol-qt-0.2.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/pavucontrol-qt/pavucontrol-qt-0.2.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/pavucontrol-qt/pavucontrol-qt-0.2.0.tar.xz || wget -nc https://downloads.lxqt.org/pavucontrol-qt/0.2.0/pavucontrol-qt-0.2.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/pavucontrol-qt/pavucontrol-qt-0.2.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/pavucontrol-qt/pavucontrol-qt-0.2.0.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -42,9 +42,9 @@ whoami > /tmp/currentuser
 
 mkdir -v build &&
 cd       build &&
-cmake -DCMAKE_BUILD_TYPE=Release  \
-      -DCMAKE_INSTALL_PREFIX=/usr \
-      -DPULL_TRANSLATIONS=no      \
+cmake -DCMAKE_BUILD_TYPE=Release          \
+      -DCMAKE_INSTALL_PREFIX=$LXQT_PREFIX \
+      -DPULL_TRANSLATIONS=no              \
       ..       &&
 make "-j`nproc`" || make
 

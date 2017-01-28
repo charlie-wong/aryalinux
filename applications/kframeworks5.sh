@@ -8,7 +8,7 @@ set -e
 SOURCE_ONLY=n
 NAME="kframeworks5"
 DESCRIPTION="KDE Frameworks 5 is a collection of libraries based on top of Qt5 and QML derived from the monolithic KDE 4 libraries."
-VERSION=5.30
+VERSION=5.28
 
 #REQ:boost
 #REQ:extra-cmake-modules
@@ -97,15 +97,14 @@ e8b47c782e7d30b4c363187c9a1a72b9 kxmlgui-$VERSION.0.tar.xz
 cad4e5542bec99a3b264b06988193195 kio-$VERSION.0.tar.xz
 3de69c04bffcb050ac3f96b510229527 kdeclarative-$VERSION.0.tar.xz
 1d4043e0d21472c32619f066402190a0 kcmutils-$VERSION.0.tar.xz
-2ac172c3af820c701e8e144e7f9d35db knewstuff-$VERSION.0.tar.xz
 16af94413983986c36a3a2b9279a3b7b frameworkintegration-$VERSION.0.tar.xz
 4072959e05d8a561fca95919fc8fad18 kinit-$VERSION.0.tar.xz
+2ac172c3af820c701e8e144e7f9d35db knewstuff-$VERSION.0.tar.xz
 b2e4a68bff24fd7cc4cb500af53fcd61 knotifyconfig-$VERSION.0.tar.xz
 6a82c4f8b69ae6d28d74ed795865c248 kparts-$VERSION.0.tar.xz
 85af6c7eab34592872a85c9559ed1b36 kactivities-$VERSION.0.tar.xz
 b6731516ccfad1149a8b9c0f818d39d6 kded-$VERSION.0.tar.xz
 9799a785217ea8877f288348cce72c0f kdewebkit-$VERSION.0.tar.xz
-cf30b86038b669f905cc273a9cf1a9c7 syntax-highlighting-5.30.0.tar.xz
 b7dd9344c55b392ea0d7fc79935e14af ktexteditor-$VERSION.0.tar.xz
 fe1ec30258eb149d21c9f649b72a8f1a kdesignerplugin-$VERSION.0.tar.xz
 ff844df8d38596734e541a0c53131e32 plasma-framework-$VERSION.0.tar.xz
@@ -115,8 +114,8 @@ ff844df8d38596734e541a0c53131e32 plasma-framework-$VERSION.0.tar.xz
 a7c7afc02a3842119607c62f2f1191b2 bluez-qt-$VERSION.0.tar.xz
 4aef6d8fbce1de5906c31318a0dd8e95 kfilemetadata-$VERSION.0.tar.xz
 6280369bf13d595f4d951bcab59663ff baloo-$VERSION.0.tar.xz
-ec81600d6dd3059b694827a988cfce95 breeze-icons-$VERSION.0.tar.xz
-0c5375eaba2e68bb2ef046d303de221e oxygen-icons5-$VERSION.0.tar.xz
+#ec81600d6dd3059b694827a988cfce95 breeze-icons-$VERSION.0.tar.xz
+#0c5375eaba2e68bb2ef046d303de221e oxygen-icons5-$VERSION.0.tar.xz
 179ba5f3e126f04461df16c44a6cf0dc kactivities-stats-$VERSION.0.tar.xz
 5b3cadf4d586d15729b97b8c152e82b7 krunner-$VERSION.0.tar.xz
 8645b010fe6a30c374723cba26266e67 kwayland-$VERSION.0.tar.xz

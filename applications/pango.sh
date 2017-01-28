@@ -19,6 +19,7 @@ NAME="pango"
 #REC:cairo
 #REC:x7lib
 #OPT:gobject-introspection
+#OPT:TTF-and-OTF-fonts#cantarell-fonts
 #OPT:gtk-doc
 
 

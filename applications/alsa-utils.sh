@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The ALSA Utilities packagebr3ak contains various utilities which are useful for controlling yourbr3ak sound card.br3ak"
 SECTION="multimedia"
-VERSION=1.1.2
+VERSION=1.1.3
 NAME="alsa-utils"
 
 #REQ:alsa-lib
@@ -19,11 +19,11 @@ NAME="alsa-utils"
 
 cd $SOURCE_DIR
 
-URL=http://alsa.cybermirror.org/utils/alsa-utils-1.1.2.tar.bz2
+URL=http://alsa.cybermirror.org/utils/alsa-utils-1.1.3.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/alsa-utils/alsa-utils-1.1.2.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/alsa-utils/alsa-utils-1.1.2.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/alsa-utils/alsa-utils-1.1.2.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/alsa-utils/alsa-utils-1.1.2.tar.bz2 || wget -nc ftp://ftp.alsa-project.org/pub/utils/alsa-utils-1.1.2.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/alsa-utils/alsa-utils-1.1.2.tar.bz2 || wget -nc http://alsa.cybermirror.org/utils/alsa-utils-1.1.2.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/alsa-utils/alsa-utils-1.1.2.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/alsa-utils/alsa-utils-1.1.3.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/alsa-utils/alsa-utils-1.1.3.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/alsa-utils/alsa-utils-1.1.3.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/alsa-utils/alsa-utils-1.1.3.tar.bz2 || wget -nc http://alsa.cybermirror.org/utils/alsa-utils-1.1.3.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/alsa-utils/alsa-utils-1.1.3.tar.bz2 || wget -nc ftp://ftp.alsa-project.org/pub/utils/alsa-utils-1.1.3.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/alsa-utils/alsa-utils-1.1.3.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

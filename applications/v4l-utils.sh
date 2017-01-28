@@ -15,8 +15,8 @@ NAME="v4l-utils"
 #REQ:glu
 #REQ:libjpeg
 #REQ:mesa
-#OPT:alsa-lib
-#OPT:qt5
+#REC:alsa-lib
+#REC:qt5
 #OPT:doxygen
 
 

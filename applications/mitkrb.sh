@@ -28,6 +28,7 @@ URL=http://web.mit.edu/kerberos/dist/krb5/1.15/krb5-1.15.tar.gz
 if [ ! -z $URL ]
 then
 wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/krb5/krb5-1.15.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/krb5/krb5-1.15.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/krb5/krb5-1.15.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/krb5/krb5-1.15.tar.gz || wget -nc http://web.mit.edu/kerberos/dist/krb5/1.15/krb5-1.15.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/krb5/krb5-1.15.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/krb5/krb5-1.15.tar.gz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/mitkrb-1.15-fix_ipv4_only-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/mitkrb/mitkrb-1.15-fix_ipv4_only-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -41,6 +42,9 @@ cd $DIRECTORY
 fi
 
 whoami > /tmp/currentuser
+
+patch -p1 -i ../mitkrb-1.15-fix_ipv4_only-1.patch
+
 
 cd src &&
 sed -e "s@python2.5/Python.h@& python2.7/Python.h@g" \
@@ -90,7 +94,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 . /etc/alps/alps.conf
 
 pushd $SOURCE_DIR
-wget -nc http://aryalinux.org/releases/2016.11/blfs-systemd-units-20160602.tar.bz2
+wget -nc http://www.linuxfromscratch.org/blfs/downloads/svn/blfs-systemd-units-20160602.tar.bz2
 tar xf blfs-systemd-units-20160602.tar.bz2
 cd blfs-systemd-units-20160602
 make install-krb5

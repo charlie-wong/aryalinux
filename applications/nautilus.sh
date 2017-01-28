@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Nautilus package contains thebr3ak GNOME file manager.br3ak"
 SECTION="gnome"
-VERSION=3.22.0
+VERSION=3.22.2
 NAME="nautilus"
 
 #REQ:gnome-autoar
@@ -25,11 +25,12 @@ NAME="nautilus"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/nautilus/3.22/nautilus-3.22.0.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/nautilus/3.22/nautilus-3.22.2.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/nautilus/nautilus-3.22.0.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/nautilus/3.22/nautilus-3.22.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/nautilus/nautilus-3.22.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/nautilus/nautilus-3.22.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/nautilus/nautilus-3.22.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/nautilus/nautilus-3.22.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/nautilus/nautilus-3.22.0.tar.xz || wget -nc http://ftp.gnome.org/pub/gnome/sources/nautilus/3.22/nautilus-3.22.0.tar.xz
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/nautilus/nautilus-3.22.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/nautilus/nautilus-3.22.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/nautilus/nautilus-3.22.2.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/nautilus/3.22/nautilus-3.22.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/nautilus/nautilus-3.22.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/nautilus/nautilus-3.22.2.tar.xz || wget -nc http://ftp.gnome.org/pub/gnome/sources/nautilus/3.22/nautilus-3.22.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/nautilus/nautilus-3.22.2.tar.xz
+wget -nc http://www.linuxfromscratch.org/patches/downloads/nautilus/nautilus-3.22.2-disable_batch_rename_support-1.patch || wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/nautilus-3.22.2-disable_batch_rename_support-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -44,11 +45,14 @@ fi
 
 whoami > /tmp/currentuser
 
+patch -Np1 -i ../nautilus-3.22.2-disable_batch_rename_support-1.patch &&
+autoreconf -fiv &&
 ./configure --prefix=/usr        \
             --sysconfdir=/etc    \
             --disable-selinux    \
             --disable-tracker    \
-            --disable-packagekit &&
+            --disable-packagekit \
+            --disable-batch-rename &&
 make "-j`nproc`" || make
 
 

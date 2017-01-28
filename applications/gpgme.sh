@@ -43,6 +43,9 @@ fi
 
 whoami > /tmp/currentuser
 
+sed 's#@libsuffix@#.so#' -i lang/cpp/src/GpgmeppConfig.cmake.in.in
+
+
 ./configure --prefix=/usr &&
 make "-j`nproc`" || make
 

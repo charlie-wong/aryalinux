@@ -12,9 +12,9 @@ SECTION="basicnet"
 VERSION=1.18
 NAME="wget"
 
-#REC:gnutls
+#REC:openssl
+#OPT:gnutls
 #OPT:libidn
-#OPT:openssl
 #OPT:pcre
 #OPT:valgrind
 
@@ -41,7 +41,8 @@ fi
 whoami > /tmp/currentuser
 
 ./configure --prefix=/usr      \
-            --sysconfdir=/etc  &&
+            --sysconfdir=/etc  \
+            --with-ssl=openssl &&
 make "-j`nproc`" || make
 
 
@@ -57,7 +58,7 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-echo certificate=/etc/ssl/ca-bundle.crt >> /etc/wgetrc
+echo ca-directory=/etc/ssl/certs >> /etc/wgetrc
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
