@@ -129,7 +129,7 @@ EOF
 patch -Np1 -i ../firefox-50.1.0-system_graphite2_harfbuzz-1.patch
 
 
-make "-j`nproc`" || make -f client.mk
+make -f client.mk
 
 
 
