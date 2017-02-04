@@ -134,7 +134,7 @@ make "-j`nproc`" || make -f client.mk
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make "-j`nproc`" || make -f client.mk install INSTALL_SDK= &&
+make -f client.mk install INSTALL_SDK= &&
 chown -R 0:0 /usr/lib/firefox-50.1.0   &&
 mkdir -pv    /usr/lib/mozilla/plugins  &&
 ln    -sfv   ../../mozilla/plugins /usr/lib/firefox-50.1.0/browser
