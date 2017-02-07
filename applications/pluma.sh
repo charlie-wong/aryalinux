@@ -13,6 +13,7 @@ VERSION="1.17.3"
 
 #REQ:gtksourceview2
 #REQ:enchant
+#REQ:libpeas
 
 cd $SOURCE_DIR
 
