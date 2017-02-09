@@ -49,7 +49,7 @@ wget -nc https://sourceforge.net/projects/aryalinux-bin/files/releases/$VERSION/
 wget -nc https://sourceforge.net/projects/aryalinux-bin/files/releases/$VERSION/0.21-nvme_ioctl.h.patch
 
 pushd ~/aryalinux/applications
-git checkout $VERSION
+git checkout $VERSION.02
 git pull
 tar -czf alps-scripts-$VERSION.tar.gz *.sh
 popd
