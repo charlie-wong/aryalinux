@@ -74,9 +74,9 @@ mv build/javadocs .
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -v -d -m755                          /opt/fop-2.1 &&
+install -v -d -m755 -o root -g root          /opt/fop-2.1 &&
 cp -v  KEYS LICENSE NOTICE README            /opt/fop-2.1 &&
-cp -va build conf examples fop* javadocs lib /opt/fop-2.1 &&
+cp -vR build conf examples fop* javadocs lib /opt/fop-2.1 &&
 ln -v -sf fop-2.1 /opt/fop
 
 ENDOFROOTSCRIPT

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Shadow was indeed installed in LFSbr3ak and there is no reason to reinstall it unless you installedbr3ak CrackLib or Linux-PAM after your LFS system was completed.br3ak If you have installed CrackLibbr3ak after LFS, then reinstalling Shadow will enable strong password support. Ifbr3ak you have installed Linux-PAM,br3ak reinstalling Shadow will allowbr3ak programs such as <span class=\"command\"><strong>login</strong> and <span class=\"command\"><strong>su</strong> to utilize PAM.br3ak"
 SECTION="postlfs"
-VERSION=4.2.1
+VERSION=4.4
 NAME="shadow"
 
 #REQ:linux-pam
@@ -18,11 +18,11 @@ NAME="shadow"
 
 cd $SOURCE_DIR
 
-URL=http://pkg-shadow.alioth.debian.org/releases/shadow-4.2.1.tar.xz
+URL=https://github.com/shadow-maint/shadow/releases/download/4.4/shadow-4.4.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/shadow/shadow-4.2.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/shadow/shadow-4.2.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/shadow/shadow-4.2.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/shadow/shadow-4.2.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/shadow/shadow-4.2.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/shadow/shadow-4.2.1.tar.xz || wget -nc http://pkg-shadow.alioth.debian.org/releases/shadow-4.2.1.tar.xz
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/shadow/shadow-4.4.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/shadow/shadow-4.4.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/shadow/shadow-4.4.tar.xz || wget -nc https://github.com/shadow-maint/shadow/releases/download/4.4/shadow-4.4.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/shadow/shadow-4.4.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/shadow/shadow-4.4.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/shadow/shadow-4.4.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -41,12 +41,14 @@ sed -i 's@DICTPATH.*@DICTPATH\t/lib/cracklib/pw_dict@' etc/login.defs
 
 
 sed -i 's/groups$(EXEEXT) //' src/Makefile.in &&
-find man -name Makefile.in -exec sed -i 's/groups\.1 / /' {} \; &&
+find man -name Makefile.in -exec sed -i 's/groups\.1 / /'   {} \; &&
 find man -name Makefile.in -exec sed -i 's/getspnam\.3 / /' {} \; &&
 find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \; &&
 sed -i -e 's@#ENCRYPT_METHOD DES@ENCRYPT_METHOD SHA512@' \
        -e 's@/var/spool/mail@/var/mail@' etc/login.defs &&
-sed -i 's/1000/999/' etc/useradd &&
+sed -i 's/1000/999/' etc/useradd                           &&
+sed -i -e '/snprintf/s@_msg,@_msg, 256,@' src/su.c         &&
+sed -i -e '47 d' -e '60,65 d'             libmisc/myname.c &&
 ./configure --sysconfdir=/etc --with-group-name-max-length=32 &&
 make "-j`nproc`" || make
 

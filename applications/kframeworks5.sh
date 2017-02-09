@@ -8,7 +8,7 @@ set -e
 SOURCE_ONLY=n
 NAME="kframeworks5"
 DESCRIPTION="KDE Frameworks 5 is a collection of libraries based on top of Qt5 and QML derived from the monolithic KDE 4 libraries."
-VERSION=5.28
+VERSION=5.30
 
 #REQ:boost
 #REQ:extra-cmake-modules

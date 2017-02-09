@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The GStreamer Base Plug-ins is abr3ak well-groomed and well-maintained collection of GStreamer plug-ins and elements, spanning thebr3ak range of possible types of elements one would want to write forbr3ak GStreamer. You will need at leastbr3ak one of Good, Bad, Ugly or Libav plugins for GStreamer applications to function properly.br3ak"
 SECTION="multimedia"
-VERSION=1.10.2
+VERSION=1.10.3
 NAME="gst10-plugins-base"
 
 #REQ:gstreamer10
@@ -30,11 +30,11 @@ NAME="gst10-plugins-base"
 
 cd $SOURCE_DIR
 
-URL=https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.10.2.tar.xz
+URL=https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.10.3.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gst-plugins/gst-plugins-base-1.10.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gst-plugins/gst-plugins-base-1.10.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gst-plugins/gst-plugins-base-1.10.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gst-plugins/gst-plugins-base-1.10.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gst-plugins/gst-plugins-base-1.10.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gst-plugins/gst-plugins-base-1.10.2.tar.xz || wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.10.2.tar.xz
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gst-plugins/gst-plugins-base-1.10.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gst-plugins/gst-plugins-base-1.10.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gst-plugins/gst-plugins-base-1.10.3.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gst-plugins/gst-plugins-base-1.10.3.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gst-plugins/gst-plugins-base-1.10.3.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gst-plugins/gst-plugins-base-1.10.3.tar.xz || wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.10.3.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -50,7 +50,7 @@ fi
 whoami > /tmp/currentuser
 
 ./configure --prefix=/usr \
-            --with-package-name="GStreamer Base Plugins 1.10.2 BLFS" \
+            --with-package-name="GStreamer Base Plugins 1.10.3 BLFS" \
             --with-package-origin="http://www.linuxfromscratch.org/blfs/view/svn/" &&
 make "-j`nproc`" || make
 

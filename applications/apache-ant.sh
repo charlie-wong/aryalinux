@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Apache Ant package is abr3ak Java-based build tool. In theory,br3ak it is like the <span class=\"command\"><strong>make</strong>br3ak command, but without <span class=\"command\"><strong>make</strong>'s wrinkles. Ant is different. Instead of a model that isbr3ak extended with shell-based commands, Ant is extended using Java classes. Instead of writing shellbr3ak commands, the configuration files are XML-based, calling out abr3ak target tree that executes various tasks. Each task is run by anbr3ak object that implements a particular task interface.br3ak"
 SECTION="general"
-VERSION=1.10.0
+VERSION=1.10.1
 NAME="apache-ant"
 
 #REQ:glib2
@@ -18,11 +18,11 @@ NAME="apache-ant"
 
 cd $SOURCE_DIR
 
-URL=https://archive.apache.org/dist/ant/source/apache-ant-1.10.0-src.tar.bz2
+URL=https://archive.apache.org/dist/ant/source/apache-ant-1.10.1-src.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/apache-ant/apache-ant-1.10.0-src.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/apache-ant/apache-ant-1.10.0-src.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/apache-ant/apache-ant-1.10.0-src.tar.bz2 || wget -nc https://archive.apache.org/dist/ant/source/apache-ant-1.10.0-src.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/apache-ant/apache-ant-1.10.0-src.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/apache-ant/apache-ant-1.10.0-src.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/apache-ant/apache-ant-1.10.0-src.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/apache-ant/apache-ant-1.10.1-src.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/apache-ant/apache-ant-1.10.1-src.tar.xz || wget -nc https://archive.apache.org/dist/ant/source/apache-ant-1.10.1-src.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/apache-ant/apache-ant-1.10.1-src.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/apache-ant/apache-ant-1.10.1-src.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/apache-ant/apache-ant-1.10.1-src.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/apache-ant/apache-ant-1.10.1-src.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -43,8 +43,8 @@ cp -v ../junit-4.11.jar \
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-./build.sh -Ddist.dir=/opt/ant-1.10.0 dist &&
-ln -v -sfn ant-1.10.0 /opt/ant
+./build.sh -Ddist.dir=/opt/ant-1.10.1 dist &&
+ln -v -sfn ant-1.10.1 /opt/ant
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

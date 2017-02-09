@@ -19,7 +19,6 @@ NAME="midori"
 #REQ:vala
 #REC:librsvg
 #OPT:gtk-doc
-#OPT:webkitgtk2
 #OPT:libzeitgeist
 
 

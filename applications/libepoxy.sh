@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak libepoxy is a library for handlingbr3ak OpenGL function pointer management.br3ak"
 SECTION="x"
-VERSION=1.3.1
+VERSION=1.4.0
 NAME="libepoxy"
 
 #REQ:mesa
@@ -17,11 +17,11 @@ NAME="libepoxy"
 
 cd $SOURCE_DIR
 
-URL=https://github.com/anholt/libepoxy/releases/download/v1.3.1/libepoxy-1.3.1.tar.bz2
+URL=https://github.com/anholt/libepoxy/releases/download/v1.4/libepoxy-1.4.0.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://github.com/anholt/libepoxy/releases/download/v1.3.1/libepoxy-1.3.1.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libepoxy/libepoxy-1.3.1.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libepoxy/libepoxy-1.3.1.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libepoxy/libepoxy-1.3.1.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libepoxy/libepoxy-1.3.1.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libepoxy/libepoxy-1.3.1.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libepoxy/libepoxy-1.3.1.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libepoxy/libepoxy-1.4.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libepoxy/libepoxy-1.4.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libepoxy/libepoxy-1.4.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libepoxy/libepoxy-1.4.0.tar.xz || wget -nc https://github.com/anholt/libepoxy/releases/download/v1.4/libepoxy-1.4.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libepoxy/libepoxy-1.4.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libepoxy/libepoxy-1.4.0.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

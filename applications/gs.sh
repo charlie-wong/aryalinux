@@ -34,6 +34,7 @@ URL=https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs92
 if [ ! -z $URL ]
 then
 wget -nc https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs920/ghostscript-9.20.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/ghostscript/ghostscript-9.20.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/ghostscript/ghostscript-9.20.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/ghostscript/ghostscript-9.20.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/ghostscript/ghostscript-9.20.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/ghostscript/ghostscript-9.20.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/ghostscript/ghostscript-9.20.tar.gz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/ghostscript-9.20-security_fixes-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/ghostscript/ghostscript-9.20-security_fixes-1.patch
 wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/ghostscript/ghostscript-fonts-std-8.11.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/ghostscript/ghostscript-fonts-std-8.11.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/ghostscript/ghostscript-fonts-std-8.11.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/ghostscript/ghostscript-fonts-std-8.11.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/ghostscript/ghostscript-fonts-std-8.11.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/ghostscript/ghostscript-fonts-std-8.11.tar.gz || wget -nc http://downloads.sourceforge.net/gs-fonts/ghostscript-fonts-std-8.11.tar.gz
 wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnu-gs-fonts-other/gnu-gs-fonts-other-6.0.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gnu-gs-fonts-other/gnu-gs-fonts-other-6.0.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gnu-gs-fonts-other/gnu-gs-fonts-other-6.0.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gnu-gs-fonts-other/gnu-gs-fonts-other-6.0.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnu-gs-fonts-other/gnu-gs-fonts-other-6.0.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gnu-gs-fonts-other/gnu-gs-fonts-other-6.0.tar.gz || wget -nc http://downloads.sourceforge.net/gs-fonts/gnu-gs-fonts-other-6.0.tar.gz
 
@@ -53,6 +54,7 @@ whoami > /tmp/currentuser
 rm -rf freetype lcms2 jpeg libpng
 
 
+patch -Np1 -i ../ghostscript-9.20-security_fixes-1.patch &&
 rm -rf zlib &&
 ./configure --prefix=/usr           \
             --disable-compile-inits \

@@ -65,9 +65,9 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=http://www.freedesktop.org/software/libinput/libinput-1.6.0.tar.xz
+URL=http://www.freedesktop.org/software/libinput/libinput-1.6.1.tar.xz
 
-wget -nc http://www.freedesktop.org/software/libinput/libinput-1.6.0.tar.xz
+wget -nc http://www.freedesktop.org/software/libinput/libinput-1.6.1.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
@@ -91,8 +91,8 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -v -dm755 $XORG_PREFIX/share/doc/libinput-1.6.0 &&
-cp -rv doc/html/* $XORG_PREFIX/share/doc/libinput-1.6.0
+install -v -dm755 $XORG_PREFIX/share/doc/libinput-1.6.1 &&
+cp -rv doc/html/* $XORG_PREFIX/share/doc/libinput-1.6.1
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh

@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="013-check.sh"
-TARBALL="check-0.10.0.tar.gz"
+TARBALL="check-0.11.0.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 

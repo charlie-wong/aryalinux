@@ -50,7 +50,7 @@ e238c89dabc566e1835e1ecb61b605b9 sessreg-1.1.0.tar.bz2
 2c47a1b8e268df73963c4eb2316b1a89 setxkbmap-1.3.1.tar.bz2
 3a93d9f0859de5d8b65a68a125d48f6a smproxy-1.0.6.tar.bz2
 f0b24e4d8beb622a419e8431e1c03cd7 x11perf-1.6.0.tar.bz2
-7d6003f32838d5b688e2c8a131083271 xauth-1.0.9.tar.bz2
+f3f76cb10f69b571c43893ea6a634aa4 xauth-1.0.10.tar.bz2
 0066f23f69ca3ef62dcaeb74a87fdc48 xbacklight-1.2.1.tar.bz2
 9956d751ea3ae4538c3ebd07f70736a0 xcmsdb-1.0.5.tar.bz2
 b58a87e6cd7145c70346adad551dba48 xcursorgen-1.0.6.tar.bz2

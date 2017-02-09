@@ -34,8 +34,8 @@ NAME="krameworks5"
 #REC:polkit-qt
 #OPT:bluez
 #OPT:ModemManager
-#OPT:oxygen-fonts
-#OPT:noto-fonts
+#OPT:TTF-and-OTF-fonts#oxygen-fonts
+#OPT:TTF-and-OTF-fonts#noto-fonts
 #OPT:doxygen
 #OPT:python-modules#Jinja2
 #OPT:python-modules#PyYAML

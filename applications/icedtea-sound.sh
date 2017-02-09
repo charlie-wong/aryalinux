@@ -7,7 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 SOURCE_ONLY=n
-DESCRIPTION="br3ak The IcedTea-Sound package containsbr3ak the <a class=\"xref\" href=\"pulseaudio.html\" title=\"PulseAudio-9.0\">PulseAudio-9.0</a> provider which was removed frombr3ak IcedTea itself from version 2.5.0 onwards. More providers may bebr3ak included in the future.br3ak"
+DESCRIPTION="br3ak The IcedTea-Sound package containsbr3ak the <a class=\"xref\" href=\"pulseaudio.html\" title=\"PulseAudio-10.0\">PulseAudio-10.0</a> provider which was removedbr3ak from IcedTea itself from version 2.5.0 onwards. More providers maybr3ak be included in the future.br3ak"
 SECTION="multimedia"
 VERSION=1.0.1
 NAME="icedtea-sound"

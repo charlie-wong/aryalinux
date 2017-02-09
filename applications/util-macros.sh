@@ -9,18 +9,18 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The util-macros package containsbr3ak the m4 macros used by all of thebr3ak Xorg packages.br3ak"
 SECTION="x"
-VERSION=1.19.0
+VERSION=1.19.1
 NAME="util-macros"
 
 
 
 cd $SOURCE_DIR
 
-URL=http://ftp.x.org/pub/individual/util/util-macros-1.19.0.tar.bz2
+URL=http://ftp.x.org/pub/individual/util/util-macros-1.19.1.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.x.org/pub/individual/util/util-macros-1.19.0.tar.bz2 || wget -nc http://ftp.x.org/pub/individual/util/util-macros-1.19.0.tar.bz2
+wget -nc ftp://ftp.x.org/pub/individual/util/util-macros-1.19.1.tar.bz2 || wget -nc http://ftp.x.org/pub/individual/util/util-macros-1.19.1.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

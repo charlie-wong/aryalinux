@@ -17,11 +17,11 @@ NAME="tripwire"
 
 cd $SOURCE_DIR
 
-URL=https://github.com/Tripwire/tripwire-open-source/archive/2.4.3.1.tar.gz
+URL=https://github.com/Tripwire/tripwire-open-source/archive/2.4.3.2.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://github.com/Tripwire/tripwire-open-source/archive/2.4.3.1.tar.gz
+wget -nc https://github.com/Tripwire/tripwire-open-source/archive/2.4.3.2.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -36,27 +36,34 @@ fi
 
 whoami > /tmp/currentuser
 
-wget -c https://github.com/Tripwire/tripwire-open-source/archive/2.4.3.1.tar.gz \
-     -O tripwire-open-source-2.4.3.1.tar.gz
+wget -c https://github.com/Tripwire/tripwire-open-source/archive/2.4.3.2.tar.gz \
+     -O tripwire-open-source-2.4.3.2.tar.gz
 
 
 sed -e 's|TWDB="${prefix}|TWDB="/var|'   \
     -e '/TWMAN/ s|${prefix}|/usr/share|' \
-    -e '/TWDOCS/s|${prefix}/doc/tripwire|/usr/share/doc/tripwire-2.4.3.1| \
-    -i   install/install.cfg                         &&                     
-./configure --prefix=/usr --sysconfdir=/etc/tripwire &&
+    -e '/TWDOCS/s|${prefix}/doc/tripwire|/usr/share/doc/tripwire-2.4.3.2|' \
+    -i installer/install.cfg                               &&
+find . -name Makefile.am | xargs                           \
+    sed -i 's/^[[:alpha:]_]*_HEADERS.*=/noinst_HEADERS =/' &&
+sed '/dist/d' -i man/man?/Makefile.am                      &&
+autoreconf -fi                                             &&
+./configure --prefix=/usr --sysconfdir=/etc/tripwire       &&
 make "-j`nproc`" || make
 
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install &&
-cp -v policy/*.txt /usr/share/doc/tripwire-2.4.3.1
+cp -v policy/*.txt /usr/share/doc/tripwire-2.4.3.2
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
+
+
+sed -i -e 's@installer/install.sh@& -n -s <em class="replaceable"><code><site-password></em> -l <em class="replaceable"><code><local-password></em>@' Makefile
 
 
 
@@ -74,6 +81,16 @@ sudo rm rootscript.sh
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 tripwire --check > /etc/tripwire/report.txt
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
+
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+twprint --print-report -r /var/lib/tripwire/report/<em class="replaceable"><code><report-name.twr></em>
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

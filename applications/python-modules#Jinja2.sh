@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="%DESCRIPTION%"
 SECTION="general"
-VERSION=2.9.4
+VERSION=2.9.5
 NAME="python-modules#Jinja2"
 
 #REQ:python-modules#MarkupSafe
@@ -17,11 +17,11 @@ NAME="python-modules#Jinja2"
 
 cd $SOURCE_DIR
 
-URL=https://pypi.python.org/packages/f4/3f/28387a5bbc6883082c16784c6135440b94f9d5938fb156ff579798e18eda/Jinja2-2.9.4.tar.gz
+URL=https://pypi.python.org/packages/71/59/d7423bd5e7ddaf3a1ce299ab4490e9044e8dfd195420fc83a24de9e60726/Jinja2-2.9.5.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://pypi.python.org/packages/f4/3f/28387a5bbc6883082c16784c6135440b94f9d5938fb156ff579798e18eda/Jinja2-2.9.4.tar.gz
+wget -nc https://pypi.python.org/packages/71/59/d7423bd5e7ddaf3a1ce299ab4490e9044e8dfd195420fc83a24de9e60726/Jinja2-2.9.5.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

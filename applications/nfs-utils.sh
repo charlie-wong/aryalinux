@@ -14,7 +14,6 @@ NAME="nfs-utils"
 
 #REQ:libtirpc
 #REQ:rpcbind
-#OPT:libevent
 #OPT:sqlite
 #OPT:libnfsidmap
 #OPT:mitkrb
