@@ -9,7 +9,7 @@ export MAKEFLAGS="-j `nproc`"
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="007-efibootmgr.sh"
-TARBALL="efibootmgr-0.12.tar.bz2"
+TARBALL="efibootmgr-14.tar.bz2"
 
 if ! grep "$STEPNAME" $LOGFILE &> /dev/null
 then
