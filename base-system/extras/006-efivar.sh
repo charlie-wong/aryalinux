@@ -23,7 +23,6 @@ then
 	cd $DIRECTORY
 fi
 
-patch -Np1 -i ../0.21-nvme_ioctl.h.patch
 sed 's|-O0|-Os|g' -i Make.defaults
 sed 's|-rpath=$(TOPDIR)/src/|-rpath=$(libdir)|g' \
      -i src/test/Makefile
