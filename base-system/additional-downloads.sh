@@ -47,6 +47,7 @@ wget -nc https://sourceforge.net/projects/aryalinux-bin/files/releases/$VERSION/
 wget -nc https://sourceforge.net/projects/aryalinux-bin/files/releases/$VERSION/aufs4-mmap.patch
 wget -nc https://sourceforge.net/projects/aryalinux-bin/files/releases/$VERSION/aufs4-standalone.patch
 wget -nc https://sourceforge.net/projects/aryalinux-bin/files/releases/$VERSION/0.21-nvme_ioctl.h.patch
+wget -nc https://sourceforge.net/projects/aryalinux-bin/files/releases/2017.02/efivar-30-z-muldefs.patch
 
 pushd ~/aryalinux/applications
 git checkout $VERSION.02
