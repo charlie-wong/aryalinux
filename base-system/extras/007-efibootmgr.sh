@@ -24,8 +24,8 @@ then
 fi
 
 make EXTRA_CFLAGS="-Os -I/usr/include/efivar"
-install -v -D -m0755 src/efibootmgr/efibootmgr /usr/sbin/efibootmgr
-install -v -D -m0644 src/man/man8/efibootmgr.8 \
+install -v -D -m0755 src/efibootmgr /usr/sbin/efibootmgr
+install -v -D -m0644 src/efibootmgr.8 \
 	/usr/share/man/man8/efibootmgr.8
 
 cd $SOURCE_DIR
