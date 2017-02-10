@@ -13,7 +13,7 @@ VERSION=327
 NAME="xterm"
 
 #REQ:x7app
-#REQ:TTF-and-OTF-fonts#dejavu-fonts
+#REQ:fonts-dejavu
 #OPT:valgrind
 
 
