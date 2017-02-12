@@ -69,8 +69,8 @@ CXXFLAGS="-O2 -fPIC"                                        \
             --disable-ppp                                   \
             --disable-json-validation                       \
             --with-session-tracking=systemd                 \
-            --with-systemdsystemunitdir=/lib/systemd/system \
-            --docdir=/usr/share/doc/network-manager-1.6.0 &&
+            --with-systemdsystemunitdir=/lib/systemd/system &&
+#            --docdir=/usr/share/doc/network-manager-1.6.0 &&
 make "-j`nproc`" || make
 
 
