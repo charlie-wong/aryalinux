@@ -33,7 +33,7 @@ NAME="imagemagick"
 #OPT:libwebp
 #OPT:openjpeg2
 #OPT:pango
-#OPT:TTF-and-OTF-fonts#dejavu-fonts
+#OPT:fonts-dejavu
 #OPT:gs
 #OPT:gimp
 #OPT:graphviz

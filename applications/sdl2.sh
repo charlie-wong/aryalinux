@@ -44,12 +44,6 @@ whoami > /tmp/currentuser
 make "-j`nproc`" || make
 
 
-pushd docs  &&
-  doxygen   &&
-popd
-
-
-
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install              &&
 rm -v /usr/lib/libSDL2*.a
@@ -58,13 +52,6 @@ ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
-
-
-cd test &&
-./configure &&
-make "-j`nproc`" || make
-
-
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
