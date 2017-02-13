@@ -33,7 +33,7 @@ wget -nc http://anduin.linuxfromscratch.org/sources/other/certdata.txt
 wget -nc http://www.openssl.org/source/openssl-1.0.1i.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/7.6-systemd/openssl-1.0.1i-fix_parallel_build-1.patch
 wget -nc http://www.kernel.org/pub/linux/utils/boot/syslinux/syslinux-4.06.tar.xz
-wget -nc http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.9.1.tar.gz
+wget -nc https://sources.voidlinux.eu/dash-0.5.9.1/dash-0.5.9.1.tar.gz
 wget -nc https://github.com/dracutdevs/dracut/archive/master.zip
 unzip master.zip
 tar -cJvf dracut-master.tar.xz dracut-master
