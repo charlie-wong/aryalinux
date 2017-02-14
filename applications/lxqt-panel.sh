@@ -19,7 +19,7 @@ NAME="lxqt-panel"
 #REQ:liblxqt
 #REQ:lxmenu-data
 #REQ:menu-cache
-#REQ:kframeworks5
+#OPT:kframeworks5
 #REC:alsa-lib
 #REC:pulseaudio
 #REC:libstatgrab
@@ -27,7 +27,7 @@ NAME="lxqt-panel"
 #REC:libxkbcommon
 #REC:lm_sensors
 #OPT:git
-#OPT:lxqt-l10n
+#REQ:lxqt-l10n
 
 
 cd $SOURCE_DIR

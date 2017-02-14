@@ -14,8 +14,8 @@ NAME="lxqt-solid"
 
 #REQ:extra-cmake-modules
 #REQ:qt5
-#OPT:udisks2
-#OPT:upower
+#REQ:udisks2
+#REQ:upower
 
 
 cd $SOURCE_DIR

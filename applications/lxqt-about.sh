@@ -14,7 +14,7 @@ NAME="lxqt-about"
 
 #REQ:liblxqt
 #OPT:git
-#OPT:lxqt-l10n
+#REQ:lxqt-l10n
 
 
 cd $SOURCE_DIR

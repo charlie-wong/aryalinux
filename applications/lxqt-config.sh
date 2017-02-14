@@ -14,9 +14,9 @@ NAME="lxqt-config"
 
 #REQ:liblxqt
 #REQ:lxqt-libkscreen
-#REQ:plasma-all
+#OPT:plasma-all
 #OPT:git
-#OPT:lxqt-l10n
+#REQ:lxqt-l10n
 
 
 cd $SOURCE_DIR

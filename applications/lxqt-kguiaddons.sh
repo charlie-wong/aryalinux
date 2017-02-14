@@ -13,7 +13,7 @@ VERSION=5.28.0
 NAME="lxqt-kguiaddons"
 
 #REQ:extra-cmake-modules
-#REQ:x7lib
+#OPT:x7lib
 #REQ:qt5
 
 

@@ -15,7 +15,7 @@ NAME="lxqt-runner"
 #REQ:lxqt-globalkeys
 #REQ:menu-cache
 #OPT:git
-#OPT:lxqt-l10n
+#REQ:lxqt-l10n
 
 
 cd $SOURCE_DIR

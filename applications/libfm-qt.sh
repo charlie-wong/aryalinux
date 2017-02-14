@@ -16,7 +16,7 @@ NAME="libfm-qt"
 #REQ:libfm
 #REQ:qt5
 #OPT:git
-#OPT:lxqt-l10n
+#REQ:lxqt-l10n
 
 
 cd $SOURCE_DIR

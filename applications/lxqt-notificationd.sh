@@ -15,7 +15,7 @@ NAME="lxqt-notificationd"
 #REQ:liblxqt
 #REQ:lxqt-common
 #OPT:git
-#OPT:lxqt-l10n
+#REQ:lxqt-l10n
 
 
 cd $SOURCE_DIR

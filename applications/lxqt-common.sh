@@ -14,7 +14,7 @@ NAME="lxqt-common"
 
 #REQ:liblxqt
 #REQ:hicolor-icon-theme
-#REQ:x7app
+#OPT:x7app
 
 
 cd $SOURCE_DIR

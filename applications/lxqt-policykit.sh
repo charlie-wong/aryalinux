@@ -15,7 +15,7 @@ NAME="lxqt-policykit"
 #REQ:liblxqt
 #REQ:polkit-qt
 #OPT:git
-#OPT:lxqt-l10n
+#REQ:lxqt-l10n
 
 
 cd $SOURCE_DIR
