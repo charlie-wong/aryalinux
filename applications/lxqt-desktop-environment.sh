@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/b
 
 set -e
 set +h
@@ -25,25 +25,25 @@ VERSION=0.11
 #REQ:lxqt-kwindowsystem
 #REQ:liblxqt
 #REQ:libfm-qt
-#REQ:lxqt-about.sh
-#REQ:lxqt-admin.sh
-#REQ:lxqt-common.sh
-#REQ:lxqt-kwayland.sh
-#REQ:lxqt-libkscreen.sh
-#REQ:lxqt-config.sh
-#REQ:lxqt-globalkeys.sh
-#REQ:lxqt-notificationd.sh
-#REQ:lxqt-policykit.sh
-#REQ:kidletime.sh
-#REQ:lxqt-solid.sh
-#REQ:lxqt-powermanagement.sh
-#REQ:lxqt-qtplugin.sh
-#REQ:lxqt-session.sh
-#REQ:lxqt-l10n.sh
-#REQ:lxqt-kguiaddons.sh
-#REQ:lxqt-panel.sh
-#REQ:lxqt-runner.sh
-#REQ:pcmanfm-qt.sh
+#REQ:lxqt-about
+#REQ:lxqt-admin
+#REQ:lxqt-common
+#REQ:lxqt-kwayland
+#REQ:lxqt-libkscreen
+#REQ:lxqt-config
+#REQ:lxqt-globalkeys
+#REQ:lxqt-notificationd
+#REQ:lxqt-policykit
+#REQ:kidletime
+#REQ:lxqt-solid
+#REQ:lxqt-powermanagement
+#REQ:lxqt-qtplugin
+#REQ:lxqt-session
+#REQ:lxqt-l10n
+#REQ:lxqt-kguiaddons
+#REQ:lxqt-panel
+#REQ:lxqt-runner
+#REQ:pcmanfm-qt
 
 sudo update-mime-database /usr/share/mime          &&
 sudo xdg-icon-resource forceupdate --theme hicolor &&
