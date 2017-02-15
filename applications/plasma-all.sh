@@ -10,7 +10,7 @@ SOURCE_ONLY=n
 DESCRIPTION="%DESCRIPTION%"
 SECTION="kde"
 NAME="plasma-all"
-VERSION="5.8.4"
+VERSION="5.9.2"
 
 #REQ:fontforge
 #REQ:gtk2
@@ -81,7 +81,7 @@ db39c52e7bdf1ec21888aae5f9f3113a khotkeys-$VERSION.tar.xz
 fa1edaf0339a013b0884a5ec774e132d kmenuedit-$VERSION.tar.xz
 369255dcf3f657595a4b2c0ec156d458 kscreen-$VERSION.tar.xz
 607eb34cfafca62da92dbb596f999cae kwallet-pam-$VERSION.tar.xz
-4ec2115eec3883e56041$VERSION8f910e1 kwayland-integration-$VERSION.tar.xz
+4ec2115eec3883e56041de2118f910e1 kwayland-integration-$VERSION.tar.xz
 35e622ea295b35c72e266d3e10b2022b kwrited-$VERSION.tar.xz
 c8c40727b9077d9692c2e67b85afaa7d milou-$VERSION.tar.xz
 1956f0eb29ce1e91f5fdf3ac8b72e40e plasma-nm-$VERSION.tar.xz
