@@ -106,7 +106,7 @@ b2e4a68bff24fd7cc4cb500af53fcd61 knotifyconfig-$VERSION.0.tar.xz
 b6731516ccfad1149a8b9c0f818d39d6 kded-$VERSION.0.tar.xz
 9799a785217ea8877f288348cce72c0f kdewebkit-$VERSION.0.tar.xz
 b7dd9344c55b392ea0d7fc79935e14af syntax-highlighting-$VERSION.0.tar.xz
-b7dd9344c55b392ea0d7fc79935e14af ktexteditor-$VERSION.0.tar.xz
+b7dd9344c55b392ea0d7fc79935e14ag ktexteditor-$VERSION.0.tar.xz
 fe1ec30258eb149d21c9f649b72a8f1a kdesignerplugin-$VERSION.0.tar.xz
 ff844df8d38596734e541a0c53131e32 plasma-framework-$VERSION.0.tar.xz
 #b3c61320b50e06b9e3919d10d45229f7 modemmanager-qt-$VERSION.0.tar.xz
