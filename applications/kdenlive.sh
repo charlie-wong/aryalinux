@@ -19,7 +19,7 @@ NAME="kdenlive"
 
 cd $SOURCE_DIR
 
-URL=http://download.kde.org/stable/applications/16.08.3/src/kdenlive-16.12.2.tar.xz
+URL=http://download.kde.org/stable/applications/16.12.2/src/kdenlive-16.12.2.tar.xz
 
 if [ ! -z $URL ]
 then
