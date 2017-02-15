@@ -47,8 +47,6 @@ whoami > /tmp/currentuser
             --with-passprompt="[sudo] password for %p" &&
 make "-j`nproc`" || make
 
-whoami
-
 make install &&
 ln -sfv libsudo_util.so.0.0.0 /usr/lib/sudo/libsudo_util.so.0
 
