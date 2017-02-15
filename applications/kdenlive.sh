@@ -23,7 +23,7 @@ URL=http://download.kde.org/stable/applications/16.08.3/src/kdenlive-16.12.2.tar
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/kde/kdenlive-16.12.2.tar.xz
+wget -nc $URL
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
