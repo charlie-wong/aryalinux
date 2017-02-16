@@ -17,6 +17,7 @@ NAME="libreoffice"
 #REQ:wget
 #REQ:general_which
 #REQ:zip
+#REQ:harfbuzz-with-graphite
 #REC:apr
 #REC:boost
 #REC:clucene
