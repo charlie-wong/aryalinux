@@ -15,6 +15,7 @@ NAME="hexchat"
 #REQ:glib2
 #REC:gtk2
 #REC:lua
+#REQ:autoconf-archive
 #OPT:dbus-glib
 #OPT:iso-codes
 #OPT:libcanberra
