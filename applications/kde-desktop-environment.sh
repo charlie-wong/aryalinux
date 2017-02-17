@@ -34,6 +34,15 @@ VERSION=5.8.4
 #REQ:okular5
 #REQ:libkdcraw
 #REQ:gwenview5
+
+#REQ:wireless_tools
+#REQ:wpa_supplicant
+#REQ:networkmanager
+#REQ:ModemManager
+#REQ:network-manager-applet
+#REQ:net-tools
+#REQ:usb_modeswitch
+
 #REQ:plasma-all
 #REQ:xdg-utils
 #REQ:xdg-user-dirs
