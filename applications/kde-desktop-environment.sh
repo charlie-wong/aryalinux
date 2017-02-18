@@ -37,6 +37,14 @@ VERSION=5.8.4
 #REQ:kdegraphics-thumbnailers
 #REQ:kio-extras
 #REQ:spectacle
+#REQ:dolphin
+#REQ:dolphin-plugins
+#REQ:kcalc
+#REQ:kopete
+#REQ:kontact
+#REQ:knotes
+#REQ:kamera
+#REQ:ffmpegthumbs
 
 #REQ:wireless_tools
 #REQ:wpa_supplicant
