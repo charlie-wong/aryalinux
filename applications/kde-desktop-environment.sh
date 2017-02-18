@@ -34,6 +34,8 @@ VERSION=5.8.4
 #REQ:okular5
 #REQ:libkdcraw
 #REQ:gwenview5
+#REQ:kdegraphics-thumbnailers
+#REQ:kio-extras
 #REQ:plasma-all
 #REQ:xdg-utils
 #REQ:xdg-user-dirs
