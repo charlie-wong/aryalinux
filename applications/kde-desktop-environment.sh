@@ -41,7 +41,7 @@ VERSION=5.8.4
 #REQ:dolphin-plugins
 #REQ:kcalc
 #REQ:kopete
-#REQ:kontact
+#REQ:kontact5
 #REQ:knotes
 #REQ:kamera
 #REQ:ffmpegthumbs
