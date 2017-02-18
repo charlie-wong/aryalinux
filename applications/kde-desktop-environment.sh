@@ -36,6 +36,16 @@ VERSION=5.8.4
 #REQ:gwenview5
 #REQ:kdegraphics-thumbnailers
 #REQ:kio-extras
+#REQ:spectacle
+
+#REQ:wireless_tools
+#REQ:wpa_supplicant
+#REQ:networkmanager
+#REQ:ModemManager
+#REQ:network-manager-applet
+#REQ:net-tools
+#REQ:usb_modeswitch
+
 #REQ:plasma-all
 #REQ:xdg-utils
 #REQ:xdg-user-dirs
