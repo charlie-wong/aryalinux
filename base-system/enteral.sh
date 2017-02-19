@@ -39,8 +39,7 @@ mount -vt tmpfs tmpfs $LFS/run
 if [ ! -d $LFS/dev/shm ]; then
 	mkdir $LFS/dev/shm
 fi
-
-mount --bind /dev/shm $LFS/dev/shm
+mount -vt tmpfs shm $LFS/dev/shm
 
 if [ -h $LFS/dev/shm ]; then
   mkdir -pv $LFS/$(readlink $LFS/dev/shm)
