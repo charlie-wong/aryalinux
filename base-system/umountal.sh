@@ -3,6 +3,7 @@
 export LFS=/mnt/lfs
 
 umount $LFS/dev/pts &> /dev/null
+umount $LFS/dev/shm &> /dev/null
 umount $LFS/dev &> /dev/null
 umount $LFS/sys &> /dev/null
 umount $LFS/proc &> /dev/null
