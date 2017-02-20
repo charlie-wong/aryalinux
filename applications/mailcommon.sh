@@ -15,6 +15,7 @@ NAME="mailcommon"
 #REQ:plasma-all
 #REQ:openldap
 #REQ:kldap
+#REQ:libkdepim
 
 cd $SOURCE_DIR
 
