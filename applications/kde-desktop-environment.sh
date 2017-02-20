@@ -40,7 +40,6 @@ VERSION=5.8.4
 #REQ:dolphin
 #REQ:dolphin-plugins
 #REQ:kcalc
-#REQ:knotes
 #REQ:kamera
 #REQ:ffmpegthumbs
 
