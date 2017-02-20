@@ -20,6 +20,7 @@ NAME="kontact5"
 #REQ:akonadi-notes
 #REQ:akonadi-search
 #REQ:kontactinterface
+#REQ:mailcommon
 
 cd $SOURCE_DIR
 
