@@ -22,6 +22,7 @@ URL=http://download.kde.org/stable/applications/16.12.2/src/kldap-16.12.2.tar.xz
 if [ ! -z $URL ]
 then
 wget -nc http://download.kde.org/stable/applications/16.12.2/src/kldap-16.12.2.tar.xz
+wget -nc https://sourceforge.net/projects/aryalinux-bin/files/releases/2017.02/kldap-16.12.2-ber.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -34,6 +35,7 @@ fi
 cd $DIRECTORY
 fi
 
+patch -Np1 -i ../kldap-16.12.2-ber.patch
 mkdir -pv build
 cd build
 cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DLIB_INSTALL_DIR=lib -DBUILD_TESTING=OFF -Wno-dev .. &&
