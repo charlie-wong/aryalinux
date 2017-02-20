@@ -13,7 +13,6 @@ VERSION=16.12.2
 NAME="mailcommon"
 
 #REQ:plasma-all
-#REQ:kldap
 
 cd $SOURCE_DIR
 
