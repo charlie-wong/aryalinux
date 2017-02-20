@@ -15,6 +15,7 @@ NAME="akonadi-calendar"
 #REQ:plasma-all
 #REQ:kmailtransport
 #REQ:kcontacts
+#REQ:kidentitymanagement
 
 cd $SOURCE_DIR
 
