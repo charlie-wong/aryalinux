@@ -13,7 +13,7 @@ VERSION=16.12.2
 NAME="kldap"
 
 #REQ:plasma-all
-
+#REQ:kmbox
 
 cd $SOURCE_DIR
 
