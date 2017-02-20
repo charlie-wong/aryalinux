@@ -13,7 +13,6 @@ VERSION=16.12.2
 NAME="akonadi-contacts"
 
 #REQ:plasma-all
-#REQ:kcontacts
 
 cd $SOURCE_DIR
 
