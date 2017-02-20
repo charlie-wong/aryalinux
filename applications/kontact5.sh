@@ -13,7 +13,7 @@ VERSION=16.12.2
 NAME="kontact5"
 
 #REQ:plasma-all
-
+#REQ:kpimtextedit
 
 cd $SOURCE_DIR
 
