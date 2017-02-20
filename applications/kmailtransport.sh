@@ -14,6 +14,7 @@ NAME="kmailtransport"
 
 #REQ:plasma-all
 #REQ:kmime
+#REQ:akonadi-mime
 
 cd $SOURCE_DIR
 
