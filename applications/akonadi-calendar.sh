@@ -13,7 +13,7 @@ VERSION=16.12.2
 NAME="akonadi-calendar"
 
 #REQ:plasma-all
-
+#REQ:kmailtransport
 
 cd $SOURCE_DIR
 
