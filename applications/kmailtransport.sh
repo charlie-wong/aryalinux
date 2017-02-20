@@ -13,7 +13,7 @@ VERSION=16.12.2
 NAME="kmailtransport"
 
 #REQ:plasma-all
-
+#REQ:kmime
 
 cd $SOURCE_DIR
 
