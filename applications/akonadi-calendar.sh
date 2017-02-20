@@ -18,6 +18,7 @@ NAME="akonadi-calendar"
 #REQ:kidentitymanagement
 #REQ:kcalcore
 #REQ:kcalutils
+#REQ:akonadi-contacts
 
 cd $SOURCE_DIR
 

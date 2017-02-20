@@ -16,7 +16,6 @@ NAME="kontact5"
 #REQ:kpimtextedit
 #REQ:akonadi
 #REQ:akonadi-calendar
-#REQ:akonadi-contacts
 #REQ:akonadi-mime
 #REQ:akonadi-notes
 #REQ:akonadi-search
