@@ -44,35 +44,6 @@ fi
 
 whoami > /tmp/currentuser
 
-patch -Np1 -i ../openldap-2.4.44-consolidated-2.patch &&
-autoconf &&
-./configure --prefix=/usr     \
-            --sysconfdir=/etc \
-            --disable-static  \
-            --enable-dynamic  \
-            --disable-debug   \
-            --disable-slapd &&
-make depend &&
-make "-j`nproc`" || make
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make install
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-cd $SOURCE_DIR
-sudo rm -rf $DIRECTORY
-tar xf $TARBALL
-cd $DIRECTORY
-
-
-
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 groupadd -g 83 ldap &&
 useradd  -c "OpenLDAP Daemon Owner" \
@@ -83,6 +54,71 @@ ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
+
+
+patch -Np1 -i ../openldap-2.4.44-consolidated-2.patch &&
+autoconf &&
+./configure --prefix=/usr         \
+            --sysconfdir=/etc     \
+            --localstatedir=/var  \
+            --libexecdir=/usr/lib \
+            --disable-static      \
+            --disable-debug       \
+            --with-tls=openssl    \
+            --with-cyrus-sasl     \
+            --enable-dynamic      \
+            --enable-crypt        \
+            --enable-spasswd      \
+            --enable-slapd        \
+            --enable-modules      \
+            --enable-rlookups     \
+            --enable-backends=mod \
+            --disable-ndb         \
+            --disable-sql         \
+            --disable-shell       \
+            --disable-bdb         \
+            --disable-hdb         \
+            --enable-overlays=mod &&
+make depend &&
+make "-j`nproc`" || make
+
+
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+make install &&
+install -v -dm700 -o ldap -g ldap /var/lib/openldap     &&
+install -v -dm700 -o ldap -g ldap /etc/openldap/slapd.d &&
+chmod   -v    640     /etc/openldap/slapd.{conf,ldif}   &&
+chown   -v  root:ldap /etc/openldap/slapd.{conf,ldif}   &&
+install -v -dm755 /usr/share/doc/openldap-2.4.44 &&
+cp      -vfr      doc/{drafts,rfc,guide} \
+                  /usr/share/doc/openldap-2.4.44
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
+
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+. /etc/alps/alps.conf
+
+pushd $SOURCE_DIR
+wget -nc http://www.linuxfromscratch.org/blfs/downloads/svn/blfs-systemd-units-20160602.tar.bz2
+tar xf blfs-systemd-units-20160602.tar.bz2
+cd blfs-systemd-units-20160602
+make install-slapd
+
+cd ..
+rm -rf blfs-systemd-units-20160602
+popd
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
