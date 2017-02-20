@@ -40,7 +40,6 @@ VERSION=5.8.4
 #REQ:dolphin
 #REQ:dolphin-plugins
 #REQ:kcalc
-#REQ:kamera
 #REQ:ffmpegthumbs
 
 #REQ:wireless_tools
