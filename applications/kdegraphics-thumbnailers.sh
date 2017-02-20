@@ -13,7 +13,7 @@ VERSION=16.12.2
 NAME="kdegraphics-thumbnailers"
 
 #REQ:plasma-all
-
+#REQ:kio-extras
 
 cd $SOURCE_DIR
 
