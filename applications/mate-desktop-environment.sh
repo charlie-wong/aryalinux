@@ -168,7 +168,7 @@ sudo wget aryalinux.org/releases/2016.04/aryalinux.png
 popd
 fi
 
-sudo sed -i "s@/share/backgrounds/mate/desktop/Stripes.png@/share/backgrounds/aryalinux/2016_05_Life-of-Pix-free-peaceful-Lake-mountains-OlivierMiche.jpg@g" /usr/share/glib-2.0/schemas/org.mate.background.gschema.xml
+sudo sed -i "s@/share/backgrounds/mate/desktop/Stripes.png@/share/backgrounds/aryalinux/pexels-photo-26221.jpg@g" /usr/share/glib-2.0/schemas/org.mate.background.gschema.xml
 sudo sed -i "s@'Sans 10'@'Noto Sans 10'@g" /usr/share/glib-2.0/schemas/*.xml
 sudo sed -i "s@'Sans 8'@'Noto Sans 8'@g" /usr/share/glib-2.0/schemas/*.xml
 sudo sed -i "s@'Sans 11'@'Noto Sans 11'@g" /usr/share/glib-2.0/schemas/*.xml
@@ -307,7 +307,7 @@ sudo tee org.mate.background.gschema.xml <<"EOF"
       <description>Determines how the image set by wallpaper_filename is rendered.  Possible values are "wallpaper", "centered", "scaled", "stretched", "zoom", "spanned".</description>
     </key>
     <key name="picture-filename" type="s">
-      <default>'/usr/share/backgrounds/aryalinux/2016_05_Life-of-Pix-free-peaceful-Lake-mountains-OlivierMiche.jpg'</default>
+      <default>'/usr/share/backgrounds/aryalinux/pexels-photo-26221.jpg'</default>
       <summary>Picture Filename</summary>
       <description>File to use for the background image.</description>
     </key>

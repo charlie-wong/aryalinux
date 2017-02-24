@@ -12,9 +12,9 @@ VERSION="2016.04"
 
 cd $SOURCE_DIR
 
-URL=http://aryalinux.org/releases/2016.04/aryalinux-wallpapers-2016.04.tar.gz
+URL=https://sourceforge.net/projects/aryalinux-bin/files/releases/2017.02/aryalinux-wallpaper-2017.02.tar.xz
 wget -nc $URL
 
-sudo tar -xf aryalinux-wallpapers-2016.04.tar.gz -C /
+sudo tar -xf aryalinux-wallpaper-2017.02.tar.xz -C /
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
