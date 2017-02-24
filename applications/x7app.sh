@@ -84,7 +84,7 @@ EOF
 
 mkdir -pv app &&
 cd app &&
-grep -v '^#' ../app-7.md5 | awk '{print $2}' | wget -i- -c \
+grep -v '^#' ../app-7.md5 | awk '{print $2}' | wget -i- -nc \
     -B http://ftp.x.org/pub/individual/app/ &&
 md5sum -c ../app-7.md5
 
