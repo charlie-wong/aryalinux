@@ -183,6 +183,6 @@ unset i
 
 
 
-if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
+# if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
