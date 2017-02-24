@@ -4,6 +4,7 @@ set -e
 set +h
 
 . /etc/alps/alps.conf
+. /var/lib/alps/functions
 
 NAME="perl-modules#xml-namespacesupport"
 VERSION="1.11"
