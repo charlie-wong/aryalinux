@@ -7,11 +7,11 @@ set +h
 . /var/lib/alps/functions
 
 NAME="network-manager-openconnect_.orig"
-VERSION="1.0.2"
+VERSION="1.2.4"
 
 #REQ:openconnect
 
-URL=http://archive.ubuntu.com/ubuntu/pool/universe/n/network-manager-openconnect/network-manager-openconnect_1.0.2.orig.tar.xz
+URL=https://launchpad.net/ubuntu/+archive/primary/+files/network-manager-openconnect_1.2.4.orig.tar.xz
 
 cd $SOURCE_DIR
 

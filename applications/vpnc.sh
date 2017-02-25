@@ -7,9 +7,9 @@ set +h
 . /var/lib/alps/functions
 
 NAME="vpnc"
-VERSION="0.5.3r550"
+VERSION="0.5.3"
 
-URL=http://archive.ubuntu.com/ubuntu/pool/universe/v/vpnc/vpnc_0.5.3r550.orig.tar.gz
+URL=https://www.unix-ag.uni-kl.de/~massar/vpnc/vpnc-0.5.3.tar.gz
 
 cd $SOURCE_DIR
 
