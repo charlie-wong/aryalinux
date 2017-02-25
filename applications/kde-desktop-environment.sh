@@ -34,13 +34,6 @@ VERSION=5.8.4
 #REQ:okular5
 #REQ:libkdcraw
 #REQ:gwenview5
-#REQ:kio-extras
-#REQ:kdegraphics-thumbnailers
-#REQ:spectacle
-#REQ:dolphin
-#REQ:dolphin-plugins
-#REQ:kcalc
-#REQ:ffmpegthumbs
 
 #REQ:wireless_tools
 #REQ:wpa_supplicant
@@ -51,6 +44,13 @@ VERSION=5.8.4
 #REQ:usb_modeswitch
 
 #REQ:plasma-all
+#REQ:kio-extras
+#REQ:kdegraphics-thumbnailers
+#REQ:spectacle
+#REQ:dolphin
+#REQ:dolphin-plugins
+#REQ:kcalc
+#REQ:ffmpegthumbs
 #REQ:xdg-utils
 #REQ:xdg-user-dirs
 #REQ:lightdm
