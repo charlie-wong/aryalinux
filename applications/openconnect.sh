@@ -7,10 +7,10 @@ set +h
 . /var/lib/alps/functions
 
 NAME="openconnect"
-VERSION="7.06"
+VERSION="7.08"
 
 
-URL=http://archive.ubuntu.com/ubuntu/pool/universe/o/openconnect/openconnect_7.06.orig.tar.gz
+URL=ftp://ftp.infradead.org/pub/openconnect/openconnect-7.08.tar.gz
 
 cd $SOURCE_DIR
 
