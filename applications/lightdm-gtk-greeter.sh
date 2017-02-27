@@ -3,6 +3,10 @@
 set -e
 set +h
 
+NAME=lightdm-gtk-greeter
+VERSION=2.0.1
+DESCRIPTION=gtk based greeter screen for lightdm
+
 export XORG_PREFIX="/usr"
 export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc \
     --localstatedir=/var --disable-static"

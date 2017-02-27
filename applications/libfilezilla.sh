@@ -6,7 +6,10 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-URL=http://sourceforge.net/projects/filezilla/files/libfilezilla/0.6.0/libfilezilla-0.6.0.tar.bz2/download
+NAME=libfilezilla
+VERSION=0.6.0
+
+URL=http://sourceforge.net/projects/filezilla/files/libfilezilla/0.6.0/libfilezilla-0.6.0.tar.bz2
 
 cd $SOURCE_DIR
 

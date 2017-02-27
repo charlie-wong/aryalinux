@@ -6,6 +6,9 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+NAME=openimageio
+VERSION=SVN
+
 URL=https://github.com/OpenImageIO/oiio/archive/release.zip
 
 cd $SOURCE_DIR

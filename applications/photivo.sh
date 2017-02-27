@@ -6,6 +6,11 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+NAME=photivo
+VERSION=SVN
+DESCRIPTION="Photivo is a free and open source (GPL3) photo processor."
+SECTION="Graphics and Multimedia"
+
 #REQ:mercurial
 #REQ:graphicsmagick
 #REQ:liblqr

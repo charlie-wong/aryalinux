@@ -6,11 +6,15 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+NAME=jackrack
+VERSION=1.4.7
+
 cd $SOURCE_DIR
 
-wget http://prdownloads.sourceforge.net/jack-rack/jack-rack-1.4.7.tar.bz2?download -O jack-rack-1.4.7.tar.bz2
-TARBALL=jack-rack-1.4.7.tar.bz2
-DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
+URL=http://prdownloads.sourceforge.net/jack-rack/jack-rack-1.4.7.tar.bz2
+wget $URL
+TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar -xf $TARBALL
 cd $DIRECTORY

@@ -13,6 +13,9 @@ set +h
 
 cd $SOURCE_DIR
 
+NAME=free-rdp
+VERSION=SVN
+
 if [ ! -f FreeRDP.zip ]
 then
 

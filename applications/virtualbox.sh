@@ -8,6 +8,9 @@ set +h
 
 #REQ:qt5
 
+NAME=virtualbox
+VERSION=5.1.0
+
 cd $SOURCE_DIR
 
 if [ `uname -m` == "x86_64" ]

@@ -6,11 +6,14 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-URL=https://sourceforge.net/projects/graphicsmagick/files/graphicsmagick/1.3.24/GraphicsMagick-1.3.24.tar.xz/download
+NAME=graphicsmagick
+VERSION=1.3.24
+
+URL=https://sourceforge.net/projects/graphicsmagick/files/graphicsmagick/1.3.24/GraphicsMagick-1.3.24.tar.xz
 cd $SOURCE_DIR
 
-wget -nc $URL -O GraphicsMagick-1.3.24.tar.xz
-TARBALL=GraphicsMagick-1.3.24.tar.xz
+wget -nc $URL
+TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
 
 tar -xf $TARBALL
