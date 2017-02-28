@@ -8,7 +8,7 @@ set +h
 
 NAME="openconnect"
 VERSION="7.06"
-
+SECTION=basicnet
 
 URL=http://archive.ubuntu.com/ubuntu/pool/universe/o/openconnect/openconnect_7.06.orig.tar.gz
 

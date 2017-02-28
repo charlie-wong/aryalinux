@@ -8,6 +8,7 @@ set +h
 
 NAME="vpnc"
 VERSION="0.5.3r550"
+SECTION=basicnet
 
 URL=http://archive.ubuntu.com/ubuntu/pool/universe/v/vpnc/vpnc_0.5.3r550.orig.tar.gz
 

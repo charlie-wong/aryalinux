@@ -8,6 +8,7 @@ set +h
 
 NAME="network-manager-openconnect_.orig"
 VERSION="1.0.2"
+SECTION=basicnet
 
 #REQ:openconnect
 
