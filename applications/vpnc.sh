@@ -8,6 +8,7 @@ set +h
 
 NAME="vpnc"
 VERSION="0.5.3"
+SECTION=basicnet
 
 URL=https://www.unix-ag.uni-kl.de/~massar/vpnc/vpnc-0.5.3.tar.gz
 

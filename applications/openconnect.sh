@@ -8,7 +8,7 @@ set +h
 
 NAME="openconnect"
 VERSION="7.08"
-
+SECTION=basicnet
 
 URL=ftp://ftp.infradead.org/pub/openconnect/openconnect-7.08.tar.gz
 

@@ -8,7 +8,7 @@ set +h
 
 NAME="pptp-linux"
 VERSION="1.9.0"
-SECTION=""
+SECTION="basicnet"
 
 #REQ:ppp
 

@@ -8,6 +8,7 @@ set +h
 
 NAME="network-manager-pptp"
 VERSION="1.2.4"
+SECTION=basicnet
 
 URL=https://launchpad.net/ubuntu/+archive/primary/+files/network-manager-pptp_1.2.4.orig.tar.xz
 

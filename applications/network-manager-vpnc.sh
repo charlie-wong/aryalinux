@@ -8,6 +8,7 @@ set +h
 
 NAME="network-manager-vpnc"
 VERSION="1.2.4"
+SECTION=basicnet
 
 #REQ:vpnc
 

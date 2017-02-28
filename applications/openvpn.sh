@@ -8,6 +8,7 @@ set +h
 
 NAME="openvpn"
 VERSION="2.4.0"
+SECTION=basicnet
 
 #REQ:liblzo2
 
