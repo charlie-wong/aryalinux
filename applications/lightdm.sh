@@ -14,6 +14,7 @@ SOURCE_ONLY=n
 NAME="lightdm"
 DESCRIPTION="A light-weight desktop manager with greeters available in GTK/QT."
 VERSION=1.10.5
+SECTION=x
 
 #REQ:xserver-meta
 #REQ:itstool

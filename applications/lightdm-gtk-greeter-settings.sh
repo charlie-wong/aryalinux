@@ -8,7 +8,7 @@ set +h
 
 NAME="lightdm-gtk-greeter-settings"
 VERSION="1.2.1"
-SECTION=""
+SECTION="x"
 DESCRIPTION="GUI to change settings for lightdm-gtk-greeter."
 
 #REQ:python-distutils-extra
