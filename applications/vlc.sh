@@ -9,6 +9,7 @@ SOURCE_ONLY=n
 NAME="vlc"
 DESCRIPTION="VLC media player is a portable, free and open-source, cross-platform media player and streaming media server written by the VideoLAN project."
 VERSION="3.0.0"
+SECTION=multimedia
 
 #REQ:qt5
 #REQ:audio-video-plugins
