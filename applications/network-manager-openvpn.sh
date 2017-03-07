@@ -8,6 +8,7 @@ set +h
 
 NAME="network-manager-openvpn"
 VERSION="1.2.6"
+SECTION=basicnet
 
 #REQ:openvpn
 
