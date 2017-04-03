@@ -31,15 +31,15 @@ VERSION=5.32
 #REC:libdbusmenu-qt
 #REC:networkmanager
 #REC:polkit-qt
-#OPT:bluez
-#OPT:ModemManager
-#OPT:oxygen-fonts
-#OPT:noto-fonts
+#REC:bluez
+#REC:ModemManager
+#REC:oxygen-fonts
+#REC:noto-fonts
 #OPT:doxygen
-#OPT:jasper
+#REC:jasper
 #OPT:mitkrb
-#OPT:udisks2
-#OPT:upower
+#REC:udisks2
+#REC:upower
 
 
 cd $SOURCE_DIR
@@ -52,79 +52,80 @@ wget -nc -r -nH --cut-dirs=3 -A '*.xz' -np $url
 
 
 cat > frameworks-$VERSION.0.md5 << EOF
-e632a0f2f13615ca961b0a24f3322b58 attica-$VERSION.0.tar.xz
-#3c04b695a164407a2a2fcaf848c42c55 extra-cmake-modules-$VERSION.0.tar.xz
-3ed25b2b4393a107da6981cee61ddc14 kapidox-$VERSION.0.tar.xz
-7d21c57bebdd6800143c1b03b4f9b4c3 karchive-$VERSION.0.tar.xz
-4c8488c88285761578bb4d384cb54ada kcodecs-$VERSION.0.tar.xz
-2b822e9e4549fd2deffc23468af461e1 kconfig-$VERSION.0.tar.xz
-d808f36a8dfa14dd9300d3e0f76b69aa kcoreaddons-$VERSION.0.tar.xz
-0805d1dee82cf6d627dbdf2872bbbb00 kdbusaddons-$VERSION.0.tar.xz
-8a822dd18517a2ed38bdf5bb0d546c5d kdnssd-$VERSION.0.tar.xz
-e910e142696eec33aec7f57fce6efba5 kguiaddons-$VERSION.0.tar.xz
-eee903d5ed5575487769403a4979c016 ki18n-$VERSION.0.tar.xz
-544c074d621f047ab42f91cc5ef1972d kidletime-$VERSION.0.tar.xz
-8231b9fe98138f407b00f7cc011febca kimageformats-$VERSION.0.tar.xz
-f80e094e554cb59ea92c2725c6d565ec kitemmodels-$VERSION.0.tar.xz
-392f5aca94090ff7a2c71cd6c4e3352f kitemviews-$VERSION.0.tar.xz
-4acdf183309dfbee324dfae7f2169cf5 kplotting-$VERSION.0.tar.xz
-d218ec2b2e7264fbd0cb631f77bbd70f kwidgetsaddons-$VERSION.0.tar.xz
-a94136e4f5af55dab34929fc5521d115 kwindowsystem-$VERSION.0.tar.xz
-08b9e2476be272cd2dd2a0b3380abeea networkmanager-qt-$VERSION.0.tar.xz
-ed66c1e1e9cb1dcb06e037aa0d2b5d55 solid-$VERSION.0.tar.xz
-a557695b926c0857a4aba81c43879242 sonnet-$VERSION.0.tar.xz
-b7afffde55f36e3878a2e9ccbd70989c threadweaver-$VERSION.0.tar.xz
-1e41eae5f42f03b2de331460f280a327 kauth-$VERSION.0.tar.xz
-c06fe622e9297d3a4dd8695b2f79670e kcompletion-$VERSION.0.tar.xz
-8f4efc958c5f820399d2620abd4f5b39 kcrash-$VERSION.0.tar.xz
-4db500f1850f6138172249ba4fabd926 kdoctools-$VERSION.0.tar.xz
-458cc1bc560be08c3a706049bf037918 kpty-$VERSION.0.tar.xz
-d2423ba06bfacd9f5d25f9704c3cbdd9 kunitconversion-$VERSION.0.tar.xz
-5f5f18e3425775f38b24422a8e9675bb kconfigwidgets-$VERSION.0.tar.xz
-73e64bb284dfa301d78a778bb549461e kservice-$VERSION.0.tar.xz
-88e64bb284dfa301d78a778bb549461e kglobalaccel-$VERSION.0.tar.xz
-c7e6bb3a9141b86b0791f9a949156ec1 kpackage-$VERSION.0.tar.xz
-d0642716404ae604d6db198139ce20f7 kservice-$VERSION.0.tar.xz
-628bd240ca7b69ab64ead67a95fd11f3 kdesu-$VERSION.0.tar.xz
-0e56a38f94975ff508536206f9a3fcb9 kemoticons-$VERSION.0.tar.xz
-da801d2c0556759497075c725919c193 kiconthemes-$VERSION.0.tar.xz
-5d11070cecef697c44b13fa5f9c3a925 kjobwidgets-$VERSION.0.tar.xz
-7ad46c7baf13d98e710bff847d75891f knotifications-$VERSION.0.tar.xz
-0f462365b296549e05de2159f18dd3e2 ktextwidgets-$VERSION.0.tar.xz
-37715313db7117da3eabc163ce8c9f0b kwallet-$VERSION.0.tar.xz
-e8b47c782e7d30b4c363187c9a1a72b9 kxmlgui-$VERSION.0.tar.xz
-63c5aa00974e3fd95bfd742c4e90e3bc kbookmarks-$VERSION.0.tar.xz
-cad4e5542bec99a3b264b06988193195 kio-$VERSION.0.tar.xz
-3de69c04bffcb050ac3f96b510229527 kdeclarative-$VERSION.0.tar.xz
-1d4043e0d21472c32619f066402190a0 kcmutils-$VERSION.0.tar.xz
-16af94413983986c36a3a2b9279a3b7b frameworkintegration-$VERSION.0.tar.xz
-4072959e05d8a561fca95919fc8fad18 kinit-$VERSION.0.tar.xz
-2ac172c3af820c701e8e144e7f9d35db knewstuff-$VERSION.0.tar.xz
-b2e4a68bff24fd7cc4cb500af53fcd61 knotifyconfig-$VERSION.0.tar.xz
-6a82c4f8b69ae6d28d74ed795865c248 kparts-$VERSION.0.tar.xz
-85af6c7eab34592872a85c9559ed1b36 kactivities-$VERSION.0.tar.xz
-b6731516ccfad1149a8b9c0f818d39d6 kded-$VERSION.0.tar.xz
-9799a785217ea8877f288348cce72c0f kdewebkit-$VERSION.0.tar.xz
-b7dd9344c55b392ea0d7fc79935e14af ktexteditor-$VERSION.0.tar.xz
-fe1ec30258eb149d21c9f649b72a8f1a kdesignerplugin-$VERSION.0.tar.xz
-ff844df8d38596734e541a0c53131e32 plasma-framework-$VERSION.0.tar.xz
-#b3c61320b50e06b9e3919d10d45229f7 modemmanager-qt-$VERSION.0.tar.xz
-32e94125a4e4f559fa70d6855b5d98a7 kpeople-$VERSION.0.tar.xz
-0124ecbcda55655ae893f49626b7c35c kxmlrpcclient-$VERSION.0.tar.xz
-a7c7afc02a3842119607c62f2f1191b2 bluez-qt-$VERSION.0.tar.xz
-4aef6d8fbce1de5906c31318a0dd8e95 kfilemetadata-$VERSION.0.tar.xz
-6280369bf13d595f4d951bcab59663ff baloo-$VERSION.0.tar.xz
-#ec81600d6dd3059b694827a988cfce95 breeze-icons-$VERSION.0.tar.xz
-#0c5375eaba2e68bb2ef046d303de221e oxygen-icons5-$VERSION.0.tar.xz
-179ba5f3e126f04461df16c44a6cf0dc kactivities-stats-$VERSION.0.tar.xz
-5b3cadf4d586d15729b97b8c152e82b7 krunner-$VERSION.0.tar.xz
-8645b010fe6a30c374723cba26266e67 kwayland-$VERSION.0.tar.xz
-dbe8d5a37f7f758f36d576b4d8a94126 portingAids/kjs-$VERSION.0.tar.xz
-67dc7c5cad0b9a18c53e359878fe183a portingAids/kdelibs4support-$VERSION.0.tar.xz
-6a913fe17e44b24291be9aa0f7d3a45e portingAids/khtml-$VERSION.0.tar.xz
-4b818b430015981c40a99a638e025e40 portingAids/kjsembed-$VERSION.0.tar.xz
-e639b1bfeb1f40f8e11dde2163fdd5ea portingAids/kmediaplayer-$VERSION.0.tar.xz
-d25f3dde5af8bd50021f6165fbef6461 portingAids/kross-$VERSION.0.tar.xz
+2243e955a41b8a5036fb8d0e497342f5 attica-$VERSION.0.tar.xz
+#74d7c29138168f9a62fe475705c0b351 extra-cmake-modules-$VERSION.0.tar.xz
+b846e442fd48b8387f93aa37295e9f7c kapidox-$VERSION.0.tar.xz
+de591b1902b1721b74762d712f13a265 karchive-$VERSION.0.tar.xz
+8e0c15990e84dfcfc5c85a88e2e0319b kcodecs-$VERSION.0.tar.xz
+f044848c2406fa1452b11780af2e1fea kconfig-$VERSION.0.tar.xz
+95935748baf5465f150f4e1a94af1923 kcoreaddons-$VERSION.0.tar.xz
+c6c8f751eff1f03406f63bcfb1f4ffe0 kdbusaddons-$VERSION.0.tar.xz
+5ee257c5ff53d5551b9df1b640cfabf6 kdnssd-$VERSION.0.tar.xz
+ecb1a10910116e9fd3265f2f1908c6a1 kguiaddons-$VERSION.0.tar.xz
+62457f60936bb8dc6649ed362e7ab80a ki18n-$VERSION.0.tar.xz
+c45511be577726afd5c7d88c7f13f274 kidletime-$VERSION.0.tar.xz
+99cbfa14df2fb11930090122b461bc6a kimageformats-$VERSION.0.tar.xz
+91916337e5a8edf9fca9de3bdd1ad8fa kitemmodels-$VERSION.0.tar.xz
+71251518337febe21cd0af8e7db66fae kitemviews-$VERSION.0.tar.xz
+e36ccf164785957e07d03cddef152136 kplotting-$VERSION.0.tar.xz
+3ff1ee177df63262636954cb7e0460dc kwidgetsaddons-$VERSION.0.tar.xz
+cd402e03c023354e9ee37b7d0d5de621 kwindowsystem-$VERSION.0.tar.xz
+8c4d807e867f11f5a55604fa59cce85d networkmanager-qt-$VERSION.0.tar.xz
+2946f8c7780e2f3de5384717a8a34cdc solid-$VERSION.0.tar.xz
+11cef5b5016def5298b64e2ce561a8b5 sonnet-$VERSION.0.tar.xz
+f1dbc18f38a9582cd1d4f94bc9f0f132 threadweaver-$VERSION.0.tar.xz
+ec49b90d1566a37e91b9710557e102f2 kauth-$VERSION.0.tar.xz
+81234f797d4da26106a91bdcc34440df kcompletion-$VERSION.0.tar.xz
+a0cffc08aa51c61d48d9e25778a61e62 kcrash-$VERSION.0.tar.xz
+fc1b4de766d04ac3abc87050588d083d kdoctools-$VERSION.0.tar.xz
+8f5efa781672c67f01195ee3dc823c6b kpty-$VERSION.0.tar.xz
+0f7be81fe9c68044f20d6c297a624558 kunitconversion-$VERSION.0.tar.xz
+4deb8a01f99cb16bbcf80f1e11d90824 kconfigwidgets-$VERSION.0.tar.xz
+b46d2550b689fc818064f69cb1db29a7 kservice-$VERSION.0.tar.xz
+d56e35255d2697cc3a89a1a99d1821fe kglobalaccel-$VERSION.0.tar.xz
+9d66b0fe531892180006f0deb77aa4b2 kpackage-$VERSION.0.tar.xz
+9a593607c47472dd6ce0d546b2f2a736 kdesu-$VERSION.0.tar.xz
+4c8d3ab1e358efd89acd7ab95025dd37 kemoticons-$VERSION.0.tar.xz
+fa2e0994412b83dbb0e54aa277f4bff3 kiconthemes-$VERSION.0.tar.xz
+cc2f41fd5b8ba6ad795a7835a68d4e8c kjobwidgets-$VERSION.0.tar.xz
+b8483a6872720152acfb22dae0db417e knotifications-$VERSION.0.tar.xz
+a3240501f842655be3b354d98da95939 ktextwidgets-$VERSION.0.tar.xz
+de28f21c121dc24f31d35ab622304e7e kxmlgui-$VERSION.0.tar.xz
+8c1d5970b25f877567494486638d6082 kbookmarks-$VERSION.0.tar.xz
+3372c17e1a0020616fea29ec9097e0cc kwallet-$VERSION.0.tar.xz
+62f31e7a9cd0b875fce5b552ec9be3c7 kio-$VERSION.0.tar.xz
+8b76f1704314258a944eb57a466d338d kdeclarative-$VERSION.0.tar.xz
+eccc7474f7442b656d26211050f3b2c3 kcmutils-$VERSION.0.tar.xz
+2df293c8e3cedd3a7b71af69045dc5a0 knewstuff-$VERSION.0.tar.xz
+128fa26a3e7928ae74db95ee774fcf48 frameworkintegration-$VERSION.0.tar.xz
+8cf1b185c3d5b74a168995f8e0747931 kinit-$VERSION.0.tar.xz
+a8fdfb88286f73485734ad2feecb7e16 knotifyconfig-$VERSION.0.tar.xz
+21849d002c27964c0d264aa9b5a7c67d kparts-$VERSION.0.tar.xz
+31f9bd0f380f60b0ab2e9b8f56b1662a kactivities-$VERSION.0.tar.xz
+569c52fc5424b1c58fc0476ffa02b58b kded-$VERSION.0.tar.xz
+d063b3b7827eaaa8e345ebaf6c1500f9 kdewebkit-$VERSION.0.tar.xz
+302e06bd05b8632fe60702c82218d1eb syntax-highlighting-$VERSION.0.tar.xz
+315aae6b286757696513ecc7ca69e68e ktexteditor-$VERSION.0.tar.xz
+89a054526209180e02b87b30b8766f5f kdesignerplugin-$VERSION.0.tar.xz
+3ba021780eb40fadd3472630be680571 kwayland-$VERSION.0.tar.xz
+cbef982888a30ca96b4c1f52d502551c plasma-framework-$VERSION.0.tar.xz
+eac454faa59de5fb2c5f995acd71fd769 modemmanager-qt-$VERSION.0.tar.xz
+6eaf7bd9165a7042221926064c01cce9 kpeople-$VERSION.0.tar.xz
+c1cd0538b4f7e56653a4d6d4f2c994a2 kxmlrpcclient-$VERSION.0.tar.xz
+2e2dfc3e49d878044c4848d147918d1b bluez-qt-$VERSION.0.tar.xz
+b0553bbd667d7d209735d2123f33af46 kfilemetadata-$VERSION.0.tar.xz
+831874cc5f6bf3aab76ca196d30995b3 baloo-$VERSION.0.tar.xz
+#f16a9b1a901700ecd0790e3d80ae32d4 breeze-icons-$VERSION.0.tar.xz
+#385ddb6e36639dfffb0bf30b75b049e0 oxygen-icons5-$VERSION.0.tar.xz
+cd4290e76d0c07a3612b82257119a4df kactivities-stats-$VERSION.0.tar.xz
+6105cf1f51b69cd9232aa662f8d2511a krunner-$VERSION.0.tar.xz
+#95cb43eb20e081db51709b0ab6bcfa96 prison-$VERSION.0.tar.xz
+71ec95ef3c79e2a86de4872bb97daa0e portingAids/kjs-$VERSION.0.tar.xz
+aa244aa083a03be78a976a8a8cd6ed8c portingAids/kdelibs4support-$VERSION.0.tar.xz
+21a3859d1358a330fbdb83f3c184dd71 portingAids/khtml-$VERSION.0.tar.xz
+49f65f405b4e3d49adf81247efce963f portingAids/kjsembed-$VERSION.0.tar.xz
+f287ac1073cae07f51178ad78f30cf4b portingAids/kmediaplayer-$VERSION.0.tar.xz
+743b48d58b23d386e4417081a4d456cb portingAids/kross-$VERSION.0.tar.xz
 EOF
 
 
@@ -237,3 +238,4 @@ sudo ln -sfvn kf5-$VERSION.0 /opt/kf5
 cd $SOURCE_DIR
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

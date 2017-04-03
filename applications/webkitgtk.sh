@@ -31,9 +31,9 @@ NAME="webkitgtk"
 #REC:geoclue
 #REC:gobject-introspection
 #REC:hicolor-icon-theme
+#REC:libnotify
 #OPT:gtk-doc
 #OPT:harfbuzz
-#OPT:libnotify
 #OPT:llvm
 #OPT:wayland
 

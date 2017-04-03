@@ -66,7 +66,7 @@ VERSION=1.18
 #REQ:mate-panel
 #REQ:mate-control-center
 #REQ:lightdm
-#REQ:lightdm-webkit2-greeter
+#REQ:lightdm-gtk-greeter
 #REQ:plymouth
 #REQ:mate-screensaver
 

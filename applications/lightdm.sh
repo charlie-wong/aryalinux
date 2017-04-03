@@ -13,7 +13,7 @@ export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc \
 SOURCE_ONLY=n
 NAME="lightdm"
 DESCRIPTION="A light-weight desktop manager with greeters available in GTK/QT."
-VERSION=1.10.5
+VERSION=1.22.0
 
 #REQ:xserver-meta
 #REQ:itstool
@@ -25,12 +25,12 @@ VERSION=1.10.5
 
 cd $SOURCE_DIR
 
-wget -nc https://launchpad.net/lightdm/1.10/1.10.5/+download/lightdm-1.10.5.tar.xz
-# wget -nc https://launchpad.net/lightdm-gtk-greeter/2.0/2.0.1/+download/lightdm-gtk-greeter-2.0.1.tar.gz
+URL=https://launchpad.net/lightdm/1.22/1.22.0/+download/lightdm-1.22.0.tar.xz
+wget -nc $URL
 
 
-TARBALL=lightdm-1.10.5.tar.xz
-DIRECTORY=lightdm-1.10.5
+TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar -xf $TARBALL
 
@@ -46,11 +46,11 @@ CPPLAGS="-march=native -mtune=native -O3"  \
             --localstatedir=/var \
             --libexecdir=/usr/lib \
             --with-greeter-user=lightdm \
-            --with-greeter-session=lightdm-webkit2-greeter \
+            --with-greeter-session=lightdm-gtk-greeter \
             --disable-static \
             --disable-tests  \
-			--disable-liblightdm-qt5  \
-			--disable-liblightdm-qt
+            --disable-liblightdm-qt5  \
+            --disable-liblightdm-qt
 
 make "-j`nproc`"
 
@@ -167,7 +167,7 @@ run-directory=/run/lightdm
 #xdmcp-key=
 #unity-compositor-command=unity-system-compositor
 #unity-compositor-timeout=60
-greeter-session=lightdm-webkit2-greeter
+greeter-session=lightdm-gtk-greeter
 #greeter-hide-users=false
 #greeter-allow-guest=true
 #greeter-show-manual-login=false
@@ -441,6 +441,7 @@ chmod 700 /usr/share/polkit-1/rules.d
 chmod 600 /usr/share/polkit-1/rules.d/*
 chown -R polkitd:polkitd /usr/share/polkit-1/rules.d
 
+if [ -L /etc/systemd/system/display-manager.service ]; then rm -f /etc/systemd/system/display-manager.service; fi
 systemctl enable lightdm
 
 ENDOFFILE

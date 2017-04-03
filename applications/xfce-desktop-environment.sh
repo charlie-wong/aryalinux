@@ -57,7 +57,7 @@ VERSION=4.12
 
 #REQ:plymouth
 #REQ:lightdm
-#REQ:lightdm-webkit2-greeter
+#REQ:lightdm-gtk-greeter
 
 #REQ:murrine-gtk-engine
 #REQ:adwaita-icon-theme
@@ -72,7 +72,7 @@ VERSION=4.12
 #REQ:compton
 
 cd $SOURCE_DIR
-wget -nc aryalinux.org/releases/latest/aryalinux-xfce-config.tar.gz
+wget -nc https://sourceforge.net/projects/aryalinux-bin/files/releases/2017.04/aryalinux-xfce-config.tar.gz
 tar xf aryalinux-xfce-config.tar.gz -C ~
 sudo tar xf aryalinux-xfce-config.tar.gz -C /etc/skel/
 

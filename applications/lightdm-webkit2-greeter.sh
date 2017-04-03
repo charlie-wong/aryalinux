@@ -15,11 +15,15 @@ NAME="lightdm-webkit2-greeter"
 DESCRIPTION="A webkit2 based greeter for lightdm"
 VERSION=2.0.0
 
+#REQ:git
 #REQ:lightdm
 #REC:aryalinux-wallpapers
 #REC:aryalinux-fonts
 #REC:aryalinux-themes
 #REC:aryalinux-icons
+#REQ:meson
+#REQ:ninja
+#REQ:webkitgtk
 
 cd $SOURCE_DIR
 

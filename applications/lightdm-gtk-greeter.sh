@@ -13,7 +13,7 @@ export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc \
 SOURCE_ONLY=n
 NAME="lightdm-gtk-greeter"
 DESCRIPTION="A GTK+ based greeter for lightdm"
-VERSION=2.0.1
+VERSION=2.0.2
 
 #REQ:lightdm
 #REC:aryalinux-wallpapers
@@ -23,11 +23,12 @@ VERSION=2.0.1
 
 cd $SOURCE_DIR
 
-wget -nc https://launchpad.net/lightdm-gtk-greeter/2.0/2.0.1/+download/lightdm-gtk-greeter-2.0.1.tar.gz
+URL=https://launchpad.net/lightdm-gtk-greeter/2.0/2.0.2/+download/lightdm-gtk-greeter-2.0.2.tar.gz
+wget -nc $URL
 
 
-TARBALL=lightdm-gtk-greeter-2.0.1.tar.gz
-DIRECTORY=lightdm-gtk-greeter-2.0.1
+TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar -xf $TARBALL
 

@@ -38,7 +38,7 @@ VERSION=5.9.1
 #REQ:xdg-utils
 #REQ:xdg-user-dirs
 #REQ:lightdm
-#REQ:lightdm-webkit2-greeter
+#REQ:lightdm-gtk-greeter
 
 sudo mkdir -pv /usr/share/xsessions/
 sudo cp -v /opt/kf5/share/xsessions/* /usr/share/xsessions/
