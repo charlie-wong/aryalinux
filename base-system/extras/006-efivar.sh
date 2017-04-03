@@ -9,7 +9,7 @@ export MAKEFLAGS="-j `nproc`"
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="006-efivar.sh"
-TARBALL="efivar-0.23.tar.bz2"
+TARBALL="efivar-30.tar.bz2"
 
 if ! grep "$STEPNAME" $LOGFILE &> /dev/null
 then
@@ -23,7 +23,7 @@ then
 	cd $DIRECTORY
 fi
 
-patch -Np1 -i ../0.21-nvme_ioctl.h.patch
+# patch -Np1 -i ../0.21-nvme_ioctl.h.patch
 sed 's|-O0|-Os|g' -i Make.defaults
 sed 's|-rpath=$(TOPDIR)/src/|-rpath=$(libdir)|g' \
      -i src/test/Makefile
