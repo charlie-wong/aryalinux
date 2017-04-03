@@ -8,8 +8,8 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/O/OA/OALDERS/HTTP-Cookies-6.02-TRIAL.tar.gz"
-VERSION=6.02
+URL="http://search.cpan.org/CPAN/authors/id/O/OA/OALDERS/HTTP-Cookies-6.03.tar.gz"
+VERSION=6.03
 NAME="perl-modules#http-cookies"
 
 cd $SOURCE_DIR
@@ -38,3 +38,4 @@ cd $SOURCE_DIR
 cleanup "$NAME" "$DIRECTORY"
 
 register_installed "$NAME=>`date`" "$VERSION" "$INSTALLED_LIST"
+
