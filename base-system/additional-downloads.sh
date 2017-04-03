@@ -10,8 +10,8 @@ pushd ~/sources
 wget -nc http://pkgs.fedoraproject.org/lookaside/pkgs/dosfstools/dosfstools-3.0.26.tar.xz/45012f5f56f2aae3afcd62120b9e5a08/dosfstools-3.0.26.tar.xz
 wget -nc http://ftp.gnu.org/gnu/which/which-2.21.tar.gz
 wget -nc http://http.kali.org/pool/main/o/os-prober/os-prober_1.71.tar.xz
-wget -nc https://github.com/rhinstaller/efivar/releases/download/30/efivar-30.tar.bz2
-wget -nc http://pkgs.fedoraproject.org/repo/pkgs/efibootmgr/efibootmgr-0.12.tar.bz2/6647f5cd807bc8484135ba74fcbcc39a/efibootmgr-0.12.tar.bz2
+wget -nc http://pkgs.fedoraproject.org/repo/pkgs/efivar/efivar-30.tar.bz2/143f055904fceaad6ed39f8e849ba079/efivar-30.tar.bz2
+wget -nc http://pkgs.fedoraproject.org/repo/pkgs/efibootmgr/efibootmgr-14.tar.bz2/f74e87963c2c5cb1bf6d588675dbd9b4/efibootmgr-14.tar.bz2
 wget -nc http://downloads.sourceforge.net/freetype/freetype-2.6.3.tar.bz2
 wget -nc http://unifoundry.com/pub/unifont-7.0.05/font-builds/unifont-7.0.05.pcf.gz
 wget -nc http://pkgs.fedoraproject.org/repo/pkgs/pciutils/pciutils-3.4.1.tar.gz/acc91d632dbc98f624a8e57b4e478160/pciutils-3.4.1.tar.gz
@@ -47,6 +47,7 @@ wget -nc https://sourceforge.net/projects/aryalinux-bin/files/releases/$VERSION/
 wget -nc https://sourceforge.net/projects/aryalinux-bin/files/releases/$VERSION/aufs4-mmap.patch
 wget -nc https://sourceforge.net/projects/aryalinux-bin/files/releases/$VERSION/aufs4-standalone.patch
 wget -nc https://sourceforge.net/projects/aryalinux-bin/files/releases/$VERSION/0.21-nvme_ioctl.h.patch
+wget -nc https://sourceforge.net/projects/aryalinux-bin/files/releases/2017.02/efivar-30-z-muldefs.patch
 
 pushd ~/aryalinux/applications
 git checkout $VERSION
