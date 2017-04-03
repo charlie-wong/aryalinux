@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="Cython"
+NAME="cython"
 VERSION="0.24"
 
 cd $SOURCE_DIR

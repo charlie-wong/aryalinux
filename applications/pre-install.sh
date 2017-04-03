@@ -97,9 +97,9 @@ source /etc/profile
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 source /etc/profile                                       &&
-ln -sfv /usr/share/dbus-1        $LXQT_PREFIX/share       &&
 install -v -dm755                $LXQT_PREFIX/share/icons &&
-ln -sfv /usr/share/icons/hicolor $LXQT_PREFIX/share/icons
+ln -sfv /usr/share/icons/hicolor $LXQT_PREFIX/share/icons &&
+ln -sfv /usr/share/dbus-1        $LXQT_PREFIX/share
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
@@ -109,8 +109,8 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-mv /opt/lxqt{,-0.11.0}
-ln -sfv lxqt-0.11.0 /opt/lxqt
+mv /opt/lxqt{,-0.11.1}
+ln -sfv lxqt-0.11.1 /opt/lxqt
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

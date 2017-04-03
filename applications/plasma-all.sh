@@ -10,7 +10,7 @@ SOURCE_ONLY=n
 DESCRIPTION="%DESCRIPTION%"
 SECTION="kde"
 NAME="plasma-all"
-VERSION="5.8.4"
+VERSION="5.9.3"
 
 #REQ:fontforge
 #REQ:gtk2
@@ -73,7 +73,7 @@ f40f3015e4c0cbadba893ea9aec37ec2 libkscreen-$VERSION.tar.xz
 e9d2bdeadcbd378f12a2e54c6b3b9224 kinfocenter-$VERSION.tar.xz
 99d46f170a9143883c207e0a8999e268 ksysguard-$VERSION.tar.xz
 e1dd04fcaf1abd31df89d037af4d2258 kwin-$VERSION.tar.xz
-2b5f4dbc85193941708509e51c171f14 systemsettings-$VERSION.tar.xz
+2b5f4dbc85193941708509e51.181f14 systemsettings-$VERSION.tar.xz
 5ed64282b5aa36bb77bd3a89334b851d plasma-workspace-$VERSION.tar.xz
 57c1e8aa62aa5791102e94160bb5e2b3 bluedevil-$VERSION.tar.xz
 12c5bc74c567f65fbb11907909752ba2 kde-gtk-config-$VERSION.tar.xz

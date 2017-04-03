@@ -6,12 +6,12 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="network-manager-openconnect_.orig"
-VERSION="1.0.2"
+NAME="network-manager-openconnect"
+VERSION="1.2.4"
 
 #REQ:openconnect
 
-URL=http://archive.ubuntu.com/ubuntu/pool/universe/n/network-manager-openconnect/network-manager-openconnect_1.0.2.orig.tar.xz
+URL=https://ftp.gnome.org/pub/gnome/sources/NetworkManager-openconnect/1.2/NetworkManager-openconnect-1.2.4.tar.xz
 
 cd $SOURCE_DIR
 

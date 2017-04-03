@@ -8,11 +8,11 @@ set +h
 
 #REQ:perl-modules#digest-hmac
 #REQ:perl-modules#io-socket-inet6
-#REQ:perl-modules#io-socket-inet
+#REQ:perl-modules#io
 
 SOURCE_ONLY=y
-URL="http://www.cpan.org/authors/id/N/NL/NLNETLABS/Net-DNS-1.06.tar.gz"
-VERSION=1.06
+URL="http://www.cpan.org/authors/id/N/NL/NLNETLABS/Net-DNS-1.09.tar.gz"
+VERSION=1.09
 NAME="perl-modules#perl-net-dns"
 
 cd $SOURCE_DIR

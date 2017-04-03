@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak libevent is an asynchronous eventbr3ak notification software library. The libevent API provides a mechanism to execute abr3ak callback function when a specific event occurs on a file descriptorbr3ak or after a timeout has been reached. Furthermore, libevent also supports callbacks due tobr3ak signals or regular timeouts.br3ak"
 SECTION="basicnet"
-VERSION=2.0.22
+VERSION=2.1.8
 NAME="libevent"
 
 #REC:openssl
@@ -18,11 +18,11 @@ NAME="libevent"
 
 cd $SOURCE_DIR
 
-URL=http://downloads.sourceforge.net/levent/libevent-2.0.22-stable.tar.gz
+URL=https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libevent/libevent-2.0.22-stable.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libevent/libevent-2.0.22-stable.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libevent/libevent-2.0.22-stable.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libevent/libevent-2.0.22-stable.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libevent/libevent-2.0.22-stable.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libevent/libevent-2.0.22-stable.tar.gz || wget -nc http://downloads.sourceforge.net/levent/libevent-2.0.22-stable.tar.gz
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libevent/libevent-2.1.8-stable.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libevent/libevent-2.1.8-stable.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libevent/libevent-2.1.8-stable.tar.gz || wget -nc https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libevent/libevent-2.1.8-stable.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libevent/libevent-2.1.8-stable.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libevent/libevent-2.1.8-stable.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

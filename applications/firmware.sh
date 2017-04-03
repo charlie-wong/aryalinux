@@ -33,18 +33,36 @@ fi
 
 whoami > /tmp/currentuser
 
-make
+gcc -g -Wall -O2 -o intel-microcode2ucode intel-microcode2ucode.c
+
+
+install intel-microcode2ucode /usr/bin
+
+
+intel-microcode2ucode microcode.dat
 
 
 head -n7 /proc/cpuinfo
 
 
 mkdir -pv /lib/firmware/intel-ucode
-cp -v <XX-YY-ZZ> /lib/firmware/intel-ucode
+cp -v intel-ucode/<XX-YY-ZZ> /lib/firmware/intel-ucode
+
+
+echo 1 > /sys/devices/system/cpu/microcode/reload
+
+
+dmesg | grep -e 'microcode' -e 'Linux version' -e 'Command line'
 
 
 mkdir -pv /lib/firmware/amd-ucode
 cp -v microcode_amd* /lib/firmware/amd-ucode
+
+
+echo 1 > /sys/devices/system/cpu/microcode/reload
+
+
+dmesg | grep -e 'microcode' -e 'Linux version' -e 'Command line'
 
 
 mkdir -p initrd/kernel/x86/microcode
@@ -64,6 +82,9 @@ initrd /microcode.img
 
 
 initrd /boot/microcode.img
+
+
+dmesg | grep -e 'microcode' -e 'Linux version' -e 'Command line'
 
 
 mkdir -pv /lib/firmware/radeon

@@ -9,18 +9,16 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="%DESCRIPTION%"
 SECTION="x"
-VERSION=1.3.0
 NAME="xorg-config"
 
 
 
 cd $SOURCE_DIR
 
-URL=http://ftp.osuosl.org/pub/blfs/conglomeration/Xorg//fireflysung-1.3.0.tar.gz
+URL=
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/Xorg//fireflysung-1.3.0.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -46,18 +44,6 @@ sudo rm rootscript.sh
 
 
 DRI_PRIME=1 glxinfo | egrep "(OpenGL vendor|OpenGL renderer|OpenGL version)"
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -v -d -m755 /usr/share/fonts/dejavu &&
-install -v -m644 ttf/*.ttf /usr/share/fonts/dejavu &&
-fc-cache -v /usr/share/fonts/dejavu
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
 
 
 cat > /etc/X11/xorg.conf.d/xkb-defaults.conf << "EOF"

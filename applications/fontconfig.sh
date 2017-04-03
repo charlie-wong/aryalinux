@@ -40,6 +40,10 @@ fi
 
 whoami > /tmp/currentuser
 
+sed -e '/FC_CHAR_WIDTH/s/CHAR_WIDTH/CHARWIDTH/'             \
+    -e '/FC_CHARWIDTH/a #define FC_CHAR_WIDTH FC_CHARWIDTH' \
+    -i fontconfig/fontconfig.h                &&
+sed 's/CHAR_WIDTH/CHARWIDTH/' -i src/fcobjs.h &&
 ./configure --prefix=/usr        \
             --sysconfdir=/etc    \
             --localstatedir=/var \

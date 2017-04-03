@@ -6,13 +6,13 @@ set -e
 . /var/lib/alps/functions
 
 NAME="kidletime"
-VERSION="5.25.0"
+VERSION="5.32.0"
 
 #REQ:extra-cmake-modules
 
 cd $SOURCE_DIR
 
-URL=http://download.kde.org/stable/frameworks/5.25/kidletime-5.25.0.tar.xz
+URL=http://download.kde.org/stable/frameworks/5.32/kidletime-5.32.0.tar.xz
 
 wget -nc $URL
 

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak This package, from the WebM project, provides the referencebr3ak implementations of the VP8 Codec, used in most current html5 video,br3ak and of the next-generation VP9 Codec.br3ak"
 SECTION="multimedia"
-VERSION=1.6.0
+VERSION=1.6.1
 NAME="libvpx"
 
 #REQ:yasm
@@ -21,11 +21,11 @@ NAME="libvpx"
 
 cd $SOURCE_DIR
 
-URL=http://storage.googleapis.com/downloads.webmproject.org/releases/webm/libvpx-1.6.0.tar.bz2
+URL=http://storage.googleapis.com/downloads.webmproject.org/releases/webm/libvpx-1.6.1.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libvpx/libvpx-1.6.0.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libvpx/libvpx-1.6.0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libvpx/libvpx-1.6.0.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libvpx/libvpx-1.6.0.tar.bz2 || wget -nc http://storage.googleapis.com/downloads.webmproject.org/releases/webm/libvpx-1.6.0.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libvpx/libvpx-1.6.0.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libvpx/libvpx-1.6.0.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libvpx/libvpx-1.6.1.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libvpx/libvpx-1.6.1.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libvpx/libvpx-1.6.1.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libvpx/libvpx-1.6.1.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libvpx/libvpx-1.6.1.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libvpx/libvpx-1.6.1.tar.bz2 || wget -nc http://storage.googleapis.com/downloads.webmproject.org/releases/webm/libvpx-1.6.1.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

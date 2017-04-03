@@ -20,12 +20,12 @@ NAME="java"
 
 cd $SOURCE_DIR
 
-URL=http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-1.8.0.112/OpenJDK-1.8.0.92-i686-bin.tar.xz
+URL=http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-1.8.0.121/OpenJDK-1.8.0.121-i686-bin.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/openjdk/OpenJDK-1.8.0.92-i686-bin.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/openjdk/OpenJDK-1.8.0.92-i686-bin.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/openjdk/OpenJDK-1.8.0.92-i686-bin.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/openjdk/OpenJDK-1.8.0.92-i686-bin.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/openjdk/OpenJDK-1.8.0.92-i686-bin.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/openjdk/OpenJDK-1.8.0.92-i686-bin.tar.xz || wget -nc http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-1.8.0.112/OpenJDK-1.8.0.92-i686-bin.tar.xz
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/openjdk/OpenJDK-1.8.0.112-x86_64-bin.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/openjdk/OpenJDK-1.8.0.112-x86_64-bin.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/openjdk/OpenJDK-1.8.0.112-x86_64-bin.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/openjdk/OpenJDK-1.8.0.112-x86_64-bin.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/openjdk/OpenJDK-1.8.0.112-x86_64-bin.tar.xz || wget -nc http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-1.8.0.112/OpenJDK-1.8.0.112-x86_64-bin.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/openjdk/OpenJDK-1.8.0.112-x86_64-bin.tar.xz
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/openjdk/OpenJDK-1.8.0.121-i686-bin.tar.xz || wget -nc http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-1.8.0.121/OpenJDK-1.8.0.121-i686-bin.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/openjdk/OpenJDK-1.8.0.121-i686-bin.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/openjdk/OpenJDK-1.8.0.121-i686-bin.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/openjdk/OpenJDK-1.8.0.121-i686-bin.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/openjdk/OpenJDK-1.8.0.121-i686-bin.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/openjdk/OpenJDK-1.8.0.121-i686-bin.tar.xz
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/openjdk/OpenJDK-1.8.0.121-x86_64-bin.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/openjdk/OpenJDK-1.8.0.121-x86_64-bin.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/openjdk/OpenJDK-1.8.0.121-x86_64-bin.tar.xz || wget -nc http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-1.8.0.121/OpenJDK-1.8.0.121-x86_64-bin.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/openjdk/OpenJDK-1.8.0.121-x86_64-bin.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/openjdk/OpenJDK-1.8.0.121-x86_64-bin.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/openjdk/OpenJDK-1.8.0.121-x86_64-bin.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -42,9 +42,9 @@ whoami > /tmp/currentuser
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -vdm755 /opt/OpenJDK-1.8.0.112-bin &&
-mv -v * /opt/OpenJDK-1.8.0.112-bin         &&
-chown -R root:root /opt/OpenJDK-1.8.0.112-bin
+install -vdm755 /opt/OpenJDK-1.8.0.121-bin &&
+mv -v * /opt/OpenJDK-1.8.0.121-bin         &&
+chown -R root:root /opt/OpenJDK-1.8.0.121-bin
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
@@ -54,7 +54,7 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-ln -sfn OpenJDK-1.8.0.112-bin /opt/jdk
+ln -sfn OpenJDK-1.8.0.121-bin /opt/jdk
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

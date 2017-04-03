@@ -9,24 +9,24 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak v4l-utils provides a series ofbr3ak utilities for media devices, allowing to handle the proprietarybr3ak formats available at most webcams (libv4l), and providing tools tobr3ak test V4L devices.br3ak"
 SECTION="multimedia"
-VERSION=1.10.1
+VERSION=1.12.3
 NAME="v4l-utils"
 
 #REQ:glu
 #REQ:libjpeg
 #REQ:mesa
-#OPT:alsa-lib
-#OPT:qt5
+#REC:alsa-lib
+#REC:qt5
 #OPT:doxygen
 
 
 cd $SOURCE_DIR
 
-URL=https://www.linuxtv.org/downloads/v4l-utils/v4l-utils-1.10.1.tar.bz2
+URL=https://www.linuxtv.org/downloads/v4l-utils/v4l-utils-1.12.3.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/v4l-utils/v4l-utils-1.10.1.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/v4l-utils/v4l-utils-1.10.1.tar.bz2 || wget -nc https://www.linuxtv.org/downloads/v4l-utils/v4l-utils-1.10.1.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/v4l-utils/v4l-utils-1.10.1.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/v4l-utils/v4l-utils-1.10.1.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/v4l-utils/v4l-utils-1.10.1.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/v4l-utils/v4l-utils-1.10.1.tar.bz2
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/v4l-utils/v4l-utils-1.12.3.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/v4l-utils/v4l-utils-1.12.3.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/v4l-utils/v4l-utils-1.12.3.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/v4l-utils/v4l-utils-1.12.3.tar.bz2 || wget -nc https://www.linuxtv.org/downloads/v4l-utils/v4l-utils-1.12.3.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/v4l-utils/v4l-utils-1.12.3.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/v4l-utils/v4l-utils-1.12.3.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

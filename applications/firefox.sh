@@ -9,14 +9,15 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Firefox is a stand-alone browserbr3ak based on the Mozilla codebase.br3ak"
 SECTION="xsoft"
-VERSION=50.1.0
+VERSION=52.0.1
 NAME="firefox"
 
-#REQ:alsa-lib
 #REQ:autoconf213
 #REQ:gtk3
 #REQ:gtk2
 #REQ:nss
+#REQ:pulseaudio
+#REQ:alsa-lib
 #REQ:unzip
 #REQ:yasm
 #REQ:zip
@@ -31,7 +32,6 @@ NAME="firefox"
 #OPT:ffmpeg
 #OPT:libwebp
 #OPT:openjdk
-#OPT:pulseaudio
 #OPT:startup-notification
 #OPT:valgrind
 #OPT:wget
@@ -43,12 +43,12 @@ NAME="firefox"
 
 cd $SOURCE_DIR
 
-URL=https://ftp.mozilla.org/pub/mozilla.org/firefox/releases/50.1.0/source/firefox-50.1.0.source.tar.xz
+URL=https://ftp.mozilla.org/pub/mozilla.org/firefox/releases/52.0.1/source/firefox-52.0.1.source.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/firefox/firefox-50.1.0.source.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/firefox/firefox-50.1.0.source.tar.xz || wget -nc https://ftp.mozilla.org/pub/mozilla.org/firefox/releases/50.1.0/source/firefox-50.1.0.source.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/firefox/firefox-50.1.0.source.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/firefox/firefox-50.1.0.source.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/firefox/firefox-50.1.0.source.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/firefox/firefox-50.1.0.source.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/downloads/firefox/firefox-50.1.0-system_graphite2_harfbuzz-1.patch || wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/firefox-50.1.0-system_graphite2_harfbuzz-1.patch
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/firefox/firefox-52.0.1.source.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/firefox/firefox-52.0.1.source.tar.xz || wget -nc https://ftp.mozilla.org/pub/mozilla.org/firefox/releases/52.0.1/source/firefox-52.0.1.source.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/firefox/firefox-52.0.1.source.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/firefox/firefox-52.0.1.source.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/firefox/firefox-52.0.1.source.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/firefox/firefox-52.0.1.source.tar.xz
+wget -nc http://www.linuxfromscratch.org/patches/downloads/firefox/firefox-52.0.1-system_graphite2_harfbuzz-1.patch || wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/firefox-52.0.1-system_graphite2_harfbuzz-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -81,8 +81,10 @@ ac_add_options --disable-necko-wifi
 # Uncomment these lines if you have installed optional dependencies:
 #ac_add_options --enable-system-hunspell
 #ac_add_options --enable-startup-notification
-# Comment out following option if you have PulseAudio installed
-ac_add_options --disable-pulseaudio
+# Uncomment the following option if you have not installed PulseAudio
+#ac_add_options --disable-pulseaudio
+# and uncomment this if you installed alsa-lib instead of PulseAudio
+#ac_add_options --enable-alsa
 # If you have installed GConf, comment out this line
 ac_add_options --disable-gconf
 # Comment out following options if you have not installed
@@ -126,7 +128,11 @@ mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/firefox-build-dir
 EOF
 
 
-patch -Np1 -i ../firefox-50.1.0-system_graphite2_harfbuzz-1.patch
+patch -Np1 -i ../firefox-52.0.1-system_graphite2_harfbuzz-1.patch
+
+
+sed -e s/_EVENT_SIZEOF/EVENT__SIZEOF/ \
+    -i ipc/chromium/src/base/message_pump_libevent.cc
 
 
 make "-j`nproc`" || make -f client.mk
@@ -135,9 +141,9 @@ make "-j`nproc`" || make -f client.mk
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make "-j`nproc`" || make -f client.mk install INSTALL_SDK= &&
-chown -R 0:0 /usr/lib/firefox-50.1.0   &&
+chown -R 0:0 /usr/lib/firefox-52.0.1   &&
 mkdir -pv    /usr/lib/mozilla/plugins  &&
-ln    -sfv   ../../mozilla/plugins /usr/lib/firefox-50.1.0/browser
+ln    -sfv   ../../mozilla/plugins /usr/lib/firefox-52.0.1/browser
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
@@ -163,7 +169,7 @@ Categories=GNOME;GTK;Network;WebBrowser;
 MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
 StartupNotify=true
 EOF
-ln -sfv /usr/lib/firefox-50.1.0/browser/icons/mozicon128.png \
+ln -sfv /usr/lib/firefox-52.0.1/browser/icons/mozicon128.png \
         /usr/share/pixmaps/firefox.png
 
 ENDOFROOTSCRIPT

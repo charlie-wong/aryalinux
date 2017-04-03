@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The GPGME package is a C librarybr3ak that allows cryptography support to be added to a program. It isbr3ak designed to make access to public key crypto engines likebr3ak GnuPG or GpgSM easier forbr3ak applications. GPGME provides abr3ak high-level crypto API for encryption, decryption, signing,br3ak signature verification and key management.br3ak"
 SECTION="postlfs"
-VERSION=1.8.0
+VERSION=1.9.0
 NAME="gpgme"
 
 #REQ:libassuan
@@ -24,11 +24,11 @@ NAME="gpgme"
 
 cd $SOURCE_DIR
 
-URL=ftp://ftp.gnupg.org/gcrypt/gpgme/gpgme-1.8.0.tar.bz2
+URL=ftp://ftp.gnupg.org/gcrypt/gpgme/gpgme-1.9.0.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gpgme/gpgme-1.8.0.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gpgme/gpgme-1.8.0.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gpgme/gpgme-1.8.0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gpgme/gpgme-1.8.0.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gpgme/gpgme-1.8.0.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gpgme/gpgme-1.8.0.tar.bz2 || wget -nc ftp://ftp.gnupg.org/gcrypt/gpgme/gpgme-1.8.0.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gpgme/gpgme-1.9.0.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gpgme/gpgme-1.9.0.tar.bz2 || wget -nc ftp://ftp.gnupg.org/gcrypt/gpgme/gpgme-1.9.0.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gpgme/gpgme-1.9.0.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gpgme/gpgme-1.9.0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gpgme/gpgme-1.9.0.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gpgme/gpgme-1.9.0.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

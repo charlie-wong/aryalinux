@@ -129,8 +129,8 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-mv /opt/kf5{,-5.28.0}
-ln -sfv kf5-5.28.0 /opt/kf5
+mv /opt/kf5{,-5.31.0}
+ln -sfv kf5-5.31.0 /opt/kf5
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

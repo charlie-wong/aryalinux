@@ -5,7 +5,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="packagekit"
+NAME="PackageKit"
 VERSION="1.1.1"
 
 #REQ:bash-completion

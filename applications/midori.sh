@@ -8,7 +8,7 @@ set +h
 
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Midori is a lightweight webbr3ak browser that uses WebKitGTK+.br3ak"
-SECTION="xfce"
+SECTION="xsoft"
 VERSION=0.5.11
 NAME="midori"
 
@@ -19,7 +19,6 @@ NAME="midori"
 #REQ:vala
 #REC:librsvg
 #OPT:gtk-doc
-#OPT:webkitgtk2
 #OPT:libzeitgeist
 
 

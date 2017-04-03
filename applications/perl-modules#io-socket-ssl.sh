@@ -6,12 +6,11 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:perl-modules#io-socket-ssl
-#REQ:perl-modules#mozilla-ca
+#REQ:perl-modules#net-ssleay
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/S/SU/SULLR/IO-Socket-SSL-2.040.tar.gz"
-VERSION=2.040
+URL="http://search.cpan.org/CPAN/authors/id/S/SU/SULLR/IO-Socket-SSL-2.047.tar.gz"
+VERSION=2.047
 NAME="perl-modules#io-socket-ssl"
 
 cd $SOURCE_DIR

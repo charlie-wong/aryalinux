@@ -9,14 +9,14 @@ set +h
 SOURCE_ONLY=n
 NAME="mate-system-monitor"
 DESCRIPTION="Process viewer and system resource monitor for MATE"
-VERSION="1.17.0"
+VERSION="1.18.0"
 
 #REQ:gtkmm3
 #REQ:glibmm
 
 cd $SOURCE_DIR
 
-URL="http://pub.mate-desktop.org/releases/1.17/mate-system-monitor-1.17.0.tar.xz"
+URL="http://pub.mate-desktop.org/releases/1.18/mate-system-monitor-1.18.0.tar.xz"
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`

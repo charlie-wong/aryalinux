@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The libgdata package is abr3ak GLib-based library for accessing online service APIs using thebr3ak GData protocol, most notably, Google's services. It provides APIsbr3ak to access the common Google services and has full asynchronousbr3ak support.br3ak"
 SECTION="gnome"
-VERSION=0.17.6
+VERSION=0.17.7
 NAME="libgdata"
 
 #REQ:liboauth
@@ -27,11 +27,11 @@ NAME="libgdata"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/libgdata/0.17/libgdata-0.17.6.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/libgdata/0.17/libgdata-0.17.7.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libgdata/libgdata-0.17.6.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgdata/0.17/libgdata-0.17.6.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libgdata/libgdata-0.17.6.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libgdata/libgdata-0.17.6.tar.xz || wget -nc http://ftp.gnome.org/pub/gnome/sources/libgdata/0.17/libgdata-0.17.6.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libgdata/libgdata-0.17.6.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libgdata/libgdata-0.17.6.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libgdata/libgdata-0.17.6.tar.xz
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libgdata/libgdata-0.17.7.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgdata/0.17/libgdata-0.17.7.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libgdata/libgdata-0.17.7.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libgdata/libgdata-0.17.7.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libgdata/libgdata-0.17.7.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libgdata/libgdata-0.17.7.tar.xz || wget -nc http://ftp.gnome.org/pub/gnome/sources/libgdata/0.17/libgdata-0.17.7.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libgdata/libgdata-0.17.7.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

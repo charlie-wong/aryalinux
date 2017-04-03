@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Gtk VNC package contains a VNCbr3ak viewer widget for GTK+. It isbr3ak built using coroutines allowing it to be completely asynchronousbr3ak while remaining single threaded.br3ak"
 SECTION="x"
-VERSION=0.5.4
+VERSION=0.7.0
 NAME="gtk-vnc"
 
 #REQ:gnutls
@@ -23,11 +23,11 @@ NAME="gtk-vnc"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/gtk-vnc/0.5/gtk-vnc-0.5.4.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/gtk-vnc/0.7/gtk-vnc-0.7.0.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk-vnc/0.5/gtk-vnc-0.5.4.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gtk-vnc/gtk-vnc-0.5.4.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gtk-vnc/gtk-vnc-0.5.4.tar.xz || wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk-vnc/0.5/gtk-vnc-0.5.4.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gtk-vnc/gtk-vnc-0.5.4.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gtk-vnc/gtk-vnc-0.5.4.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gtk-vnc/gtk-vnc-0.5.4.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gtk-vnc/gtk-vnc-0.5.4.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk-vnc/0.7/gtk-vnc-0.7.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gtk-vnc/gtk-vnc-0.7.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gtk-vnc/gtk-vnc-0.7.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gtk-vnc/gtk-vnc-0.7.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gtk-vnc/gtk-vnc-0.7.0.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk-vnc/0.7/gtk-vnc-0.7.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gtk-vnc/gtk-vnc-0.7.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gtk-vnc/gtk-vnc-0.7.0.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

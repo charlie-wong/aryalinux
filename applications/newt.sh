@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Newt is a programming library forbr3ak color text mode, widget based user interfaces. It can be used tobr3ak add stacked windows, entry widgets, checkboxes, radio buttons,br3ak labels, plain text fields, scrollbars, etc., to text mode userbr3ak interfaces. Newt is based on thebr3ak S-Lang library.br3ak"
 SECTION="general"
-VERSION=0.52.19
+VERSION=0.52.20
 NAME="newt"
 
 #REQ:popt
@@ -21,11 +21,11 @@ NAME="newt"
 
 cd $SOURCE_DIR
 
-URL=http://fedorahosted.org/releases/n/e/newt/newt-0.52.19.tar.gz
+URL=https://releases.pagure.org/newt/newt-0.52.20.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/newt/newt-0.52.19.tar.gz || wget -nc http://fedorahosted.org/releases/n/e/newt/newt-0.52.19.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/newt/newt-0.52.19.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/newt/newt-0.52.19.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/newt/newt-0.52.19.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/newt/newt-0.52.19.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/newt/newt-0.52.19.tar.gz
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/newt/newt-0.52.20.tar.gz || wget -nc https://releases.pagure.org/newt/newt-0.52.20.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/newt/newt-0.52.20.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/newt/newt-0.52.20.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/newt/newt-0.52.20.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/newt/newt-0.52.20.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/newt/newt-0.52.20.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

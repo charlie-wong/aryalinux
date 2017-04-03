@@ -46,7 +46,7 @@ fi
 
 whoami > /tmp/currentuser
 
-./configure --prefix=/usr         \
+PYTHON=python3 ./configure --prefix=/usr         \
             --sysconfdir=/etc     \
             --disable-gtk2-module \
             --disable-static &&

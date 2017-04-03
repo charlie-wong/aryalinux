@@ -19,9 +19,9 @@ set -e
 
 cd $SOURCE_DIR
 
-URL=http://www.freedesktop.org/software/libevdev/libevdev-1.5.5.tar.xz
+URL=http://www.freedesktop.org/software/libevdev/libevdev-1.5.6.tar.xz
 
-wget -nc http://www.freedesktop.org/software/libevdev/libevdev-1.5.5.tar.xz
+wget -nc http://www.freedesktop.org/software/libevdev/libevdev-1.5.6.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
@@ -65,9 +65,9 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=http://www.freedesktop.org/software/libinput/libinput-1.5.3.tar.xz
+URL=http://www.freedesktop.org/software/libinput/libinput-1.7.0.tar.xz
 
-wget -nc http://www.freedesktop.org/software/libinput/libinput-1.5.3.tar.xz
+wget -nc http://www.freedesktop.org/software/libinput/libinput-1.7.0.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
@@ -91,8 +91,8 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -v -dm755 $XORG_PREFIX/share/doc/libinput-1.5.3 &&
-cp -rv doc/html/* $XORG_PREFIX/share/doc/libinput-1.5.3
+install -v -dm755 $XORG_PREFIX/share/doc/libinput-1.7.0 &&
+cp -rv doc/html/* $XORG_PREFIX/share/doc/libinput-1.7.0
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
@@ -115,10 +115,10 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=http://ftp.x.org/pub/individual/driver/xf86-input-evdev-2.10.4.tar.bz2
+URL=https://www.x.org/pub/individual/driver/xf86-input-evdev-2.10.5.tar.bz2
 
-wget -nc http://ftp.x.org/pub/individual/driver/xf86-input-evdev-2.10.4.tar.bz2
-wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-input-evdev-2.10.4.tar.bz2
+wget -nc https://www.x.org/pub/individual/driver/xf86-input-evdev-2.10.5.tar.bz2
+wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-input-evdev-2.10.5.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
@@ -153,9 +153,9 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=http://ftp.x.org/pub/individual/driver/xf86-input-synaptics-1.9.0.tar.bz2
+URL=https://www.x.org/pub/individual/driver/xf86-input-synaptics-1.9.0.tar.bz2
 
-wget -nc http://ftp.x.org/pub/individual/driver/xf86-input-synaptics-1.9.0.tar.bz2
+wget -nc https://www.x.org/pub/individual/driver/xf86-input-synaptics-1.9.0.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-input-synaptics-1.9.0.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
@@ -190,9 +190,9 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=http://ftp.x.org/pub/individual/driver/xf86-input-vmmouse-13.1.0.tar.bz2
+URL=https://www.x.org/pub/individual/driver/xf86-input-vmmouse-13.1.0.tar.bz2
 
-wget -nc http://ftp.x.org/pub/individual/driver/xf86-input-vmmouse-13.1.0.tar.bz2
+wget -nc https://www.x.org/pub/individual/driver/xf86-input-vmmouse-13.1.0.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-input-vmmouse-13.1.0.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
@@ -232,9 +232,9 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=http://downloads.sourceforge.net/linuxwacom/xf86-input-wacom-0.34.0.tar.bz2
+URL=http://downloads.sourceforge.net/linuxwacom/xf86-input-wacom-0.34.2.tar.bz2
 
-wget -nc http://downloads.sourceforge.net/linuxwacom/xf86-input-wacom-0.34.0.tar.bz2
+wget -nc http://downloads.sourceforge.net/linuxwacom/xf86-input-wacom-0.34.2.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
@@ -270,10 +270,10 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=http://ftp.x.org/pub/individual/driver/xf86-video-ati-7.8.0.tar.bz2
+URL=https://www.x.org/pub/individual/driver/xf86-video-ati-7.9.0.tar.bz2
 
-wget -nc http://ftp.x.org/pub/individual/driver/xf86-video-ati-7.8.0.tar.bz2
-wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-ati-7.8.0.tar.bz2
+wget -nc https://www.x.org/pub/individual/driver/xf86-video-ati-7.9.0.tar.bz2
+wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-ati-7.9.0.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
@@ -286,7 +286,11 @@ make
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make install
+
+make install                         &&
+install -v -m644 conf/10-radeon.conf \
+  $XORG_PREFIX/share/X11/xorg.conf.d
+
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
@@ -307,9 +311,9 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=http://ftp.x.org/pub/individual/driver/xf86-video-fbdev-0.4.4.tar.bz2
+URL=https://www.x.org/pub/individual/driver/xf86-video-fbdev-0.4.4.tar.bz2
 
-wget -nc http://ftp.x.org/pub/individual/driver/xf86-video-fbdev-0.4.4.tar.bz2
+wget -nc https://www.x.org/pub/individual/driver/xf86-video-fbdev-0.4.4.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-fbdev-0.4.4.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
@@ -345,10 +349,10 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=http://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20160902.tar.bz2
+URL=http://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20170216.tar.xz
 
-wget -nc http://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20160902.tar.bz2
-wget -nc ftp://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20160902.tar.bz2
+wget -nc http://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20170216.tar.xz
+wget -nc ftp://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20170216.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
@@ -361,7 +365,10 @@ make
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make install
+make install &&
+mv -v /usr/share/man/man4/intel-virtual-output.4 \
+      /usr/share/man/man1/intel-virtual-output.1 &&
+sed -i '/\.TH/s/4/1/' /usr/share/man/man1/intel-virtual-output.1
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
@@ -397,10 +404,10 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=http://ftp.x.org/pub/individual/driver/xf86-video-nouveau-1.0.13.tar.bz2
+URL=https://www.x.org/pub/individual/driver/xf86-video-nouveau-1.0.14.tar.bz2
 
-wget -nc http://ftp.x.org/pub/individual/driver/xf86-video-nouveau-1.0.13.tar.bz2
-wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-nouveau-1.0.13.tar.bz2
+wget -nc https://www.x.org/pub/individual/driver/xf86-video-nouveau-1.0.14.tar.bz2
+wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-nouveau-1.0.14.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
@@ -449,9 +456,9 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=http://ftp.x.org/pub/individual/driver/xf86-video-vmware-13.2.1.tar.bz2
+URL=https://www.x.org/pub/individual/driver/xf86-video-vmware-13.2.1.tar.bz2
 
-wget -nc http://ftp.x.org/pub/individual/driver/xf86-video-vmware-13.2.1.tar.bz2
+wget -nc https://www.x.org/pub/individual/driver/xf86-video-vmware-13.2.1.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-vmware-13.2.1.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`

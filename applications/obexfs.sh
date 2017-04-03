@@ -14,7 +14,7 @@ VERSION="0.12"
 
 cd $SOURCE_DIR
 
-URL="http://triq.net/obexftp/obexfs-0.12.tar.gz"
+URL="https://sourceforge.net/projects/openobex/files/obexfs/0.12/obexfs-0.12.tar.gz"
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`

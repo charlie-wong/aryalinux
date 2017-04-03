@@ -9,18 +9,18 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Netscape Portable Runtime (NSPR)br3ak provides a platform-neutral API for system level and libc likebr3ak functions.br3ak"
 SECTION="general"
-VERSION=4.13.1
+VERSION=4.14
 NAME="nspr"
 
 
 
 cd $SOURCE_DIR
 
-URL=https://ftp.mozilla.org/pub/mozilla.org/nspr/releases/v4.13.1/src/nspr-4.13.1.tar.gz
+URL=https://ftp.mozilla.org/pub/mozilla.org/nspr/releases/v4.14/src/nspr-4.14.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/nspr/nspr-4.13.1.tar.gz || wget -nc https://ftp.mozilla.org/pub/mozilla.org/nspr/releases/v4.13.1/src/nspr-4.13.1.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/nspr/nspr-4.13.1.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/nspr/nspr-4.13.1.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/nspr/nspr-4.13.1.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/nspr/nspr-4.13.1.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/nspr/nspr-4.13.1.tar.gz
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/nspr/nspr-4.14.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/nspr/nspr-4.14.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/nspr/nspr-4.14.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/nspr/nspr-4.14.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/nspr/nspr-4.14.tar.gz || wget -nc https://ftp.mozilla.org/pub/mozilla.org/nspr/releases/v4.14/src/nspr-4.14.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/nspr/nspr-4.14.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -37,7 +37,7 @@ whoami > /tmp/currentuser
 
 cd nspr                                                     &&
 sed -ri 's#^(RELEASE_BINS =).*#\1#' pr/src/misc/Makefile.in &&
-sed -i 's#$(LIBRARY) ##' config/rules.mk                    &&
+sed -i 's#$(LIBRARY) ##'            config/rules.mk         &&
 ./configure --prefix=/usr \
             --with-mozilla \
             --with-pthreads \

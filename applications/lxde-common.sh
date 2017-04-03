@@ -76,7 +76,7 @@ sudo rm rootscript.sh
 
 cat > ~/.xinitrc << "EOF"
 # No need to run dbus-launch, since it is run by startlxde
-ck-launch-session startlxde
+startlxde
 EOF
 startx
 

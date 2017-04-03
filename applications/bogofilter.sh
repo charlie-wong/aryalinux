@@ -7,7 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 SOURCE_ONLY=n
-DESCRIPTION="br3ak TheBogofilter application is abr3ak mail filter that classifies mail as spam or ham (non-spam) by abr3ak statistical analysis of the message's header and content (body).br3ak"
+DESCRIPTION="br3ak The Bogofilter application is abr3ak mail filter that classifies mail as spam or ham (non-spam) by abr3ak statistical analysis of the message's header and content (body).br3ak"
 SECTION="general"
 VERSION=1.2.4
 NAME="bogofilter"

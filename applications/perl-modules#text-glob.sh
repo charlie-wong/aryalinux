@@ -8,8 +8,8 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/R/RC/RCLAMP/Text-Glob-0.10.tar.gz"
-VERSION=0.10
+URL="http://search.cpan.org/CPAN/authors/id/R/RC/RCLAMP/Text-Glob-0.11.tar.gz"
+VERSION=0.11
 NAME="perl-modules#text-glob"
 
 cd $SOURCE_DIR

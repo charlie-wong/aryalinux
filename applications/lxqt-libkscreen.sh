@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Libkscreen package containsbr3ak the KDE Screen Management library.br3ak"
 SECTION="lxqt"
-VERSION=5.8.3
+VERSION=5.9.2
 NAME="lxqt-libkscreen"
 
 #REQ:lxqt-kwayland
@@ -17,11 +17,11 @@ NAME="lxqt-libkscreen"
 
 cd $SOURCE_DIR
 
-URL=http://download.kde.org/stable/plasma/5.8.3/libkscreen-5.8.3.tar.xz
+URL=http://download.kde.org/stable/plasma/5.9.2/libkscreen-5.9.2.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://download.kde.org/stable/plasma/5.8.3/libkscreen-5.8.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libkscreen/libkscreen-5.8.3.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libkscreen/libkscreen-5.8.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libkscreen/libkscreen-5.8.3.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libkscreen/libkscreen-5.8.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libkscreen/libkscreen-5.8.3.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libkscreen/libkscreen-5.8.3.tar.xz
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libkscreen/libkscreen-5.9.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libkscreen/libkscreen-5.9.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libkscreen/libkscreen-5.9.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libkscreen/libkscreen-5.9.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libkscreen/libkscreen-5.9.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libkscreen/libkscreen-5.9.2.tar.xz || wget -nc http://download.kde.org/stable/plasma/5.9.2/libkscreen-5.9.2.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

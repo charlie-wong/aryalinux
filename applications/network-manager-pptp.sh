@@ -6,10 +6,10 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="network-manager-pptp_.orig"
-VERSION="0.9.10.0"
+NAME="network-manager-pptp"
+VERSION="1.2.4"
 
-URL=http://archive.ubuntu.com/ubuntu/pool/main/n/network-manager-pptp/network-manager-pptp_0.9.10.0.orig.tar.xz
+URL=https://ftp.gnome.org/pub/gnome/sources/NetworkManager-pptp/1.2/NetworkManager-pptp-1.2.4.tar.xz
 
 cd $SOURCE_DIR
 

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=y
 NAME=kde-desktop-environment
 DESCRIPTION="The KDE 5 Plasma Desktop environment"
-VERSION=5.8.4
+VERSION=5.9.1
 
 #REQ:gtk2
 #REQ:gtk3
@@ -38,7 +38,7 @@ VERSION=5.8.4
 #REQ:xdg-utils
 #REQ:xdg-user-dirs
 #REQ:lightdm
-#REQ:lightdm-gtk-greeter
+#REQ:lightdm-webkit2-greeter
 
 sudo mkdir -pv /usr/share/xsessions/
 sudo cp -v /opt/kf5/share/xsessions/* /usr/share/xsessions/

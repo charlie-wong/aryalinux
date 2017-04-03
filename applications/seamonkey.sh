@@ -9,10 +9,11 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak SeaMonkey is a browser suite, thebr3ak Open Source sibling of Netscape.br3ak It includes the browser, composer, mail and news clients, and anbr3ak IRC client. It is the follow-on to the Mozilla browser suite.br3ak"
 SECTION="xsoft"
-VERSION=2.40
+VERSION=2.46
 NAME="seamonkey"
 
 #REQ:alsa-lib
+#REQ:autoconf213
 #REQ:gtk2
 #REQ:unzip
 #REQ:yasm
@@ -22,14 +23,12 @@ NAME="seamonkey"
 #REC:libvpx
 #REC:nspr
 #REC:nss
-#OPT:sqlite
+#REC:sqlite
 #OPT:curl
 #OPT:dbus-glib
 #OPT:doxygen
 #OPT:GConf
 #OPT:gst10-plugins-base
-#OPT:gst10-plugins-good
-#OPT:gst10-libav
 #OPT:openjdk
 #OPT:pulseaudio
 #OPT:startup-notification
@@ -40,12 +39,11 @@ NAME="seamonkey"
 
 cd $SOURCE_DIR
 
-URL=https://ftp.mozilla.org/pub/mozilla.org/seamonkey/releases/2.40/source/seamonkey-2.40.source.tar.xz
+URL=https://ftp.mozilla.org/pub/mozilla.org/seamonkey/releases/2.46/source/seamonkey-2.46.source.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://ftp.mozilla.org/pub/mozilla.org/seamonkey/releases/2.40/source/seamonkey-2.40.source.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/seamonkey/seamonkey-2.40.source.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/seamonkey/seamonkey-2.40.source.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/seamonkey/seamonkey-2.40.source.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/seamonkey/seamonkey-2.40.source.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/seamonkey/seamonkey-2.40.source.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/seamonkey/seamonkey-2.40.source.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/seamonkey-2.40-gcc6-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/seamonkey/seamonkey-2.40-gcc6-1.patch
+wget -nc https://ftp.mozilla.org/pub/mozilla.org/seamonkey/releases/2.46/source/seamonkey-2.46.source.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/seamonkey/seamonkey-2.46.source.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/seamonkey/seamonkey-2.46.source.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/seamonkey/seamonkey-2.46.source.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/seamonkey/seamonkey-2.46.source.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/seamonkey/seamonkey-2.46.source.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/seamonkey/seamonkey-2.46.source.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -71,28 +69,22 @@ ac_add_options --disable-dbus
 # wireless-tools, and you wish to use geolocation web services, comment out
 # this line
 ac_add_options --disable-necko-wifi
-# GStreamer is necessary for H.264 video playback in HTML5 Video Player;
-# to be enabled, also remember to set "media.gstreamer.enabled" to "true"
-# in about:config. If you have GStreamer 1.x.y, comment out this line and
-# uncomment the following one:
-ac_add_options --disable-gstreamer
-#ac_add_options --enable-gstreamer=1.0
 # Uncomment these lines if you have installed optional dependencies:
 #ac_add_options --enable-system-hunspell
 #ac_add_options --enable-startup-notification
-# Comment out following option if you have PulseAudio installed
+# Comment out the following option if you have PulseAudio installed
 ac_add_options --disable-pulseaudio
 # Comment out following option if you have gconf installed
 ac_add_options --disable-gconf
 # Comment out following options if you have not installed
 # recommended dependencies:
-# Do not use system SQLite for SeaMonkey based on XUL-47
-#ac_add_options --enable-system-sqlite
+ac_add_options --enable-system-sqlite
 ac_add_options --with-system-libevent
 ac_add_options --with-system-libvpx
 ac_add_options --with-system-nspr
 ac_add_options --with-system-nss
-ac_add_options --with-system-icu
+# Us the internal version of icu due to execution problems
+#ac_add_options --with-system-icu
 # The BLFS editors recommend not changing anything below this line:
 ac_add_options --prefix=/usr
 ac_add_options --enable-application=suite
@@ -116,28 +108,29 @@ ac_add_options --with-system-bz2
 ac_add_options --with-system-jpeg
 ac_add_options --with-system-png
 ac_add_options --with-system-zlib
-mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/moz-build-dir
 EOF
 
 
-mkdir -vp mozilla/moz-build-dir
-
-
-patch -d mozilla/ -Np1 -i ../../seamonkey-2.40-gcc6-1.patch
-
-
-export CFLAGS_HOLD=$CFLAGS &&
-export CXXFLAGS_HOLD=$CXXFLAGS &&
-export CFLAGS+=" -fno-delete-null-pointer-checks -fno-lifetime-dse -fno-schedule-insns2" &&
-export CXXFLAGS+=" -fno-delete-null-pointer-checks -fno-lifetime-dse -fno-schedule-insns2" &&
+CFLAGS_HOLD=$CFLAGS           &&
+CXXFLAGS_HOLD=$CXXFLAGS       &&
+EXTRA_FLAGS=" -fno-delete-null-pointer-checks -fno-lifetime-dse -fno-schedule-insns2" &&
+export CFLAGS+=$EXTRA_FLAGS   &&
+export CXXFLAGS+=$EXTRA_FLAGS &&
+unset EXTRA_FLAGS             &&
+sed -e 's/256/224/'                                   \
+    -i mozilla/netwerk/protocol/http/Http2Session.cpp &&
+sed -e '/version=/s/:space:/[&]/' \
+    -i ./mozilla/build/autoconf/icu.m4 &&
+sed -e s/_EVENT_SIZEOF/EVENT__SIZEOF/ \
+    -i mozilla/ipc/chromium/src/base/message_pump_libevent.cc
 make -f client.mk
 
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make  -f client.mk install INSTALL_SDK= &&
-chown -R 0:0 /usr/lib/seamonkey-2.40    &&
-cp    -v moz-build-dir/dist/man/man1/seamonkey.1 /usr/share/man/man1
+chown -R 0:0 /usr/lib/seamonkey-2.46    &&
+cp -v $(find -name seamonkey.1 | head -n1) /usr/share/man/man1
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
@@ -152,7 +145,7 @@ unset CFLAGS_HOLD CXXFLAGS_HOLD
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make -C moz-build-dir install
+make -C obj* install
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
@@ -175,7 +168,7 @@ Categories=Network;GTK;Application;Email;Browser;WebBrowser;News;
 StartupNotify=true
 Terminal=false
 EOF
-ln -sfv /usr/lib/seamonkey-2.40/chrome/icons/default/seamonkey.png \
+ln -sfv /usr/lib/seamonkey-2.46/chrome/icons/default/seamonkey.png \
         /usr/share/pixmaps
 
 ENDOFROOTSCRIPT

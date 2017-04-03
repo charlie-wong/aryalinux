@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak PHP is the PHP Hypertextbr3ak Preprocessor. Primarily used in dynamic web sites, it allows forbr3ak programming code to be directly embedded into the HTML markup. Itbr3ak is also useful as a general purpose scripting language.br3ak"
 SECTION="general"
-VERSION=7.1.0
+VERSION=7.1.3
 NAME="php"
 
 #REC:apache
@@ -63,11 +63,11 @@ NAME="php"
 
 cd $SOURCE_DIR
 
-URL=http://www.php.net/distributions/php-7.1.0.tar.xz
+URL=http://www.php.net/distributions/php-7.1.3.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/php/php-7.1.0.tar.xz || wget -nc http://www.php.net/distributions/php-7.1.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/php/php-7.1.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/php/php-7.1.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/php/php-7.1.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/php/php-7.1.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/php/php-7.1.0.tar.xz
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/php/php-7.1.3.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/php/php-7.1.3.tar.xz || wget -nc http://www.php.net/distributions/php-7.1.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/php/php-7.1.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/php/php-7.1.3.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/php/php-7.1.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/php/php-7.1.3.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -137,16 +137,15 @@ make
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make install                                         &&
-install -v -m644 php.ini-production /etc/php.ini     &&
-mv -v /etc/php-fpm.conf{.default,}                   &&
-install -v -m755 -d /usr/share/doc/php-7.1.0 &&
+make install                                     &&
+install -v -m644 php.ini-production /etc/php.ini &&
+install -v -m755 -d /usr/share/doc/php-7.1.3 &&
 install -v -m644    CODING_STANDARDS EXTENSIONS INSTALL NEWS README* UPGRADING* php.gif \
-                    /usr/share/doc/php-7.1.0 &&
+                    /usr/share/doc/php-7.1.3 &&
 ln -v -sfn          /usr/lib/php/doc/Archive_Tar/docs/Archive_Tar.txt \
-                    /usr/share/doc/php-7.1.0 &&
+                    /usr/share/doc/php-7.1.3 &&
 ln -v -sfn          /usr/lib/php/doc/Structures_Graph/docs \
-                    /usr/share/doc/php-7.1.0
+                    /usr/share/doc/php-7.1.3
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
@@ -156,7 +155,10 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-cp -v /etc/php-fpm.d/www.conf.default /etc/php-fpm.d/www.conf
+if [ -f /etc/php-fpm.conf.default ]; then
+  mv -v /etc/php-fpm.conf{.default,} &&
+  mv -v /etc/php-fpm.d/www.conf{.default,}
+fi
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
@@ -204,7 +206,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 . /etc/alps/alps.conf
 
 pushd $SOURCE_DIR
-wget -nc http://aryalinux.org/releases/2016.11/blfs-systemd-units-20160602.tar.bz2
+wget -nc http://www.linuxfromscratch.org/blfs/downloads/svn/blfs-systemd-units-20160602.tar.bz2
 tar xf blfs-systemd-units-20160602.tar.bz2
 cd blfs-systemd-units-20160602
 make install-php-fpm

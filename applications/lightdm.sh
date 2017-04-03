@@ -26,7 +26,7 @@ VERSION=1.10.5
 cd $SOURCE_DIR
 
 wget -nc https://launchpad.net/lightdm/1.10/1.10.5/+download/lightdm-1.10.5.tar.xz
-wget -nc https://launchpad.net/lightdm-gtk-greeter/2.0/2.0.1/+download/lightdm-gtk-greeter-2.0.1.tar.gz
+# wget -nc https://launchpad.net/lightdm-gtk-greeter/2.0/2.0.1/+download/lightdm-gtk-greeter-2.0.1.tar.gz
 
 
 TARBALL=lightdm-1.10.5.tar.xz
@@ -46,7 +46,7 @@ CPPLAGS="-march=native -mtune=native -O3"  \
             --localstatedir=/var \
             --libexecdir=/usr/lib \
             --with-greeter-user=lightdm \
-            --with-greeter-session=lightdm-gtk-greeter \
+            --with-greeter-session=lightdm-webkit2-greeter \
             --disable-static \
             --disable-tests  \
 			--disable-liblightdm-qt5  \
@@ -167,7 +167,7 @@ run-directory=/run/lightdm
 #xdmcp-key=
 #unity-compositor-command=unity-system-compositor
 #unity-compositor-timeout=60
-greeter-session=lightdm-gtk-greeter
+greeter-session=lightdm-webkit2-greeter
 #greeter-hide-users=false
 #greeter-allow-guest=true
 #greeter-show-manual-login=false

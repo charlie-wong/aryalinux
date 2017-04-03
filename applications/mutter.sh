@@ -9,11 +9,12 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Mutter is the window manager forbr3ak GNOME. It is not invoked directly,br3ak but from GNOME Session (on abr3ak machine with a hardware accelerated video driver).br3ak"
 SECTION="gnome"
-VERSION=3.22.0
+VERSION=3.22.3
 NAME="mutter"
 
 #REQ:clutter
 #REQ:gnome-desktop
+#REQ:libwacom
 #REQ:libxkbcommon
 #REQ:upower
 #REQ:zenity
@@ -31,11 +32,11 @@ NAME="mutter"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/mutter/3.22/mutter-3.22.0.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/mutter/3.22/mutter-3.22.3.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.gnome.org/pub/gnome/sources/mutter/3.22/mutter-3.22.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/mutter/mutter-3.22.0.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/mutter/3.22/mutter-3.22.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/mutter/mutter-3.22.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/mutter/mutter-3.22.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/mutter/mutter-3.22.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/mutter/mutter-3.22.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/mutter/mutter-3.22.0.tar.xz
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/mutter/mutter-3.22.3.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/mutter/mutter-3.22.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/mutter/mutter-3.22.3.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/mutter/mutter-3.22.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/mutter/mutter-3.22.3.tar.xz || wget -nc http://ftp.gnome.org/pub/gnome/sources/mutter/3.22/mutter-3.22.3.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/mutter/3.22/mutter-3.22.3.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/mutter/mutter-3.22.3.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

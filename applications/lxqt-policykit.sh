@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The lxqt-policykit package is thebr3ak LXQt PolicyKit agent.br3ak"
 SECTION="lxqt"
-VERSION=0.11.0
+VERSION=0.11.1
 NAME="lxqt-policykit"
 
 #REQ:liblxqt
@@ -20,11 +20,11 @@ NAME="lxqt-policykit"
 
 cd $SOURCE_DIR
 
-URL=http://downloads.lxqt.org/lxqt/0.11.0/lxqt-policykit-0.11.0.tar.xz
+URL=http://downloads.lxqt.org/lxqt/0.11.1/lxqt-policykit-0.11.1.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/lxqt-policykit/lxqt-policykit-0.11.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/lxqt-policykit/lxqt-policykit-0.11.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/lxqt-policykit/lxqt-policykit-0.11.0.tar.xz || wget -nc http://downloads.lxqt.org/lxqt/0.11.0/lxqt-policykit-0.11.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/lxqt-policykit/lxqt-policykit-0.11.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/lxqt-policykit/lxqt-policykit-0.11.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/lxqt-policykit/lxqt-policykit-0.11.0.tar.xz
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/lxqt-policykit/lxqt-policykit-0.11.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/lxqt-policykit/lxqt-policykit-0.11.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/lxqt-policykit/lxqt-policykit-0.11.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/lxqt-policykit/lxqt-policykit-0.11.1.tar.xz || wget -nc http://downloads.lxqt.org/lxqt/0.11.1/lxqt-policykit-0.11.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/lxqt-policykit/lxqt-policykit-0.11.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/lxqt-policykit/lxqt-policykit-0.11.1.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

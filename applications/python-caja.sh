@@ -9,13 +9,13 @@ set +h
 SOURCE_ONLY=n
 NAME="python-caja"
 DESCRIPTION="Python binding for Caja components"
-VERSION="1.17.0"
+VERSION="1.18.0"
 
 #REQ:python-modules#pygobject2
 
 cd $SOURCE_DIR
 
-URL="http://pub.mate-desktop.org/releases/1.17/python-caja-1.17.0.tar.xz"
+URL="http://pub.mate-desktop.org/releases/1.18/python-caja-1.18.0.tar.xz"
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`

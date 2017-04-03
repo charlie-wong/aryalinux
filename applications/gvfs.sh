@@ -9,11 +9,12 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Gvfs package is a userspacebr3ak virtual filesystem designed to work with the I/O abstractions ofbr3ak GLib's GIO library.br3ak"
 SECTION="gnome"
-VERSION=1.30.0
+VERSION=1.30.3
 NAME="gvfs"
 
 #REQ:dbus
 #REQ:glib2
+#REC:gcr
 #REC:gtk3
 #REC:libgudev
 #REC:libsecret
@@ -25,7 +26,6 @@ NAME="gvfs"
 #OPT:bluez
 #OPT:dbus-glib
 #OPT:fuse
-#OPT:gcr
 #OPT:gnome-online-accounts
 #OPT:gtk-doc
 #OPT:libarchive
@@ -40,11 +40,11 @@ NAME="gvfs"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/gvfs/1.30/gvfs-1.30.0.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/gvfs/1.30/gvfs-1.30.3.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gvfs/gvfs-1.30.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gvfs/gvfs-1.30.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gvfs/gvfs-1.30.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gvfs/gvfs-1.30.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gvfs/gvfs-1.30.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gvfs/gvfs-1.30.0.tar.xz || wget -nc http://ftp.gnome.org/pub/gnome/sources/gvfs/1.30/gvfs-1.30.0.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gvfs/1.30/gvfs-1.30.0.tar.xz
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gvfs/gvfs-1.30.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gvfs/gvfs-1.30.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gvfs/gvfs-1.30.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gvfs/gvfs-1.30.3.tar.xz || wget -nc http://ftp.gnome.org/pub/gnome/sources/gvfs/1.30/gvfs-1.30.3.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gvfs/gvfs-1.30.3.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gvfs/gvfs-1.30.3.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gvfs/1.30/gvfs-1.30.3.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

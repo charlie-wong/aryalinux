@@ -8,8 +8,8 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org//CPAN/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.44.tar.gz"
-VERSION=0.44
+URL="http://search.cpan.org//CPAN/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.46.tar.gz"
+VERSION=0.46
 NAME="perl-modules#perl-capture-tiny"
 
 cd $SOURCE_DIR

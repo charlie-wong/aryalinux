@@ -58,17 +58,10 @@ sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 install-catalog --remove /etc/sgml/sgml-ent.cat \
     /usr/share/sgml/sgml-iso-entities-8879.1986/catalog &&
 install-catalog --remove /etc/sgml/sgml-docbook.cat \
     /etc/sgml/sgml-ent.cat
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
 
 
 

@@ -28,7 +28,7 @@ URL=http://ftp.gnome.org/pub/gnome/sources/dconf/0.26/dconf-0.26.0.tar.xz
 if [ ! -z $URL ]
 then
 wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/dconf/dconf-0.26.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/dconf/dconf-0.26.0.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/dconf/0.26/dconf-0.26.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/dconf/dconf-0.26.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/dconf/dconf-0.26.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/dconf/dconf-0.26.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/dconf/dconf-0.26.0.tar.xz || wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf/0.26/dconf-0.26.0.tar.xz
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/dconf/dconf-editor-3.22.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/dconf/dconf-editor-3.22.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/dconf/dconf-editor-3.22.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/dconf/dconf-editor-3.22.0.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.22/dconf-editor-3.22.0.tar.xz || wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.22/dconf-editor-3.22.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/dconf/dconf-editor-3.22.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/dconf/dconf-editor-3.22.0.tar.xz
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/dconf/dconf-editor-3.22.3.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.22/dconf-editor-3.22.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/dconf/dconf-editor-3.22.3.tar.xz || wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.22/dconf-editor-3.22.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/dconf/dconf-editor-3.22.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/dconf/dconf-editor-3.22.3.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/dconf/dconf-editor-3.22.3.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/dconf/dconf-editor-3.22.3.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -57,8 +57,8 @@ sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
-tar -xf ../dconf-editor-3.22.0.tar.xz &&
-cd dconf-editor-3.22.0 &&
+tar -xf ../dconf-editor-3.22.3.tar.xz &&
+cd dconf-editor-3.22.3 &&
 ./configure --prefix=/usr --sysconfdir=/etc &&
 make "-j`nproc`" || make
 

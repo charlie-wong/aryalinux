@@ -7,11 +7,11 @@ set +h
 . /var/lib/alps/functions
 
 NAME="pptp-linux"
-VERSION="1.8.0"
+VERSION="1.9.0"
 
 #REQ:ppp
 
-URL=http://archive.ubuntu.com/ubuntu/pool/main/p/pptp-linux/pptp-linux_1.8.0.orig.tar.gz
+URL=https://sourceforge.net/projects/pptpclient/files/pptp/pptp-1.9.0/pptp-1.9.0.tar.gz
 
 cd $SOURCE_DIR
 

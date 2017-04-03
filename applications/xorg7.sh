@@ -71,7 +71,7 @@ pathappend /usr/share/pkgconfig PKG_CONFIG_PATH
 pathappend /usr/lib             LIBRARY_PATH
 pathappend /usr/include         C_INCLUDE_PATH
 pathappend /usr/include         CPLUS_INCLUDE_PATH
-ACLOCAL='aclocal -I /usr/share/aclocal'
+ACLOCAL="aclocal -I /usr/share/aclocal"
 export PATH PKG_CONFIG_PATH ACLOCAL LIBRARY_PATH C_INCLUDE_PATH CPLUS_INCLUDE_PATH
 EOF
 
@@ -114,18 +114,6 @@ sudo rm rootscript.sh
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 ln -sf /usr /usr/X11R6
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -v -m755 -d /usr &&
-install -v -m755 -d /usr/lib &&
-ln -sf lib /usr/lib64
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

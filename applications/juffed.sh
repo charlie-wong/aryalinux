@@ -8,7 +8,7 @@ set +h
 
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The JuffEd package is a Qt basedbr3ak editor with support for multiple tabs. It is simple and clear, butbr3ak very powerful. It supports language syntax highlighting,br3ak auto-indents in accordance with file type, code blocks folding,br3ak matching braces highlighting with instant jumps between them,br3ak powerful search and replacing text using regular expressionsbr3ak (including multiline ones) with the opportunity to use matches \1,br3ak \2, … in substitutions, a terminal emulator, saving namedbr3ak sessions and many other features.br3ak"
-SECTION="lxqt"
+SECTION="postlfs"
 VERSION=3
 NAME="juffed"
 
@@ -38,15 +38,15 @@ fi
 
 whoami > /tmp/currentuser
 
+sed -i 's/"64"/""/' cmake/LibSuffix.cmake &&
 mkdir -v build &&
 cd       build &&
-cmake -DCMAKE_BUILD_TYPE=Release  \
-      -DCMAKE_INSTALL_PREFIX=/usr \
-      -DLIB_INSTALL_DIR=/usr/lib  \
-      -DBUILD_TERMINAL=ON         \
-      -DUSE_QT5=true              \
+cmake -DCMAKE_INSTALL_PREFIX=$LXQT_PREFIX \
+      -DCMAKE_BUILD_TYPE=Release          \
+      -DBUILD_TERMINAL=ON                 \
+      -DUSE_QT5=true                      \
       ..       &&
-make "-j`nproc`" || make
+LIBRARY_PATH=$LXQT_PREFIX/lib make
 
 
 

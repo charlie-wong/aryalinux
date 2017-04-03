@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak ldns is a fast DNS library withbr3ak the goal to simplify DNS programming and to allow developers tobr3ak easily create software conforming to current RFCs and Internetbr3ak drafts. This packages also includes the <span class=\"command\"><strong>drill</strong> tool.br3ak"
 SECTION="basicnet"
-VERSION=1.6.17
+VERSION=1.7.0
 NAME="ldns"
 
 #REC:openssl
@@ -22,11 +22,11 @@ NAME="ldns"
 
 cd $SOURCE_DIR
 
-URL=http://www.nlnetlabs.nl/downloads/ldns/ldns-1.6.17.tar.gz
+URL=http://www.nlnetlabs.nl/downloads/ldns/ldns-1.7.0.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/ldns/ldns-1.6.17.tar.gz || wget -nc http://www.nlnetlabs.nl/downloads/ldns/ldns-1.6.17.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/ldns/ldns-1.6.17.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/ldns/ldns-1.6.17.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/ldns/ldns-1.6.17.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/ldns/ldns-1.6.17.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/ldns/ldns-1.6.17.tar.gz
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/ldns/ldns-1.7.0.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/ldns/ldns-1.7.0.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/ldns/ldns-1.7.0.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/ldns/ldns-1.7.0.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/ldns/ldns-1.7.0.tar.gz || wget -nc http://www.nlnetlabs.nl/downloads/ldns/ldns-1.7.0.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/ldns/ldns-1.7.0.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -41,11 +41,11 @@ fi
 
 whoami > /tmp/currentuser
 
-sed -i 's/defined(@$also)/@$also/' doc/doxyparse.pl &&
-./configure --prefix=/usr     \
-            --sysconfdir=/etc \
-            --disable-static  \
-            --with-drill      &&
+./configure --prefix=/usr           \
+            --sysconfdir=/etc       \
+            --disable-static        \
+            --disable-dane-ta-usage \
+            --with-drill            &&
 make "-j`nproc`" || make
 
 

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Chromium is an open-source browserbr3ak project that aims to build a safer, faster, and more stable way forbr3ak all users to experience the web.br3ak"
 SECTION="xsoft"
-VERSION=55.0.2883.75
+VERSION=57.0.2987.110
 NAME="chromium"
 
 #REQ:alsa-lib
@@ -26,36 +26,34 @@ NAME="chromium"
 #REQ:python2
 #REQ:usbutils
 #REQ:xorg-server
+#REC:ffmpeg
 #REC:flac
 #REC:git
+#REC:icu
 #REC:libevent
 #REC:libexif
+#REC:libjpeg
+#REC:libpng
 #REC:libsecret
 #REC:libwebp
 #REC:pciutils
 #REC:pulseaudio
 #REC:xdg-utils
 #REC:yasm
-#OPT:ffmpeg
 #OPT:GConf
 #OPT:gnome-keyring
-#OPT:icu
-#OPT:libjpeg
-#OPT:libpng
 #OPT:libxml2
 #OPT:libvpx
 
 
 cd $SOURCE_DIR
 
-URL=https://commondatastorage.googleapis.com/chromium-browser-official/chromium-55.0.2883.75.tar.xz
+URL=https://commondatastorage.googleapis.com/chromium-browser-official/chromium-57.0.2987.110.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/chromium/chromium-55.0.2883.75.tar.xz || wget -nc https://commondatastorage.googleapis.com/chromium-browser-official/chromium-55.0.2883.75.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/chromium/chromium-55.0.2883.75.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/chromium/chromium-55.0.2883.75.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/chromium/chromium-55.0.2883.75.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/chromium/chromium-55.0.2883.75.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/chromium/chromium-55.0.2883.75.tar.xz
-wget -nc https://github.com/foutrelis/chromium-launcher/archive/v3.tar.gz
-wget -nc https://fpdownload.adobe.com/pub/flashplayer/pdc/23.0.0.207/flash_player_ppapi_linux.x86_64.tar.gz
-wget -nc https://fpdownload.adobe.com/pub/flashplayer/pdc/23.0.0.207/flash_player_ppapi_linux.i386.tar.gz
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/chromium/chromium-57.0.2987.110.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/chromium/chromium-57.0.2987.110.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/chromium/chromium-57.0.2987.110.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/chromium/chromium-57.0.2987.110.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/chromium/chromium-57.0.2987.110.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/chromium/chromium-57.0.2987.110.tar.xz || wget -nc https://commondatastorage.googleapis.com/chromium-browser-official/chromium-57.0.2987.110.tar.xz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/chromium-57.0.2987.110-system_ffmpeg-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/chromium/chromium-57.0.2987.110-system_ffmpeg-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -70,36 +68,36 @@ fi
 
 whoami > /tmp/currentuser
 
-wget https://github.com/foutrelis/chromium-launcher/archive/v3.tar.gz \
-     -O chromium-launcher-3.tar.gz
+patch -Np1 -i ../chromium-57.0.2987.110-system_ffmpeg-1.patch
 
 
-sed 's/#include <sys\/mman\.h>/&\n\n#if defined(MADV_FREE)\n#undef MADV_FREE\n#endif\n/' \
-    -i third_party/WebKit/Source/wtf/allocator/PageAllocator.cpp
-
-
-sed "s/^config(\"compiler\") {/&\ncflags_cc = [ \"-fno-delete-null-pointer-checks\" ]/" \
+sed 's/^config("compiler") {/&\ncflags_cc = [ "-fno-delete-null-pointer-checks" ]/' \
     -i build/config/linux/BUILD.gn
 
 
-sed "s/WIDEVINE_CDM_AVAILABLE/&\n\n#define WIDEVINE_CDM_VERSION_STRING \"Pinkie Pie\"/" \
+sed 's/WIDEVINE_CDM_AVAILABLE/&\n\n#define WIDEVINE_CDM_VERSION_STRING "Pinkie Pie"/' \
     -i third_party/widevine/cdm/stub/widevine_cdm_version.h
 
 
-for LIB in flac harfbuzz-ng libwebp libxslt yasm; do
-    find -type f -path "*third_party/$LIB/*" \
-        \! -path "*third_party/$LIB/chromium/*" \
-        \! -path "*third_party/$LIB/google/*" \
+for LIB in ffmpeg flac harfbuzz-ng icu libevent libjpeg \
+           libjpeg_turbo libpng libwebp libxslt yasm; do
+    find -type f -path "*third_party/$LIB/*"     \
+        \! -path "*third_party/$LIB/chromium/*"  \
+        \! -path "*third_party/$LIB/google/*"    \
+        \! -path "*base/third_party/icu/*"       \
+        \! -path "*base/third_party/libevent/*"  \
         \! -regex '.*\.\(gn\|gni\|isolate\|py\)' \
         -delete
 done &&
 python build/linux/unbundle/replace_gn_files.py \
-    --system-libraries flac harfbuzz-ng libwebp libxslt yasm
+    --system-libraries ffmpeg flac harfbuzz-ng icu libevent libjpeg \
+                       libpng libwebp libxslt yasm &&
+python third_party/libaddressinput/chromium/tools/update-strings.py
 
 
-GN_CONFIG=("google_api_key=\"AIzaSyDxKL42zsPjbke5O8_rPVpVrLrJ8aeE9rQ\""
-"google_default_client_id=\"595013732528-llk8trb03f0ldpqq6nprjp1s79596646.apps.googleusercontent.com\""
-"google_default_client_secret=\"5ntt6GbbkjnTVXx-MSxbmx5e\""
+GN_CONFIG=('google_api_key="AIzaSyDxKL42zsPjbke5O8_rPVpVrLrJ8aeE9rQ"'
+'google_default_client_id="595013732528-llk8trb03f0ldpqq6nprjp1s79596646.apps.googleusercontent.com"'
+'google_default_client_secret="5ntt6GbbkjnTVXx-MSxbmx5e"'
 'clang_use_chrome_plugins=false'
 'enable_hangout_services_extension=true'
 'enable_nacl=false'
@@ -137,22 +135,19 @@ ninja -C out/Release chrome chrome_sandbox chromedriver widevinecdmadapter
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 install -vDm755  out/Release/chrome \
-                 /usr/lib/chromium/chromium              &&
+                 /usr/lib/chromium/chromium                   &&
 install -vDm4755 out/Release/chrome_sandbox \
-                 /usr/lib/chromium/chrome-sandbox        &&
+                 /usr/lib/chromium/chrome-sandbox             &&
 install -vDm755  out/Release/chromedriver \
-                 /usr/lib/chromium/chromedriver          &&
-ln -svf /usr/lib/chromium/chromium /usr/bin              &&
-ln -svf /usr/lib/chromium/chromedriver /usr/bin/         &&
-install -vm755 out/Release/libwidevinecdmadapter.so \
-               /usr/lib/chromium/                        &&
-install -vDm644 out/Release/icudtl.dat /usr/lib/chromium &&
+                 /usr/lib/chromium/chromedriver               &&
+ln -svf /usr/lib/chromium/chromium /usr/bin                   &&
+ln -svf /usr/lib/chromium/chromedriver /usr/bin/              &&
 install -vDm644 out/Release/gen/content/content_resources.pak \
-                /usr/lib/chromium/                       &&
+                /usr/lib/chromium/                            &&
 install -vm644 out/Release/{*.pak,*.bin} \
-               /usr/lib/chromium/                        &&
-cp -av out/Release/locales /usr/lib/chromium/            &&
-chown -Rv root:root /usr/lib/chromium/locales            &&
+               /usr/lib/chromium/                             &&
+cp -av out/Release/locales /usr/lib/chromium/                 &&
+chown -Rv root:root /usr/lib/chromium/locales                 &&
 install -vDm644 out/Release/chrome.1 \
                 /usr/share/man/man1/chromium.1
 
@@ -162,6 +157,8 @@ sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 for size in 16 32; do
     install -vDm644 \
         "chrome/app/theme/default_100_percent/chromium/product_logo_$size.png" \
@@ -185,49 +182,27 @@ Categories=GTK;Network;WebBrowser;
 MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
 EOF
 
-
-tar -xf ../chromium-launcher-3.tar.gz &&
-cd chromium-launcher-3 &&
-make PREFIX=/usr
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-rm -f /usr/bin/chromium        &&
-make PREFIX=/usr install-strip &&
-cd ..
-
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
-mkdir temp                                  &&
-cd temp                                     &&
-ar -x ../../google-chrome-stable*.deb &&
-tar -xf data.tar.xz
+mkdir temp                                         &&
+cd temp                                            &&
+case $(uname -m) in
+    x86_64) ar -x ../../google-chrome-stable_57.0.2987.110-1_amd64.deb
+    ;;
+    x86) ar -x ../../google-chrome-stable_48.0.2564.116-1_i386.deb
+    ;;
+esac
 
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -vm755 opt/google/chrome/libwidevinecdm.so \
-    /usr/lib/chromium/
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-tar -xf ../../flash_player_ppapi_linux.*.tar.gz
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -vdm755 /usr/lib/PepperFlash &&
-install -vm755 libpepflashplayer.so /usr/lib/PepperFlash &&
-install -vm644 manifest.json /usr/lib/PepperFlash
+tar -xf data.tar.xz                                                        &&
+install -vm755 ../out/Release/libwidevinecdmadapter.so /usr/lib/chromium/  &&
+install -vm755 opt/google/chrome/libwidevinecdm.so  /usr/lib/chromium/
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

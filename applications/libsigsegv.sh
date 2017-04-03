@@ -9,18 +9,18 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak This is a library for handling page faults in user mode. A pagebr3ak fault occurs when a program tries to access to a region of memorybr3ak that is currently not available. Catching and handling a page faultbr3ak is a useful technique for implementing pageable virtual memory,br3ak memory-mapped access to persistent databases, generational garbagebr3ak collectors, stack overflow handlers, and distributed shared memory.br3ak"
 SECTION="general"
-VERSION=2.10
+VERSION=2.11
 NAME="libsigsegv"
 
 
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.10.tar.gz
+URL=http://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.11.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libsigsegv/libsigsegv-2.10.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libsigsegv/libsigsegv-2.10.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libsigsegv/libsigsegv-2.10.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libsigsegv/libsigsegv-2.10.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libsigsegv/libsigsegv-2.10.tar.gz || wget -nc http://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.10.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libsigsegv/libsigsegv-2.10.tar.gz || wget -nc ftp://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.10.tar.gz
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libsigsegv/libsigsegv-2.11.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libsigsegv/libsigsegv-2.11.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libsigsegv/libsigsegv-2.11.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libsigsegv/libsigsegv-2.11.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libsigsegv/libsigsegv-2.11.tar.gz || wget -nc http://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.11.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libsigsegv/libsigsegv-2.11.tar.gz || wget -nc ftp://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.11.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

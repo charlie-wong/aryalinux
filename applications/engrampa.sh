@@ -9,11 +9,11 @@ set +h
 SOURCE_ONLY=n
 NAME="engrampa"
 DESCRIPTION="File archive utility for the Mate desktop environment."
-VERSION="1.17.0"
+VERSION="1.16.0"
 
 cd $SOURCE_DIR
 
-URL="http://pub.mate-desktop.org/releases/1.17/engrampa-1.17.0.tar.xz"
+URL="http://pub.mate-desktop.org/releases/1.16/engrampa-1.16.0.tar.xz"
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`

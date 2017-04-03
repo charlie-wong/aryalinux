@@ -82,6 +82,8 @@ xrdb -merge ~/.Xresources
 urxvtd -q -f -o &
 
 
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 cat > /usr/share/applications/urxvt.desktop << "EOF" &&
 [Desktop Entry]
 Encoding=UTF-8
@@ -97,6 +99,11 @@ Categories=GTK;Utility;TerminalEmulator;
 Keywords=console;command line;execute;
 EOF
 update-desktop-database -q
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
 
 
 

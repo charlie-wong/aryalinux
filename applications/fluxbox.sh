@@ -56,6 +56,9 @@ sudo rm rootscript.sh
 echo startfluxbox > ~/.xinitrc
 
 
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+mkdir -pv /usr/share/xsessions &&
 cat > /usr/share/xsessions/fluxbox.desktop << "EOF"
 [Desktop Entry]
 Encoding=UTF-8
@@ -64,6 +67,11 @@ Comment=This session logs you into Fluxbox
 Exec=startfluxbox
 Type=Application
 EOF
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
 
 
 mkdir -v ~/.fluxbox &&

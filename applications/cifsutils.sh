@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The cifs-utils provides a meansbr3ak for mounting SMB/CIFS shares on a Linux system.br3ak"
 SECTION="basicnet"
-VERSION=6.6
+VERSION=6.7
 NAME="cifsutils"
 
 #OPT:keyutils
@@ -22,11 +22,11 @@ NAME="cifsutils"
 
 cd $SOURCE_DIR
 
-URL=https://ftp.samba.org/pub/linux-cifs/cifs-utils/cifs-utils-6.6.tar.bz2
+URL=https://ftp.samba.org/pub/linux-cifs/cifs-utils/cifs-utils-6.7.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/cifs-utils/cifs-utils-6.6.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/cifs-utils/cifs-utils-6.6.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/cifs-utils/cifs-utils-6.6.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/cifs-utils/cifs-utils-6.6.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/cifs-utils/cifs-utils-6.6.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/cifs-utils/cifs-utils-6.6.tar.bz2 || wget -nc https://ftp.samba.org/pub/linux-cifs/cifs-utils/cifs-utils-6.6.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/cifs-utils/cifs-utils-6.7.tar.bz2 || wget -nc https://ftp.samba.org/pub/linux-cifs/cifs-utils/cifs-utils-6.7.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/cifs-utils/cifs-utils-6.7.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/cifs-utils/cifs-utils-6.7.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/cifs-utils/cifs-utils-6.7.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/cifs-utils/cifs-utils-6.7.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/cifs-utils/cifs-utils-6.7.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -41,6 +41,7 @@ fi
 
 whoami > /tmp/currentuser
 
+autoreconf -fiv &&
 ./configure --prefix=/usr \
             --disable-pam &&
 make "-j`nproc`" || make

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The uhttpmock package contains abr3ak library for mocking web service APIs which use HTTP or HTTPS.br3ak"
 SECTION="basicnet"
-VERSION=0.5.0
+VERSION=0.5.1
 NAME="uhttpmock"
 
 #REQ:libsoup
@@ -20,11 +20,11 @@ NAME="uhttpmock"
 
 cd $SOURCE_DIR
 
-URL=http://tecnocode.co.uk/downloads/uhttpmock/uhttpmock-0.5.0.tar.xz
+URL=http://tecnocode.co.uk/downloads/uhttpmock/uhttpmock-0.5.1.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/uhttpmock/uhttpmock-0.5.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/uhttpmock/uhttpmock-0.5.0.tar.xz || wget -nc http://tecnocode.co.uk/downloads/uhttpmock/uhttpmock-0.5.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/uhttpmock/uhttpmock-0.5.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/uhttpmock/uhttpmock-0.5.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/uhttpmock/uhttpmock-0.5.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/uhttpmock/uhttpmock-0.5.0.tar.xz
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/uhttpmock/uhttpmock-0.5.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/uhttpmock/uhttpmock-0.5.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/uhttpmock/uhttpmock-0.5.1.tar.xz || wget -nc http://tecnocode.co.uk/downloads/uhttpmock/uhttpmock-0.5.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/uhttpmock/uhttpmock-0.5.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/uhttpmock/uhttpmock-0.5.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/uhttpmock/uhttpmock-0.5.1.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

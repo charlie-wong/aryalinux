@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The CMake package contains abr3ak modern toolset used for generating Makefiles. It is a successor ofbr3ak the auto-generated <span class=\"command\"><strong>configure</strong> script and aims to bebr3ak platform- and compiler-independent. A significant user ofbr3ak CMake is KDE since version 4.br3ak"
 SECTION="general"
-VERSION=3.7.1
+VERSION=3.7.2
 NAME="cmake"
 
 #REC:curl
@@ -20,11 +20,11 @@ NAME="cmake"
 
 cd $SOURCE_DIR
 
-URL=http://www.cmake.org/files/v3.7/cmake-3.7.1.tar.gz
+URL=http://www.cmake.org/files/v3.7/cmake-3.7.2.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/cmake/cmake-3.7.1.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/cmake/cmake-3.7.1.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/cmake/cmake-3.7.1.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/cmake/cmake-3.7.1.tar.gz || wget -nc http://www.cmake.org/files/v3.7/cmake-3.7.1.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/cmake/cmake-3.7.1.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/cmake/cmake-3.7.1.tar.gz
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/cmake/cmake-3.7.2.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/cmake/cmake-3.7.2.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/cmake/cmake-3.7.2.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/cmake/cmake-3.7.2.tar.gz || wget -nc http://www.cmake.org/files/v3.7/cmake-3.7.2.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/cmake/cmake-3.7.2.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/cmake/cmake-3.7.2.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -39,12 +39,13 @@ fi
 
 whoami > /tmp/currentuser
 
-sed -i '/CMAKE_USE_LIBUV 1/s/1/0/' CMakeLists.txt &&
+sed -i '/CMAKE_USE_LIBUV 1/s/1/0/' CMakeLists.txt     &&
+sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake &&
 ./bootstrap --prefix=/usr       \
             --system-libs       \
             --mandir=/share/man \
             --no-system-jsoncpp \
-            --docdir=/share/doc/cmake-3.7.1 &&
+            --docdir=/share/doc/cmake-3.7.2 &&
 make "-j`nproc`" || make
 
 

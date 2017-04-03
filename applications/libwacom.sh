@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The libwacom package contains abr3ak library used to identify wacom tablets and their model-specificbr3ak features.br3ak"
 SECTION="general"
-VERSION=0.22
+VERSION=0.24
 NAME="libwacom"
 
 #REQ:libgudev
@@ -20,11 +20,11 @@ NAME="libwacom"
 
 cd $SOURCE_DIR
 
-URL=http://downloads.sourceforge.net/linuxwacom/libwacom/libwacom-0.22.tar.bz2
+URL=http://downloads.sourceforge.net/linuxwacom/libwacom/libwacom-0.24.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libwacom/libwacom-0.22.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libwacom/libwacom-0.22.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libwacom/libwacom-0.22.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libwacom/libwacom-0.22.tar.bz2 || wget -nc http://downloads.sourceforge.net/linuxwacom/libwacom/libwacom-0.22.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libwacom/libwacom-0.22.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libwacom/libwacom-0.22.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libwacom/libwacom-0.24.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libwacom/libwacom-0.24.tar.bz2 || wget -nc http://downloads.sourceforge.net/linuxwacom/libwacom/libwacom-0.24.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libwacom/libwacom-0.24.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libwacom/libwacom-0.24.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libwacom/libwacom-0.24.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libwacom/libwacom-0.24.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

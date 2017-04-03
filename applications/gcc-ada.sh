@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Ada is a modern programming language designed for large, long-livedbr3ak applications — and embedded systems in particular —br3ak where reliability and efficiency are essential. It has a set ofbr3ak unique technical features that make it highly effective for use inbr3ak large, complex and safety-critical projects.br3ak"
 SECTION="general"
-VERSION=6.2.0
+VERSION=6.3.0
 NAME="gcc-ada"
 
 #REC:dejagnu
@@ -17,11 +17,11 @@ NAME="gcc-ada"
 
 cd $SOURCE_DIR
 
-URL=http://ftpmirror.gnu.org/gcc/gcc-6.2.0/gcc-6.2.0.tar.bz2
+URL=http://ftpmirror.gnu.org/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gcc/gcc-6.2.0.tar.bz2 || wget -nc http://ftpmirror.gnu.org/gcc/gcc-6.2.0/gcc-6.2.0.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gcc/gcc-6.2.0.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gcc/gcc-6.2.0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gcc/gcc-6.2.0.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gcc/gcc-6.2.0.tar.bz2 || wget -nc ftp://ftp.gnu.org/gnu/gcc/gcc-6.2.0/gcc-6.2.0.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gcc/gcc-6.2.0.tar.bz2
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gcc/gcc-6.3.0.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gcc/gcc-6.3.0.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gcc/gcc-6.3.0.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gcc/gcc-6.3.0.tar.bz2 || wget -nc http://ftpmirror.gnu.org/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gcc/gcc-6.3.0.tar.bz2 || wget -nc ftp://ftp.gnu.org/gnu/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gcc/gcc-6.3.0.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -90,8 +90,8 @@ make install &&
 mkdir -pv /usr/share/gdb/auto-load/usr/lib              &&
 mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib &&
 chown -v -R root:root \
-    /usr/lib/gcc/*linux-gnu/6.2.0/include{,-fixed} \
-    /usr/lib/gcc/*linux-gnu/6.2.0/ada{lib,include}
+    /usr/lib/gcc/*linux-gnu/6.3.0/include{,-fixed} \
+    /usr/lib/gcc/*linux-gnu/6.3.0/ada{lib,include}
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

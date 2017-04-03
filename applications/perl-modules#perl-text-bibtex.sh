@@ -9,8 +9,8 @@ set +h
 #REQ:perl-modules#perl-capture-tiny
 
 SOURCE_ONLY=y
-URL="http://www.cpan.org/authors/id/A/AM/AMBS/Text-BibTeX-0.77.tar.gz"
-VERSION=0.77
+URL="http://www.cpan.org/authors/id/A/AM/AMBS/Text-BibTeX-0.80.tar.gz"
+VERSION=0.80
 NAME="perl-modules#perl-text-bibtex"
 
 cd $SOURCE_DIR

@@ -12,17 +12,17 @@ SECTION="postlfs"
 VERSION=25.1
 NAME="emacs"
 
+#REC:giflib
 #OPT:alsa-lib
 #OPT:dbus
 #OPT:GConf
-#OPT:giflib
 #OPT:gnutls
 #OPT:gobject-introspection
 #OPT:gsettings-desktop-schemas
 #OPT:gpm
 #OPT:gtk2
 #OPT:gtk3
-#OPT:imagemagick
+#OPT:imagemagick6
 #OPT:libjpeg
 #OPT:libpng
 #OPT:librsvg

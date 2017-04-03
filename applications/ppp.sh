@@ -6,10 +6,10 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="ppp_.orig"
-VERSION="2.4.6"
+NAME="ppp"
+VERSION="2.4.7"
 
-URL=http://archive.ubuntu.com/ubuntu/pool/main/p/ppp/ppp_2.4.6.orig.tar.gz
+URL=https://www.samba.org/ftp/ppp/ppp-2.4.7.tar.gz
 
 cd $SOURCE_DIR
 

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The K3b package contains abr3ak KF5-based graphical interface to the Cdrtools and dvd+rw-tools CD/DVD manipulation tools. Itbr3ak also combines the capabilities of many other multimedia packagesbr3ak into one central interface to provide a simple-to-operatebr3ak application that can be used to handle many of your CD/DVDbr3ak recording and formatting requirements. It is used for creatingbr3ak audio, data, video and mixed-mode CDs as well as copying, rippingbr3ak and burning CDs and DVDs.br3ak"
 SECTION="kde"
-VERSION=11
+VERSION=12
 NAME="k3b"
 
 #REQ:libkcddb
@@ -29,11 +29,11 @@ NAME="k3b"
 
 cd $SOURCE_DIR
 
-URL=http://anduin.linuxfromscratch.org/BLFS/k3b/k3b-2016-09-11.tar.xz
+URL=http://anduin.linuxfromscratch.org/BLFS/k3b/k3b-2017-02-12.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/k3b/k3b-2016-09-11.tar.xz || wget -nc http://anduin.linuxfromscratch.org/BLFS/k3b/k3b-2016-09-11.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/k3b/k3b-2016-09-11.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/k3b/k3b-2016-09-11.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/k3b/k3b-2016-09-11.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/k3b/k3b-2016-09-11.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/k3b/k3b-2016-09-11.tar.xz
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/k3b/k3b-2017-02-12.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/k3b/k3b-2017-02-12.tar.xz || wget -nc http://anduin.linuxfromscratch.org/BLFS/k3b/k3b-2017-02-12.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/k3b/k3b-2017-02-12.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/k3b/k3b-2017-02-12.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/k3b/k3b-2017-02-12.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/k3b/k3b-2017-02-12.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -52,7 +52,6 @@ mkdir build &&
 cd    build &&
 cmake -DCMAKE_INSTALL_PREFIX=/opt/kf5 \
       -DCMAKE_BUILD_TYPE=Release         \
-      -DLIB_INSTALL_DIR=lib              \
       -DBUILD_TESTING=OFF                \
       -Wno-dev ..                        &&
 make "-j`nproc`" || make

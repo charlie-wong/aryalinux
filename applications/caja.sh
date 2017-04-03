@@ -9,13 +9,13 @@ set +h
 SOURCE_ONLY=n
 NAME="caja"
 DESCRIPTION="File Manager for the Mate desktop environment"
-VERSION="1.17.1"
+VERSION="1.18.0"
 
 #REQ:mate-polkit
 
 cd $SOURCE_DIR
 
-URL="http://pub.mate-desktop.org/releases/1.17/caja-1.17.1.tar.xz"
+URL="http://pub.mate-desktop.org/releases/1.18/caja-1.18.0.tar.xz"
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`

@@ -62,7 +62,9 @@ sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
-sed -i '\@</javad@i<arg value="-Xdoclint:none"/>' build.xml
+sed -i '\@</javad@i\
+<arg value="-Xdoclint:none"/>\
+<arg value="--allow-script-in-comments"/>' build.xml
 
 
 patch -Np1 -i ../fop-2.1-listNPE-1.patch &&
@@ -74,9 +76,9 @@ mv build/javadocs .
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -v -d -m755                          /opt/fop-2.1 &&
+install -v -d -m755 -o root -g root          /opt/fop-2.1 &&
 cp -v  KEYS LICENSE NOTICE README            /opt/fop-2.1 &&
-cp -va build conf examples fop* javadocs lib /opt/fop-2.1 &&
+cp -vR build conf examples fop* javadocs lib /opt/fop-2.1 &&
 ln -v -sf fop-2.1 /opt/fop
 
 ENDOFROOTSCRIPT

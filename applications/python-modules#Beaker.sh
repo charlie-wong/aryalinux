@@ -12,7 +12,6 @@ SECTION="general"
 VERSION=1.8.1
 NAME="python-modules#Beaker"
 
-#REQ:python-modules#setuptools
 #OPT:python-modules#funcsigs
 
 

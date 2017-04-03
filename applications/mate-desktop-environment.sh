@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=y
 NAME=mate-desktop-environment
 DESCRIPTION="The classic linux desktop environment forked from the gnome 2 desktop environment."
-VERSION=1.17
+VERSION=1.18
 
 #REQ:gobject-introspection
 #REQ:desktop-file-utils
@@ -66,7 +66,7 @@ VERSION=1.17
 #REQ:mate-panel
 #REQ:mate-control-center
 #REQ:lightdm
-#REQ:lightdm-gtk-greeter
+#REQ:lightdm-webkit2-greeter
 #REQ:plymouth
 #REQ:mate-screensaver
 
@@ -76,7 +76,7 @@ VERSION=1.17
 #REQ:caja-dropbox
 #REQ:pluma
 #REQ:galculator
-#REQ:gpicview
+#REQ:eom
 #REQ:engrampa
 #REQ:atril
 #REQ:mate-utils
@@ -168,7 +168,7 @@ sudo wget aryalinux.org/releases/2016.04/aryalinux.png
 popd
 fi
 
-sudo sed -i "s@/share/backgrounds/mate/desktop/Stripes.png@/share/backgrounds/aryalinux/2016_05_Life-of-Pix-free-peaceful-Lake-mountains-OlivierMiche.jpg@g" /usr/share/glib-2.0/schemas/org.mate.background.gschema.xml
+sudo sed -i "s@/share/backgrounds/mate/desktop/Stripes.png@/share/backgrounds/aryalinux/paul-morris-183942.jpg@g" /usr/share/glib-2.0/schemas/org.mate.background.gschema.xml
 sudo sed -i "s@'Sans 10'@'Noto Sans 10'@g" /usr/share/glib-2.0/schemas/*.xml
 sudo sed -i "s@'Sans 8'@'Noto Sans 8'@g" /usr/share/glib-2.0/schemas/*.xml
 sudo sed -i "s@'Sans 11'@'Noto Sans 11'@g" /usr/share/glib-2.0/schemas/*.xml
@@ -307,7 +307,7 @@ sudo tee org.mate.background.gschema.xml <<"EOF"
       <description>Determines how the image set by wallpaper_filename is rendered.  Possible values are "wallpaper", "centered", "scaled", "stretched", "zoom", "spanned".</description>
     </key>
     <key name="picture-filename" type="s">
-      <default>'/usr/share/backgrounds/aryalinux/2016_05_Life-of-Pix-free-peaceful-Lake-mountains-OlivierMiche.jpg'</default>
+      <default>'/usr/share/backgrounds/aryalinux/paul-morris-183942.jpg'</default>
       <summary>Picture Filename</summary>
       <description>File to use for the background image.</description>
     </key>

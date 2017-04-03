@@ -7,9 +7,9 @@ set +h
 . /var/lib/alps/functions
 
 SOURCE_ONLY=n
-DESCRIPTION="br3ak See the introduction to the Java language and system at <a class=\"xref\" href=\"java.html\" title=\"Java-1.8.0.112\">Java-1.8.0.112</a>.br3ak The GNU Compiler Collection (GCC) contains a Java compiler tobr3ak native code. Together with the ecjbr3ak Java compiler from Eclipse (to bytecode), it provides a way tobr3ak build an acceptable JVM from source. However, since the release ofbr3ak OpenJDK, the development ofbr3ak GCC-Java has almost stopped, and the built JVM is an old version,br3ak which cannot be used for building <a class=\"xref\" href=\"openjdk.html\" title=\"OpenJDK-1.8.0.112\">OpenJDK-1.8.0.112</a>.br3ak"
+DESCRIPTION="br3ak See the introduction to the Java language and system at <a class=\"xref\" href=\"java.html\" title=\"Java-1.8.0.121\">Java-1.8.0.121</a>.br3ak The GNU Compiler Collection (GCC) contains a Java compiler tobr3ak native code. Together with the ecjbr3ak Java compiler from Eclipse (to bytecode), it provides a way tobr3ak build an acceptable JVM from source. However, since the release ofbr3ak OpenJDK, the development ofbr3ak GCC-Java has almost stopped, and the built JVM is an old version,br3ak which cannot be used for building <a class=\"xref\" href=\"openjdk.html\" title=\"OpenJDK-1.8.0.121\">OpenJDK-1.8.0.121</a>.br3ak"
 SECTION="general"
-VERSION=6.2.0
+VERSION=6.3.0
 NAME="gcc-java"
 
 #REQ:unzip
@@ -21,11 +21,11 @@ NAME="gcc-java"
 
 cd $SOURCE_DIR
 
-URL=http://ftpmirror.gnu.org/gcc/gcc-6.2.0/gcc-6.2.0.tar.bz2
+URL=http://ftpmirror.gnu.org/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gcc/gcc-6.2.0.tar.bz2 || wget -nc http://ftpmirror.gnu.org/gcc/gcc-6.2.0/gcc-6.2.0.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gcc/gcc-6.2.0.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gcc/gcc-6.2.0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gcc/gcc-6.2.0.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gcc/gcc-6.2.0.tar.bz2 || wget -nc ftp://ftp.gnu.org/gnu/gcc/gcc-6.2.0/gcc-6.2.0.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gcc/gcc-6.2.0.tar.bz2
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gcc/gcc-6.3.0.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gcc/gcc-6.3.0.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gcc/gcc-6.3.0.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gcc/gcc-6.3.0.tar.bz2 || wget -nc http://ftpmirror.gnu.org/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gcc/gcc-6.3.0.tar.bz2 || wget -nc ftp://ftp.gnu.org/gnu/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gcc/gcc-6.3.0.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -60,7 +60,7 @@ cd    build &&
     --disable-bootstrap          \
     --enable-java-home           \
     --with-jvm-root-dir=/opt/gcj \
-    --with-antlr-jar=$(pwd)/../../antlr-4.5.1-complete.jar \
+    --with-antlr-jar=$(pwd)/../../antlr-4.6-complete.jar \
     --enable-languages=java &&
 make "-j`nproc`" || make
 
@@ -78,7 +78,7 @@ make install &&
 mkdir -pv /usr/share/gdb/auto-load/usr/lib              &&
 mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib &&
 chown -v -R root:root \
-    /usr/lib/gcc/*linux-gnu/6.2.0/include{,-fixed} &&
+    /usr/lib/gcc/*linux-gnu/6.3.0/include{,-fixed} &&
 gcj -o ecj ../../ecj-4.9.jar \
     --main=org.eclipse.jdt.internal.compiler.batch.Main &&
 mv ecj /usr/bin &&

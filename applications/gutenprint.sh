@@ -7,14 +7,13 @@ set +h
 . /var/lib/alps/functions
 
 SOURCE_ONLY=n
-DESCRIPTION="br3ak The Gutenprint (formerlybr3ak Gimp-Print) package contains highbr3ak quality drivers for many brands and models of printers for use withbr3ak <a class=\"xref\" href=\"gs.html\" title=\"ghostscript-9.20\">ghostscript-9.20</a>, <a class=\"xref\" href=\"cups.html\" title=\"Cups-2.2.1\">Cups-2.2.1</a>, <a class=\"ulink\" br3ak href=\"http://www.linuxfoundation.org/collaborate/workgroups/openprinting/database/foomatic\">br3ak Foomatic</a>, and the GIMP-2.0.br3ak See a list of supported printers at <a class=\"ulink\" href=\"http://gutenprint.sourceforge.net/p_Supported_Printers.php\">http://gutenprint.sourceforge.net/p_Supported_Printers.php</a>.br3ak"
+DESCRIPTION="br3ak The Gutenprint (formerlybr3ak Gimp-Print) package contains highbr3ak quality drivers for many brands and models of printers for use withbr3ak <a class=\"xref\" href=\"cups.html\" title=\"Cups-2.2.3\">Cups-2.2.3</a>br3ak and the GIMP-2.0. See a list ofbr3ak supported printers at <a class=\"ulink\" href=\"http://gutenprint.sourceforge.net/p_Supported_Printers.php\">http://gutenprint.sourceforge.net/p_Supported_Printers.php</a>.br3ak"
 SECTION="pst"
-VERSION=5.2.11
+VERSION=5.2.12
 NAME="gutenprint"
 
 #REC:cups
 #REC:gimp
-#OPT:ijs
 #OPT:imagemagick
 #OPT:texlive
 #OPT:tl-installer
@@ -24,11 +23,11 @@ NAME="gutenprint"
 
 cd $SOURCE_DIR
 
-URL=http://downloads.sourceforge.net/gimp-print/gutenprint-5.2.11.tar.bz2
+URL=http://downloads.sourceforge.net/gimp-print/gutenprint-5.2.12.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gutenprint/gutenprint-5.2.11.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gutenprint/gutenprint-5.2.11.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gutenprint/gutenprint-5.2.11.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gutenprint/gutenprint-5.2.11.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gutenprint/gutenprint-5.2.11.tar.bz2 || wget -nc http://downloads.sourceforge.net/gimp-print/gutenprint-5.2.11.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gutenprint/gutenprint-5.2.11.tar.bz2
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gutenprint/gutenprint-5.2.12.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gutenprint/gutenprint-5.2.12.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gutenprint/gutenprint-5.2.12.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gutenprint/gutenprint-5.2.12.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gutenprint/gutenprint-5.2.12.tar.bz2 || wget -nc http://downloads.sourceforge.net/gimp-print/gutenprint-5.2.12.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gutenprint/gutenprint-5.2.12.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -52,11 +51,11 @@ make "-j`nproc`" || make
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install &&
-install -v -m755 -d /usr/share/doc/gutenprint-5.2.11/api/gutenprint{,ui2} &&
+install -v -m755 -d /usr/share/doc/gutenprint-5.2.12/api/gutenprint{,ui2} &&
 install -v -m644    doc/gutenprint/html/* \
-                    /usr/share/doc/gutenprint-5.2.11/api/gutenprint &&
+                    /usr/share/doc/gutenprint-5.2.12/api/gutenprint &&
 install -v -m644    doc/gutenprintui2/html/* \
-                    /usr/share/doc/gutenprint-5.2.11/api/gutenprintui2
+                    /usr/share/doc/gutenprint-5.2.12/api/gutenprintui2
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

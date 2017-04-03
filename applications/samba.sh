@@ -9,13 +9,16 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Samba package provides filebr3ak and print services to SMB/CIFS clients and Windows networking tobr3ak Linux clients. Samba can also bebr3ak configured as a Windows Domain Controller replacement, a file/printbr3ak server acting as a member of a Windows Active Directory domain andbr3ak a NetBIOS (rfc1001/1002) nameserver (which among other thingsbr3ak provides LAN browsing support).br3ak"
 SECTION="basicnet"
-VERSION=4.5.0
+VERSION=4.6.0
 NAME="samba"
 
 #REQ:python2
+#REC:gpgme
 #REC:libtirpc
 #REC:libxslt
 #REC:perl-modules#perl-parse-yapp
+#REC:python-modules#pycrypto
+#REC:python3
 #REC:openldap
 #OPT:avahi
 #OPT:cups
@@ -30,7 +33,6 @@ NAME="samba"
 #OPT:mitkrb
 #OPT:nss
 #OPT:popt
-#OPT:python3
 #OPT:talloc
 #OPT:vala
 #OPT:valgrind
@@ -58,13 +60,18 @@ fi
 
 whoami > /tmp/currentuser
 
+echo "^samba4.rpc.echo.*on.*ncacn_np.*with.*object.*nt4_dc" >> selftest/knownfail
+
+
 ./configure                            \
     --prefix=/usr                      \
     --sysconfdir=/etc                  \
     --localstatedir=/var               \
     --with-piddir=/run/samba           \
     --with-pammodulesdir=/lib/security \
-    --enable-fhs &&
+    --enable-fhs                       \
+    --without-ad-dc                    \
+    --enable-selftest                  &&
 make "-j`nproc`" || make
 
 
@@ -108,7 +115,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 . /etc/alps/alps.conf
 
 pushd $SOURCE_DIR
-wget -nc http://aryalinux.org/releases/2016.11/blfs-systemd-units-20160602.tar.bz2
+wget -nc http://www.linuxfromscratch.org/blfs/downloads/svn/blfs-systemd-units-20160602.tar.bz2
 tar xf blfs-systemd-units-20160602.tar.bz2
 cd blfs-systemd-units-20160602
 make install-samba
@@ -127,7 +134,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 . /etc/alps/alps.conf
 
 pushd $SOURCE_DIR
-wget -nc http://aryalinux.org/releases/2016.11/blfs-systemd-units-20160602.tar.bz2
+wget -nc http://www.linuxfromscratch.org/blfs/downloads/svn/blfs-systemd-units-20160602.tar.bz2
 tar xf blfs-systemd-units-20160602.tar.bz2
 cd blfs-systemd-units-20160602
 make install-winbindd

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="%DESCRIPTION%"
 SECTION="general"
-VERSION=2.20.2
+VERSION=2.24.0
 NAME="python-modules#pyatspi2"
 
 #REQ:python-modules#pygobject3
@@ -18,11 +18,11 @@ NAME="python-modules#pyatspi2"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/pyatspi/2.20/pyatspi-2.20.2.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/pyatspi/2.24/pyatspi-2.24.0.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/pyatspi/2.20/pyatspi-2.20.2.tar.xz || wget -nc http://ftp.gnome.org/pub/gnome/sources/pyatspi/2.20/pyatspi-2.20.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/pyatspi/2.24/pyatspi-2.24.0.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/pyatspi/2.24/pyatspi-2.24.0.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

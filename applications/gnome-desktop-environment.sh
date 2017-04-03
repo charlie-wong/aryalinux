@@ -63,6 +63,7 @@ DESCRIPTION="GNOME is a desktop environment that is composed entirely of free an
 #REQ:gnome-shell-extensions
 #REQ:gnome-session
 #REQ:plymouth
+#REQ:lightdm-webkit2-greeter
 #REQ:gnome-user-docs
 #OPT:yelp
 #REQ:baobab
@@ -87,7 +88,5 @@ DESCRIPTION="GNOME is a desktop environment that is composed entirely of free an
 #REQ:seahorse
 #REQ:notification-daemon
 #REQ:polkit-gnome
-#REQ:xdg-user-dirs
-#REQ:xdg-utils
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"

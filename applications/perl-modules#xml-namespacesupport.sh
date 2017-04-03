@@ -8,11 +8,9 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/P/PE/PERIGRIN/XML-NamespaceSupport-1.11.tar.gz"
-VERSION=1.11
+URL="http://search.cpan.org/CPAN/authors/id/P/PE/PERIGRIN/XML-NamespaceSupport-1.12.tar.gz"
+VERSION=1.12
 NAME="perl-modules#xml-namespacesupport"
-
-
 
 cd $SOURCE_DIR
 wget -nc $URL

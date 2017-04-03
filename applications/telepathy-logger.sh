@@ -39,6 +39,10 @@ fi
 
 whoami > /tmp/currentuser
 
+sed 's@/apps/@/org/freedesktop/@' \
+    -i data/org.freedesktop.Telepathy.Logger.gschema.xml.in
+
+
 ./configure --prefix=/usr --disable-static &&
 make "-j`nproc`" || make
 

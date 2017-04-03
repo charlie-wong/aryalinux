@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The libkcddb package contains abr3ak library used to retrieve audio CD meta data from the internet.br3ak"
 SECTION="kde"
-VERSION=11
+VERSION=16.12.2
 NAME="libkcddb"
 
 #REQ:libmusicbrainz5
@@ -18,11 +18,11 @@ NAME="libkcddb"
 
 cd $SOURCE_DIR
 
-URL=http://anduin.linuxfromscratch.org/BLFS/libkcddb/libkcddb-2016-09-11.tar.xz
+URL=http://download.kde.org/stable/applications/16.12.2/src/libkcddb-16.12.2.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libkcddb/libkcddb-2016-09-11.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libkcddb/libkcddb-2016-09-11.tar.xz || wget -nc http://anduin.linuxfromscratch.org/BLFS/libkcddb/libkcddb-2016-09-11.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libkcddb/libkcddb-2016-09-11.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libkcddb/libkcddb-2016-09-11.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libkcddb/libkcddb-2016-09-11.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libkcddb/libkcddb-2016-09-11.tar.xz
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libkcddb/libkcddb-16.12.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libkcddb/libkcddb-16.12.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libkcddb/libkcddb-16.12.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libkcddb/libkcddb-16.12.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libkcddb/libkcddb-16.12.2.tar.xz || wget -nc http://download.kde.org/stable/applications/16.12.2/src/libkcddb-16.12.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libkcddb/libkcddb-16.12.2.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -41,7 +41,6 @@ mkdir build &&
 cd    build &&
 cmake -DCMAKE_INSTALL_PREFIX=/opt/kf5 \
       -DCMAKE_BUILD_TYPE=Release         \
-      -DLIB_INSTALL_DIR=lib              \
       -DBUILD_TESTING=OFF                \
       -Wno-dev ..                        &&
 make "-j`nproc`" || make

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Thunar is the Xfce file manager, a GTK+ 2 GUI to organise the files on yourbr3ak computer.br3ak"
 SECTION="xfce"
-VERSION=1.6.10
+VERSION=1.6.11
 NAME="thunar"
 
 #REQ:exo
@@ -26,11 +26,11 @@ NAME="thunar"
 
 cd $SOURCE_DIR
 
-URL=http://archive.xfce.org/src/xfce/thunar/1.6/Thunar-1.6.10.tar.bz2
+URL=http://archive.xfce.org/src/xfce/thunar/1.6/Thunar-1.6.11.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/thunar/Thunar-1.6.10.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/thunar/Thunar-1.6.10.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/thunar/Thunar-1.6.10.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/thunar/Thunar-1.6.10.tar.bz2 || wget -nc http://archive.xfce.org/src/xfce/thunar/1.6/Thunar-1.6.10.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/thunar/Thunar-1.6.10.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/thunar/Thunar-1.6.10.tar.bz2
+wget -nc http://archive.xfce.org/src/xfce/thunar/1.6/Thunar-1.6.11.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/thunar/Thunar-1.6.11.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/thunar/Thunar-1.6.11.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/thunar/Thunar-1.6.11.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/thunar/Thunar-1.6.11.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/thunar/Thunar-1.6.11.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/thunar/Thunar-1.6.11.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -47,7 +47,7 @@ whoami > /tmp/currentuser
 
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
-            --docdir=/usr/share/doc/Thunar-1.6.10 &&
+            --docdir=/usr/share/doc/Thunar-1.6.11 &&
 make "-j`nproc`" || make
 
 

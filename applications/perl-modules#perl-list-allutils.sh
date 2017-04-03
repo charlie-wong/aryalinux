@@ -9,13 +9,13 @@ set +h
 #REQ:perl-modules#perl-module-implementation
 #REQ:perl-modules#list-utilsby
 #REQ:perl-modules#number-compare
-#REQ:perl-modules#scalar-list-utils
+#REQ:perl-modules#perl-scalar-list-utils
 #REQ:perl-modules#perl-test-warnings
 #REQ:perl-modules#text-glob
 
 SOURCE_ONLY=y
-URL="http://www.cpan.org/authors/id/D/DR/DROLSKY/List-AllUtils-0.12.tar.gz"
-VERSION=0.12
+URL="http://www.cpan.org/authors/id/D/DR/DROLSKY/List-AllUtils-0.14.tar.gz"
+VERSION=0.14
 NAME="perl-modules#perl-list-allutils"
 
 cd $SOURCE_DIR

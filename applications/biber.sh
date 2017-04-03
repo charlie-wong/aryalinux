@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Biber is a BibTeX replacement for users of biblatex, written inbr3ak Perl, with full Unicode support.br3ak"
 SECTION="pst"
-VERSION=null
+VERSION=2.7
 NAME="biber"
 
 #REQ:perl-modules#perl-autovivification
@@ -38,6 +38,7 @@ NAME="biber"
 #REQ:perl-modules#perl-text-bibtex
 #REQ:perl-modules#perl-text-csv
 #REQ:perl-modules#perl-text-roman
+#REQ:perl-modules#perl-unicode-collate
 #REQ:perl-modules#perl-unicode-linebreak
 #REQ:perl-modules#perl-xml-libxml-simple
 #REQ:perl-modules#perl-xml-libxslt
@@ -50,12 +51,12 @@ NAME="biber"
 
 cd $SOURCE_DIR
 
-URL=http://sourceforge.net/projects/biblatex-biber/files/biblatex-biber/current/biblatex-biber.tar.gz
+URL=https://github.com/plk/biber/archive/v2.7.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/biblatex-biber/biblatex-biber.tar.gz || wget -nc http://sourceforge.net/projects/biblatex-biber/files/biblatex-biber/current/biblatex-biber.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/biblatex-biber/biblatex-biber.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/biblatex-biber/biblatex-biber.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/biblatex-biber/biblatex-biber.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/biblatex-biber/biblatex-biber.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/biblatex-biber/biblatex-biber.tar.gz
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/biblatex/biblatex-3.5.tds.tgz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/biblatex/biblatex-3.5.tds.tgz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/biblatex/biblatex-3.5.tds.tgz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/biblatex/biblatex-3.5.tds.tgz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/biblatex/biblatex-3.5.tds.tgz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/biblatex/biblatex-3.5.tds.tgz || wget -nc http://sourceforge.net/projects/biblatex/files/biblatex-3.5/biblatex-3.5.tds.tgz
+wget -nc https://github.com/plk/biber/archive/v2.7.tar.gz
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/biblatex/biblatex-3.7.tds.tgz || wget -nc http://sourceforge.net/projects/biblatex/files/biblatex-3.7/biblatex-3.7.tds.tgz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/biblatex/biblatex-3.7.tds.tgz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/biblatex/biblatex-3.7.tds.tgz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/biblatex/biblatex-3.7.tds.tgz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/biblatex/biblatex-3.7.tds.tgz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/biblatex/biblatex-3.7.tds.tgz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -70,13 +71,17 @@ fi
 
 whoami > /tmp/currentuser
 
+wget -c https://github.com/plk/biber/archive/v2.7.tar.gz \
+     -O biber-2.7.tar.gz
+
+
 perl ./Build.PL &&
 ./Build
 
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-tar -xf ../biblatex-3.5.tds.tgz -C /opt/texlive/2016/texmf-dist &&
+tar -xf ../biblatex-3.7.tds.tgz -C /opt/texlive/2016/texmf-dist &&
 texhash &&
 ./Build install
 

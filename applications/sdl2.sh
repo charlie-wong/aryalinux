@@ -13,6 +13,7 @@ VERSION=2.0.5
 NAME="sdl2"
 
 #OPT:doxygen
+#OPT:ibus
 #OPT:nasm
 #OPT:pulseaudio
 #OPT:xorg-server

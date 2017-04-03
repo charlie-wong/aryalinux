@@ -12,7 +12,6 @@ SECTION="general"
 VERSION=1.0.2
 NAME="python-modules#funcsigs"
 
-#REQ:python-modules#setuptools
 
 
 cd $SOURCE_DIR

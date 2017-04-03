@@ -11,7 +11,7 @@ VERSION="0.24.2"
 
 cd $SOURCE_DIR
 
-URL="http://heanet.dl.sourceforge.net/project/openobex/obexftp/0.24.2/obexftp-0.24.2-Source.tar.gz"
+URL="https://sourceforge.net/projects/openobex/files/obexftp/0.24.2/obexftp-0.24.2-Source.tar.gz"
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`

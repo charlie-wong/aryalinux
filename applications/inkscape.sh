@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Inkscape is a what you see is whatbr3ak you get Scalable Vector Graphics editor. It is useful for creating,br3ak viewing and changing SVG images.br3ak"
 SECTION="xsoft"
-VERSION=0.91
+VERSION=0.92.1
 NAME="inkscape"
 
 #REQ:boost
@@ -19,23 +19,23 @@ NAME="inkscape"
 #REQ:gtkmm3
 #REQ:libxslt
 #REQ:popt
+#REC:imagemagick6
 #REC:lcms2
 #REC:lcms
 #OPT:aspell
 #OPT:dbus
 #OPT:doxygen
-#OPT:imagemagick
 #OPT:poppler
+#OPT:python-modules#lxml
 
 
 cd $SOURCE_DIR
 
-URL=https://launchpad.net/inkscape/0.91.x/0.91/+download/inkscape-0.91.tar.bz2
+URL=https://launchpad.net/inkscape/0.92.x/0.92.1/+download/inkscape-0.92.1.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/inkscape/inkscape-0.91.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/inkscape/inkscape-0.91.tar.bz2 || wget -nc https://launchpad.net/inkscape/0.91.x/0.91/+download/inkscape-0.91.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/inkscape/inkscape-0.91.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/inkscape/inkscape-0.91.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/inkscape/inkscape-0.91.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/inkscape/inkscape-0.91.tar.bz2
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/inkscape-0.91-testfiles-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/inkscape/inkscape-0.91-testfiles-1.patch
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/inkscape/inkscape-0.92.1.tar.bz2 || wget -nc https://launchpad.net/inkscape/0.92.x/0.92.1/+download/inkscape-0.92.1.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/inkscape/inkscape-0.92.1.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/inkscape/inkscape-0.92.1.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/inkscape/inkscape-0.92.1.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/inkscape/inkscape-0.92.1.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/inkscape/inkscape-0.92.1.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -50,10 +50,10 @@ fi
 
 whoami > /tmp/currentuser
 
-patch -Np1 -i ../inkscape-0.91-testfiles-1.patch &&
-sed -e 's/ScopedPtr<char>/make_unique_ptr_gfree/' \
-    -i src/ui/clipboard.cpp  &&
-CXXFLAGS="-g -O2 -std=c++11" ./configure --prefix=/usr &&
+./autogen.sh &&
+IMAGEMAGICK_CFLAGS=-I/usr/include/ImageMagick-6 \
+IMAGEMAGICK_LIBS="-lMagickCore-6.Q16HDRI -lMagick++-6.Q16HDRI -lMagickWand-6.Q16HDRI" \
+./configure --prefix=/usr &&
 make "-j`nproc`" || make
 
 

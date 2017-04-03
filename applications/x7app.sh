@@ -46,11 +46,11 @@ cat > app-7.md5 << "EOF"
 c4a3664e08e5a47c120ff9263ee2f20c luit-1.1.1.tar.bz2
 18c429148c96c2079edda922a2b67632 mkfontdir-1.0.7.tar.bz2
 9bdd6ebfa62b1bbd474906ac86a40fd8 mkfontscale-1.1.2.tar.bz2
-e238c89dabc566e1835e1ecb61b605b9 sessreg-1.1.0.tar.bz2
+e475167a892b589da23edf8edf8c942d sessreg-1.1.1.tar.bz2
 2c47a1b8e268df73963c4eb2316b1a89 setxkbmap-1.3.1.tar.bz2
 3a93d9f0859de5d8b65a68a125d48f6a smproxy-1.0.6.tar.bz2
 f0b24e4d8beb622a419e8431e1c03cd7 x11perf-1.6.0.tar.bz2
-7d6003f32838d5b688e2c8a131083271 xauth-1.0.9.tar.bz2
+f3f76cb10f69b571c43893ea6a634aa4 xauth-1.0.10.tar.bz2
 0066f23f69ca3ef62dcaeb74a87fdc48 xbacklight-1.2.1.tar.bz2
 9956d751ea3ae4538c3ebd07f70736a0 xcmsdb-1.0.5.tar.bz2
 b58a87e6cd7145c70346adad551dba48 xcursorgen-1.0.6.tar.bz2
@@ -85,7 +85,7 @@ EOF
 mkdir -pv app &&
 cd app &&
 grep -v '^#' ../app-7.md5 | awk '{print $2}' | wget -i- -c \
-    -B http://ftp.x.org/pub/individual/app/ &&
+    -B https://www.x.org/pub/individual/app/ &&
 md5sum -c ../app-7.md5
 
 
@@ -107,22 +107,14 @@ do
   packagedir=${package%.tar.bz2}
   tar -xf $package
   pushd $packagedir
-  case $packagedir in
-    luit-[0-9]* )
-      line1="#ifdef _XOPEN_SOURCE"
-      line2="#  undef _XOPEN_SOURCE"
-      line3="#  define _XOPEN_SOURCE 600"
-      line4="#endif"
-      sed -i -e "s@#ifdef HAVE_CONFIG_H@$line1\n$line2\n$line3\n$line4\n\n&@" sys.c
-      unset line1 line2 line3 line4
-    ;;
-    sessreg-* )
-      sed -e 's/\$(CPP) \$(DEFS)/$(CPP) -P $(DEFS)/' -i man/Makefile.in
-    ;;
-  esac
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static
-  make "-j`nproc`" || make
-  as_root make install
+     case $packagedir in
+       luit-[0-9]* )
+         sed -i -e "/D_XOPEN/s/5/6/" configure
+       ;;
+     esac
+     ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static
+     make "-j`nproc`" || make
+     as_root make install
   popd
   rm -rf $packagedir
 done

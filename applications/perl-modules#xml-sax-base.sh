@@ -12,8 +12,6 @@ URL="http://search.cpan.org/CPAN/authors/id/G/GR/GRANTM/XML-SAX-Base-1.08.tar.gz
 VERSION=1.08
 NAME="perl-modules#xml-sax-base"
 
-
-
 cd $SOURCE_DIR
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`

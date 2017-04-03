@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Ark package is a KF5 archivebr3ak tool. It is a graphical front end to tar and similar tools.br3ak"
 SECTION="kde"
-VERSION=16.08.3
+VERSION=16.12.2
 NAME="ark5"
 
 #REQ:libarchive
@@ -18,11 +18,11 @@ NAME="ark5"
 
 cd $SOURCE_DIR
 
-URL=http://download.kde.org/stable/applications/16.08.3/src/ark-16.08.3.tar.xz
+URL=http://download.kde.org/stable/applications/16.12.2/src/ark-16.12.2.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/ark/ark-16.08.3.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/ark/ark-16.08.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/ark/ark-16.08.3.tar.xz || wget -nc http://download.kde.org/stable/applications/16.08.3/src/ark-16.08.3.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/ark/ark-16.08.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/ark/ark-16.08.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/ark/ark-16.08.3.tar.xz
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/ark/ark-16.12.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/ark/ark-16.12.2.tar.xz || wget -nc http://download.kde.org/stable/applications/16.12.2/src/ark-16.12.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/ark/ark-16.12.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/ark/ark-16.12.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/ark/ark-16.12.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/ark/ark-16.12.2.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -41,7 +41,6 @@ mkdir build &&
 cd    build &&
 cmake -DCMAKE_INSTALL_PREFIX=/opt/kf5 \
       -DCMAKE_BUILD_TYPE=Release         \
-      -DLIB_INSTALL_DIR=lib              \
       -DBUILD_TESTING=OFF                \
       -Wno-dev .. &&
 make "-j`nproc`" || make

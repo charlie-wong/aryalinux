@@ -3,7 +3,7 @@
 set -e
 set +h
 
-. /sources/build-properties
+. ./build-properties
 
 STEPNAME="kernel"
 LOGFILE="/sources/build-log"
@@ -168,6 +168,7 @@ sed -i "s@# CONFIG_TMPFS_XATTR is not set@CONFIG_TMPFS_XATTR=y@g" .config
 sed -i "s@CONFIG_FW_LOADER_USER_HELPER=y@# CONFIG_FW_LOADER_USER_HELPER is not set@g" .config
 sed -i "s@CONFIG_AUDIT=y@# CONFIG_AUDIT is not set@g" .config
 sed -i "s@# CONFIG_SECCOMP is not set@CONFIG_SECCOMP=y@g" .config
+sed -i "s@# CONFIG_EFI_STUB is not set@CONFIG_EFI_STUB=y@g" .config
 sed -i "s@# CONFIG_DEVTMPFS is not set@CONFIG_DEVTMPFS=y@g" .config
 sed -i "s@CONFIG_SYSFS_DEPRECATED_V2=y@# CONFIG_SYSFS_DEPRECATED_V2 is not set@g" .config
 sed -i "s@# CONFIG_FHANDLE is not set@CONFIG_FHANDLE=y@g" .config

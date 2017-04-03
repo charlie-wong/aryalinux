@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Boost provides a set of freebr3ak peer-reviewed portable C++ source libraries. It includes librariesbr3ak for linear algebra, pseudorandom number generation, multithreading,br3ak image processing, regular expressions and unit testing.br3ak"
 SECTION="general"
-VERSION=1_62_0
+VERSION=1_63_0
 NAME="boost"
 
 #REC:general_which
@@ -20,11 +20,11 @@ NAME="boost"
 
 cd $SOURCE_DIR
 
-URL=http://downloads.sourceforge.net/project/boost/boost/1.62.0/boost_1_62_0.tar.bz2
+URL=http://downloads.sourceforge.net/project/boost/boost/1.63.0/boost_1_63_0.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/boost/boost_1_62_0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/boost/boost_1_62_0.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/boost/boost_1_62_0.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/boost/boost_1_62_0.tar.bz2 || wget -nc http://downloads.sourceforge.net/project/boost/boost/1.62.0/boost_1_62_0.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/boost/boost_1_62_0.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/boost/boost_1_62_0.tar.bz2
+wget -nc http://downloads.sourceforge.net/project/boost/boost/1.63.0/boost_1_63_0.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/boost/boost_1_63_0.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/boost/boost_1_63_0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/boost/boost_1_63_0.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/boost/boost_1_63_0.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/boost/boost_1_63_0.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/boost/boost_1_63_0.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -43,9 +43,6 @@ sed -e '/using python/ s@;@: /usr/include/python${PYTHON_VERSION/3*/${PYTHON_VER
     -i bootstrap.sh
 
 
-sed -e '1 i#ifndef Q_MOC_RUN' \
-    -e '$ a#endif'            \
-    -i boost/type_traits/detail/has_binary_operator.hpp &&
 ./bootstrap.sh --prefix=/usr &&
 ./b2 stage threading=multi link=shared
 

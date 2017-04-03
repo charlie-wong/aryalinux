@@ -45,7 +45,7 @@ export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disab
 
 cat > lib-7.md5 << "EOF"
 c5ba432dd1514d858053ffe9f4737dd8 xtrans-1.3.5.tar.bz2
-6d54227082f3aa2c596f0b3a3fbb9175 libX11-1.6.4.tar.bz2
+0f618db70c4054ca67cee0cc156a4255 libX11-1.6.5.tar.bz2
 52df7c4c1f0badd9f82ab124fb32eb97 libXext-1.3.3.tar.bz2
 d79d9fe2aa55eb0f69b1a4351e1368f7 libFS-1.0.7.tar.bz2
 addfb1e897ca8079531669c7c7711726 libICE-1.0.9.tar.bz2
@@ -53,7 +53,7 @@ addfb1e897ca8079531669c7c7711726 libICE-1.0.9.tar.bz2
 7a773b16165e39e938650bcc9027c1d5 libXScrnSaver-1.2.2.tar.bz2
 8f5b5576fbabba29a05f3ca2226f74d3 libXt-1.1.5.tar.bz2
 41d92ab627dfa06568076043f3e089e4 libXmu-1.1.2.tar.bz2
-769ee12a43611cdebd38094eaf83f3f0 libXpm-3.5.11.tar.bz2
+20f4627672edb2bd06a749f11aa97302 libXpm-3.5.12.tar.bz2
 e5e06eb14a608b58746bdd1c0bd7b8e3 libXaw-1.0.13.tar.bz2
 07e01e046a0215574f36a3aacb148be0 libXfixes-5.0.3.tar.bz2
 f7a218dcbf6f0848599c6c36fc65c51a libXcomposite-0.4.4.tar.bz2
@@ -63,7 +63,7 @@ f7a218dcbf6f0848599c6c36fc65c51a libXcomposite-0.4.4.tar.bz2
 0920924c3a9ebc1265517bdd2f9fde50 libfontenc-1.1.3.tar.bz2
 0d9f6dd9c23bf4bcbfb00504b566baf5 libXfont2-2.0.1.tar.bz2
 331b3a2a3a1a78b5b44cfbd43f86fcfe libXft-2.3.2.tar.bz2
-94afc83e553d3c38a153f8f60301fd62 libXi-1.7.8.tar.bz2
+1f0f2719c020655a60aee334ddd26d67 libXi-1.7.9.tar.bz2
 9336dc46ae3bf5f81c247f7131461efd libXinerama-1.1.3.tar.bz2
 28e486f1d491b757173dd85ba34ee884 libXrandr-1.5.1.tar.bz2
 45ef29206a6b58254c81bea28ec6c95f libXres-1.0.7.tar.bz2
@@ -82,7 +82,7 @@ EOF
 mkdir -pv lib &&
 cd lib &&
 grep -v '^#' ../lib-7.md5 | awk '{print $2}' | wget -i- -nc \
-    -B http://ftp.x.org/pub/individual/lib/ &&
+    -B https://www.x.org/pub/individual/lib/ &&
 md5sum -c ../lib-7.md5
 
 
@@ -105,6 +105,9 @@ do
   tar -xf $package
   pushd $packagedir
   case $packagedir in
+    libICE* )
+      ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static ICE_LIBS=-lpthread
+    ;;
     libXfont2-[0-9]* )
       ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static --disable-devel-docs
     ;;

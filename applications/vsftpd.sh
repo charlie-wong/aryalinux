@@ -84,11 +84,20 @@ sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 cat >> /etc/vsftpd.conf << "EOF"
 local_enable=YES
 EOF
 
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
 
+
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 cat > /etc/pam.d/vsftpd << "EOF" &&
 # Begin /etc/pam.d/vsftpd
 auth required /lib/security/pam_listfile.so item=user sense=deny \
@@ -104,13 +113,18 @@ session_support=YES
 pam_service_name=vsftpd
 EOF
 
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 . /etc/alps/alps.conf
 
 pushd $SOURCE_DIR
-wget -nc http://aryalinux.org/releases/2016.11/blfs-systemd-units-20160602.tar.bz2
+wget -nc http://www.linuxfromscratch.org/blfs/downloads/svn/blfs-systemd-units-20160602.tar.bz2
 tar xf blfs-systemd-units-20160602.tar.bz2
 cd blfs-systemd-units-20160602
 make install-vsftpd

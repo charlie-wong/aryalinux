@@ -253,6 +253,16 @@ fi
 EOF
 
 
+cat > ~/.profile << "EOF"
+# Begin ~/.profile
+# Personal environment variables and startup programs.
+if [ -d "$HOME/bin" ] ; then
+ pathprepend $HOME/bin
+fi
+# End ~/.profile
+EOF
+
+
 cat > ~/.bashrc << "EOF"
 # Begin ~/.bashrc
 # Written for Beyond Linux From Scratch

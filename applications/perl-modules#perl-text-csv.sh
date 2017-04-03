@@ -8,8 +8,8 @@ set +h
 
 #REQ:.._pst_biber
 SOURCE_ONLY=y
-URL="http://www.cpan.org/authors/id/M/MA/MAKAMAKA/Text-CSV-1.33.tar.gz"
-VERSION=1.33
+URL="http://www.cpan.org/authors/id/I/IS/ISHIGAKI/Text-CSV-1.91.tar.gz"
+VERSION=1.91
 NAME="perl-modules#perl-text-csv"
 
 cd $SOURCE_DIR

@@ -8,8 +8,8 @@ set +h
 
 #REQ:libxml2
 SOURCE_ONLY=y
-URL="http://search.cpan.org//CPAN/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0128.tar.gz"
-VERSION=2.0128
+URL="http://search.cpan.org//CPAN/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0129.tar.gz"
+VERSION=2.0129
 NAME="perl-modules#perl-xml-libxml"
 
 cd $SOURCE_DIR
