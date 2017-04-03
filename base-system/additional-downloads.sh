@@ -9,7 +9,7 @@ pushd ~/sources
 
 wget -nc http://pkgs.fedoraproject.org/lookaside/pkgs/dosfstools/dosfstools-3.0.26.tar.xz/45012f5f56f2aae3afcd62120b9e5a08/dosfstools-3.0.26.tar.xz
 wget -nc http://ftp.gnu.org/gnu/which/which-2.21.tar.gz
-wget -nc http://ftp.de.debian.org/debian/pool/main/o/os-prober/os-prober_1.71.tar.xz
+wget -nc http://http.kali.org/pool/main/o/os-prober/os-prober_1.71.tar.xz
 wget -nc http://pkgs.fedoraproject.org/repo/pkgs/efivar/efivar-0.23.tar.bz2/bff7aa95fdb2f5d79f4aa9721dca2bbd/efivar-0.23.tar.bz2
 wget -nc http://pkgs.fedoraproject.org/repo/pkgs/efibootmgr/efibootmgr-0.12.tar.bz2/6647f5cd807bc8484135ba74fcbcc39a/efibootmgr-0.12.tar.bz2
 wget -nc http://downloads.sourceforge.net/freetype/freetype-2.6.3.tar.bz2
@@ -33,7 +33,7 @@ wget -nc http://anduin.linuxfromscratch.org/sources/other/certdata.txt
 wget -nc http://www.openssl.org/source/openssl-1.0.1i.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/7.6-systemd/openssl-1.0.1i-fix_parallel_build-1.patch
 wget -nc http://www.kernel.org/pub/linux/utils/boot/syslinux/syslinux-4.06.tar.xz
-wget -nc http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.9.1.tar.gz
+wget -nc https://sources.voidlinux.eu/dash-0.5.9.1/dash-0.5.9.1.tar.gz
 wget -nc https://github.com/dracutdevs/dracut/archive/master.zip
 unzip master.zip
 tar -cJvf dracut-master.tar.xz dracut-master
