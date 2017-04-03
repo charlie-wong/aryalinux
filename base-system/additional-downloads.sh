@@ -9,7 +9,7 @@ pushd ~/sources
 
 wget -nc http://pkgs.fedoraproject.org/lookaside/pkgs/dosfstools/dosfstools-3.0.26.tar.xz/45012f5f56f2aae3afcd62120b9e5a08/dosfstools-3.0.26.tar.xz
 wget -nc http://ftp.gnu.org/gnu/which/which-2.21.tar.gz
-wget -nc http://http.kali.org/pool/main/o/os-prober/os-prober_1.71.tar.xz
+wget -nc http://ftp.de.debian.org/debian/pool/main/o/os-prober/os-prober_1.74.tar.xz
 wget -nc http://pkgs.fedoraproject.org/repo/pkgs/efivar/efivar-30.tar.bz2/143f055904fceaad6ed39f8e849ba079/efivar-30.tar.bz2
 wget -nc http://pkgs.fedoraproject.org/repo/pkgs/efibootmgr/efibootmgr-14.tar.bz2/f74e87963c2c5cb1bf6d588675dbd9b4/efibootmgr-14.tar.bz2
 wget -nc http://downloads.sourceforge.net/freetype/freetype-2.6.3.tar.bz2
@@ -21,8 +21,8 @@ wget -nc http://ftp.gnu.org/pub/gnu/cpio/cpio-2.12.tar.bz2
 wget -nc http://pkgs.fedoraproject.org/repo/pkgs/redhat-lsb/lsb-release-1.4.tar.gz/30537ef5a01e0ca94b7b8eb6a36bb1e4/lsb-release-1.4.tar.gz
 wget -nc https://busybox.net/downloads/fixes-1.20.2/busybox-1.20.2-sys-resource.patch
 wget -nc https://busybox.net/downloads/busybox-1.20.2.tar.bz2
-wget -nc https://ftp.gnu.org/gnu/nettle/nettle-3.1.1.tar.gz
-wget -nc http://ftp.gnu.org/gnu/libtasn1/libtasn1-4.5.tar.gz
+wget -nc https://ftp.gnu.org/gnu/nettle/nettle-3.3.tar.gz
+wget -nc http://ftp.gnu.org/gnu/libtasn1/libtasn1-4.10.tar.gz
 wget -nc http://p11-glue.freedesktop.org/releases/p11-kit-0.23.1.tar.gz
 wget -nc ftp://ftp.gnutls.org/gcrypt/gnutls/v3.4/gnutls-3.4.3.tar.xz
 wget -nc http://ftp.gnu.org/gnu/wget/wget-1.16.3.tar.xz
