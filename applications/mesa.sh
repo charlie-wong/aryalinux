@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Mesa is an OpenGL compatible 3Dbr3ak graphics library.br3ak"
 SECTION="x"
-VERSION=12.0.3
+VERSION=17.0.0
 NAME="mesa"
 
 #REQ:x7lib
@@ -32,8 +32,8 @@ URL=ftp://ftp.freedesktop.org/pub/mesa/12.0.3/mesa-12.0.3.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.freedesktop.org/pub/mesa/12.0.3/mesa-12.0.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/mesa/mesa-12.0.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/mesa/mesa-12.0.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/mesa/mesa-12.0.3.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/mesa/mesa-12.0.3.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/mesa/mesa-12.0.3.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/downloads/mesa/mesa-12.0.3-add_xdemos-1.patch || wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/mesa-12.0.3-add_xdemos-1.patch
+wget -nc $URL
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/mesa-17.0.0-add_xdemos-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -51,7 +51,7 @@ whoami > /tmp/currentuser
 export XORG_PREFIX=/usr
 export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
 
-patch -Np1 -i ../mesa-12.0.3-add_xdemos-1.patch
+patch -Np1 -i ../mesa-17.0.0-add_xdemos-1.patch
 
 EGL_PLATFORMS="drm,x11,wayland"
 DRI_DRIVERS="i915,i965,nouveau,r200,radeon,swrast"
