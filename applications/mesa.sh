@@ -58,8 +58,7 @@ DRI_DRIVERS="i915,i965,nouveau,r200,radeon,swrast"
 GLL_DRV="i915,nouveau,r300,r600,radeonsi,svga,swrast" &&
 
 
-sed -i "/pthread-stubs/d" configure.ac      &&
-sed -i "/seems to be moved/s/^/: #/" bin/ltmain.sh &&
+sed -i "/pthread_stubs_possible=/s/yes/no/" configure.ac &&
 ./autogen.sh CFLAGS='-O2' CXXFLAGS='-O2'		\
             --prefix=$XORG_PREFIX				\
             --sysconfdir=/etc					\
