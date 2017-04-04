@@ -30,7 +30,7 @@ tar xf $TARBALL
 cd $DIRECTORY
 
 export XORG_PREFIX=/usr
-export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
+export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
 ./configure $XORG_CONFIG &&
 make
@@ -91,8 +91,8 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -v -dm755 $XORG_PREFIX/share/doc/libinput-1.7.0 &&
-cp -rv doc/html/* $XORG_PREFIX/share/doc/libinput-1.7.0
+install -v -dm755 /usr/share/doc/libinput-1.7.0 &&
+cp -rv doc/html/* /usr/share/doc/libinput-1.7.0
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
@@ -289,7 +289,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 
 make install                         &&
 install -v -m644 conf/10-radeon.conf \
-  $XORG_PREFIX/share/X11/xorg.conf.d
+  /usr/share/X11/xorg.conf.d
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
@@ -706,7 +706,7 @@ wget https://github.com/i-rinat/libvdpau-va-gl/archive/v0.4.0.tar.gz \
 mkdir build &&
 cd    build &&
 
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$XORG_PREFIX .. &&
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr .. &&
 make
 
 
