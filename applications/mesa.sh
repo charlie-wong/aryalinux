@@ -28,7 +28,7 @@ NAME="mesa"
 
 cd $SOURCE_DIR
 
-URL=ftp://ftp.freedesktop.org/pub/mesa/12.0.3/mesa-12.0.3.tar.xz
+URL=https://mesa.freedesktop.org/archive/17.0.0/mesa-17.0.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -111,8 +111,8 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -v -dm755 /usr/share/doc/mesa-12.0.3 &&
-cp -rfv docs/* /usr/share/doc/mesa-12.0.3
+install -v -dm755 /usr/share/doc/mesa-17.0.0 &&
+cp -rfv docs/* /usr/share/doc/mesa-17.0.0
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
