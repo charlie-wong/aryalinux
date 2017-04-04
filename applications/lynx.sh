@@ -22,6 +22,7 @@ VERSION="2.8.8rel.2"
 cd $SOURCE_DIR
 
 URL=http://invisible-mirror.net/archives/lynx/tarballs/lynx2.8.8rel.2.tar.bz2
+wget -nc $URL
 
 if [ ! -z $URL ]
 then
