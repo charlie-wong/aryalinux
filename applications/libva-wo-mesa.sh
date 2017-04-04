@@ -6,8 +6,8 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="libva"
-VERSION="1.7.1"
+NAME="libva-wo-mesa"
+VERSION="1.7.3"
 
 #REQ:mesa
 #OPT:doxygen
@@ -15,7 +15,7 @@ VERSION="1.7.1"
 
 cd $SOURCE_DIR
 
-URL=http://www.freedesktop.org/software/vaapi/releases/libva/libva-1.7.1.tar.bz2
+URL=http://www.freedesktop.org/software/vaapi/releases/libva/libva-1.7.3.tar.bz2
 
 wget -nc $URL
 
