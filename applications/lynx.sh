@@ -10,6 +10,7 @@ SOURCE_ONLY=n
 DESCRIPTION="br3ak Lynx is a text based web browser.br3ak"
 SECTION="basicnet"
 NAME="lynx"
+VERSION="2.8.8rel.2"
 
 #OPT:openssl
 #OPT:gnutls
@@ -20,7 +21,7 @@ NAME="lynx"
 
 cd $SOURCE_DIR
 
-URL=
+URL=http://invisible-mirror.net/archives/lynx/tarballs/lynx2.8.8rel.2.tar.bz2
 
 if [ ! -z $URL ]
 then
