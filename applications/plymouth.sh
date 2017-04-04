@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 
 URL="https://www.freedesktop.org/software/plymouth/releases/plymouth-0.9.2.tar.bz2"
 wget -nc $URL
-wget -nc http://aryalinux.org/releases/2016.04/arya-plymouth-theme.tar.gz
+wget -nc https://sourceforge.net/projects/aryalinux-bin/files/artifacts/arya-plymouth-theme.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`

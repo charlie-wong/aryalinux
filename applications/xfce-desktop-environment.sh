@@ -135,10 +135,10 @@ Section  "InputClass"
 EndSection
 EOF
 
-if [ ! -f /usr/share/pixmaps/aryalinux.org ]
+if [ ! -f /usr/share/pixmaps/aryalinux.png ]
 then
 cd $SOURCE_DIR
-wget -nc aryalinux.org/releases/2016.04/aryalinux.png
+wget -nc https://sourceforge.net/projects/aryalinux-bin/files/artifacts/aryalinux.png
 pushd /usr/share/pixmaps/
 sudo cp -v $SOURCE_DIR/aryalinux.png .
 popd

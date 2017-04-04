@@ -102,10 +102,10 @@ Section  "InputClass"
 EndSection
 EOF
 
-if [ ! -f /usr/share/pixmaps/aryalinux.org ]
+if [ ! -f /usr/share/pixmaps/aryalinux.png ]
 then
 pushd /var/cache/alps/sources &&
-wget -nc aryalinux.org/releases/2016.04/aryalinux.png
+wget -nc https://sourceforge.net/projects/aryalinux-bin/files/artifacts/aryalinux.png
 sudo cp aryalinux.png /usr/share/pixmaps/
 popd
 fi

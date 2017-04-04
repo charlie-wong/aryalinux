@@ -16,7 +16,7 @@ DESCRIPTION="Desktop Suite for Xfce"
 
 cd $SOURCE_DIR
 
-wget -nc aryalinux.org/releases/2016.11/greybird-gtk-theme.tar.gz
+wget -nc https://sourceforge.net/projects/aryalinux-bin/files/artifacts/greybird-gtk-theme.tar.gz
 
 sudo tar xf greybird-gtk-theme.tar.gz -C /
 

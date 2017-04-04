@@ -161,10 +161,10 @@ Section  "InputClass"
 EndSection
 EOF
 
-if [ ! -f /usr/share/pixmaps/aryalinux.org ]
+if [ ! -f /usr/share/pixmaps/aryalinux.png ]
 then
 pushd /usr/share/pixmaps/
-sudo wget aryalinux.org/releases/2016.04/aryalinux.png
+sudo wget https://sourceforge.net/projects/aryalinux-bin/files/artifacts/aryalinux.png
 popd
 fi
 

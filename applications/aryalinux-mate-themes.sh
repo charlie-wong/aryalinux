@@ -7,14 +7,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc "aryalinux.org/releases/2016.04/Ambiance&Radiance-Flat-Colors-16-04-1-LTS-GTK-3-18Theme.tar.gz"
-wget -nc aryalinux.org/releases/2016.04/Vibrancy-Colors-GTK-Icon-Theme-v-2-7.tar.gz
-wget -nc aryalinux.org/releases/2016.04/Vivacious-Colors-GTK-Icon-Theme-v-1-4.tar.gz
-wget -nc aryalinux.org/releases/2016.04/wall.png
-wget -nc aryalinux.org/releases/2016.04/start-here.svg
-wget -nc aryalinux.org/releases/2016.04/arya-plymouth-theme.tar.gz
-wget -nc aryalinux.org/releases/2016.04/aryalinux-font.tar.xz
-wget -nc aryalinux.org/releases/2016.04/aryalinux-wallpapers-2016.04.tar.gz
+wget -nc "https://sourceforge.net/projects/aryalinux-bin/files/artifacts/Ambiance&Radiance-Flat-Colors-16-04-1-LTS-GTK-3-18Theme.tar.gz"
+wget -nc https://sourceforge.net/projects/aryalinux-bin/files/artifacts/Vibrancy-Colors-GTK-Icon-Theme-v-2-7.tar.gz
+wget -nc https://sourceforge.net/projects/aryalinux-bin/files/artifacts/Vivacious-Colors-GTK-Icon-Theme-v-1-4.tar.gz
+wget -nc https://sourceforge.net/projects/aryalinux-bin/files/artifacts/wall.png
+wget -nc https://sourceforge.net/projects/aryalinux-bin/files/artifacts/start-here.svg
+wget -nc https://sourceforge.net/projects/aryalinux-bin/files/artifacts/arya-plymouth-theme.tar.gz
+wget -nc https://sourceforge.net/projects/aryalinux-bin/files/artifacts/aryalinux-font.tar.xz
+wget -nc https://sourceforge.net/projects/aryalinux-bin/files/artifacts/aryalinux-wallpapers-2016.04.tar.gz
 
 sudo tar xf aryalinux-wallpapers-2016.04.tar.gz -C /
 sudo cp -v wall.png /usr/share/backgrounds/

@@ -12,7 +12,7 @@ DESCRIPTION="Fonts of the aryalinux XFCE and Mate Desktops"
 
 cd $SOURCE_DIR
 
-URL=http://aryalinux.org/releases/2016.04/aryalinux-fonts-2016.04.tar.gz
+URL=https://sourceforge.net/projects/aryalinux-bin/files/artifacts/aryalinux-fonts-2016.04.tar.gz
 wget -nc $URL
 
 sudo tar xf aryalinux-fonts-2016.04.tar.gz -C /
