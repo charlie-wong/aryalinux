@@ -9,13 +9,13 @@ set +h
 SOURCE_ONLY=n
 NAME="mate-utils"
 DESCRIPTION="MATE desktop utilities"
-VERSION="1.18.0"
+VERSION="1.18.1"
 
 #REQ:libgtop
 
 cd $SOURCE_DIR
 
-URL="http://pub.mate-desktop.org/releases/1.18/mate-utils-1.18.0.tar.xz"
+URL=http://pub.mate-desktop.org/releases/1.18/mate-utils-1.18.1.tar.xz
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
