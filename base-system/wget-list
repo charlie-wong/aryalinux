@@ -71,7 +71,7 @@ http://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.44.tar.gz
 http://tukaani.org/xz/xz-5.2.3.tar.xz
 http://zlib.net/zlib-1.2.11.tar.xz
 http://www.linuxfromscratch.org/patches/lfs/development/bash-4.4-upstream_fixes-1.patch
-http://www.linuxfromscratch.org/patches/lfs/development/bc-1.06.95-memory_leak-1.patch
+https://raw.githubusercontent.com/PandaLinux/base-64/master/patches/bc-1.06.95-memory_leak-1.patch
 http://www.linuxfromscratch.org/patches/lfs/development/bzip2-1.0.6-install_docs-1.patch
 http://www.linuxfromscratch.org/patches/lfs/development/coreutils-8.27-i18n-1.patch
 http://www.linuxfromscratch.org/patches/lfs/development/glibc-2.25-fhs-1.patch

@@ -11,8 +11,8 @@ set +h
 #REQ:perl-modules#test-without-module
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/Params-ValidationCompiler-0.23.tar.gz"
-VERSION=0.23
+URL="http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/Params-ValidationCompiler-0.24.tar.gz"
+VERSION=0.24
 NAME="perl-modules#params-validationcompiler"
 
 cd $SOURCE_DIR
