@@ -8,8 +8,8 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/N/NE/NEZUMI/MIME-Charset-1.012.1.tar.gz"
-VERSION=1.012.1
+URL="http://search.cpan.org/CPAN/authors/id/N/NE/NEZUMI/MIME-Charset-1.012.2.tar.gz"
+VERSION=1.012.2
 NAME="perl-modules#mime-charset"
 
 cd $SOURCE_DIR

@@ -33,7 +33,7 @@ URL=https://mesa.freedesktop.org/archive/17.0.0/mesa-17.0.0.tar.xz
 if [ ! -z $URL ]
 then
 wget -nc $URL
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/mesa-17.0.0-add_xdemos-1.patch
+wget -nc http://www.linuxfromscratch.org/patches/downloads/mesa/mesa-17.0.0-add_xdemos-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

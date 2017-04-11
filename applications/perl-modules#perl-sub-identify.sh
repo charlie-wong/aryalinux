@@ -8,8 +8,8 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org//CPAN/authors/id/R/RG/RGARCIA/Sub-Identify-0.13.tar.gz"
-VERSION=0.13
+URL="http://search.cpan.org//CPAN/authors/id/R/RG/RGARCIA/Sub-Identify-0.14.tar.gz"
+VERSION=0.14
 NAME="perl-modules#perl-sub-identify"
 
 cd $SOURCE_DIR
