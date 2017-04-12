@@ -8,27 +8,19 @@ export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc \
     --localstatedir=/var --disable-static"
 
 . /etc/alps/alps.conf
-. /var/lib/alps/functions
-
-SOURCE_ONLY=n
-NAME="lightdm-gtk-greeter"
-DESCRIPTION="A GTK+ based greeter for lightdm"
-VERSION=2.0.2
 
 #REQ:lightdm
-#REC:aryalinux-wallpapers
+#REQ:greybird-gtk-theme
+#REQ:aryalinux-wallpapers
 #REC:aryalinux-fonts
-#REC:aryalinux-themes
-#REC:aryalinux-icons
 
 cd $SOURCE_DIR
 
-URL=https://launchpad.net/lightdm-gtk-greeter/2.0/2.0.2/+download/lightdm-gtk-greeter-2.0.2.tar.gz
-wget -nc $URL
+wget -nc https://launchpad.net/lightdm-gtk-greeter/2.0/2.0.1/+download/lightdm-gtk-greeter-2.0.1.tar.gz
 
 
-TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
-DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
+TARBALL=lightdm-gtk-greeter-2.0.1.tar.gz
+DIRECTORY=lightdm-gtk-greeter-2.0.1
 
 tar -xf $TARBALL
 
@@ -53,12 +45,12 @@ xft-antialias = true
 xft-rgba = rgb
 icon-theme-name = Numix-Circle
 theme-name = Greybird
-background = /usr/share/backgrounds/aryalinux/paul-morris-183942.jpg
+background = /usr/share/backgrounds/aryalinux/pexels-photo-213613.jpeg
 font-name = Droid Sans 10
 EOF
 
  
 cd $SOURCE_DIR
-cleanup "$NAME" "$DIRECTORY"
+sudo rm -rf $DIRECTORY
  
-register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+echo "lightdm-gtk-greeter=>`date`" | sudo tee -a $INSTALLED_LIST

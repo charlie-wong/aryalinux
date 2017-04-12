@@ -13,7 +13,7 @@ export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc \
 SOURCE_ONLY=n
 NAME="lightdm"
 DESCRIPTION="A light-weight desktop manager with greeters available in GTK/QT."
-VERSION=1.22.0
+VERSION=1.10.5
 
 #REQ:xserver-meta
 #REQ:itstool
@@ -25,12 +25,12 @@ VERSION=1.22.0
 
 cd $SOURCE_DIR
 
-URL=https://launchpad.net/lightdm/1.22/1.22.0/+download/lightdm-1.22.0.tar.xz
-wget -nc $URL
+wget -nc https://launchpad.net/lightdm/1.10/1.10.5/+download/lightdm-1.10.5.tar.xz
+wget -nc https://launchpad.net/lightdm-gtk-greeter/2.0/2.0.1/+download/lightdm-gtk-greeter-2.0.1.tar.gz
 
 
-TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
-DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
+TARBALL=lightdm-1.10.5.tar.xz
+DIRECTORY=lightdm-1.10.5
 
 tar -xf $TARBALL
 
@@ -49,8 +49,8 @@ CPPLAGS="-march=native -mtune=native -O3"  \
             --with-greeter-session=lightdm-gtk-greeter \
             --disable-static \
             --disable-tests  \
-            --disable-liblightdm-qt5  \
-            --disable-liblightdm-qt
+			--disable-liblightdm-qt5  \
+			--disable-liblightdm-qt
 
 make "-j`nproc`"
 
@@ -441,7 +441,6 @@ chmod 700 /usr/share/polkit-1/rules.d
 chmod 600 /usr/share/polkit-1/rules.d/*
 chown -R polkitd:polkitd /usr/share/polkit-1/rules.d
 
-if [ -L /etc/systemd/system/display-manager.service ]; then rm -f /etc/systemd/system/display-manager.service; fi
 systemctl enable lightdm
 
 ENDOFFILE
