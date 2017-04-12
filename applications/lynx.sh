@@ -20,7 +20,7 @@ NAME="lynx"
 
 cd $SOURCE_DIR
 
-URL=
+URL=http://invisible-island.net/datafiles/release/lynx-cur.tar.bz2
 
 if [ ! -z $URL ]
 then
