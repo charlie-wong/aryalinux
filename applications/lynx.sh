@@ -25,6 +25,7 @@ URL=http://invisible-island.net/datafiles/release/lynx-cur.tar.bz2
 if [ ! -z $URL ]
 then
 
+wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
 	DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$"`
