@@ -42,7 +42,7 @@ fi
 
 whoami > /tmp/currentuser
 
-./configure --prefix=/usr --with-gobject &&
+./configure --prefix=/usr && -with-graphite2=yes --with-gobject &&
 make "-j`nproc`" || make
 
 
