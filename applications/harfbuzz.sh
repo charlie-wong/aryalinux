@@ -15,10 +15,10 @@ NAME="harfbuzz"
 #REC:glib2
 #REC:icu
 #REC:freetype2-without-harfbuzz
+#REC:graphite2
 #OPT:cairo
 #OPT:gobject-introspection
 #OPT:gtk-doc
-#OPT:graphite2
 
 
 cd $SOURCE_DIR

@@ -8,8 +8,8 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/M/MW/MWX/Data-Uniqid-0.11.tar.gz"
-VERSION=0.11
+URL="http://search.cpan.org/CPAN/authors/id/M/MW/MWX/Data-Uniqid-0.12.tar.gz"
+VERSION=0.12
 NAME="perl-modules#perl-data-uniqid"
 
 cd $SOURCE_DIR

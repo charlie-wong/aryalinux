@@ -6,9 +6,9 @@ set +h
 . /etc/alps/alps.conf
 
 SOURCE_ONLY=y
-URL=http://search.cpan.org/CPAN/authors/id/M/MH/MHOSKEN/Font-TTF-1.05.tar.gz
+URL=http://search.cpan.org/CPAN/authors/id/B/BH/BHALLISSY/Font-TTF-1.06.tar.gz
 NAME="perl-modules#font-ttf"
-VERSION=1.05
+VERSION=1.06
 
 cd $SOURCE_DIR
 

@@ -9,6 +9,10 @@ export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc \
 
 . /etc/alps/alps.conf
 
+NAME=lightdm-gtk-greeter
+VERSION=2.0.1
+DESCRIPTION="GTK Based greeter for lightdm display manager"
+
 #REQ:lightdm
 #REQ:greybird-gtk-theme
 #REQ:aryalinux-wallpapers
@@ -45,12 +49,12 @@ xft-antialias = true
 xft-rgba = rgb
 icon-theme-name = Numix-Circle
 theme-name = Greybird
-background = /usr/share/backgrounds/aryalinux/pexels-photo-213613.jpeg
+background = /usr/share/backgrounds/aryalinux/paul-morris-183942.jpg
 font-name = Droid Sans 10
 EOF
 
  
 cd $SOURCE_DIR
-sudo rm -rf $DIRECTORY
+cleanup "$NAME" "$DIRECTORY"
  
-echo "lightdm-gtk-greeter=>`date`" | sudo tee -a $INSTALLED_LIST
+register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
