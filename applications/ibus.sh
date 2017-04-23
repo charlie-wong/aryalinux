@@ -48,7 +48,7 @@ fi
 
 whoami > /tmp/currentuser
 
-sed 's@/desktop/ibus@/org/freedesktop/ibus@g' data/ibus.schemas.in
+sed 's@/desktop/ibus@/org/freedesktop/ibus@g' -i data/ibus.schemas.in
 
 
 ./configure --prefix=/usr             \

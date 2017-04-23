@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The WebKitGTK+ package is a portbr3ak of the portable web rendering engine WebKit to the GTK+br3ak 3 and GTK+ 2 platforms.br3ak"
 SECTION="x"
-VERSION=2.14.5
+VERSION=2.16.1
 NAME="webkitgtk"
 
 #REQ:cairo
@@ -28,7 +28,6 @@ NAME="webkitgtk"
 #REQ:sqlite
 #REQ:general_which
 #REC:geoclue2
-#REC:geoclue
 #REC:gobject-introspection
 #REC:hicolor-icon-theme
 #REC:libnotify
@@ -40,11 +39,11 @@ NAME="webkitgtk"
 
 cd $SOURCE_DIR
 
-URL=http://webkitgtk.org/releases/webkitgtk-2.14.5.tar.xz
+URL=http://webkitgtk.org/releases/webkitgtk-2.16.1.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/webkit/webkitgtk-2.14.5.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/webkit/webkitgtk-2.14.5.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/webkit/webkitgtk-2.14.5.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/webkit/webkitgtk-2.14.5.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/webkit/webkitgtk-2.14.5.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/webkit/webkitgtk-2.14.5.tar.xz || wget -nc http://webkitgtk.org/releases/webkitgtk-2.14.5.tar.xz
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/webkit/webkitgtk-2.16.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/webkit/webkitgtk-2.16.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/webkit/webkitgtk-2.16.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/webkit/webkitgtk-2.16.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/webkit/webkitgtk-2.16.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/webkit/webkitgtk-2.16.1.tar.xz || wget -nc http://webkitgtk.org/releases/webkitgtk-2.16.1.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -58,6 +57,13 @@ cd $DIRECTORY
 fi
 
 whoami > /tmp/currentuser
+
+sed -i 's/unsigned short/char16_t/'            \
+       Source/JavaScriptCore/API/JSStringRef.h \
+       Source/WebKit2/Shared/API/c/WKString.h  &&
+sed -i '/stdbool.h/ a#include <uchar.h>' \
+       Source/JavaScriptCore/API/JSBase.h
+
 
 mkdir -vp build &&
 cd        build &&

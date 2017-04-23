@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak GeoClue is a modularbr3ak geoinformation service built on top of the D-Bus messaging system. The goal of thebr3ak GeoClue project is to makebr3ak creating location-aware applications as simple as possible.br3ak"
 SECTION="basicnet"
-VERSION=2.4.5
+VERSION=2.4.6
 NAME="geoclue2"
 
 #REQ:json-glib
@@ -21,11 +21,11 @@ NAME="geoclue2"
 
 cd $SOURCE_DIR
 
-URL=http://www.freedesktop.org/software/geoclue/releases/2.4/geoclue-2.4.5.tar.xz
+URL=http://www.freedesktop.org/software/geoclue/releases/2.4/geoclue-2.4.6.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/geoclue/geoclue-2.4.5.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/geoclue/geoclue-2.4.5.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/geoclue/geoclue-2.4.5.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/geoclue/geoclue-2.4.5.tar.xz || wget -nc http://www.freedesktop.org/software/geoclue/releases/2.4/geoclue-2.4.5.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/geoclue/geoclue-2.4.5.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/geoclue/geoclue-2.4.5.tar.xz
+wget -nc http://www.freedesktop.org/software/geoclue/releases/2.4/geoclue-2.4.6.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/geoclue/geoclue-2.4.6.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/geoclue/geoclue-2.4.6.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/geoclue/geoclue-2.4.6.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/geoclue/geoclue-2.4.6.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/geoclue/geoclue-2.4.6.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/geoclue/geoclue-2.4.6.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

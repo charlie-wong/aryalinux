@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Asymptote is a powerfulbr3ak descriptive vector graphics language that provides a naturalbr3ak coordinate-based framework for technical drawing. Labels andbr3ak equations can be typeset with LaTeX.br3ak"
 SECTION="pst"
-VERSION=2.40
+VERSION=2.41
 NAME="asymptote"
 
 #REQ:gs
@@ -24,11 +24,11 @@ NAME="asymptote"
 
 cd $SOURCE_DIR
 
-URL=http://downloads.sourceforge.net/sourceforge/asymptote/asymptote-2.40.src.tgz
+URL=http://downloads.sourceforge.net/sourceforge/asymptote/asymptote-2.41.src.tgz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/asymptote/asymptote-2.40.src.tgz || wget -nc http://downloads.sourceforge.net/sourceforge/asymptote/asymptote-2.40.src.tgz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/asymptote/asymptote-2.40.src.tgz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/asymptote/asymptote-2.40.src.tgz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/asymptote/asymptote-2.40.src.tgz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/asymptote/asymptote-2.40.src.tgz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/asymptote/asymptote-2.40.src.tgz
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/asymptote/asymptote-2.41.src.tgz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/asymptote/asymptote-2.41.src.tgz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/asymptote/asymptote-2.41.src.tgz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/asymptote/asymptote-2.41.src.tgz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/asymptote/asymptote-2.41.src.tgz || wget -nc http://downloads.sourceforge.net/sourceforge/asymptote/asymptote-2.41.src.tgz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/asymptote/asymptote-2.41.src.tgz
 wget -nc http://effbot.org/downloads/Imaging-1.1.7.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/downloads/Imaging/Imaging-1.1.7-freetype_fix-1.patch
 
@@ -55,7 +55,6 @@ export TEXARCH=$(uname -m | sed -e 's/i.86/i386/' -e 's/$/-linux/') &&
             --enable-gc=system                                  \
             --with-latex=/opt/texlive/2016/texmf-dist/tex/latex \
             --with-context=/opt/texlive/2016/texmf-dist/tex/context/third &&
-unset CFLAGS &&
 make "-j`nproc`" || make
 
 

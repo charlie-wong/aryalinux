@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Berkeley DB package containsbr3ak programs and utilities used by many other applications for databasebr3ak related functions.br3ak"
 SECTION="server"
-VERSION=6.2.23
+VERSION=6.2.32
 NAME="db"
 
 #OPT:tcl
@@ -20,11 +20,11 @@ NAME="db"
 
 cd $SOURCE_DIR
 
-URL=http://download.oracle.com/berkeley-db/db-6.2.23.tar.gz
+URL=http://download.oracle.com/berkeley-db/db-6.2.32.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/db/db-6.2.23.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/db/db-6.2.23.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/db/db-6.2.23.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/db/db-6.2.23.tar.gz || wget -nc http://download.oracle.com/berkeley-db/db-6.2.23.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/db/db-6.2.23.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/db/db-6.2.23.tar.gz
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/db/db-6.2.32.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/db/db-6.2.32.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/db/db-6.2.32.tar.gz || wget -nc http://download.oracle.com/berkeley-db/db-6.2.32.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/db/db-6.2.32.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/db/db-6.2.32.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/db/db-6.2.32.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -50,12 +50,12 @@ make "-j`nproc`" || make
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make docdir=/usr/share/doc/db-6.2.23 install &&
+make docdir=/usr/share/doc/db-6.2.32 install &&
 chown -v -R root:root                        \
       /usr/bin/db_*                          \
       /usr/include/db{,_185,_cxx}.h          \
       /usr/lib/libdb*.{so,la}                \
-      /usr/share/doc/db-6.2.23
+      /usr/share/doc/db-6.2.32
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

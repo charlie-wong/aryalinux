@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak qemu is a full virtualizationbr3ak solution for Linux on x86 hardware containing virtualizationbr3ak extensions (Intel VT or AMD-V).br3ak"
 SECTION="postlfs"
-VERSION=2.8.0
+VERSION=2.9.0
 NAME="qemu"
 
 #REQ:glib2
@@ -36,11 +36,11 @@ NAME="qemu"
 
 cd $SOURCE_DIR
 
-URL=http://wiki.qemu.org/download/qemu-2.8.0.tar.bz2
+URL=http://download.qemu-project.org/qemu-2.9.0.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/qemu/qemu-2.8.0.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/qemu/qemu-2.8.0.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/qemu/qemu-2.8.0.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/qemu/qemu-2.8.0.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/qemu/qemu-2.8.0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/qemu/qemu-2.8.0.tar.bz2 || wget -nc http://wiki.qemu.org/download/qemu-2.8.0.tar.bz2
+wget -nc http://download.qemu-project.org/qemu-2.9.0.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/qemu/qemu-2.9.0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/qemu/qemu-2.9.0.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/qemu/qemu-2.9.0.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/qemu/qemu-2.9.0.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/qemu/qemu-2.9.0.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/qemu/qemu-2.9.0.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -85,7 +85,7 @@ cd        build &&
              --target-list=$QEMU_ARCH    \
              --audio-drv-list=alsa       \
              --with-sdlabi=2.0           \
-             --docdir=/usr/share/doc/qemu-2.8.0 &&
+             --docdir=/usr/share/doc/qemu-2.9.0 &&
 unset QEMU_ARCH &&
 make "-j`nproc`" || make
 

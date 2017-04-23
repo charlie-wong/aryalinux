@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The GLibmm package is a set of C++br3ak bindings for GLib.br3ak"
 SECTION="general"
-VERSION=2.50.0
+VERSION=2.50.1
 NAME="glibmm"
 
 #REQ:glib2
@@ -22,11 +22,11 @@ NAME="glibmm"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/glibmm/2.50/glibmm-2.50.0.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/glibmm/2.50/glibmm-2.50.1.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/glibmm/glibmm-2.50.0.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glibmm/2.50/glibmm-2.50.0.tar.xz || wget -nc http://ftp.gnome.org/pub/gnome/sources/glibmm/2.50/glibmm-2.50.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/glibmm/glibmm-2.50.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/glibmm/glibmm-2.50.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/glibmm/glibmm-2.50.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/glibmm/glibmm-2.50.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/glibmm/glibmm-2.50.0.tar.xz
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/glibmm/glibmm-2.50.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/glibmm/glibmm-2.50.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/glibmm/glibmm-2.50.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/glibmm/glibmm-2.50.1.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glibmm/2.50/glibmm-2.50.1.tar.xz || wget -nc http://ftp.gnome.org/pub/gnome/sources/glibmm/2.50/glibmm-2.50.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/glibmm/glibmm-2.50.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/glibmm/glibmm-2.50.1.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -41,7 +41,7 @@ fi
 
 whoami > /tmp/currentuser
 
-sed -e '/^libdocdir =/ s/$(book_name)/glibmm-2.50.0/' \
+sed -e '/^libdocdir =/ s/$(book_name)/glibmm-2.50.1/' \
     -i docs/Makefile.in
 
 

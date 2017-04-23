@@ -3,13 +3,13 @@ http://download.savannah.gnu.org/releases/attr/attr-2.4.47.src.tar.gz
 http://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.xz
 http://ftp.gnu.org/gnu/automake/automake-1.15.tar.xz
 http://ftp.gnu.org/gnu/bash/bash-4.4.tar.gz
-http://alpha.gnu.org/gnu/bc/bc-1.06.95.tar.bz2
+http://ftp.gnu.org/gnu/bc/bc-1.07.1.tar.gz
 http://ftp.gnu.org/gnu/binutils/binutils-2.28.tar.bz2
 http://ftp.gnu.org/gnu/bison/bison-3.0.4.tar.xz
 http://www.bzip.org/1.0.6/bzip2-1.0.6.tar.gz
 https://github.com/libcheck/check/releases/download/0.11.0/check-0.11.0.tar.gz
 http://ftp.gnu.org/gnu/coreutils/coreutils-8.27.tar.xz
-http://dbus.freedesktop.org/releases/dbus/dbus-1.10.16.tar.gz
+http://dbus.freedesktop.org/releases/dbus/dbus-1.10.18.tar.gz
 http://ftp.gnu.org/gnu/dejagnu/dejagnu-1.6.tar.gz
 http://ftp.gnu.org/gnu/diffutils/diffutils-3.5.tar.xz
 http://dev.gentoo.org/~blueness/eudev/eudev-3.2.1.tar.gz
@@ -41,7 +41,7 @@ http://www.linuxfromscratch.org/lfs/downloads/development/lfs-bootscripts-201703
 https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.25.tar.xz
 http://download.savannah.gnu.org/releases/libpipeline/libpipeline-1.4.1.tar.gz
 http://ftp.gnu.org/gnu/libtool/libtool-2.4.6.tar.xz
-https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.10.8.tar.xz
+https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.10.9.tar.xz
 http://ftp.gnu.org/gnu/m4/m4-1.4.18.tar.xz
 http://ftp.gnu.org/gnu/make/make-4.2.1.tar.bz2
 http://download.savannah.gnu.org/releases/man-db/man-db-2.7.6.1.tar.xz
@@ -71,7 +71,6 @@ http://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.44.tar.gz
 http://tukaani.org/xz/xz-5.2.3.tar.xz
 http://zlib.net/zlib-1.2.11.tar.xz
 http://www.linuxfromscratch.org/patches/lfs/development/bash-4.4-upstream_fixes-1.patch
-https://raw.githubusercontent.com/PandaLinux/base-64/master/patches/bc-1.06.95-memory_leak-1.patch
 http://www.linuxfromscratch.org/patches/lfs/development/bzip2-1.0.6-install_docs-1.patch
 http://www.linuxfromscratch.org/patches/lfs/development/coreutils-8.27-i18n-1.patch
 http://www.linuxfromscratch.org/patches/lfs/development/glibc-2.25-fhs-1.patch

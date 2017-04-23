@@ -48,7 +48,6 @@ patch -Np1 -i ../js38-38.2.1-upstream_fixes-2.patch
 
 cd js/src &&
 autoconf2.13 &&
-sed -i 's|\^\[:space:\]|^\[\[:space:\]\]|g' configure &&
 ./configure --prefix=/usr       \
             --with-intl-api     \
             --with-system-zlib  \
@@ -62,7 +61,15 @@ make "-j`nproc`" || make
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make install
+make install &&
+pushd /usr/include/mozjs-38 &&
+for link in `find . -type l`; do
+    header=`readlink $link`
+    rm -f $link
+    cp -pv $header $link
+    chmod 644 $link
+done &&
+popd
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

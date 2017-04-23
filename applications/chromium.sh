@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Chromium is an open-source browserbr3ak project that aims to build a safer, faster, and more stable way forbr3ak all users to experience the web.br3ak"
 SECTION="xsoft"
-VERSION=57.0.2987.110
+VERSION=57.0.2987.133
 NAME="chromium"
 
 #REQ:alsa-lib
@@ -29,12 +29,12 @@ NAME="chromium"
 #REC:ffmpeg
 #REC:flac
 #REC:git
-#REC:icu
 #REC:libevent
 #REC:libexif
 #REC:libjpeg
 #REC:libpng
 #REC:libsecret
+#REC:libvpx
 #REC:libwebp
 #REC:pciutils
 #REC:pulseaudio
@@ -43,17 +43,17 @@ NAME="chromium"
 #OPT:GConf
 #OPT:gnome-keyring
 #OPT:libxml2
-#OPT:libvpx
+#OPT:icu
 
 
 cd $SOURCE_DIR
 
-URL=https://commondatastorage.googleapis.com/chromium-browser-official/chromium-57.0.2987.110.tar.xz
+URL=https://commondatastorage.googleapis.com/chromium-browser-official/chromium-57.0.2987.133.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/chromium/chromium-57.0.2987.110.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/chromium/chromium-57.0.2987.110.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/chromium/chromium-57.0.2987.110.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/chromium/chromium-57.0.2987.110.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/chromium/chromium-57.0.2987.110.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/chromium/chromium-57.0.2987.110.tar.xz || wget -nc https://commondatastorage.googleapis.com/chromium-browser-official/chromium-57.0.2987.110.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/chromium-57.0.2987.110-system_ffmpeg-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/chromium/chromium-57.0.2987.110-system_ffmpeg-1.patch
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/chromium/chromium-57.0.2987.133.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/chromium/chromium-57.0.2987.133.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/chromium/chromium-57.0.2987.133.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/chromium/chromium-57.0.2987.133.tar.xz || wget -nc https://commondatastorage.googleapis.com/chromium-browser-official/chromium-57.0.2987.133.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/chromium/chromium-57.0.2987.133.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/chromium/chromium-57.0.2987.133.tar.xz
+wget -nc http://www.linuxfromscratch.org/patches/downloads/chromium/chromium-57.0.2987.133-system_ffmpeg-1.patch || wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/chromium-57.0.2987.133-system_ffmpeg-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -68,7 +68,7 @@ fi
 
 whoami > /tmp/currentuser
 
-patch -Np1 -i ../chromium-57.0.2987.110-system_ffmpeg-1.patch
+patch -Np1 -i ../chromium-57.0.2987.133-system_ffmpeg-1.patch
 
 
 sed 's/^config("compiler") {/&\ncflags_cc = [ "-fno-delete-null-pointer-checks" ]/' \
@@ -79,19 +79,19 @@ sed 's/WIDEVINE_CDM_AVAILABLE/&\n\n#define WIDEVINE_CDM_VERSION_STRING "Pinkie P
     -i third_party/widevine/cdm/stub/widevine_cdm_version.h
 
 
-for LIB in ffmpeg flac harfbuzz-ng icu libevent libjpeg \
-           libjpeg_turbo libpng libwebp libxslt yasm; do
+for LIB in ffmpeg flac harfbuzz-ng  libevent libjpeg \
+           libjpeg_turbo libpng libvpx libwebp libxslt yasm; do
     find -type f -path "*third_party/$LIB/*"     \
         \! -path "*third_party/$LIB/chromium/*"  \
         \! -path "*third_party/$LIB/google/*"    \
-        \! -path "*base/third_party/icu/*"       \
+        
         \! -path "*base/third_party/libevent/*"  \
         \! -regex '.*\.\(gn\|gni\|isolate\|py\)' \
         -delete
 done &&
 python build/linux/unbundle/replace_gn_files.py \
-    --system-libraries ffmpeg flac harfbuzz-ng icu libevent libjpeg \
-                       libpng libwebp libxslt yasm &&
+    --system-libraries ffmpeg flac harfbuzz-ng  libevent libjpeg \
+                       libpng libwebp libvpx libxslt yasm &&
 python third_party/libaddressinput/chromium/tools/update-strings.py
 
 
@@ -191,7 +191,7 @@ sudo rm rootscript.sh
 mkdir temp                                         &&
 cd temp                                            &&
 case $(uname -m) in
-    x86_64) ar -x ../../google-chrome-stable_57.0.2987.110-1_amd64.deb
+    x86_64) ar -x ../../google-chrome-stable_57.0.2987.133-1_amd64.deb
     ;;
     x86) ar -x ../../google-chrome-stable_48.0.2564.116-1_i386.deb
     ;;

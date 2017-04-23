@@ -32,14 +32,14 @@ NAME="flashplayer"
 
 cd $SOURCE_DIR
 
-URL=https://fpdownload.adobe.com/pub/flashplayer/pdc/25.0.0.127/flash_player_npapi_linux.x86_64.tar.gz
+URL=https://fpdownload.adobe.com/pub/flashplayer/pdc/25.0.0.148/flash_player_npapi_linux.x86_64.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://fpdownload.adobe.com/pub/flashplayer/pdc/25.0.0.127/flash_player_npapi_linux.x86_64.tar.gz
-wget -nc https://fpdownload.adobe.com/pub/flashplayer/pdc/25.0.0.127/flash_player_npapi_linux.i386.tar.gz
-wget -nc https://fpdownload.adobe.com/pub/flashplayer/pdc/25.0.0.127/flash_player_ppapi_linux.x86_64.tar.gz
-wget -nc https://fpdownload.adobe.com/pub/flashplayer/pdc/25.0.0.127/flash_player_ppapi_linux.i386.tar.gz
+wget -nc https://fpdownload.adobe.com/pub/flashplayer/pdc/25.0.0.148/flash_player_npapi_linux.x86_64.tar.gz
+wget -nc https://fpdownload.adobe.com/pub/flashplayer/pdc/25.0.0.148/flash_player_npapi_linux.i386.tar.gz
+wget -nc https://fpdownload.adobe.com/pub/flashplayer/pdc/25.0.0.148/flash_player_ppapi_linux.x86_64.tar.gz
+wget -nc https://fpdownload.adobe.com/pub/flashplayer/pdc/25.0.0.148/flash_player_ppapi_linux.i386.tar.gz
 wget -nc https://github.com/foutrelis/chromium-launcher/archive/v3.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`

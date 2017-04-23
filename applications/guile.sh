@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Guile package contains the GNUbr3ak Project's extension language library. Guile also contains a stand alone Scheme interpreter.br3ak"
 SECTION="general"
-VERSION=2.2.0
+VERSION=2.2.2
 NAME="guile"
 
 #REQ:gc
@@ -21,11 +21,11 @@ NAME="guile"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnu.org/pub/gnu/guile/guile-2.2.0.tar.xz
+URL=http://ftp.gnu.org/pub/gnu/guile/guile-2.2.2.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/guile/guile-2.2.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/guile/guile-2.2.0.tar.xz || wget -nc http://ftp.gnu.org/pub/gnu/guile/guile-2.2.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/guile/guile-2.2.0.tar.xz || wget -nc ftp://ftp.gnu.org/pub/gnu/guile/guile-2.2.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/guile/guile-2.2.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/guile/guile-2.2.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/guile/guile-2.2.0.tar.xz
+wget -nc http://ftp.gnu.org/pub/gnu/guile/guile-2.2.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/guile/guile-2.2.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/guile/guile-2.2.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/guile/guile-2.2.2.tar.xz || wget -nc ftp://ftp.gnu.org/pub/gnu/guile/guile-2.2.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/guile/guile-2.2.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/guile/guile-2.2.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/guile/guile-2.2.2.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -42,7 +42,7 @@ whoami > /tmp/currentuser
 
 ./configure --prefix=/usr    \
             --disable-static \
-            --docdir=/usr/share/doc/guile-2.2.0 &&
+            --docdir=/usr/share/doc/guile-2.2.2 &&
 make      &&
 make html &&
 makeinfo --plaintext -o doc/r5rs/r5rs.txt doc/r5rs/r5rs.texi &&
@@ -54,13 +54,13 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install      &&
 make install-html &&
 mv /usr/lib/libguile-*-gdb.scm /usr/share/gdb/auto-load/usr/lib &&
-mv /usr/share/doc/guile-2.2.0/{guile.html,ref} &&
-mv /usr/share/doc/guile-2.2.0/r5rs{.html,}     &&
+mv /usr/share/doc/guile-2.2.2/{guile.html,ref} &&
+mv /usr/share/doc/guile-2.2.2/r5rs{.html,}     &&
 find examples -name "Makefile*" -delete         &&
-cp -vR examples   /usr/share/doc/guile-2.2.0   &&
+cp -vR examples   /usr/share/doc/guile-2.2.2   &&
 for DIRNAME in r5rs ref; do
   install -v -m644  doc/${DIRNAME}/*.txt \
-                    /usr/share/doc/guile-2.2.0/${DIRNAME}
+                    /usr/share/doc/guile-2.2.2/${DIRNAME}
 done &&
 unset DIRNAME
 

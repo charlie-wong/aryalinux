@@ -9,21 +9,21 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Sshfs package contains abr3ak filesystem client based on the SSH File Transfer Protocol. This isbr3ak useful for mounting a remote computer that you have ssh access tobr3ak as a local filesystem. This allows you to drag and drop files orbr3ak run shell commands on the remote files as if they were on yourbr3ak local computer.br3ak"
 SECTION="postlfs"
-VERSION=2.8
+VERSION=2.9
 NAME="sshfs"
 
-#REQ:fuse
+#REQ:fuse2
 #REQ:glib2
 #REQ:openssh
 
 
 cd $SOURCE_DIR
 
-URL=https://github.com/libfuse/sshfs/releases/download/sshfs_2.8/sshfs-2.8.tar.gz
+URL=https://github.com/libfuse/sshfs/releases/download/sshfs-2.9/sshfs-2.9.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/sshfs/sshfs-2.8.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/sshfs/sshfs-2.8.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/sshfs/sshfs-2.8.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/sshfs/sshfs-2.8.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/sshfs/sshfs-2.8.tar.gz || wget -nc https://github.com/libfuse/sshfs/releases/download/sshfs_2.8/sshfs-2.8.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/sshfs/sshfs-2.8.tar.gz
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/sshfs/sshfs-2.9.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/sshfs/sshfs-2.9.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/sshfs/sshfs-2.9.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/sshfs/sshfs-2.9.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/sshfs/sshfs-2.9.tar.gz || wget -nc https://github.com/libfuse/sshfs/releases/download/sshfs-2.9/sshfs-2.9.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/sshfs/sshfs-2.9.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -52,7 +52,7 @@ sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
-sshfs THINGY:~ ~/MOUNTPATH
+sshfs HOSTNAME:~ ~/MOUNTPATH
 
 
 fusermount -u ~/MOUNTPATH

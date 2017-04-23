@@ -14,8 +14,10 @@ NAME="gdb"
 
 #OPT:dejagnu
 #OPT:doxygen
+#OPT:gcc
 #OPT:guile
 #OPT:python2
+#OPT:rust
 #OPT:valgrind
 
 
@@ -40,7 +42,7 @@ fi
 
 whoami > /tmp/currentuser
 
-./configure --prefix=/usr --with-system-readline &&
+./configure --prefix=/usr --with-system-readline --without-guile &&
 make "-j`nproc`" || make
 
 

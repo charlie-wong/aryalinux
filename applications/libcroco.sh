@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The libcroco package contains abr3ak standalone CSS2 parsing and manipulation library.br3ak"
 SECTION="general"
-VERSION=0.6.11
+VERSION=0.6.12
 NAME="libcroco"
 
 #REQ:glib2
@@ -19,11 +19,11 @@ NAME="libcroco"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/libcroco/0.6/libcroco-0.6.11.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/libcroco/0.6/libcroco-0.6.12.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libcroco/libcroco-0.6.11.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libcroco/libcroco-0.6.11.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libcroco/libcroco-0.6.11.tar.xz || wget -nc http://ftp.gnome.org/pub/gnome/sources/libcroco/0.6/libcroco-0.6.11.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libcroco/libcroco-0.6.11.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libcroco/libcroco-0.6.11.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libcroco/libcroco-0.6.11.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libcroco/0.6/libcroco-0.6.11.tar.xz
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libcroco/libcroco-0.6.12.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libcroco/libcroco-0.6.12.tar.xz || wget -nc http://ftp.gnome.org/pub/gnome/sources/libcroco/0.6/libcroco-0.6.12.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libcroco/libcroco-0.6.12.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libcroco/libcroco-0.6.12.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libcroco/0.6/libcroco-0.6.12.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libcroco/libcroco-0.6.12.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libcroco/libcroco-0.6.12.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

@@ -9,10 +9,11 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Firefox is a stand-alone browserbr3ak based on the Mozilla codebase.br3ak"
 SECTION="xsoft"
-VERSION=52.0.1
+VERSION=53.0
 NAME="firefox"
 
 #REQ:autoconf213
+#REQ:cargo
 #REQ:gtk3
 #REQ:gtk2
 #REQ:nss
@@ -43,12 +44,12 @@ NAME="firefox"
 
 cd $SOURCE_DIR
 
-URL=https://ftp.mozilla.org/pub/mozilla.org/firefox/releases/52.0.1/source/firefox-52.0.1.source.tar.xz
+URL=https://ftp.mozilla.org/pub/mozilla.org/firefox/releases/53.0/source/firefox-53.0.source.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/firefox/firefox-52.0.1.source.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/firefox/firefox-52.0.1.source.tar.xz || wget -nc https://ftp.mozilla.org/pub/mozilla.org/firefox/releases/52.0.1/source/firefox-52.0.1.source.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/firefox/firefox-52.0.1.source.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/firefox/firefox-52.0.1.source.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/firefox/firefox-52.0.1.source.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/firefox/firefox-52.0.1.source.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/downloads/firefox/firefox-52.0.1-system_graphite2_harfbuzz-1.patch || wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/firefox-52.0.1-system_graphite2_harfbuzz-1.patch
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/firefox/firefox-53.0.source.tar.xz || wget -nc https://ftp.mozilla.org/pub/mozilla.org/firefox/releases/53.0/source/firefox-53.0.source.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/firefox/firefox-53.0.source.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/firefox/firefox-53.0.source.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/firefox/firefox-53.0.source.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/firefox/firefox-53.0.source.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/firefox/firefox-53.0.source.tar.xz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/firefox-53.0-system_graphite2_harfbuzz-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/firefox/firefox-53.0-system_graphite2_harfbuzz-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -128,7 +129,7 @@ mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/firefox-build-dir
 EOF
 
 
-patch -Np1 -i ../firefox-52.0.1-system_graphite2_harfbuzz-1.patch
+patch -Np1 -i ../firefox-53.0-system_graphite2_harfbuzz-1.patch
 
 
 sed -e s/_EVENT_SIZEOF/EVENT__SIZEOF/ \
@@ -141,9 +142,9 @@ make "-j`nproc`" || make -f client.mk
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make "-j`nproc`" || make -f client.mk install INSTALL_SDK= &&
-chown -R 0:0 /usr/lib/firefox-52.0.1   &&
+chown -R 0:0 /usr/lib/firefox-53.0   &&
 mkdir -pv    /usr/lib/mozilla/plugins  &&
-ln    -sfv   ../../mozilla/plugins /usr/lib/firefox-52.0.1/browser
+ln    -sfv   ../../mozilla/plugins /usr/lib/firefox-53.0/browser
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
@@ -169,7 +170,7 @@ Categories=GNOME;GTK;Network;WebBrowser;
 MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
 StartupNotify=true
 EOF
-ln -sfv /usr/lib/firefox-52.0.1/browser/icons/mozicon128.png \
+ln -sfv /usr/lib/firefox-53.0/browser/icons/mozicon128.png \
         /usr/share/pixmaps/firefox.png
 
 ENDOFROOTSCRIPT

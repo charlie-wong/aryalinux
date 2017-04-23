@@ -8,8 +8,8 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/B/BD/BDFOY/Tie-Cycle-1.222.tar.gz"
-VERSION=1.222
+URL="http://search.cpan.org/CPAN/authors/id/B/BD/BDFOY/Tie-Cycle-1.224.tar.gz"
+VERSION=1.224
 NAME="perl-modules#tie-cycle"
 
 cd $SOURCE_DIR
