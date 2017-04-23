@@ -53,9 +53,6 @@ patch -Np1 -i ../curl-7.54.0-valgrind_filter-1.patch &&
 make "-j`nproc`" || make
 
 
-ln -sfv ld-2.23.so.dbg /lib/ld-linux-x86-64.so.2
-
-
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install &&
