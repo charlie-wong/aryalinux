@@ -39,6 +39,8 @@ DESCRIPTION="GNOME is a desktop environment that is composed entirely of free an
 #REQ:libwacom
 #REQ:libwnck
 #REQ:evolution-data-server
+#REQ:folks
+#REQ:gfbgraph
 #REQ:telepathy-glib
 #REQ:telepathy-logger
 #REQ:telepathy-mission-control
@@ -63,6 +65,7 @@ DESCRIPTION="GNOME is a desktop environment that is composed entirely of free an
 #REQ:gnome-shell-extensions
 #REQ:gnome-session
 #REQ:plymouth
+#REQ:gdm
 #OPT:lightdm-gtk-greeter
 #REQ:gnome-user-docs
 #OPT:yelp
