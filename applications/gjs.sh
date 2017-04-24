@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Gjs is a set of Javascriptbr3ak bindings for GNOME.br3ak"
 SECTION="gnome"
-VERSION=1.48.1
+VERSION=1.46.0
 NAME="gjs"
 
 #REQ:cairo
@@ -20,11 +20,11 @@ NAME="gjs"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/gjs/1.48/gjs-1.48.1.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/gjs/1.46/gjs-1.46.0.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gjs/gjs-1.48.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gjs/gjs-1.48.1.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gjs/1.48/gjs-1.48.1.tar.xz || wget -nc http://ftp.gnome.org/pub/gnome/sources/gjs/1.48/gjs-1.48.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gjs/gjs-1.48.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gjs/gjs-1.48.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gjs/gjs-1.48.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gjs/gjs-1.48.1.tar.xz
+wget -nc $URL
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
