@@ -16,7 +16,6 @@ NAME="v4l-utils"
 #REQ:libjpeg
 #REQ:mesa
 #REC:alsa-lib
-#REC:qt5
 #OPT:doxygen
 
 
