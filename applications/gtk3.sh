@@ -57,7 +57,7 @@ whoami > /tmp/currentuser
             --sysconfdir=/etc         \
             --enable-broadway-backend \
             --enable-x11-backend      \
-            --disable-wayland-backend &&
+            --enable-wayland-backend &&
 make "-j`nproc`" || make
 
 
