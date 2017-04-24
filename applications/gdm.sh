@@ -79,6 +79,15 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+install -v -m644 data/gdm.service /lib/systemd/system/gdm.service
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
+
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 systemctl enable gdm
 
 ENDOFROOTSCRIPT
