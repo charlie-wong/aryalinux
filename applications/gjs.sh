@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Gjs is a set of Javascriptbr3ak bindings for GNOME.br3ak"
 SECTION="gnome"
-VERSION=1.46.0
+VERSION=1.48.1
 NAME="gjs"
 
 #REQ:cairo
@@ -20,7 +20,7 @@ NAME="gjs"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/gjs/1.46/gjs-1.46.0.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/gjs/1.48/gjs-1.48.1.tar.xz
 
 if [ ! -z $URL ]
 then
