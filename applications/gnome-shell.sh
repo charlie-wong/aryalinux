@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The GNOME Shell is the core userbr3ak interface of the GNOME Desktopbr3ak environment.br3ak"
 SECTION="gnome"
-VERSION=3.24.1
+VERSION=3.22.3
 NAME="gnome-shell"
 
 #REQ:caribou
@@ -35,7 +35,7 @@ NAME="gnome-shell"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.24/gnome-shell-3.24.1.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.22.3/gnome-shell-3.22.3.tar.xz
 
 if [ ! -z $URL ]
 then
