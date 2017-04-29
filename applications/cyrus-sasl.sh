@@ -70,26 +70,6 @@ sudo rm rootscript.sh
 
 
 
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-. /etc/alps/alps.conf
-
-pushd $SOURCE_DIR
-wget -nc http://www.linuxfromscratch.org/blfs/downloads/svn/blfs-systemd-units-20160602.tar.bz2
-tar xf blfs-systemd-units-20160602.tar.bz2
-cd blfs-systemd-units-20160602
-make install-saslauthd
-
-cd ..
-rm -rf blfs-systemd-units-20160602
-popd
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-
-
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"

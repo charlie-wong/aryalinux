@@ -152,8 +152,6 @@ sudo rm rootscript.sh
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 systemctl stop smbd &&
 systemctl disable smbd &&
-systemctl enable smbd.socket &&
-systemctl start smbd.socket
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
