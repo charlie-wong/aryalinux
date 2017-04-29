@@ -36,7 +36,7 @@ fi
 
 whoami > /tmp/currentuser
 
-./configure --prefix=/usr &&
+./configure --enable-extensions=all --prefix=/usr &&
 make "-j`nproc`" || make
 
 
