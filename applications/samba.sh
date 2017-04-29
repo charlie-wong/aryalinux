@@ -150,8 +150,7 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-systemctl stop smbd &&
-systemctl disable smbd &&
+systemctl enable smbd
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
