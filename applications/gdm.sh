@@ -63,7 +63,8 @@ sudo rm rootscript.sh
             --localstatedir=/var  \
             --without-plymouth    \
             --disable-static      \
-            --enable-gdm-xsession &&
+            --enable-gdm-xsession \
+            --with-systemdsystemunitdir=/lib/systemd/system/ &&
 make "-j`nproc`" || make
 
 

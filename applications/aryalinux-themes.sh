@@ -13,5 +13,6 @@ VERSION="2016.11"
 #REQ:greybird-gtk-theme
 #REQ:breeze-gtk-theme
 #REQ:arc-gtk-theme
+#REQ:numix-icons
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
