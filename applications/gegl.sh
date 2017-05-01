@@ -56,10 +56,12 @@ fi
 
 whoami > /tmp/currentuser
 
-./configure --prefix=/usr &&
-LC_ALL=en_US make
+sed -i /DG_LOG/d configure.ac 
+sed -i '/srcdir)\/gegl\/property-types/a\\t-DG_LOG_DOMAIN=\\\"GEGL\\\" \\' \
+    gegl/Makefile.am
 
-
+./autogen.sh --prefix=/usr --without-vala &&
+LC_ALL=en_US make -j$(nproc)
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install &&
