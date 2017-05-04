@@ -146,7 +146,27 @@ sed -e "/distro-install-file-lists/d" -i Makefile.in &&
 
 make build-nocheck
 
+sudo mkdir -pv /var/cache/alps/binaries
+sudo chmod a+rw /var/cache/alps/binaries
+INSTALL_DIR=/var/cache/alps/binaries/$NAME-$VERSION-$(uname -m)
+make DESTDIR=${INSTALL_DIR} distro-pack-install
+sudo ln -svf ${INSTALL_DIR}/usr/lib/libreoffice/program/soffice ${INSTALL_DIR}/usr/bin/libreoffice
 
+sudo mkdir -vp ${INSTALL_DIR}/usr/share/pixmaps
+for i in ${INSTALL_DIR}/usr/share/icons/hicolor/32x32/apps/*; do
+    sudo ln -svf $i ${INSTALL_DIR}/usr/share/pixmaps
+done
+
+for i in ${INSTALL_DIR}/usr/lib/libreoffice/share/xdg/*; do
+    sudo ln -svf $i ${INSTALL_DIR}/usr/share/applications/libreoffice-$(basename $i)
+done
+
+unset i
+
+pushd ${INSTALL_DIR}
+tar -cJvf ${INSTALL_DIR}/../$NAME-$VERSION-$(uname -m).tar.xz *
+popd
+rm -r ${INSTALL_DIR}
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make distro-pack-install
