@@ -178,7 +178,7 @@ tar -cJvf ${INSTALL_DIR}/../$NAME-$VERSION-$(uname -m).tar.xz *
 popd
 rm -r ${INSTALL_DIR}
 
-sudo tar xf ${INSTALL_DIR}/../$NAME-$VERSION-$(uname -m).tar.xz -C /
+sudo tar xf /var/cache/alps/binaries/$NAME-$VERSION-$(uname -m).tar.xz -C /
 
 sudo ldconfig
 
