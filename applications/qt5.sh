@@ -173,6 +173,10 @@ export QT5DIR
 # End /etc/profile.d/qt5.sh
 EOF
 
+cat > ${INSTALL_DIR}/etc/ld.so.conf.d/qt5.conf <<EOF
+/opt/qt5/lib/
+EOF
+
 pushd ${INSTALL_DIR}
 tar -cJvf ${INSTALL_DIR}/../$NAME-$VERSION-$(uname -m).tar.xz *
 popd

@@ -11,7 +11,7 @@ VERSION="1.9.10"
 cd $SOURCE_DIR
 
 URL=https://github.com/jackaudio/jack2/archive/v1.9.10.tar.gz
-wget -nc $URL -O $name-$version.tar.gz
+wget -c $URL -O $NAME-$VERSION.tar.gz
 TARBALL="$name-$version.tar.gz"
 DIRECTORY=`tar -tf $TARBALL | sed -e 's@/.*@@' | uniq`
 
