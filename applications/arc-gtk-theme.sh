@@ -17,7 +17,7 @@ cd $SOURCE_DIR
 URL="https://sourceforge.net/projects/aryalinux-bin/files/releases/2017.05/arc-theme-20170302.tar.gz"
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
-DIRECTORY=$(unzip -l $TARBALL | grep "/" | rev | tr -s " " | cut -d " " -f1 | rev | cut -d/ -f1 | uniq)
+DIRECTORY=`tar -tf $TARBALL | sed -e 's@/.*@@' | uniq `
 
 tar -xf $TARBALL
 cd $DIRECTORY
