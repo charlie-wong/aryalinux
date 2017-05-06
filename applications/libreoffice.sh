@@ -166,7 +166,7 @@ unset i
 pushd ${INSTALL_DIR}
 tar -cJvf ${INSTALL_DIR}/../$NAME-$VERSION-$(uname -m).tar.xz *
 popd
-rm -r ${INSTALL_DIR}
+sudo rm -r ${INSTALL_DIR}
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make distro-pack-install
