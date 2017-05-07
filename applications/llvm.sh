@@ -64,26 +64,8 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr           \
       -Wno-dev ..                           &&
 make "-j`nproc`" || make
 
-sudo mkdir -pv /var/cache/alps/binaries
-sudo chmod a+rw /var/cache/alps/binaries
-INSTALL_DIR=/var/cache/alps/binaries/$NAME-$VERSION-$(uname -m)
-make DESTDIR=${INSTALL_DIR} install
-
-pushd ${INSTALL_DIR}
-tar -cJvf ${INSTALL_DIR}/../$NAME-$VERSION-$(uname -m).tar.xz *
-popd
-rm -r ${INSTALL_DIR}
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make install
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
+makepkg "$NAME" "$VERSION" "1"
+sudo tar xf $BINARY_DIR/$NAME-$VERSION-$(uname -m).tar.xz -C /
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
