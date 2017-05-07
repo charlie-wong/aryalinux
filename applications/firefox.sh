@@ -72,7 +72,7 @@ cat > mozconfig << "EOF"
 # uncommenting the next line and setting a valid number of CPU cores.
 #mk_add_options MOZ_MAKE_FLAGS="-j1"
 # If you have installed dbus-glib, comment out this line:
-ac_add_options --disable-dbus
+# ac_add_options --disable-dbus
 # If you have installed dbus-glib, and you have installed (or will install)
 # wireless-tools, and you wish to use geolocation web services, comment out
 # this line
