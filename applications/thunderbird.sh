@@ -21,21 +21,21 @@ NAME="thunderbird"
 #REC:libvpx
 #REC:nspr
 #REC:nss
-#OPT:curl
-#OPT:cyrus-sasl
-#OPT:dbus-glib
+#REQ:curl
+#REQ:cyrus-sasl
+#REQ:dbus-glib
 #OPT:doxygen
-#OPT:GConf
-#OPT:gst10-plugins-base
-#OPT:gst10-plugins-good
-#OPT:gst10-libav
-#OPT:llvm
+#REQ:GConf
+#REQ:gst10-plugins-base
+#REQ:gst10-plugins-good
+#REQ:gst10-libav
+#REQ:llvm
 #OPT:openjdk
-#OPT:pulseaudio
-#OPT:sqlite
-#OPT:startup-notification
-#OPT:wget
-#OPT:wireless_tools
+#REQ:pulseaudio
+#REQ:sqlite
+#REQ:startup-notification
+#REQ:wget
+#REQ:wireless_tools
 
 
 cd $SOURCE_DIR
@@ -66,28 +66,28 @@ cat > mozconfig << "EOF"
 # you want to use a smaller number of jobs:
 #mk_add_options MOZ_MAKE_FLAGS="-j1"
 # If you have installed dbus-glib, comment out this line:
-ac_add_options --disable-dbus
+# ac_add_options --disable-dbus
 # If you have installed wireless-tools comment out this line:
-ac_add_options --disable-necko-wifi
+# ac_add_options --disable-necko-wifi
 # GStreamer is necessary for H.264 video playback in HTML5 Video Player;
 # to be enabled, also remember to set "media.gstreamer.enabled" to "true"
 # in about:config. If you have GStreamer 1.x.y, comment out this line and
 # uncomment the following one:
-ac_add_options --disable-gstreamer
-#ac_add_options --enable-gstreamer=1.0
+# ac_add_options --disable-gstreamer
+ac_add_options --enable-gstreamer=1.0
 # Uncomment these lines if you have installed optional dependencies:
 #ac_add_options --enable-system-hunspell
-#ac_add_options --enable-startup-notification
+ac_add_options --enable-startup-notification
 # Comment out following option if you have PulseAudio installed
-ac_add_options --disable-pulseaudio
+# ac_add_options --disable-pulseaudio
 # Comment out following option if you have gconf installed
-ac_add_options --disable-gconf
+# ac_add_options --disable-gconf
 # If you want to compile the Mozilla Calendar, uncomment this line:
-#ac_add_options --enable-calendar
+ac_add_options --enable-calendar
 # Comment out following options if you have not installed
 # recommended dependencies:
 # Do not use system SQLite for Thunderbird 45.x
-#ac_add_options --enable-system-sqlite
+ac_add_options --enable-system-sqlite
 ac_add_options --with-system-libevent
 ac_add_options --with-system-libvpx
 ac_add_options --with-system-nspr
@@ -131,24 +131,12 @@ sed -e '/#include/i\
 sed -e '/#include/a\
     print OUT "#undef _GLIBCXX_INCLUDE_NEXT_C_HEADERS\\n"\;' \
     -i mozilla/nsprpub/config/make-system-wrappers.pl &&
-make -f client.mk
 
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make -f client.mk install INSTALL_SDK= &&
-chown -R 0:0 /usr/lib/thunderbird-45.8.0
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-mkdir -pv /usr/share/{applications,pixmaps} &&
-cat > /usr/share/applications/thunderbird.desktop << "EOF" &&
+SHELL=/bin/sh make -f client.mk
+INSTALL_DIR=/var/cache/alps/binaries/$NAME-$VERSION-$(uname -m)
+SHELL=/bin/sh make -f client.mk install DESTDIR="$INSTALL_DIR" INSTALL_SDK=
+mkdir -pv $INSTALL_DIR/usr/share/{applications,pixmaps} &&
+cat > $INSTALL_DIR/usr/share/applications/thunderbird.desktop << "EOF" &&
 [Desktop Entry]
 Encoding=UTF-8
 Name=Thunderbird Mail
@@ -163,14 +151,12 @@ MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/xml;ap
 StartupNotify=true
 EOF
 ln -sfv /usr/lib/thunderbird-45.8.0/chrome/icons/default/default256.png \
-        /usr/share/pixmaps/thunderbird.png
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
+        $INSTALL_DIR/usr/share/pixmaps/thunderbird.png
+pushd ${INSTALL_DIR}
+tar -cJvf ${INSTALL_DIR}/../$NAME-$VERSION-$(uname -m).tar.xz *
+popd
+sudo rm -r ${INSTALL_DIR}
+sudo tar xf $BINARY_DIR/$NAME-$VERSION-$(uname -m).tar.xz -C /
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
