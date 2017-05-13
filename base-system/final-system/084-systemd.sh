@@ -61,7 +61,6 @@ EOF
             --without-python         \
             --with-default-dnssec=no \
             --docdir=/usr/share/doc/systemd-233
-sed -i s/size_t/GPERF_LEN_TYPE/ src/resolve/dns_type-from-name.h
 make LD_LIBRARY_PATH=/tools/lib
 make LD_LIBRARY_PATH=/tools/lib install
 rm -rfv /usr/lib/rpm

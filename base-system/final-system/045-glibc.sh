@@ -40,6 +40,7 @@ esac
 mkdir -v build
 cd       build
 ../configure --prefix=/usr                   \
+             --disable-werror                \
              --enable-kernel=2.6.32          \
              --enable-obsolete-rpc           \
              --enable-stack-protector=strong \

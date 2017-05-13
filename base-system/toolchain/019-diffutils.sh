@@ -29,6 +29,7 @@ then
 	cd $DIRECTORY
 fi
 
+sed -i '233,237 s/max)/max) \\/' lib/intprops.h
 ./configure --prefix=/tools
 make
 make install
