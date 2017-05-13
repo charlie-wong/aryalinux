@@ -5,15 +5,15 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="jack"
+NAME="jack2"
 VERSION="1.9.10"
 
 cd $SOURCE_DIR
 
-URL=https://dl.dropboxusercontent.com/u/28869550/jack-1.9.10.tar.bz2
-wget -nc $URL
-TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
-DIRECTORY=`tar -tf $TARBALL | sed -e 's@/.*@@' | uniq `
+URL=https://github.com/jackaudio/jack2/archive/v1.9.10.tar.gz
+wget -c $URL -O $NAME-$VERSION.tar.gz
+TARBALL="$NAME-$VERSION.tar.gz"
+DIRECTORY=`tar -tf $TARBALL | sed -e 's@/.*@@' | uniq`
 
 tar -xf $TARBALL
 

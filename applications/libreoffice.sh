@@ -70,9 +70,14 @@ URL=http://download.documentfoundation.org/libreoffice/src/5.3.0/libreoffice-5.3
 
 if [ ! -z $URL ]
 then
+
 wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-5.3.0.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-5.3.0.3.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-5.3.0.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-5.3.0.3.tar.xz || wget -nc http://download.documentfoundation.org/libreoffice/src/5.3.0/libreoffice-5.3.0.3.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-5.3.0.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-5.3.0.3.tar.xz
+
 wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.3.0.3.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.3.0.3.tar.xz || wget -nc http://download.documentfoundation.org/libreoffice/src/5.3.0/libreoffice-dictionaries-5.3.0.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.3.0.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.3.0.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.3.0.3.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.3.0.3.tar.xz
+
 wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-translations-5.3.0.3.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-translations-5.3.0.3.tar.xz || wget -nc http://download.documentfoundation.org/libreoffice/src/5.3.0/libreoffice-translations-5.3.0.3.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-translations-5.3.0.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-translations-5.3.0.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-translations-5.3.0.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-translations-5.3.0.3.tar.xz
+
+wget -nc http://download.documentfoundation.org/libreoffice/src/5.3.0/libreoffice-help-5.3.0.3.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -146,7 +151,27 @@ sed -e "/distro-install-file-lists/d" -i Makefile.in &&
 
 make build-nocheck
 
+sudo mkdir -pv /var/cache/alps/binaries
+sudo chmod a+rw /var/cache/alps/binaries
+INSTALL_DIR=/var/cache/alps/binaries/$NAME-$VERSION-$(uname -m)
+make DESTDIR=${INSTALL_DIR} distro-pack-install
+sudo ln -svf ${INSTALL_DIR}/usr/lib/libreoffice/program/soffice ${INSTALL_DIR}/usr/bin/libreoffice
 
+sudo mkdir -vp ${INSTALL_DIR}/usr/share/pixmaps
+for i in ${INSTALL_DIR}/usr/share/icons/hicolor/32x32/apps/*; do
+    sudo ln -svf $i ${INSTALL_DIR}/usr/share/pixmaps
+done
+
+for i in ${INSTALL_DIR}/usr/lib/libreoffice/share/xdg/*; do
+    sudo ln -svf $i ${INSTALL_DIR}/usr/share/applications/libreoffice-$(basename $i)
+done
+
+unset i
+
+pushd ${INSTALL_DIR}
+tar -cJvf ${INSTALL_DIR}/../$NAME-$VERSION-$(uname -m).tar.xz *
+popd
+sudo rm -r ${INSTALL_DIR}
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make distro-pack-install

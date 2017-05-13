@@ -77,6 +77,20 @@ cmake -DCMAKE_BUILD_TYPE=Release  \
       -Wno-dev .. &&
 make "-j`nproc`" || make
 
+sudo mkdir -pv /var/cache/alps/binaries
+sudo chmod a+rw /var/cache/alps/binaries
+INSTALL_DIR=/var/cache/alps/binaries/$NAME-$VERSION-$(uname -m)
+make DESTDIR=${INSTALL_DIR} install
+install -vdm755 ${INSTALL_DIR}/usr/share/gtk-doc/html/webkit{2,dom}gtk-4.0 &&
+install -vm644  ../Documentation/webkit2gtk-4.0/html/*   \
+                ${INSTALL_DIR}/usr/share/gtk-doc/html/webkit2gtk-4.0       &&
+install -vm644  ../Documentation/webkitdomgtk-4.0/html/* \
+                ${INSTALL_DIR}/usr/share/gtk-doc/html/webkitdomgtk-4.0
+
+pushd ${INSTALL_DIR}
+tar -cJvf ${INSTALL_DIR}/../$NAME-$VERSION-$(uname -m).tar.xz *
+popd
+rm -r ${INSTALL_DIR}
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"

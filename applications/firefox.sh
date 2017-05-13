@@ -26,20 +26,20 @@ NAME="firefox"
 #REC:libevent
 #REC:libvpx
 #REC:sqlite
-#OPT:curl
-#OPT:dbus-glib
+#REQ:curl
+#REQ:dbus-glib
 #OPT:doxygen
-#OPT:GConf
-#OPT:ffmpeg
-#OPT:libwebp
+#REQ:GConf
+#REQ:ffmpeg
+#REQ:libwebp
 #OPT:openjdk
-#OPT:startup-notification
-#OPT:valgrind
-#OPT:wget
-#OPT:wireless_tools
-#OPT:liboauth
-#OPT:graphite2
-#OPT:harfbuzz
+#REQ:startup-notification
+#REQ:valgrind
+#REQ:wget
+#REQ:wireless_tools
+#REQ:liboauth
+#REQ:graphite2
+#REQ:harfbuzz
 
 
 cd $SOURCE_DIR
@@ -72,22 +72,22 @@ cat > mozconfig << "EOF"
 # uncommenting the next line and setting a valid number of CPU cores.
 #mk_add_options MOZ_MAKE_FLAGS="-j1"
 # If you have installed dbus-glib, comment out this line:
-ac_add_options --disable-dbus
+# ac_add_options --disable-dbus
 # If you have installed dbus-glib, and you have installed (or will install)
 # wireless-tools, and you wish to use geolocation web services, comment out
 # this line
-ac_add_options --disable-necko-wifi
+# ac_add_options --disable-necko-wifi
 # Uncomment this option if you wish to build with gtk+-2
 #ac_add_options --enable-default-toolkit=cairo-gtk2
 # Uncomment these lines if you have installed optional dependencies:
 #ac_add_options --enable-system-hunspell
-#ac_add_options --enable-startup-notification
+ac_add_options --enable-startup-notification
 # Uncomment the following option if you have not installed PulseAudio
 #ac_add_options --disable-pulseaudio
 # and uncomment this if you installed alsa-lib instead of PulseAudio
 #ac_add_options --enable-alsa
 # If you have installed GConf, comment out this line
-ac_add_options --disable-gconf
+# ac_add_options --disable-gconf
 # Comment out following options if you have not installed
 # recommended dependencies:
 ac_add_options --enable-system-sqlite
@@ -98,8 +98,8 @@ ac_add_options --with-system-nss
 ac_add_options --with-system-icu
 # If you are going to apply the patch for system graphite
 # and system harfbuzz, uncomment these lines:
-#ac_add_options --with-system-graphite2
-#ac_add_options --with-system-harfbuzz
+ac_add_options --with-system-graphite2
+ac_add_options --with-system-harfbuzz
 # Stripping is now enabled by default.
 # Uncomment these lines if you need to run a debugger:
 #ac_add_options --disable-strip
@@ -135,28 +135,14 @@ patch -Np1 -i ../firefox-53.0-system_graphite2_harfbuzz-1.patch
 sed -e s/_EVENT_SIZEOF/EVENT__SIZEOF/ \
     -i ipc/chromium/src/base/message_pump_libevent.cc
 
+SHELL=/bin/sh make -f client.mk
 
-make "-j`nproc`" || make -f client.mk
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make "-j`nproc`" || make -f client.mk install INSTALL_SDK= &&
-chown -R 0:0 /usr/lib/firefox-53.0   &&
-mkdir -pv    /usr/lib/mozilla/plugins  &&
-ln    -sfv   ../../mozilla/plugins /usr/lib/firefox-53.0/browser
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-mkdir -pv /usr/share/applications &&
-mkdir -pv /usr/share/pixmaps &&
-cat > /usr/share/applications/firefox.desktop << "EOF" &&
+INSTALL_DIR=/var/cache/alps/binaries/$NAME-$VERSION-$(uname -m)
+SHELL=/bin/sh make -f client.mk install DESTDIR="$INSTALL_DIR" INSTALL_SDK=
+mkdir -pv    $INSTALL_DIR/usr/lib/mozilla/plugins
+ln    -sfv   ../../mozilla/plugins $INSTALL_DIR/usr/lib/firefox-53.0/browser
+mkdir -pv $INSTALL_DIR/usr/share/{applications,pixmaps} &&
+cat > $INSTALL_DIR/usr/share/applications/firefox.desktop << "EOF" &&
 [Desktop Entry]
 Encoding=UTF-8
 Name=Firefox Web Browser
@@ -171,14 +157,12 @@ MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/vnd.mo
 StartupNotify=true
 EOF
 ln -sfv /usr/lib/firefox-53.0/browser/icons/mozicon128.png \
-        /usr/share/pixmaps/firefox.png
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
+        $INSTALL_DIR/usr/share/pixmaps/firefox.png
+pushd ${INSTALL_DIR}
+tar -cJvf ${INSTALL_DIR}/../$NAME-$VERSION-$(uname -m).tar.xz *
+popd
+sudo rm -r ${INSTALL_DIR}
+sudo tar xf $BINARY_DIR/$NAME-$VERSION-$(uname -m).tar.xz -C /
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

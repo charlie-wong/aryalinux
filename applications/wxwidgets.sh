@@ -25,7 +25,8 @@ cd $DIRECTORY
 ./configure --prefix=/usr &&
 patch -Np1 -i ../wxwidgets-3.0.2-scintilla.patch &&
 make "-j`nproc`"
-sudo make install
+makepkg "$NAME" "$VERSION" "1"
+sudo tar xf $BINARY_DIR/$NAME-$VERSION-$(uname -m).tar.xz -C /
 
 cd $SOURCE_DIR
 cleanup "$NAME" "$DIRECTORY"
