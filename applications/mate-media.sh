@@ -9,13 +9,13 @@ set +h
 SOURCE_ONLY=n
 NAME="mate-media"
 DESCRIPTION="MATE media utilities"
-VERSION="1.18.0"
+VERSION="1.19.0"
 
 #REQ:libmatemixer
 
 cd $SOURCE_DIR
 
-URL="http://pub.mate-desktop.org/releases/1.18/mate-media-1.18.0.tar.xz"
+URL="http://pub.mate-desktop.org/releases/1.19/mate-media-1.19.0.tar.xz"
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
@@ -26,7 +26,8 @@ cd $DIRECTORY
 ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static --with-gtk=3.0 &&
 make "-j`nproc`"
 
-sudo make install
+makepkg "$NAME" "$VERSION" "1"
+sudo tar xf $BINARY_DIR/$NAME-$VERSION-$(uname -m).tar.xz -C /
 
 cd $SOURCE_DIR
 
