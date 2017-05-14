@@ -26,7 +26,7 @@ URL=http://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.1.tar
 if [ ! -z $URL ]
 then
 wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/fontconfig/fontconfig-2.12.1.tar.bz2 || wget -nc http://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.1.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.12.1.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.12.1.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/fontconfig/fontconfig-2.12.1.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/fontconfig/fontconfig-2.12.1.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/fontconfig/fontconfig-2.12.1.tar.bz2
-wget -nc https://github.com/RussianFedora/fontconfig/blob/master/fontconfig-gperf-3.1.patch
+wget -nc https://raw.githubusercontent.com/RussianFedora/fontconfig/master/fontconfig-gperf-3.1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
