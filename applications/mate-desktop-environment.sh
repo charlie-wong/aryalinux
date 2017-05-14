@@ -101,6 +101,7 @@ VERSION=1.18
 #REQ:net-tools
 #REQ:usb_modeswitch
 #REQ:compton
+#REQ:arc-gtk-theme
 
 sudo tee /etc/gtk-2.0/gtkrc <<"EOF"
 include "/usr/share/themes/Clearlooks/gtk-2.0/gtkrc"
