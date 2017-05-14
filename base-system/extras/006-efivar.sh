@@ -27,7 +27,7 @@ patch -Np1 -i ../efivar-30-z-muldefs.patch
 sed 's|-O0|-Os|g' -i Make.defaults
 sed 's|-rpath=$(TOPDIR)/src/|-rpath=$(libdir)|g' \
      -i src/test/Makefile
-CFLAGS="-Wno-error=deprecated-declarations" make libdir="/usr/lib/" bindir="/usr/bin/" \
+CFLAGS="-Wno-error=deprecated-declarations -Wno-error=duplicate-decl-specifier" make libdir="/usr/lib/" bindir="/usr/bin/" \
 	mandir="/usr/share/man/"     \
 	includedir="/usr/include/" V=1 -j1
 pushd src/test
