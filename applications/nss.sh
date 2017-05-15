@@ -41,7 +41,7 @@ whoami > /tmp/currentuser
 
 patch -Np1 -i ../nss-3.30.1-standalone-1.patch &&
 cd nss &&
-make -j1 BUILD_OPT=1                  \
+CFLAGS="-Wno-error=int-in-bool-context" make -j1 BUILD_OPT=1                  \
   NSPR_INCLUDE_DIR=/usr/include/nspr  \
   USE_SYSTEM_ZLIB=1                   \
   ZLIB_LIBS=-lz                       \
