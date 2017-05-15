@@ -40,6 +40,9 @@ wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
 
+tar xf $TARBALL
+cd $DIRECTORY
+
 ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var &&
 make "-j`nproc`"
 
