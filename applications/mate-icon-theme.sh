@@ -40,7 +40,7 @@ wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
 
-./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static --with-gtk=3.0 &&
+./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var &&
 make "-j`nproc`"
 
 makepkg "$NAME" "$VERSION" "1"
