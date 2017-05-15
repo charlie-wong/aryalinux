@@ -27,7 +27,7 @@ cd $DIRECTORY
 make "-j`nproc`"
 
 makepkg "$NAME" "$VERSION" "1"
-sudo tar xf $BINARY_DIR/$NAME-$VERSION-$(uname -m).tar.xz -C /mate
+sudo tar xf $BINARY_DIR/$NAME-$VERSION-$(uname -m).tar.xz -C /
 
 cd $SOURCE_DIR
 
