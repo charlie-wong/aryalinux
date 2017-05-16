@@ -60,11 +60,6 @@ sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
-make -k check
-
-
-
-
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
