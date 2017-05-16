@@ -11,7 +11,7 @@ VERSION="5.6.27"
 #REQ:cmake
 #REQ:openssl
 #REC:libevent
-#OPT:boost
+#REQ:boost
 #OPT:libxml2
 #OPT:linux-pam
 #OPT:pcre
