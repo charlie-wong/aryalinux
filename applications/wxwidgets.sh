@@ -12,12 +12,12 @@ VERSION="3.0.2"
 #REQ:gtk2
 #REQ:gtk3
 #REQ:glu
+#REQ:sdl
 
 cd $SOURCE_DIR
 
 URL=https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.2/wxWidgets-3.0.2.tar.bz2
 wget -nc $URL
-wget -nc aryalinux.org/releases/2016.08/wxwidgets-3.0.2-scintilla.patch
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | sed -e 's@/.*@@' | uniq `
 
@@ -25,9 +25,7 @@ tar -xf $TARBALL
 
 cd $DIRECTORY
 
-./autogen.sh --prefix=/usr
-./configure --prefix=/usr &&
-patch -Np1 -i ../wxwidgets-3.0.2-scintilla.patch &&
+./configure --with-opengl --prefix=/usr --with-sdl &&
 make "-j`nproc`"
 sudo make install
 
