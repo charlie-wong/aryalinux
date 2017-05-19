@@ -30,6 +30,8 @@ if [ ! -z $URL ]
 then
 wget -nc http://www.midori-browser.org/downloads/midori_0.5.11_all_.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/midori/midori_0.5.11_all_.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/midori/midori_0.5.11_all_.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/midori/midori_0.5.11_all_.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/midori/midori_0.5.11_all_.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/midori/midori_0.5.11_all_.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/midori/midori_0.5.11_all_.tar.bz2
 
+wget -nc https://sourceforge.net/projects/aryalinux-bin/files/releases/2017.05/vala-0.36.patch
+
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
 	DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$"`
@@ -43,6 +45,7 @@ fi
 
 whoami > /tmp/currentuser
 
+patch -Np1 -i ../vala-0.36.patch
 mkdir build &&
 cd    build &&
 cmake -DCMAKE_INSTALL_PREFIX=/usr \
