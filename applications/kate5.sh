@@ -8,7 +8,7 @@ set +h
 
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Kate package contains anbr3ak advanced KF5 based graphical text editor.br3ak"
-SECTION="postlfs"
+SECTION="kde"
 VERSION=16.12.2
 NAME="kate5"
 
@@ -40,6 +40,7 @@ mkdir build &&
 cd    build &&
 cmake -DCMAKE_INSTALL_PREFIX=/opt/kf5  \
       -DCMAKE_BUILD_TYPE=Release          \
+      -DLIB_INSTALL_DIR=lib               \
       -DBUILD_TESTING=OFF                 \
       -Wno-dev .. &&
 make "-j`nproc`" || make

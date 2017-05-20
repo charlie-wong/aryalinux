@@ -38,7 +38,7 @@ fi
 whoami > /tmp/currentuser
 
 ./configure --prefix=/usr --disable-static &&
-CFLAGS="-Wno-error=format-truncation=" make "-j`nproc`" || make
+make "-j`nproc`" || make
 
 
 

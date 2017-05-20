@@ -14,12 +14,11 @@ set +h
 #REQ:perl-modules#www-robotrules
 #REQ:perl-modules#http-daemon
 #REQ:perl-modules#file-listing
-#REQ:perl-modules#test-requiresinternet
 #REQ:perl-modules#perl-test-fatal
 
 SOURCE_ONLY=y
-URL="https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.26.tar.gz"
-VERSION=6.26
+URL="https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.19.tar.gz"
+VERSION=6.19
 NAME="perl-modules#perl-lwp"
 
 cd $SOURCE_DIR

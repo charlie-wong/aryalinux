@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Aspell package contains anbr3ak interactive spell checking program and the Aspell libraries. Aspell can either be used as a library or asbr3ak an independent spell checker.br3ak"
 SECTION="general"
-VERSION=0.60.7
+VERSION=0.60.6.1
 NAME="aspell"
 
 #REQ:general_which
@@ -17,12 +17,11 @@ NAME="aspell"
 
 cd $SOURCE_DIR
 
-URL=ftp://alpha.gnu.org/gnu/aspell/aspell-0.60.7-rc1.tar.gz
+URL=https://ftp.gnu.org/gnu/aspell/aspell-0.60.6.1.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://alpha.gnu.org/gnu/aspell/aspell-0.60.7-rc1.tar.gz
-wget -nc https://ftp.gnu.org/gnu/aspell/dict/en/aspell6-en-2017.01.22-0.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/aspell/aspell-0.60.6.1.tar.gz || wget -nc https://ftp.gnu.org/gnu/aspell/aspell-0.60.6.1.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/aspell/aspell-0.60.6.1.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/aspell/aspell-0.60.6.1.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/aspell/aspell-0.60.6.1.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/aspell/aspell-0.60.6.1.tar.gz || wget -nc ftp://ftp.gnu.org/gnu/aspell/aspell-0.60.6.1.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/aspell/aspell-0.60.6.1.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -44,7 +43,12 @@ make "-j`nproc`" || make
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install &&
-ln -svfn aspell-0.60 /usr/lib/aspell
+ln -svfn aspell-0.60 /usr/lib/aspell &&
+install -v -m755 -d /usr/share/doc/aspell-0.60.6.1/aspell{,-dev}.html &&
+install -v -m644 manual/aspell.html/* \
+    /usr/share/doc/aspell-0.60.6.1/aspell.html &&
+install -v -m644 manual/aspell-dev.html/* \
+    /usr/share/doc/aspell-0.60.6.1/aspell-dev.html
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
@@ -71,14 +75,7 @@ sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
-pushd $SOURCE_DIR
-tar xf aspell6-en-2017.01.22-0.tar.bz2
-cd aspell6-en-2017.01.22-0
-./configure &&
-make
-sudo make install
-cd ..
-sudo rm -rf aspell6-en-2017.01.22-0
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

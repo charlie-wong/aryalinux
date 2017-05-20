@@ -58,9 +58,8 @@ whoami > /tmp/currentuser
             --sysconfdir=/etc    \
             --localstatedir=/var \
             --enable-bluez5 --enable-bluez5-ofono-headset     \
-            --disable-bluez5     \
             --disable-rpath      &&
-make
+make "-j`nproc`" || make
 
 
 

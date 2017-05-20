@@ -45,7 +45,7 @@ export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disab
 
 cat > lib-7.md5 << "EOF"
 c5ba432dd1514d858053ffe9f4737dd8 xtrans-1.3.5.tar.bz2
-0f618db70c4054ca67cee0cc156a4255 libX11-1.6.5.tar.bz2
+6d54227082f3aa2c596f0b3a3fbb9175 libX11-1.6.4.tar.bz2
 52df7c4c1f0badd9f82ab124fb32eb97 libXext-1.3.3.tar.bz2
 d79d9fe2aa55eb0f69b1a4351e1368f7 libFS-1.0.7.tar.bz2
 addfb1e897ca8079531669c7c7711726 libICE-1.0.9.tar.bz2
@@ -73,7 +73,7 @@ ef8c2c1d16a00bd95b9fdcef63b8a2ca libXtst-1.2.3.tar.bz2
 d7dd9b9df336b7dd4028b6b56542ff2c libXxf86dga-1.1.4.tar.bz2
 298b8fff82df17304dfdb5fe4066fe3a libXxf86vm-1.1.4.tar.bz2
 ba983eba5a9f05d152a0725b8e863151 libdmx-1.1.3.tar.bz2
-d810ab17e24c1418dedf7207fb2841d4 libpciaccess-0.13.5.tar.bz2
+ace78aec799b1cf6dfaea55d3879ed9f libpciaccess-0.13.4.tar.bz2
 4a4cfeaf24dab1b991903455d6d7d404 libxkbfile-1.0.9.tar.bz2
 66662e76899112c0f99e22f2fc775a7e libxshmfence-1.2.tar.bz2
 EOF
@@ -82,7 +82,7 @@ EOF
 mkdir -pv lib &&
 cd lib &&
 grep -v '^#' ../lib-7.md5 | awk '{print $2}' | wget -i- -nc \
-    -B https://www.x.org/pub/individual/lib/ &&
+    -B http://ftp.x.org/pub/individual/lib/ &&
 md5sum -c ../lib-7.md5
 
 
@@ -105,9 +105,6 @@ do
   tar -xf $package
   pushd $packagedir
   case $packagedir in
-    libICE* )
-      ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static ICE_LIBS=-lpthread
-    ;;
     libXfont2-[0-9]* )
       ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static --disable-devel-docs
     ;;

@@ -23,7 +23,6 @@ NAME="networkmanager"
 #REC:libsoup
 #REC:newt
 #REC:polkit
-#REC:python-modules#pygobject3
 #REC:systemd
 #REC:upower
 #REC:vala
@@ -32,6 +31,7 @@ NAME="networkmanager"
 #OPT:gtk-doc
 #OPT:qt5
 #OPT:ModemManager
+#OPT:python-modules#pygobject3
 #OPT:valgrind
 
 

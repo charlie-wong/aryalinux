@@ -25,7 +25,7 @@ URL=http://ftp.gnome.org/pub/gnome/sources/pygobject/2.28/pygobject-2.28.6.tar.x
 if [ ! -z $URL ]
 then
 wget -nc http://ftp.gnome.org/pub/gnome/sources/pygobject/2.28/pygobject-2.28.6.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/pygobject/2.28/pygobject-2.28.6.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/downloads/pygobject/pygobject-2.28.6-fixes-1.patch || wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/pygobject-2.28.6-fixes-1.patch
+wget -nc http://www.linuxfromscratch.org/patches/blfs/8.0/pygobject-2.28.6-fixes-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/pygobject/pygobject-2.28.6-fixes-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

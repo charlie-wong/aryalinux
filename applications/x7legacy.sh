@@ -56,7 +56,7 @@ EOF
 mkdir legacy &&
 cd legacy &&
 grep -v '^#' ../legacy.dat | awk '{print $2$3}' | wget -i- -c \
-     -B https://www.x.org/pub/individual/ &&
+     -B http://ftp.x.org/pub/individual/ &&
 grep -v '^#' ../legacy.dat | awk '{print $1 " " $3}' > ../legacy.md5 &&
 md5sum -c ../legacy.md5
 

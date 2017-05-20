@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Pidgin is a Gtk+ 2 instantbr3ak messaging client that can connect with a wide range of networksbr3ak including AIM, ICQ, GroupWise, MSN, Jabber, IRC, Napster,br3ak Gadu-Gadu, SILC, Zephyr and Yahoo!br3ak"
 SECTION="xsoft"
-VERSION=2.12.0
+VERSION=2.11.0
 NAME="pidgin"
 
 #REQ:gtk2
@@ -34,11 +34,11 @@ NAME="pidgin"
 
 cd $SOURCE_DIR
 
-URL=http://downloads.sourceforge.net/pidgin/pidgin-2.12.0.tar.bz2
+URL=http://downloads.sourceforge.net/pidgin/pidgin-2.11.0.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/pidgin/pidgin-2.12.0.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/pidgin/pidgin-2.12.0.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/pidgin/pidgin-2.12.0.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/pidgin/pidgin-2.12.0.tar.bz2 || wget -nc http://downloads.sourceforge.net/pidgin/pidgin-2.12.0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/pidgin/pidgin-2.12.0.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/pidgin/pidgin-2.12.0.tar.bz2
+wget -nc http://downloads.sourceforge.net/pidgin/pidgin-2.11.0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/pidgin/pidgin-2.11.0.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/pidgin/pidgin-2.11.0.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/pidgin/pidgin-2.11.0.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/pidgin/pidgin-2.11.0.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/pidgin/pidgin-2.11.0.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/pidgin/pidgin-2.11.0.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -69,8 +69,8 @@ make "-j`nproc`" || make
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install &&
-mkdir -pv /usr/share/doc/pidgin-2.12.0 &&
-cp -v README doc/gtkrc-2.0 /usr/share/doc/pidgin-2.12.0
+mkdir -pv /usr/share/doc/pidgin-2.11.0 &&
+cp -v README doc/gtkrc-2.0 /usr/share/doc/pidgin-2.11.0
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

@@ -100,13 +100,12 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -vdm755 /etc/pam.d &&
-cat > /etc/pam.d/system-account << "EOF" &&
+cat > /etc/pam.d/system-account << "EOF"
 # Begin /etc/pam.d/system-account
 account required pam_unix.so
 # End /etc/pam.d/system-account
 EOF
-cat > /etc/pam.d/system-auth << "EOF" &&
+cat > /etc/pam.d/system-auth << "EOF"
 # Begin /etc/pam.d/system-auth
 auth required pam_unix.so
 # End /etc/pam.d/system-auth

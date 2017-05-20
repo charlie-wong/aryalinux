@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The GnuPG package is GNU's toolbr3ak for secure communication and data storage. It can be used tobr3ak encrypt data and to create digital signatures. It includes anbr3ak advanced key management facility and is compliant with the proposedbr3ak OpenPGP Internet standard as described in RFC2440 and the S/MIMEbr3ak standard as described by several RFCs. GnuPG 2 is the stablebr3ak version of GnuPG integrating support for OpenPGP and S/MIME.br3ak"
 SECTION="postlfs"
-VERSION=2.1.20
+VERSION=2.1.18
 NAME="gnupg"
 
 #REQ:libassuan
@@ -19,8 +19,6 @@ NAME="gnupg"
 #REQ:npth
 #REC:pinentry
 #OPT:curl
-#OPT:gnutls
-#OPT:imagemagick
 #OPT:libusb-compat
 #OPT:openldap
 #OPT:sqlite
@@ -30,11 +28,11 @@ NAME="gnupg"
 
 cd $SOURCE_DIR
 
-URL=https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.20.tar.bz2
+URL=https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.18.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gnupg/gnupg-2.1.20.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gnupg/gnupg-2.1.20.tar.bz2 || wget -nc https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.20.tar.bz2 || wget -nc ftp://ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.20.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gnupg/gnupg-2.1.20.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnupg/gnupg-2.1.20.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gnupg/gnupg-2.1.20.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnupg/gnupg-2.1.20.tar.bz2
+wget -nc https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.18.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gnupg/gnupg-2.1.18.tar.bz2 || wget -nc ftp://ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.18.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gnupg/gnupg-2.1.18.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gnupg/gnupg-2.1.18.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gnupg/gnupg-2.1.18.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnupg/gnupg-2.1.18.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnupg/gnupg-2.1.18.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -60,7 +58,7 @@ sed -i -e '174,186 s/^/;;/'                tests/openpgp/ecc.scm
 ./configure --prefix=/usr            \
             --enable-symcryptrun     \
             --enable-maintainer-mode \
-            --docdir=/usr/share/doc/gnupg-2.1.20 &&
+            --docdir=/usr/share/doc/gnupg-2.1.18 &&
 make &&
 makeinfo --html --no-split \
          -o doc/gnupg_nochunks.html doc/gnupg.texi &&
@@ -71,11 +69,11 @@ makeinfo --plaintext       \
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install &&
-install -v -m755 -d /usr/share/doc/gnupg-2.1.20/html            &&
+install -v -m755 -d /usr/share/doc/gnupg-2.1.18/html            &&
 install -v -m644    doc/gnupg_nochunks.html \
-                    /usr/share/doc/gnupg-2.1.20/html/gnupg.html &&
+                    /usr/share/doc/gnupg-2.1.18/html/gnupg.html &&
 install -v -m644    doc/*.texi doc/gnupg.txt \
-                    /usr/share/doc/gnupg-2.1.20
+                    /usr/share/doc/gnupg-2.1.18
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

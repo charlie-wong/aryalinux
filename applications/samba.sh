@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Samba package provides filebr3ak and print services to SMB/CIFS clients and Windows networking tobr3ak Linux clients. Samba can also bebr3ak configured as a Windows Domain Controller replacement, a file/printbr3ak server acting as a member of a Windows Active Directory domain andbr3ak a NetBIOS (rfc1001/1002) nameserver (which among other thingsbr3ak provides LAN browsing support).br3ak"
 SECTION="basicnet"
-VERSION=4.6.2
+VERSION=4.5.5
 NAME="samba"
 
 #REQ:python2
@@ -17,15 +17,12 @@ NAME="samba"
 #REC:libtirpc
 #REC:libxslt
 #REC:perl-modules#perl-parse-yapp
-#REC:python-modules#pycrypto
-#REC:python3
 #REC:openldap
 #OPT:avahi
 #OPT:cups
 #OPT:cyrus-sasl
 #OPT:gdb
 #OPT:git
-#OPT:gnupg
 #OPT:gnutls
 #OPT:libarchive
 #OPT:libcap
@@ -34,6 +31,7 @@ NAME="samba"
 #OPT:mitkrb
 #OPT:nss
 #OPT:popt
+#OPT:python3
 #OPT:talloc
 #OPT:vala
 #OPT:valgrind
@@ -60,9 +58,6 @@ cd $DIRECTORY
 fi
 
 whoami > /tmp/currentuser
-
-echo "^samba4.rpc.echo.*on.*ncacn_np.*with.*object.*nt4_dc" >> selftest/knownfail
-
 
 ./configure                            \
     --prefix=/usr                      \

@@ -186,6 +186,7 @@ while read -r line; do
       cmake -DCMAKE_INSTALL_PREFIX=/opt/kf5 \
             -DCMAKE_PREFIX_PATH=/opt/qt5        \
             -DCMAKE_BUILD_TYPE=Release         \
+            -DLIB_INSTALL_DIR=lib              \
             -DBUILD_TESTING=OFF                \
             -Wno-dev ..
       make "-j`nproc`" || make

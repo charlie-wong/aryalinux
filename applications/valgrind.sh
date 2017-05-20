@@ -12,12 +12,15 @@ SECTION="general"
 VERSION=3.12.0
 NAME="valgrind"
 
+#OPT:boost
+#OPT:llvm
+#OPT:gdb
+#OPT:general_which
 #OPT:bind
 #OPT:bind-utils
-#OPT:boost
-#OPT:gdb
-#OPT:llvm
-#OPT:general_which
+#OPT:libxslt
+#OPT:texlive
+#OPT:tl-installer
 
 
 cd $SOURCE_DIR
@@ -45,10 +48,6 @@ sed -i 's|/doc/valgrind||' docs/Makefile.in &&
 ./configure --prefix=/usr \
             --datadir=/usr/share/doc/valgrind-3.12.0 &&
 make "-j`nproc`" || make
-
-
-sed -e 's@prereq:.*@prereq: false@' \
-    -i {helgrind,drd}/tests/pth_cond_destroy_busy.vgtest
 
 
 

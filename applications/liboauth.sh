@@ -14,6 +14,7 @@ NAME="liboauth"
 
 #REQ:curl
 #REQ:openssl
+#REQ:nss
 #OPT:doxygen
 
 
@@ -41,8 +42,17 @@ whoami > /tmp/currentuser
 ./configure --prefix=/usr --disable-static &&
 make "-j`nproc`" || make
 
-makepkg "$NAME" "$VERSION" "1"
-sudo tar xf $BINARY_DIR/$NAME-$VERSION-$(uname -m).tar.xz -C /
+
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+make install
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

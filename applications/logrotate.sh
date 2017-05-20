@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The logrotate package allowsbr3ak automatic rotation, compression, removal, and mailing of log files.br3ak"
 SECTION="general"
-VERSION=3.11.0
+VERSION=3.9.1
 NAME="logrotate"
 
 #REQ:popt
@@ -18,11 +18,11 @@ NAME="logrotate"
 
 cd $SOURCE_DIR
 
-URL=https://github.com/logrotate/logrotate/releases/download/3.11.0/logrotate-3.11.0.tar.xz
+URL=https://fedorahosted.org/releases/l/o/logrotate/logrotate-3.9.1.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://github.com/logrotate/logrotate/releases/download/3.11.0/logrotate-3.11.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/logrotate/logrotate-3.11.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/logrotate/logrotate-3.11.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/logrotate/logrotate-3.11.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/logrotate/logrotate-3.11.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/logrotate/logrotate-3.11.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/logrotate/logrotate-3.11.0.tar.xz
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/logrotate/logrotate-3.9.1.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/logrotate/logrotate-3.9.1.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/logrotate/logrotate-3.9.1.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/logrotate/logrotate-3.9.1.tar.gz || wget -nc https://fedorahosted.org/releases/l/o/logrotate/logrotate-3.9.1.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/logrotate/logrotate-3.9.1.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/logrotate/logrotate-3.9.1.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -37,8 +37,9 @@ fi
 
 whoami > /tmp/currentuser
 
-sed -i '/exit 5/s/^/echo uncompress failed -- skipping #/' test/test &&
-./configure --prefix=/usr &&
+sed -i 's/-Werror//' Makefile.am &&
+./autogen.sh                     &&
+./configure --prefix=/usr        &&
 make "-j`nproc`" || make
 
 

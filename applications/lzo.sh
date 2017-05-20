@@ -9,18 +9,18 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak LZO is a data compression librarybr3ak which is suitable for data decompression and compression inbr3ak real-time. This means it favors speed over compression ratio.br3ak"
 SECTION="general"
-VERSION=2.10
+VERSION=2.09
 NAME="lzo"
 
 
 
 cd $SOURCE_DIR
 
-URL=http://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz
+URL=http://www.oberhumer.com/opensource/lzo/download/lzo-2.09.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/lzo/lzo-2.10.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/lzo/lzo-2.10.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/lzo/lzo-2.10.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/lzo/lzo-2.10.tar.gz || wget -nc http://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/lzo/lzo-2.10.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/lzo/lzo-2.10.tar.gz
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/lzo/lzo-2.09.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/lzo/lzo-2.09.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/lzo/lzo-2.09.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/lzo/lzo-2.09.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/lzo/lzo-2.09.tar.gz || wget -nc http://www.oberhumer.com/opensource/lzo/download/lzo-2.09.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/lzo/lzo-2.09.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -38,7 +38,7 @@ whoami > /tmp/currentuser
 ./configure --prefix=/usr                    \
             --enable-shared                  \
             --disable-static                 \
-            --docdir=/usr/share/doc/lzo-2.10 &&
+            --docdir=/usr/share/doc/lzo-2.09 &&
 make "-j`nproc`" || make
 
 

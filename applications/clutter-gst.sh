@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Clutter Gst package containsbr3ak an integration library for using GStreamer with Clutter. Its purpose is to implement thebr3ak ClutterMedia interface using GStreamer.br3ak"
 SECTION="x"
-VERSION=3.0.24
+VERSION=3.0.22
 NAME="clutter-gst"
 
 #REQ:clutter
@@ -22,11 +22,11 @@ NAME="clutter-gst"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/clutter-gst/3.0/clutter-gst-3.0.24.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/clutter-gst/3.0/clutter-gst-3.0.22.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/clutter/clutter-gst-3.0.24.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/clutter/clutter-gst-3.0.24.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/clutter-gst/3.0/clutter-gst-3.0.24.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/clutter/clutter-gst-3.0.24.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/clutter/clutter-gst-3.0.24.tar.xz || wget -nc http://ftp.gnome.org/pub/gnome/sources/clutter-gst/3.0/clutter-gst-3.0.24.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/clutter/clutter-gst-3.0.24.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/clutter/clutter-gst-3.0.24.tar.xz
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/clutter/clutter-gst-3.0.22.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/clutter-gst/3.0/clutter-gst-3.0.22.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/clutter/clutter-gst-3.0.22.tar.xz || wget -nc http://ftp.gnome.org/pub/gnome/sources/clutter-gst/3.0/clutter-gst-3.0.22.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/clutter/clutter-gst-3.0.22.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/clutter/clutter-gst-3.0.22.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/clutter/clutter-gst-3.0.22.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/clutter/clutter-gst-3.0.22.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

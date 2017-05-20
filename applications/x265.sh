@@ -23,7 +23,7 @@ URL=https://bitbucket.org/multicoreware/x265/downloads/x265_2.3.tar.gz
 if [ ! -z $URL ]
 then
 wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/x265/x265_2.3.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/x265/x265_2.3.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/x265/x265_2.3.tar.gz || wget -nc https://bitbucket.org/multicoreware/x265/downloads/x265_2.3.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/x265/x265_2.3.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/x265/x265_2.3.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/x265/x265_2.3.tar.gz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/x265_2.3-enable_static-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/x265/x265_2.3-enable_static-1.patch
+wget -nc http://www.linuxfromscratch.org/patches/downloads/x265/x265_2.3-enable_static-1.patch || wget -nc http://www.linuxfromscratch.org/patches/blfs/8.0/x265_2.3-enable_static-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

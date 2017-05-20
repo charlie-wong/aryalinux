@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The libgusb package contains thebr3ak GObject wrappers for libusb-1.0br3ak that makes it easy to do asynchronous control, bulk and interruptbr3ak transfers with proper cancellation and integration into a mainloop.br3ak"
 SECTION="general"
-VERSION=0.2.10
+VERSION=0.2.9
 NAME="libgusb"
 
 #REQ:libusb
@@ -21,11 +21,11 @@ NAME="libgusb"
 
 cd $SOURCE_DIR
 
-URL=http://people.freedesktop.org/~hughsient/releases/libgusb-0.2.10.tar.xz
+URL=http://people.freedesktop.org/~hughsient/releases/libgusb-0.2.9.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libgusb/libgusb-0.2.10.tar.xz || wget -nc http://people.freedesktop.org/~hughsient/releases/libgusb-0.2.10.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libgusb/libgusb-0.2.10.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libgusb/libgusb-0.2.10.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libgusb/libgusb-0.2.10.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libgusb/libgusb-0.2.10.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libgusb/libgusb-0.2.10.tar.xz
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libgusb/libgusb-0.2.9.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libgusb/libgusb-0.2.9.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libgusb/libgusb-0.2.9.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libgusb/libgusb-0.2.9.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libgusb/libgusb-0.2.9.tar.xz || wget -nc http://people.freedesktop.org/~hughsient/releases/libgusb-0.2.9.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libgusb/libgusb-0.2.9.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

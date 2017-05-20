@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="%DESCRIPTION%"
 SECTION="kde-apps"
-VERSION=16.08.0
+VERSION=17.04.1
 NAME="kaccounts-providers"
 
 #REQ:plasma-all
@@ -17,11 +17,11 @@ NAME="kaccounts-providers"
 
 cd $SOURCE_DIR
 
-URL=http://download.kde.org/stable/applications/16.08.0/src/kaccounts-providers-16.08.0.tar.xz
+URL=http://download.kde.org/stable/applications/17.04.1/src/kaccounts-providers-17.04.1.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://download.kde.org/stable/applications/16.08.0/src/kaccounts-providers-16.08.0.tar.xz
+wget -nc http://download.kde.org/stable/applications/17.04.1/src/kaccounts-providers-17.04.1.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

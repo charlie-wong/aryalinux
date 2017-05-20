@@ -44,7 +44,7 @@ whoami > /tmp/currentuser
             --with-all-insults         \
             --with-env-editor          \
             --docdir=/usr/share/doc/sudo-1.8.19p2 \
-            --with-passprompt="[sudo] password for %p: " &&
+            --with-passprompt="[sudo] password for %p" &&
 make "-j`nproc`" || make
 
 

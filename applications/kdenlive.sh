@@ -42,6 +42,7 @@ mkdir build &&
 cd    build &&
 cmake -DCMAKE_INSTALL_PREFIX=/opt/kf5 \
       -DCMAKE_BUILD_TYPE=Release         \
+      -DLIB_INSTALL_DIR=lib              \
       -DBUILD_TESTING=OFF                \
       -Wno-dev .. &&
 make "-j`nproc`" || make

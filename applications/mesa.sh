@@ -87,18 +87,6 @@ make "-j`nproc`" || make
 
 make -C xdemos DEMOS_PREFIX=$XORG_PREFIX
 
-sudo mkdir -pv /var/cache/alps/binaries
-sudo chmod a+rw /var/cache/alps/binaries
-INSTALL_DIR=/var/cache/alps/binaries/$NAME-$VERSION-$(uname -m)
-make DESTDIR=${INSTALL_DIR} install
-make DESTDIR=${INSTALL_DIR} -C xdemos DEMOS_PREFIX=$XORG_PREFIX install
-install -v -dm755 ${INSTALL_DIR}/usr/share/doc/mesa-17.0.0 &&
-cp -rfv docs/* ${INSTALL_DIR}/usr/share/doc/mesa-17.0.0
-
-pushd ${INSTALL_DIR}
-tar -cJvf ${INSTALL_DIR}/../$NAME-$VERSION-$(uname -m).tar.xz *
-popd
-rm -r ${INSTALL_DIR}
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"

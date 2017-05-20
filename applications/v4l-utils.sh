@@ -43,7 +43,7 @@ whoami > /tmp/currentuser
 ./configure --prefix=/usr     \
             --sysconfdir=/etc \
             --disable-static  &&
-make
+make "-j`nproc`" || make
 
 
 

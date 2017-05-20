@@ -8,7 +8,7 @@ set +h
 
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Epiphany is a simple yet powerfulbr3ak GNOME web browser targeted atbr3ak non-technical users. Its principles are simplicity and standardsbr3ak compliance.br3ak"
-SECTION="xsoft"
+SECTION="gnome"
 VERSION=3.22.6
 NAME="epiphany"
 
@@ -58,6 +58,11 @@ ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
+
+
+make -k check
+
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

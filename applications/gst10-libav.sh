@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The GStreamer Libav packagebr3ak contains GStreamer plugins forbr3ak Libav (a fork of FFmpeg).br3ak"
 SECTION="multimedia"
-VERSION=1.10.4
+VERSION=1.10.3
 NAME="gst10-libav"
 
 #REQ:gst10-plugins-base
@@ -19,11 +19,11 @@ NAME="gst10-libav"
 
 cd $SOURCE_DIR
 
-URL=https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.10.4.tar.xz
+URL=https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.10.3.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gst-libav/gst-libav-1.10.4.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gst-libav/gst-libav-1.10.4.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gst-libav/gst-libav-1.10.4.tar.xz || wget -nc https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.10.4.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gst-libav/gst-libav-1.10.4.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gst-libav/gst-libav-1.10.4.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gst-libav/gst-libav-1.10.4.tar.xz
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gst-libav/gst-libav-1.10.3.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gst-libav/gst-libav-1.10.3.tar.xz || wget -nc https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.10.3.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gst-libav/gst-libav-1.10.3.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gst-libav/gst-libav-1.10.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gst-libav/gst-libav-1.10.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gst-libav/gst-libav-1.10.3.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -39,7 +39,7 @@ fi
 whoami > /tmp/currentuser
 
 ./configure --prefix=/usr \
-            --with-package-name="GStreamer Libav Plugins 1.10.4 BLFS" \
+            --with-package-name="GStreamer Libav Plugins 1.10.3 BLFS" \
             --with-package-origin="http://www.linuxfromscratch.org/blfs/view/svn/" &&
 make "-j`nproc`" || make
 

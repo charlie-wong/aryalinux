@@ -8,8 +8,8 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://www.cpan.org/authors/id/M/MS/MSCHILLI/Log-Log4perl-1.49.tar.gz"
-VERSION=1.49
+URL="http://www.cpan.org/authors/id/M/MS/MSCHILLI/Log-Log4perl-1.48.tar.gz"
+VERSION=1.48
 NAME="perl-modules#perl-log-log4perl"
 
 cd $SOURCE_DIR

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The ProFTPD package contains abr3ak secure and highly configurable FTP daemon. This is useful forbr3ak serving large file archives over a network.br3ak"
 SECTION="server"
-VERSION=1.3.6
+VERSION=1.3.5
 NAME="proftpd"
 
 #OPT:libcap
@@ -22,11 +22,11 @@ NAME="proftpd"
 
 cd $SOURCE_DIR
 
-URL=ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.6.tar.gz
+URL=ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.5d.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/proftpd/proftpd-1.3.6.tar.gz || wget -nc ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.6.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/proftpd/proftpd-1.3.6.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/proftpd/proftpd-1.3.6.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/proftpd/proftpd-1.3.6.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/proftpd/proftpd-1.3.6.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/proftpd/proftpd-1.3.6.tar.gz
+wget -nc ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.5d.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/proftpd/proftpd-1.3.5d.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/proftpd/proftpd-1.3.5d.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/proftpd/proftpd-1.3.5d.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/proftpd/proftpd-1.3.5d.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/proftpd/proftpd-1.3.5d.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/proftpd/proftpd-1.3.5d.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -63,8 +63,8 @@ make "-j`nproc`" || make
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install                                   &&
-install -d -m755 /usr/share/doc/proftpd-1.3.6 &&
-cp -Rv doc/*     /usr/share/doc/proftpd-1.3.6
+install -d -m755 /usr/share/doc/proftpd-1.3.5d &&
+cp -Rv doc/*     /usr/share/doc/proftpd-1.3.5d
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

@@ -9,19 +9,19 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The libpng package containsbr3ak libraries used by other programs for reading and writing PNG files.br3ak The PNG format was designed as a replacement for GIF and, to abr3ak lesser extent, TIFF, with many improvements and extensions and lackbr3ak of patent problems.br3ak"
 SECTION="general"
-VERSION=1.6.29
+VERSION=1.6.28
 NAME="libpng"
 
 
 
 cd $SOURCE_DIR
 
-URL=http://downloads.sourceforge.net/libpng/libpng-1.6.29.tar.xz
+URL=http://downloads.sourceforge.net/libpng/libpng-1.6.28.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libpng/libpng-1.6.29.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libpng/libpng-1.6.29.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libpng/libpng-1.6.29.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libpng/libpng-1.6.29.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libpng/libpng-1.6.29.tar.xz || wget -nc http://downloads.sourceforge.net/libpng/libpng-1.6.29.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libpng/libpng-1.6.29.tar.xz
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libpng/libpng-1.6.29-apng.patch.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libpng/libpng-1.6.29-apng.patch.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libpng/libpng-1.6.29-apng.patch.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libpng/libpng-1.6.29-apng.patch.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libpng/libpng-1.6.29-apng.patch.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libpng/libpng-1.6.29-apng.patch.gz || wget -nc http://downloads.sourceforge.net/project/apng/libpng/libpng16/libpng-1.6.29-apng.patch.gz
+wget -nc http://downloads.sourceforge.net/libpng/libpng-1.6.28.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libpng/libpng-1.6.28.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libpng/libpng-1.6.28.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libpng/libpng-1.6.28.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libpng/libpng-1.6.28.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libpng/libpng-1.6.28.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libpng/libpng-1.6.28.tar.xz
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libpng/libpng-1.6.28-apng.patch.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libpng/libpng-1.6.28-apng.patch.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libpng/libpng-1.6.28-apng.patch.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libpng/libpng-1.6.28-apng.patch.gz || wget -nc http://downloads.sourceforge.net/project/apng/libpng/libpng16/libpng-1.6.28-apng.patch.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libpng/libpng-1.6.28-apng.patch.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libpng/libpng-1.6.28-apng.patch.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -36,7 +36,7 @@ fi
 
 whoami > /tmp/currentuser
 
-gzip -cd ../libpng-1.6.29-apng.patch.gz | patch -p0
+gzip -cd ../libpng-1.6.28-apng.patch.gz | patch -p0
 
 
 LIBS=-lpthread ./configure --prefix=/usr --disable-static &&
@@ -46,8 +46,8 @@ make "-j`nproc`" || make
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install &&
-mkdir -v /usr/share/doc/libpng-1.6.29 &&
-cp -v README libpng-manual.txt /usr/share/doc/libpng-1.6.29
+mkdir -v /usr/share/doc/libpng-1.6.28 &&
+cp -v README libpng-manual.txt /usr/share/doc/libpng-1.6.28
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

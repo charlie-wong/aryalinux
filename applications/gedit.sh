@@ -8,7 +8,7 @@ set +h
 
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Gedit package contains abr3ak lightweight UTF-8 text editor for the GNOME Desktop.br3ak"
-SECTION="postlfs"
+SECTION="gnome"
 VERSION=3.22.0
 NAME="gedit"
 

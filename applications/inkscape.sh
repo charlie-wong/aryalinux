@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Inkscape is a what you see is whatbr3ak you get Scalable Vector Graphics editor. It is useful for creating,br3ak viewing and changing SVG images.br3ak"
 SECTION="xsoft"
-VERSION=0.92.1
+VERSION=0.92.0
 NAME="inkscape"
 
 #REQ:boost
@@ -31,11 +31,11 @@ NAME="inkscape"
 
 cd $SOURCE_DIR
 
-URL=https://launchpad.net/inkscape/0.92.x/0.92.1/+download/inkscape-0.92.1.tar.bz2
+URL=https://launchpad.net/inkscape/0.92.x/0.92/+download/inkscape-0.92.0.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/inkscape/inkscape-0.92.1.tar.bz2 || wget -nc https://launchpad.net/inkscape/0.92.x/0.92.1/+download/inkscape-0.92.1.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/inkscape/inkscape-0.92.1.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/inkscape/inkscape-0.92.1.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/inkscape/inkscape-0.92.1.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/inkscape/inkscape-0.92.1.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/inkscape/inkscape-0.92.1.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/inkscape/inkscape-0.92.0.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/inkscape/inkscape-0.92.0.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/inkscape/inkscape-0.92.0.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/inkscape/inkscape-0.92.0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/inkscape/inkscape-0.92.0.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/inkscape/inkscape-0.92.0.tar.bz2 || wget -nc https://launchpad.net/inkscape/0.92.x/0.92/+download/inkscape-0.92.0.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

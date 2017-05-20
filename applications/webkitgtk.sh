@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The WebKitGTK+ package is a portbr3ak of the portable web rendering engine WebKit to the GTK+br3ak 3 and GTK+ 2 platforms.br3ak"
 SECTION="x"
-VERSION=2.16.1
+VERSION=2.14.5
 NAME="webkitgtk"
 
 #REQ:cairo
@@ -28,6 +28,7 @@ NAME="webkitgtk"
 #REQ:sqlite
 #REQ:general_which
 #REC:geoclue2
+#REC:geoclue
 #REC:gobject-introspection
 #REC:hicolor-icon-theme
 #REC:libnotify
@@ -39,11 +40,11 @@ NAME="webkitgtk"
 
 cd $SOURCE_DIR
 
-URL=http://webkitgtk.org/releases/webkitgtk-2.16.1.tar.xz
+URL=http://webkitgtk.org/releases/webkitgtk-2.14.5.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/webkit/webkitgtk-2.16.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/webkit/webkitgtk-2.16.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/webkit/webkitgtk-2.16.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/webkit/webkitgtk-2.16.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/webkit/webkitgtk-2.16.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/webkit/webkitgtk-2.16.1.tar.xz || wget -nc http://webkitgtk.org/releases/webkitgtk-2.16.1.tar.xz
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/webkit/webkitgtk-2.14.5.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/webkit/webkitgtk-2.14.5.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/webkit/webkitgtk-2.14.5.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/webkit/webkitgtk-2.14.5.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/webkit/webkitgtk-2.14.5.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/webkit/webkitgtk-2.14.5.tar.xz || wget -nc http://webkitgtk.org/releases/webkitgtk-2.14.5.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -58,13 +59,6 @@ fi
 
 whoami > /tmp/currentuser
 
-sed -i 's/unsigned short/char16_t/'            \
-       Source/JavaScriptCore/API/JSStringRef.h \
-       Source/WebKit2/Shared/API/c/WKString.h  &&
-sed -i '/stdbool.h/ a#include <uchar.h>' \
-       Source/JavaScriptCore/API/JSBase.h
-
-
 mkdir -vp build &&
 cd        build &&
 cmake -DCMAKE_BUILD_TYPE=Release  \
@@ -77,20 +71,6 @@ cmake -DCMAKE_BUILD_TYPE=Release  \
       -Wno-dev .. &&
 make "-j`nproc`" || make
 
-sudo mkdir -pv /var/cache/alps/binaries
-sudo chmod a+rw /var/cache/alps/binaries
-INSTALL_DIR=/var/cache/alps/binaries/$NAME-$VERSION-$(uname -m)
-make DESTDIR=${INSTALL_DIR} install
-install -vdm755 ${INSTALL_DIR}/usr/share/gtk-doc/html/webkit{2,dom}gtk-4.0 &&
-install -vm644  ../Documentation/webkit2gtk-4.0/html/*   \
-                ${INSTALL_DIR}/usr/share/gtk-doc/html/webkit2gtk-4.0       &&
-install -vm644  ../Documentation/webkitdomgtk-4.0/html/* \
-                ${INSTALL_DIR}/usr/share/gtk-doc/html/webkitdomgtk-4.0
-
-pushd ${INSTALL_DIR}
-tar -cJvf ${INSTALL_DIR}/../$NAME-$VERSION-$(uname -m).tar.xz *
-popd
-rm -r ${INSTALL_DIR}
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Appstream-GLib packagebr3ak contains a library that provides GObjects and helper methods tobr3ak make it easy to read and write AppStream metadata. It also providesbr3ak a simple DOM implementation that makes it easy to edit nodes andbr3ak convert to and from the standardized XML representation.br3ak"
 SECTION="general"
-VERSION=0.6.9
+VERSION=0.6.8
 NAME="appstream-glib"
 
 #REQ:gdk-pixbuf
@@ -29,11 +29,11 @@ NAME="appstream-glib"
 
 cd $SOURCE_DIR
 
-URL=http://people.freedesktop.org/~hughsient/appstream-glib/releases/appstream-glib-0.6.9.tar.xz
+URL=http://people.freedesktop.org/~hughsient/appstream-glib/releases/appstream-glib-0.6.8.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/appstream-glib/appstream-glib-0.6.9.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/appstream-glib/appstream-glib-0.6.9.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/appstream-glib/appstream-glib-0.6.9.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/appstream-glib/appstream-glib-0.6.9.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/appstream-glib/appstream-glib-0.6.9.tar.xz || wget -nc http://people.freedesktop.org/~hughsient/appstream-glib/releases/appstream-glib-0.6.9.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/appstream-glib/appstream-glib-0.6.9.tar.xz
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/appstream-glib/appstream-glib-0.6.8.tar.xz || wget -nc http://people.freedesktop.org/~hughsient/appstream-glib/releases/appstream-glib-0.6.8.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/appstream-glib/appstream-glib-0.6.8.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/appstream-glib/appstream-glib-0.6.8.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/appstream-glib/appstream-glib-0.6.8.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/appstream-glib/appstream-glib-0.6.8.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/appstream-glib/appstream-glib-0.6.8.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

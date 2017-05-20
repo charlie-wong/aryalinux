@@ -30,7 +30,6 @@ then
 fi
 
 sed -i 's:= @mkdir_p@:= /bin/mkdir -p:' po/Makefile.in.in
-sed -i '233,237 s/max)/max) \\/' lib/intprops.h
 ./configure --prefix=/usr
 make
 make install

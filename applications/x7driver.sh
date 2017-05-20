@@ -65,9 +65,9 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=http://www.freedesktop.org/software/libinput/libinput-1.7.0.tar.xz
+URL=http://www.freedesktop.org/software/libinput/libinput-1.6.1.tar.xz
 
-wget -nc http://www.freedesktop.org/software/libinput/libinput-1.7.0.tar.xz
+wget -nc http://www.freedesktop.org/software/libinput/libinput-1.6.1.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
@@ -91,8 +91,8 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -v -dm755 /usr/share/doc/libinput-1.7.0 &&
-cp -rv doc/html/* /usr/share/doc/libinput-1.7.0
+install -v -dm755 /usr/share/doc/libinput-1.6.1 &&
+cp -rv doc/html/* /usr/share/doc/libinput-1.6.1
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
@@ -115,9 +115,9 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=https://www.x.org/pub/individual/driver/xf86-input-evdev-2.10.5.tar.bz2
+URL=http://ftp.x.org/pub/individual/driver/xf86-input-evdev-2.10.5.tar.bz2
 
-wget -nc https://www.x.org/pub/individual/driver/xf86-input-evdev-2.10.5.tar.bz2
+wget -nc http://ftp.x.org/pub/individual/driver/xf86-input-evdev-2.10.5.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-input-evdev-2.10.5.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
@@ -153,9 +153,9 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=https://www.x.org/pub/individual/driver/xf86-input-synaptics-1.9.0.tar.bz2
+URL=http://ftp.x.org/pub/individual/driver/xf86-input-synaptics-1.9.0.tar.bz2
 
-wget -nc https://www.x.org/pub/individual/driver/xf86-input-synaptics-1.9.0.tar.bz2
+wget -nc http://ftp.x.org/pub/individual/driver/xf86-input-synaptics-1.9.0.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-input-synaptics-1.9.0.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
@@ -190,9 +190,9 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=https://www.x.org/pub/individual/driver/xf86-input-vmmouse-13.1.0.tar.bz2
+URL=http://ftp.x.org/pub/individual/driver/xf86-input-vmmouse-13.1.0.tar.bz2
 
-wget -nc https://www.x.org/pub/individual/driver/xf86-input-vmmouse-13.1.0.tar.bz2
+wget -nc http://ftp.x.org/pub/individual/driver/xf86-input-vmmouse-13.1.0.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-input-vmmouse-13.1.0.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
@@ -232,9 +232,9 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=http://downloads.sourceforge.net/linuxwacom/xf86-input-wacom-0.34.2.tar.bz2
+URL=http://downloads.sourceforge.net/linuxwacom/xf86-input-wacom-0.34.0.tar.bz2
 
-wget -nc http://downloads.sourceforge.net/linuxwacom/xf86-input-wacom-0.34.2.tar.bz2
+wget -nc http://downloads.sourceforge.net/linuxwacom/xf86-input-wacom-0.34.0.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
@@ -270,10 +270,10 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=https://www.x.org/pub/individual/driver/xf86-video-amdgpu-1.3.0.tar.gz
+URL=http://ftp.x.org/pub/individual/driver/xf86-video-ati-7.8.0.tar.bz2
 
-wget -nc https://www.x.org/pub/individual/driver/xf86-video-amdgpu-1.3.0.tar.gz
-wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-amdgpu-1.3.0.tar.gz
+wget -nc http://ftp.x.org/pub/individual/driver/xf86-video-ati-7.8.0.tar.bz2
+wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-ati-7.8.0.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
@@ -307,50 +307,9 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=https://www.x.org/pub/individual/driver/xf86-video-ati-7.9.0.tar.bz2
+URL=http://ftp.x.org/pub/individual/driver/xf86-video-fbdev-0.4.4.tar.bz2
 
-wget -nc https://www.x.org/pub/individual/driver/xf86-video-ati-7.9.0.tar.bz2
-wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-ati-7.9.0.tar.bz2
-
-TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
-DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
-
-tar xf $TARBALL
-cd $DIRECTORY
-
-./configure $XORG_CONFIG &&
-make
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-
-make install                         &&
-install -v -m644 conf/10-radeon.conf \
-  /usr/share/X11/xorg.conf.d
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-cd $SOURCE_DIR
-
-sudo rm -rf $DIRECTORY
-
-# End of driver installation #
-
-
-# Start of driver installation #
-
-#REQ:xorg-server
-
-
-cd $SOURCE_DIR
-
-URL=https://www.x.org/pub/individual/driver/xf86-video-fbdev-0.4.4.tar.bz2
-
-wget -nc https://www.x.org/pub/individual/driver/xf86-video-fbdev-0.4.4.tar.bz2
+wget -nc http://ftp.x.org/pub/individual/driver/xf86-video-fbdev-0.4.4.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-fbdev-0.4.4.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
@@ -441,10 +400,10 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=https://www.x.org/pub/individual/driver/xf86-video-nouveau-1.0.14.tar.bz2
+URL=http://ftp.x.org/pub/individual/driver/xf86-video-nouveau-1.0.13.tar.bz2
 
-wget -nc https://www.x.org/pub/individual/driver/xf86-video-nouveau-1.0.14.tar.bz2
-wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-nouveau-1.0.14.tar.bz2
+wget -nc http://ftp.x.org/pub/individual/driver/xf86-video-nouveau-1.0.13.tar.bz2
+wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-nouveau-1.0.13.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
@@ -493,9 +452,9 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=https://www.x.org/pub/individual/driver/xf86-video-vmware-13.2.1.tar.bz2
+URL=http://ftp.x.org/pub/individual/driver/xf86-video-vmware-13.2.1.tar.bz2
 
-wget -nc https://www.x.org/pub/individual/driver/xf86-video-vmware-13.2.1.tar.bz2
+wget -nc http://ftp.x.org/pub/individual/driver/xf86-video-vmware-13.2.1.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-vmware-13.2.1.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
@@ -532,57 +491,57 @@ sudo rm -rf $DIRECTORY
 
 cd $SOURCE_DIR
 
-URL=http://www.freedesktop.org/software/vaapi/releases/libva/libva-1.8.1.tar.bz2
+URL=http://www.freedesktop.org/software/vaapi/releases/libva/libva-1.7.3.tar.bz2
 
-wget -nc http://www.freedesktop.org/software/vaapi/releases/libva/libva-1.8.1.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.8.1.tar.bz2
+wget -nc http://www.freedesktop.org/software/vaapi/releases/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-1.7.3.tar.bz2
 wget -nc http://www.freedesktop.org/software/vaapi/releases/libva-intel-driver/libva-intel-driver-1.7.3.tar.bz2
 wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2
 wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-intel-driver-1.7.3.tar.bz2

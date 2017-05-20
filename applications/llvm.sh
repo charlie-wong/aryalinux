@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The LLVM package contains abr3ak collection of modular and reusable compiler and toolchainbr3ak technologies. The Low Level Virtual Machine (LLVM) Core librariesbr3ak provide a modern source and target-independent optimizer, alongbr3ak with code generation support for many popular CPUs (as well as somebr3ak less common ones!). These libraries are built around a wellbr3ak specified code representation known as the LLVM intermediatebr3ak representation (\"LLVM IR\").br3ak"
 SECTION="general"
-VERSION=4.0.0
+VERSION=3.9.1
 NAME="llvm"
 
 #REQ:cmake
@@ -26,13 +26,13 @@ NAME="llvm"
 
 cd $SOURCE_DIR
 
-URL=http://llvm.org/releases/4.0.0/llvm-4.0.0.src.tar.xz
+URL=http://llvm.org/releases/3.9.1/llvm-3.9.1.src.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/llvm/llvm-4.0.0.src.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/llvm/llvm-4.0.0.src.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/llvm/llvm-4.0.0.src.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/llvm/llvm-4.0.0.src.tar.xz || wget -nc http://llvm.org/releases/4.0.0/llvm-4.0.0.src.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/llvm/llvm-4.0.0.src.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/llvm/llvm-4.0.0.src.tar.xz
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/llvm/cfe-4.0.0.src.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/llvm/cfe-4.0.0.src.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/llvm/cfe-4.0.0.src.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/llvm/cfe-4.0.0.src.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/llvm/cfe-4.0.0.src.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/llvm/cfe-4.0.0.src.tar.xz || wget -nc http://llvm.org/releases/4.0.0/cfe-4.0.0.src.tar.xz
-wget -nc http://llvm.org/releases/4.0.0/compiler-rt-4.0.0.src.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/compiler-rt/compiler-rt-4.0.0.src.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/compiler-rt/compiler-rt-4.0.0.src.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/compiler-rt/compiler-rt-4.0.0.src.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/compiler-rt/compiler-rt-4.0.0.src.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/compiler-rt/compiler-rt-4.0.0.src.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/compiler-rt/compiler-rt-4.0.0.src.tar.xz
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/llvm/llvm-3.9.1.src.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/llvm/llvm-3.9.1.src.tar.xz || wget -nc http://llvm.org/releases/3.9.1/llvm-3.9.1.src.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/llvm/llvm-3.9.1.src.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/llvm/llvm-3.9.1.src.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/llvm/llvm-3.9.1.src.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/llvm/llvm-3.9.1.src.tar.xz
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/llvm/cfe-3.9.1.src.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/llvm/cfe-3.9.1.src.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/llvm/cfe-3.9.1.src.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/llvm/cfe-3.9.1.src.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/llvm/cfe-3.9.1.src.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/llvm/cfe-3.9.1.src.tar.xz || wget -nc http://llvm.org/releases/3.9.1/cfe-3.9.1.src.tar.xz
+wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/compiler-rt/compiler-rt-3.9.1.src.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/compiler-rt/compiler-rt-3.9.1.src.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/compiler-rt/compiler-rt-3.9.1.src.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/compiler-rt/compiler-rt-3.9.1.src.tar.xz || wget -nc http://llvm.org/releases/3.9.1/compiler-rt-3.9.1.src.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/compiler-rt/compiler-rt-3.9.1.src.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/compiler-rt/compiler-rt-3.9.1.src.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -47,10 +47,10 @@ fi
 
 whoami > /tmp/currentuser
 
-tar -xf ../cfe-4.0.0.src.tar.xz -C tools &&
-tar -xf ../compiler-rt-4.0.0.src.tar.xz -C projects &&
-mv tools/cfe-4.0.0.src tools/clang &&
-mv projects/compiler-rt-4.0.0.src projects/compiler-rt
+tar -xf ../cfe-3.9.1.src.tar.xz -C tools &&
+tar -xf ../compiler-rt-3.9.1.src.tar.xz -C projects &&
+mv tools/cfe-3.9.1.src tools/clang &&
+mv projects/compiler-rt-3.9.1.src projects/compiler-rt
 
 
 mkdir -v build &&
@@ -64,8 +64,17 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr           \
       -Wno-dev ..                           &&
 make "-j`nproc`" || make
 
-makepkg "$NAME" "$VERSION" "1"
-sudo tar xf $BINARY_DIR/$NAME-$VERSION-$(uname -m).tar.xz -C /
+
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+make install
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

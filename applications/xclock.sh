@@ -17,11 +17,11 @@ NAME="xclock"
 
 cd $SOURCE_DIR
 
-URL=https://www.x.org/pub/individual/app/xclock-1.0.7.tar.bz2
+URL=http://ftp.x.org/pub/individual/app/xclock-1.0.7.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc https://www.x.org/pub/individual/app/xclock-1.0.7.tar.bz2 || wget -nc ftp://ftp.x.org/pub/individual/app/xclock-1.0.7.tar.bz2
+wget -nc http://ftp.x.org/pub/individual/app/xclock-1.0.7.tar.bz2 || wget -nc ftp://ftp.x.org/pub/individual/app/xclock-1.0.7.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

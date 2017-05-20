@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Libsndfile is a library of Cbr3ak routines for reading and writing files containing sampled audiobr3ak data.br3ak"
 SECTION="multimedia"
-VERSION=1.0.28
+VERSION=1.0.27
 NAME="libsndfile"
 
 #OPT:alsa-lib
@@ -21,11 +21,11 @@ NAME="libsndfile"
 
 cd $SOURCE_DIR
 
-URL=http://www.mega-nerd.com/libsndfile/files/libsndfile-1.0.28.tar.gz
+URL=http://www.mega-nerd.com/libsndfile/files/libsndfile-1.0.27.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libsndfile/libsndfile-1.0.28.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libsndfile/libsndfile-1.0.28.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libsndfile/libsndfile-1.0.28.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libsndfile/libsndfile-1.0.28.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libsndfile/libsndfile-1.0.28.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libsndfile/libsndfile-1.0.28.tar.gz || wget -nc http://www.mega-nerd.com/libsndfile/files/libsndfile-1.0.28.tar.gz
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libsndfile/libsndfile-1.0.27.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libsndfile/libsndfile-1.0.27.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libsndfile/libsndfile-1.0.27.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libsndfile/libsndfile-1.0.27.tar.gz || wget -nc http://www.mega-nerd.com/libsndfile/files/libsndfile-1.0.27.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libsndfile/libsndfile-1.0.27.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libsndfile/libsndfile-1.0.27.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -42,7 +42,7 @@ whoami > /tmp/currentuser
 
 ./configure --prefix=/usr    \
             --disable-static \
-            --docdir=/usr/share/doc/libsndfile-1.0.28 &&
+            --docdir=/usr/share/doc/libsndfile-1.0.27 &&
 make "-j`nproc`" || make
 
 

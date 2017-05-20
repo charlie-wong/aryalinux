@@ -37,8 +37,7 @@ sh Configure -des -Dprefix=/usr                 \
                   -Dman1dir=/usr/share/man/man1 \
                   -Dman3dir=/usr/share/man/man3 \
                   -Dpager="/usr/bin/less -isR"  \
-                  -Duseshrplib                  \
-                  -Dusethreads
+                  -Duseshrplib
 make
 make install
 unset BUILD_ZLIB BUILD_BZIP2

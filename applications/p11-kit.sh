@@ -60,11 +60,9 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-if [ -e /usr/lib/libnssckbi.so ]; then
-  readlink /usr/lib/libnssckbi.so ||
-  rm -v /usr/lib/libnssckbi.so    &&
-  ln -sfv libp11-kit.so /usr/lib/libnssckbi.so
-fi
+readlink /usr/lib/libnssckbi.so || \
+mv -v /usr/lib/libnssckbi.so /usr/lib/libnssckbi.so.orig &&
+ln -sfv libp11-kit.so /usr/lib/libnssckbi.so
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

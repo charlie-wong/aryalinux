@@ -9,8 +9,8 @@ set +h
 #REQ:perl-modules#mime-charset
 #REQ:.._basicnet_wget
 SOURCE_ONLY=y
-URL="http://www.cpan.org/authors/id/N/NE/NEZUMI/Unicode-LineBreak-2017.004.tar.gz"
-VERSION=2017.004
+URL="http://www.cpan.org/authors/id/N/NE/NEZUMI/Unicode-LineBreak-2016.003.tar.gz"
+VERSION=2016.003
 NAME="perl-modules#perl-unicode-linebreak"
 
 cd $SOURCE_DIR

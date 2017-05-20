@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The GNOME Themes Standard packagebr3ak contains various components of the default GNOME theme.br3ak"
 SECTION="x"
-VERSION=3.22.3
+VERSION=3.22.2
 NAME="gnome-themes-standard"
 
 #REQ:gtk2
@@ -19,11 +19,11 @@ NAME="gnome-themes-standard"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-themes-standard/3.22/gnome-themes-standard-3.22.3.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-themes-standard/3.22/gnome-themes-standard-3.22.2.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gnome-themes/gnome-themes-standard-3.22.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnome-themes/gnome-themes-standard-3.22.3.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gnome-themes/gnome-themes-standard-3.22.3.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gnome-themes/gnome-themes-standard-3.22.3.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnome-themes/gnome-themes-standard-3.22.3.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-themes-standard/3.22/gnome-themes-standard-3.22.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gnome-themes/gnome-themes-standard-3.22.3.tar.xz || wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-themes-standard/3.22/gnome-themes-standard-3.22.3.tar.xz
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gnome-themes/gnome-themes-standard-3.22.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gnome-themes/gnome-themes-standard-3.22.2.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-themes-standard/3.22/gnome-themes-standard-3.22.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnome-themes/gnome-themes-standard-3.22.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gnome-themes/gnome-themes-standard-3.22.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnome-themes/gnome-themes-standard-3.22.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gnome-themes/gnome-themes-standard-3.22.2.tar.xz || wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-themes-standard/3.22/gnome-themes-standard-3.22.2.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

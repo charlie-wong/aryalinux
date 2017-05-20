@@ -8,7 +8,6 @@ export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc \
     --localstatedir=/var --disable-static"
 
 . /etc/alps/alps.conf
-. /var/lib/alps/functions
 
 NAME=lightdm-gtk-greeter
 VERSION=2.0.1

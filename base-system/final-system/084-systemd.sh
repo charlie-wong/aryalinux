@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="084-systemd.sh"
-TARBALL="systemd-233.tar.xz"
+TARBALL="systemd-232.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -45,7 +45,6 @@ MOUNT_LIBS="-lmount"
 MOUNT_CFLAGS="-I/tools/include/libmount"
 cc_cv_CFLAGS__flto=no
 SULOGIN="/sbin/sulogin"
-GPERF_LEN_TYPE=size_t
 XSLTPROC="/usr/bin/xsltproc"
 EOF
 ./configure --prefix=/usr            \
@@ -60,8 +59,8 @@ EOF
             --disable-sysusers       \
             --without-python         \
             --with-default-dnssec=no \
-            --docdir=/usr/share/doc/systemd-233
-make LD_LIBRARY_PATH=/tools/lib
+            --docdir=/usr/share/doc/systemd-232
+make LIBRARY_PATH=/tools/lib
 make LD_LIBRARY_PATH=/tools/lib install
 rm -rfv /usr/lib/rpm
 for tool in runlevel reboot shutdown poweroff halt telinit; do

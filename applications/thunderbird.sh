@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Thunderbird is a stand-alonebr3ak mail/news client based on the Mozilla codebase. It uses the Gecko renderingbr3ak engine to enable it to display and compose HTML emails.br3ak"
 SECTION="xsoft"
-VERSION=45.8.0
+VERSION=45.7.1
 NAME="thunderbird"
 
 #REQ:alsa-lib
@@ -21,30 +21,30 @@ NAME="thunderbird"
 #REC:libvpx
 #REC:nspr
 #REC:nss
-#REQ:curl
-#REQ:cyrus-sasl
-#REQ:dbus-glib
+#OPT:curl
+#OPT:cyrus-sasl
+#OPT:dbus-glib
 #OPT:doxygen
-#REQ:GConf
-#REQ:gst10-plugins-base
-#REQ:gst10-plugins-good
-#REQ:gst10-libav
-#REQ:llvm
+#OPT:GConf
+#OPT:gst10-plugins-base
+#OPT:gst10-plugins-good
+#OPT:gst10-libav
+#OPT:llvm
 #OPT:openjdk
-#REQ:pulseaudio
-#REQ:sqlite
-#REQ:startup-notification
-#REQ:wget
-#REQ:wireless_tools
+#OPT:pulseaudio
+#OPT:sqlite
+#OPT:startup-notification
+#OPT:wget
+#OPT:wireless_tools
 
 
 cd $SOURCE_DIR
 
-URL=https://ftp.mozilla.org/pub/mozilla.org/thunderbird/releases/45.8.0/source/thunderbird-45.8.0.source.tar.xz
+URL=https://ftp.mozilla.org/pub/mozilla.org/thunderbird/releases/45.7.1/source/thunderbird-45.7.1.source.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/thunderbird/thunderbird-45.8.0.source.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/thunderbird/thunderbird-45.8.0.source.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/thunderbird/thunderbird-45.8.0.source.tar.xz || wget -nc https://ftp.mozilla.org/pub/mozilla.org/thunderbird/releases/45.8.0/source/thunderbird-45.8.0.source.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/thunderbird/thunderbird-45.8.0.source.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/thunderbird/thunderbird-45.8.0.source.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/thunderbird/thunderbird-45.8.0.source.tar.xz
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/thunderbird/thunderbird-45.7.1.source.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/thunderbird/thunderbird-45.7.1.source.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/thunderbird/thunderbird-45.7.1.source.tar.xz || wget -nc https://ftp.mozilla.org/pub/mozilla.org/thunderbird/releases/45.7.1/source/thunderbird-45.7.1.source.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/thunderbird/thunderbird-45.7.1.source.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/thunderbird/thunderbird-45.7.1.source.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/thunderbird/thunderbird-45.7.1.source.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -66,28 +66,28 @@ cat > mozconfig << "EOF"
 # you want to use a smaller number of jobs:
 #mk_add_options MOZ_MAKE_FLAGS="-j1"
 # If you have installed dbus-glib, comment out this line:
-# ac_add_options --disable-dbus
+ac_add_options --disable-dbus
 # If you have installed wireless-tools comment out this line:
-# ac_add_options --disable-necko-wifi
+ac_add_options --disable-necko-wifi
 # GStreamer is necessary for H.264 video playback in HTML5 Video Player;
 # to be enabled, also remember to set "media.gstreamer.enabled" to "true"
 # in about:config. If you have GStreamer 1.x.y, comment out this line and
 # uncomment the following one:
-# ac_add_options --disable-gstreamer
-ac_add_options --enable-gstreamer=1.0
+ac_add_options --disable-gstreamer
+#ac_add_options --enable-gstreamer=1.0
 # Uncomment these lines if you have installed optional dependencies:
 #ac_add_options --enable-system-hunspell
-ac_add_options --enable-startup-notification
+#ac_add_options --enable-startup-notification
 # Comment out following option if you have PulseAudio installed
-# ac_add_options --disable-pulseaudio
+ac_add_options --disable-pulseaudio
 # Comment out following option if you have gconf installed
-# ac_add_options --disable-gconf
+ac_add_options --disable-gconf
 # If you want to compile the Mozilla Calendar, uncomment this line:
-ac_add_options --enable-calendar
+#ac_add_options --enable-calendar
 # Comment out following options if you have not installed
 # recommended dependencies:
 # Do not use system SQLite for Thunderbird 45.x
-ac_add_options --enable-system-sqlite
+#ac_add_options --enable-system-sqlite
 ac_add_options --with-system-libevent
 ac_add_options --with-system-libvpx
 ac_add_options --with-system-nspr
@@ -125,18 +125,34 @@ ac_add_options --with-system-zlib
 EOF
 
 
+sed -e s/_EVENT_SIZEOF/EVENT__SIZEOF/ \
+    -i mozilla/ipc/chromium/src/base/message_pump_libevent.cc
+
+
 sed -e '/#include/i\
     print OUT "#define _GLIBCXX_INCLUDE_NEXT_C_HEADERS\\n"\;' \
     -i mozilla/nsprpub/config/make-system-wrappers.pl &&
 sed -e '/#include/a\
     print OUT "#undef _GLIBCXX_INCLUDE_NEXT_C_HEADERS\\n"\;' \
     -i mozilla/nsprpub/config/make-system-wrappers.pl &&
+make -f client.mk
 
-SHELL=/bin/sh make -f client.mk
-INSTALL_DIR=/var/cache/alps/binaries/$NAME-$VERSION-$(uname -m)
-SHELL=/bin/sh make -f client.mk install DESTDIR="$INSTALL_DIR" INSTALL_SDK=
-mkdir -pv $INSTALL_DIR/usr/share/{applications,pixmaps} &&
-cat > $INSTALL_DIR/usr/share/applications/thunderbird.desktop << "EOF" &&
+
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+make -f client.mk install INSTALL_SDK= &&
+chown -R 0:0 /usr/lib/thunderbird-45.7.1
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
+
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+mkdir -pv /usr/share/{applications,pixmaps} &&
+cat > /usr/share/applications/thunderbird.desktop << "EOF" &&
 [Desktop Entry]
 Encoding=UTF-8
 Name=Thunderbird Mail
@@ -150,13 +166,15 @@ Categories=Application;Network;Email;
 MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/xml;application/rss+xml;x-scheme-handler/mailto;
 StartupNotify=true
 EOF
-ln -sfv /usr/lib/thunderbird-45.8.0/chrome/icons/default/default256.png \
-        $INSTALL_DIR/usr/share/pixmaps/thunderbird.png
-pushd ${INSTALL_DIR}
-tar -cJvf ${INSTALL_DIR}/../$NAME-$VERSION-$(uname -m).tar.xz *
-popd
-sudo rm -r ${INSTALL_DIR}
-sudo tar xf $BINARY_DIR/$NAME-$VERSION-$(uname -m).tar.xz -C /
+ln -sfv /usr/lib/thunderbird-45.7.1/chrome/icons/default/default256.png \
+        /usr/share/pixmaps/thunderbird.png
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

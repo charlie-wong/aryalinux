@@ -40,7 +40,6 @@ esac
 mkdir -v build
 cd       build
 ../configure --prefix=/usr                   \
-             --disable-werror                \
              --enable-kernel=2.6.32          \
              --enable-obsolete-rpc           \
              --enable-stack-protector=strong \
@@ -88,7 +87,7 @@ ethers: files
 rpc: files
 # End /etc/nsswitch.conf
 EOF
-tar -xf ../../tzdata2017b.tar.gz
+tar -xf ../../tzdata2016j.tar.gz
 ZONEINFO=/usr/share/zoneinfo
 mkdir -pv $ZONEINFO/{posix,right}
 for tz in etcetera southamerica northamerica europe africa antarctica  \

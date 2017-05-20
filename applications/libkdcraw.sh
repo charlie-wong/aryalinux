@@ -7,7 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 SOURCE_ONLY=n
-DESCRIPTION="br3ak Libkdcraw is a KDE wrapper aroundbr3ak the <a class=\"xref\" href=\"../general/libraw.html\" title=\"libraw-0.18.2\">libraw-0.18.2</a> library for manipulating imagebr3ak metadata.br3ak"
+DESCRIPTION="br3ak Libkdcraw is a KDE wrapper aroundbr3ak the <a class=\"xref\" href=\"../general/libraw.html\" title=\"libraw-0.18.1\">libraw-0.18.1</a> library for manipulating imagebr3ak metadata.br3ak"
 SECTION="kde"
 VERSION=16.12.2
 NAME="libkdcraw"
@@ -41,6 +41,7 @@ mkdir build &&
 cd    build &&
 cmake -DCMAKE_INSTALL_PREFIX=/opt/kf5 \
       -DCMAKE_BUILD_TYPE=Release         \
+      -DLIB_INSTALL_DIR=lib              \
       -DBUILD_TESTING=OFF                \
       -Wno-dev .. &&
 make "-j`nproc`" || make

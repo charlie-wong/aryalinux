@@ -45,6 +45,7 @@ whoami > /tmp/currentuser
 mkdir build &&
 cd    build &&
 cmake -DCMAKE_INSTALL_PREFIX=/usr    \
+      -DCMAKE_INSTALL_LIBDIR=lib     \
       -DCMAKE_BUILD_TYPE=Release     \
       -DPHONON_BUILD_PHONON4QT5=ON   \
       -Wno-dev .. &&

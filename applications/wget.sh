@@ -60,6 +60,16 @@ sudo rm rootscript.sh
 
 
 
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+echo ca-directory=/etc/ssl/certs >> /etc/wgetrc
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
+
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

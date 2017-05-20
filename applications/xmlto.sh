@@ -7,7 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 SOURCE_ONLY=n
-DESCRIPTION="br3ak The xmlto package is a front-endbr3ak to a XSL toolchain. It chooses an appropriate stylesheet for thebr3ak conversion you want and applies it using an external XSLTbr3ak processor. It also performs any necessary post-processing.br3ak"
+DESCRIPTION="br3ak The xmlto is a front-end to an XSLbr3ak toolchain. It chooses an appropriate stylesheet for the conversionbr3ak you want and applies it using an external XSL-T processor. It alsobr3ak performs any necessary post-processing.br3ak"
 SECTION="pst"
 VERSION=0.0.28
 NAME="xmlto"
@@ -23,11 +23,11 @@ NAME="xmlto"
 
 cd $SOURCE_DIR
 
-URL=http://anduin.linuxfromscratch.org/BLFS/xmlto/xmlto-0.0.28.tar.bz2
+URL=https://fedorahosted.org/releases/x/m/xmlto/xmlto-0.0.28.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/xmlto/xmlto-0.0.28.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/xmlto/xmlto-0.0.28.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/xmlto/xmlto-0.0.28.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/xmlto/xmlto-0.0.28.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/xmlto/xmlto-0.0.28.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/xmlto/xmlto-0.0.28.tar.bz2 || wget -nc http://anduin.linuxfromscratch.org/BLFS/xmlto/xmlto-0.0.28.tar.bz2
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/xmlto/xmlto-0.0.28.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/xmlto/xmlto-0.0.28.tar.bz2 || wget -nc https://fedorahosted.org/releases/x/m/xmlto/xmlto-0.0.28.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/xmlto/xmlto-0.0.28.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/xmlto/xmlto-0.0.28.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/xmlto/xmlto-0.0.28.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/xmlto/xmlto-0.0.28.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

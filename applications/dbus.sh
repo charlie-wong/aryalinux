@@ -9,10 +9,9 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Even though D-Bus was built inbr3ak LFS, there are some features provided by the package that otherbr3ak BLFS packages need, but their dependencies didn't fit into LFS.br3ak"
 SECTION="general"
-VERSION=1.10.18
+VERSION=1.10.14
 NAME="dbus"
 
-#REQ:systemd
 #REC:x7lib
 #OPT:dbus-glib
 #OPT:python-modules#dbus-python
@@ -24,11 +23,11 @@ NAME="dbus"
 
 cd $SOURCE_DIR
 
-URL=http://dbus.freedesktop.org/releases/dbus/dbus-1.10.18.tar.gz
+URL=http://dbus.freedesktop.org/releases/dbus/dbus-1.10.14.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/db/dbus-1.10.18.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/db/dbus-1.10.18.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/db/dbus-1.10.18.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/db/dbus-1.10.18.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/db/dbus-1.10.18.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/db/dbus-1.10.18.tar.gz || wget -nc http://dbus.freedesktop.org/releases/dbus/dbus-1.10.18.tar.gz
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/db/dbus-1.10.14.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/db/dbus-1.10.14.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/db/dbus-1.10.14.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/db/dbus-1.10.14.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/db/dbus-1.10.14.tar.gz || wget -nc http://dbus.freedesktop.org/releases/dbus/dbus-1.10.14.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/db/dbus-1.10.14.tar.gz
 wget -nc http://dbus.freedesktop.org/releases/dbus/dbus-1.10.16.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
@@ -44,17 +43,14 @@ fi
 
 whoami > /tmp/currentuser
 
-./configure --prefix=/usr                        \
-            --sysconfdir=/etc                    \
-            --localstatedir=/var                 \
-            --enable-user-session                \
-            --disable-doxygen-docs               \
-            --disable-xml-docs                   \
-            --disable-static                     \
-            --docdir=/usr/share/doc/dbus-1.10.18 \
-            --with-console-auth-dir=/run/console \
-            --with-system-pid-file=/run/dbus/pid \
-            --with-system-socket=/run/dbus/system_bus_socket &&
+./configure --prefix=/usr                  \
+            --sysconfdir=/etc              \
+            --localstatedir=/var           \
+            --disable-doxygen-docs         \
+            --disable-xml-docs             \
+            --disable-static               \
+            --with-console-auth-dir=/run/console/ \
+            --docdir=/usr/share/doc/dbus-1.10.14   &&
 make "-j`nproc`" || make
 
 

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak This package provides the GEneric Graphics Library, which is abr3ak graph based image processing format.br3ak"
 SECTION="general"
-VERSION=0.3.14
+VERSION=0.3.12
 NAME="gegl"
 
 #REQ:babl
@@ -37,11 +37,11 @@ NAME="gegl"
 
 cd $SOURCE_DIR
 
-URL=http://download.gimp.org/pub/gegl/0.3/gegl-0.3.14.tar.bz2
+URL=http://download.gimp.org/pub/gegl/0.3/gegl-0.3.12.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://download.gimp.org/pub/gegl/0.3/gegl-0.3.14.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gegl/gegl-0.3.14.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gegl/gegl-0.3.14.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gegl/gegl-0.3.14.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gegl/gegl-0.3.14.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gegl/gegl-0.3.14.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gegl/gegl-0.3.14.tar.bz2
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gegl/gegl-0.3.12.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gegl/gegl-0.3.12.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gegl/gegl-0.3.12.tar.bz2 || wget -nc http://download.gimp.org/pub/gegl/0.3/gegl-0.3.12.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gegl/gegl-0.3.12.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gegl/gegl-0.3.12.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gegl/gegl-0.3.12.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -56,12 +56,10 @@ fi
 
 whoami > /tmp/currentuser
 
-sed -i /DG_LOG/d configure.ac 
-sed -i '/srcdir)\/gegl\/property-types/a\\t-DG_LOG_DOMAIN=\\\"GEGL\\\" \\' \
-    gegl/Makefile.am
+./configure --prefix=/usr &&
+LC_ALL=en_US make
 
-./autogen.sh --prefix=/usr --without-vala &&
-LC_ALL=en_US make -j$(nproc)
+
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install &&

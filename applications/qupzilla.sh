@@ -8,8 +8,8 @@ set +h
 
 SOURCE_ONLY=n
 DESCRIPTION="br3ak QupZilla is a fast, feature-richbr3ak and lightweight QtWebEngine basedbr3ak browser, originally intended only for educational purposes.br3ak"
-SECTION="xsoft"
-VERSION=2.1.2
+SECTION="lxqt"
+VERSION=2.1.1
 NAME="qupzilla"
 
 #REQ:openssl
@@ -19,11 +19,11 @@ NAME="qupzilla"
 
 cd $SOURCE_DIR
 
-URL=https://github.com/QupZilla/qupzilla/releases/download/v2.1.2/QupZilla-2.1.2.tar.xz
+URL=https://github.com/QupZilla/qupzilla/releases/download/v2.1.1/QupZilla-2.1.1.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/qupzilla/QupZilla-2.1.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/qupzilla/QupZilla-2.1.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/qupzilla/QupZilla-2.1.2.tar.xz || wget -nc https://github.com/QupZilla/qupzilla/releases/download/v2.1.2/QupZilla-2.1.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/qupzilla/QupZilla-2.1.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/qupzilla/QupZilla-2.1.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/qupzilla/QupZilla-2.1.2.tar.xz
+wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/qupzilla/QupZilla-2.1.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/qupzilla/QupZilla-2.1.1.tar.xz || wget -nc https://github.com/QupZilla/qupzilla/releases/download/v2.1.1/QupZilla-2.1.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/qupzilla/QupZilla-2.1.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/qupzilla/QupZilla-2.1.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/qupzilla/QupZilla-2.1.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/qupzilla/QupZilla-2.1.1.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -38,7 +38,7 @@ fi
 
 whoami > /tmp/currentuser
 
-export QUPZILLA_PREFIX=/usr &&
+export QUPZILLA_PREFIX=$LXQT_PREFIX &&
 qmake                       &&
 make "-j`nproc`" || make
 

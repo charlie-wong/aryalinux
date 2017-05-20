@@ -5,7 +5,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="bash-completion"
+NAME="bash-completion_.orig"
 VERSION="2.1"
 
 cd $SOURCE_DIR
@@ -21,9 +21,7 @@ cd $DIRECTORY
 
 ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static &&
 make
-
-makepkg "$NAME" "$VERSION" "1"
-sudo tar xf $BINARY_DIR/$NAME-$VERSION-$(uname -m).tar.xz -C /
+sudo make install
 
 cd $SOURCE_DIR
 cleanup "$NAME" "$DIRECTORY"

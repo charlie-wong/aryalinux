@@ -10,8 +10,8 @@ set +h
 #REQ:perl-modules#exporter-tiny
 
 SOURCE_ONLY=y
-URL="http://www.cpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-0.419.tar.gz"
-VERSION=0.419
+URL="http://www.cpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-0.416.tar.gz"
+VERSION=0.416
 NAME="perl-modules#perl-list-moreutils"
 
 cd $SOURCE_DIR

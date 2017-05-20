@@ -13,8 +13,8 @@ set +h
 #REQ:perl-modules#test-needs
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/Specio-0.36.tar.gz"
-VERSION=0.36
+URL="http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/Specio-0.37.tar.gz"
+VERSION=0.37
 NAME="perl-modules#specio"
 
 cd $SOURCE_DIR

@@ -8,8 +8,8 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/O/OA/OALDERS/Net-HTTP-6.14.tar.gz"
-VERSION=6.14
+URL="http://search.cpan.org/CPAN/authors/id/O/OA/OALDERS/Net-HTTP-6.15.tar.gz"
+VERSION=6.15
 NAME="perl-modules#net-http"
 
 cd $SOURCE_DIR
