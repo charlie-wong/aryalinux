@@ -60,7 +60,7 @@ whoami > /tmp/currentuser
             --enable-bluez5 --enable-bluez5-ofono-headset     \
             --disable-bluez5     \
             --disable-rpath      &&
-make "-j`nproc`" || make
+make
 
 
 
