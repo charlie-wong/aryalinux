@@ -27,6 +27,7 @@ NAME="networkmanager"
 #REC:upower
 #REC:vala
 #REC:wpa_supplicant
+#REQ:python-modules#pygobject3
 #OPT:bluez
 #OPT:gtk-doc
 #OPT:qt5
