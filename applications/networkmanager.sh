@@ -31,7 +31,7 @@ NAME="networkmanager"
 #OPT:gtk-doc
 #OPT:qt5
 #OPT:ModemManager
-#OPT:python-modules#pygobject3
+#REQ:python-modules#pygobject3
 #OPT:valgrind
 
 
