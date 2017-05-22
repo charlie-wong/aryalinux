@@ -16,7 +16,7 @@ NAME="lxqt-powermanagement"
 #REQ:lxqt-kidletime
 #REQ:lxqt-solid
 #REQ:upower
-#REQ:kframeworks5
+#REQ:lxqt-l10n
 #OPT:git
 #OPT:lxqt-l10n
 

@@ -19,7 +19,7 @@ NAME="lxqt-panel"
 #REQ:liblxqt
 #REQ:lxmenu-data
 #REQ:menu-cache
-#REQ:kframeworks5
+#REQ:lxqt-l10n
 #REC:alsa-lib
 #REC:pulseaudio
 #REC:libstatgrab
