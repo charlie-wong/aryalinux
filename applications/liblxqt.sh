@@ -14,7 +14,7 @@ NAME="liblxqt"
 
 #REQ:libqtxdg
 #REQ:lxqt-kwindowsystem
-#REQ:kframeworks5
+#REQ:lxqt-l10n
 #OPT:git
 #OPT:lxqt-l10n
 

@@ -27,12 +27,11 @@ NAME="networkmanager"
 #REC:upower
 #REC:vala
 #REC:wpa_supplicant
-#REQ:python-modules#pygobject3
 #OPT:bluez
 #OPT:gtk-doc
 #OPT:qt5
 #OPT:ModemManager
-#REQ:python-modules#pygobject2
+#OPT:python-modules#pygobject3
 #OPT:valgrind
 
 

@@ -9,11 +9,11 @@ set +h
 SOURCE_ONLY=n
 NAME="mozo"
 DESCRIPTION="Easy MATE menu editing tool"
-VERSION="1.16.0"
+VERSION="1.18.0"
 
 cd $SOURCE_DIR
 
-URL="http://pub.mate-desktop.org/releases/1.16/mozo-1.16.0.tar.xz"
+URL="http://pub.mate-desktop.org/releases/1.18/mozo-1.18.0.tar.xz"
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
