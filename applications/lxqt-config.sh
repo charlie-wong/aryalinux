@@ -14,7 +14,7 @@ NAME="lxqt-config"
 
 #REQ:liblxqt
 #REQ:lxqt-libkscreen
-#REQ:plasma-all
+#REQ:lxqt-l10n
 #OPT:git
 #OPT:lxqt-l10n
 
