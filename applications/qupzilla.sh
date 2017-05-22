@@ -36,6 +36,18 @@ fi
 cd $DIRECTORY
 fi
 
+export QT5DIR=/opt/qt5
+export LXQT_PREFIX=/opt/lxqt
+pathappend /opt/lxqt/bin           PATH
+pathappend /opt/lxqt/share/man/    MANPATH
+pathappend /opt/lxqt/lib/pkgconfig PKG_CONFIG_PATH
+pathappend /opt/lxqt/lib/plugins   QT_PLUGIN_PATH
+pathappend $QT5DIR/plugins         QT_PLUGIN_PATH
+pathappend /opt/lxqt/lib LD_LIBRARY_PATH
+pathappend /opt/qt5/lib LD_LIBRARY_PATH
+pathappend /opt/qt5/lib/pkgconfig PKG_CONFIG_PATH
+pathappend /opt/lxqt/lib/pkgconfig PKG_CONFIG_PATH
+
 whoami > /tmp/currentuser
 
 export QUPZILLA_PREFIX=$LXQT_PREFIX &&

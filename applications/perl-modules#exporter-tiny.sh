@@ -8,8 +8,8 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/T/TO/TOBYINK/Exporter-Tiny-0.044.tar.gz"
-VERSION=0.044
+URL="http://search.cpan.org/CPAN/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.000000.tar.gz"
+VERSION=1.000000
 NAME="perl-modules#exporter-tiny"
 
 cd $SOURCE_DIR
