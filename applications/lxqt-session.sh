@@ -60,9 +60,6 @@ sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
-fluxbox/Name=Fluxbox
-
-
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
