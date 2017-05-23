@@ -20,6 +20,15 @@ NAME="firefox"
 #REQ:unzip
 #REQ:yasm
 #REQ:zip
+#REQ:dbus-glib
+#REQ:GConf
+#REQ:ffmpeg
+#REQ:libwebp
+#REQ:pulseaudio
+#REQ:startup-notification
+#REQ:valgrind
+#REQ:liboauth
+#REQ:graphite2
 #REC:icu
 #REC:libevent
 #REC:libvpx
@@ -71,20 +80,20 @@ cat > mozconfig << "EOF"
 # uncommenting the next line and setting a valid number of CPU cores.
 #mk_add_options MOZ_MAKE_FLAGS="-j1"
 # If you have installed dbus-glib, comment out this line:
-ac_add_options --disable-dbus
+#ac_add_options --disable-dbus
 # If you have installed dbus-glib, and you have installed (or will install)
 # wireless-tools, and you wish to use geolocation web services, comment out
 # this line
-ac_add_options --disable-necko-wifi
+#ac_add_options --disable-necko-wifi
 # Uncomment this option if you wish to build with gtk+-2
 #ac_add_options --enable-default-toolkit=cairo-gtk2
 # Uncomment these lines if you have installed optional dependencies:
 #ac_add_options --enable-system-hunspell
 #ac_add_options --enable-startup-notification
 # Comment out following option if you have PulseAudio installed
-ac_add_options --disable-pulseaudio
+#ac_add_options --disable-pulseaudio
 # If you have installed GConf, comment out this line
-ac_add_options --disable-gconf
+#ac_add_options --disable-gconf
 # Comment out following options if you have not installed
 # recommended dependencies:
 ac_add_options --enable-system-sqlite
@@ -95,8 +104,8 @@ ac_add_options --with-system-nss
 ac_add_options --with-system-icu
 # If you are going to apply the patch for system graphite
 # and system harfbuzz, uncomment these lines:
-#ac_add_options --with-system-graphite2
-#ac_add_options --with-system-harfbuzz
+ac_add_options --with-system-graphite2
+ac_add_options --with-system-harfbuzz
 # Stripping is now enabled by default.
 # Uncomment these lines if you need to run a debugger:
 #ac_add_options --disable-strip
