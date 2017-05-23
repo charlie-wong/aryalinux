@@ -33,7 +33,7 @@ cd $SOURCE_DIR
 #REQ:xdg-utils
 #REQ:xdg-user-dirs
 #REQ:oxygen-icons5
-#REQ:python-modules#pygobject2
+#REQ:python-modules#pygobject3
 #REQ:networkmanager
 #REQ:network-manager-applet
 #REQ:ModemManager
