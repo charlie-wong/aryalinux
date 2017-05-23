@@ -12,7 +12,7 @@ DESCRIPTION="LXQt is a lightweight Qt desktop environment"
 
 cd $SOURCE_DIR
 
-#REQ:linuxpam
+#REQ:linux-pam
 #REQ:shadow
 #REQ:sudo
 #REQ:wayland
@@ -33,6 +33,9 @@ cd $SOURCE_DIR
 #REQ:xdg-utils
 #REQ:xdg-user-dirs
 #REQ:oxygen-icons5
+#REQ:networkmanager
+#REQ:network-manager-applet
+#REQ:ModemManager
 #REQ:lxqt-build-tools
 #REQ:libsysstat
 #REQ:libqtxdg
@@ -62,7 +65,13 @@ cd $SOURCE_DIR
 #REQ:pavucontrol-qt
 #REQ:qtermwidget
 #REQ:qterminal
-#REQ:qscntilla
+#REQ:qscintilla
 #REQ:juffed
+#REQ:arc-gtk-theme
+#REQ:numix-icons
+#REQ:aryalinux-wallpapers
+#REQ:aryalinux-fonts
+#REQ:lightdm
+#REQ:lightdm-gtk-greeter
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
