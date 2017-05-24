@@ -63,9 +63,6 @@ cmake -DCMAKE_INSTALL_PREFIX=$LXQT_PREFIX \
 LIBRARY_PATH=$LXQT_PREFIX/lib make
 
 
-make -C docs/latex
-
-
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install
