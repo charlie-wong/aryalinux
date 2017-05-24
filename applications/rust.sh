@@ -16,7 +16,6 @@ NAME="rust"
 #REQ:cmake
 #REQ:llvm
 #REQ:python2
-#REC:llvm-old
 #OPT:gdb
 #OPT:ninja
 
