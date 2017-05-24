@@ -75,4 +75,24 @@ cd $SOURCE_DIR
 #REQ:lightdm
 #REQ:lightdm-gtk-greeter
 
+export LXQT_PREFIX="/opt/lxqt"
+
+sudo ln -svfn $LXQT_PREFIX/share/lxqt /usr/share/lxqt &&
+
+sudo cp -v {$LXQT_PREFIX,/usr}/share/xsessions/lxqt.desktop &&
+
+for i in $LXQT_PREFIX/share/applications/*
+do
+  sudo ln -svf $i /usr/share/applications/
+done
+
+for i in $LXQT_PREFIX/share/desktop-directories/*
+do
+  sudo ln -svf $i /usr/share/desktop-directories/
+done
+
+unset i
+
+sudo ldconfig
+
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
