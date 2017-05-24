@@ -10,7 +10,7 @@ NAME="python-ipaddr"
 VERSION="2.1.11"
 
 #REQ:python2
-#REQ:python-modules#setuptools
+#REQ:setuptools
 
 cd $SOURCE_DIR
 

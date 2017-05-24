@@ -9,7 +9,7 @@ set +h
 NAME="openshot_.orig"
 VERSION="1.4.3"
 
-#REQ:python-modules#setuptools
+#REQ:setuptools
 #REQ:ladspa
 #REQ:fontconfig
 #REQ:gtk2

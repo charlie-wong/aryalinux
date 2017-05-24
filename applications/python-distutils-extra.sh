@@ -9,7 +9,7 @@ set +h
 NAME="python-distutils-extra"
 VERSION="2.39"
 
-#REQ:python-modules#setuptools
+#REQ:setuptools
 
 URL=https://launchpad.net/python-distutils-extra/trunk/2.39/+download/python-distutils-extra-2.39.tar.gz
 

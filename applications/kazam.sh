@@ -6,14 +6,14 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="kazam_.orig"
+NAME="kazam"
 VERSION="1.0.6"
 
-#REQ:python-modules#setuptools
+#REQ:setuptools
 #REQ:python-distutils-extra
 #REQ:python-modules#pyxdg
 
-URL=http://archive.ubuntu.com/ubuntu/pool/universe/k/kazam/kazam_1.0.6.orig.tar.gz
+URL=https://launchpad.net/kazam/stable/1.4.5/+download/kazam-1.4.5.tar.gz
 
 cd $SOURCE_DIR
 
