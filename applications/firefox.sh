@@ -141,23 +141,16 @@ sed -e s/_EVENT_SIZEOF/EVENT__SIZEOF/ \
 
 make -f client.mk
 
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make -f client.mk install INSTALL_SDK= &&
-chown -R 0:0 /usr/lib/firefox-$VERSION   &&
-mkdir -pv    /usr/lib/mozilla/plugins  &&
-ln    -sfv   ../../mozilla/plugins /usr/lib/firefox-$VERSION/browser
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
+sudo make -f client.mk install INSTALL_SDK= &&
+sudo chown -R 0:0 /usr/lib/firefox-$VERSION   &&
+sudo mkdir -pv    /usr/lib/mozilla/plugins  &&
+sudo ln    -sfv   ../../mozilla/plugins /usr/lib/firefox-$VERSION/browser
 
 
 
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-mkdir -pv /usr/share/applications &&
-mkdir -pv /usr/share/pixmaps &&
-cat > /usr/share/applications/firefox.desktop << "EOF" &&
+sudo mkdir -pv /usr/share/applications &&
+sudo mkdir -pv /usr/share/pixmaps &&
+sudo tee /usr/share/applications/firefox.desktop << "EOF" &&
 [Desktop Entry]
 Encoding=UTF-8
 Name=Firefox Web Browser
@@ -171,15 +164,8 @@ Categories=GNOME;GTK;Network;WebBrowser;
 MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
 StartupNotify=true
 EOF
-ln -sfv /usr/lib/firefox-$VERSION/browser/icons/mozicon128.png \
+sudo ln -sfv /usr/lib/firefox-$VERSION/browser/icons/mozicon128.png \
         /usr/share/pixmaps/firefox.png
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
