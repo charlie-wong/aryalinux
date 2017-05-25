@@ -21,8 +21,6 @@ DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 tar xf $TARBALL
 cd $DIRECTORY
 
-autoreconf -fi &&
-./autogen.sh &&
 GETTEXT_PACKAGE=thunar-archive-plugin ./configure --prefix=/usr &&
 make "-j$(nproc)" || make
 sudo make install
