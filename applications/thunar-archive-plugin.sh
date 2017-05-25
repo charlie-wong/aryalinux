@@ -14,7 +14,7 @@ DESCRIPTION="The Thunar Archive Plugin allows you to create and extract archive 
 URL=http://archive.ubuntu.com/ubuntu/pool/universe/t/thunar-archive-plugin/thunar-archive-plugin_0.3.1.orig.tar.bz2
 
 cd $SOURCE_DIR
-wget $URL
+wget -nc $URL
 TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
@@ -22,7 +22,7 @@ tar xf $TARBALL
 cd $DIRECTORY
 
 autoreconf -fi &&
-./configure --prefix=/usr &&
+GETTEXT_PACKAGE=thunar-archive-plugin ./configure --prefix=/usr &&
 make "-j$(nproc)" || make
 sudo make install
 
