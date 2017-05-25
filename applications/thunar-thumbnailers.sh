@@ -21,7 +21,7 @@ DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 tar xf $TARBALL
 cd $DIRECTORY
 
-./configure --prefix=/usr &&
+./autogen.sh --prefix=/usr &&
 make "-j$(nproc)" || make
 sudo make install
 
