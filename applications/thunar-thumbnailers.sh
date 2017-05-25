@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:thunar
+#REQ:xfce4-dev-tools
 
 NAME=thunar-thumbnailers
 VERSION=0.4.1
