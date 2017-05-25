@@ -7,9 +7,10 @@ set +h
 . /var/lib/alps/functions
 
 SOURCE_ONLY=n
-DESCRIPTION="br3ak Download (HTTP): <a class=\"ulink\" href=\"http://anduin.linuxfromscratch.org/BLFS/other/make-ca.sh-20170119\">br3ak http://anduin.linuxfromscratch.org/BLFS/other/make-ca.sh-20170119</a>br3ak"
+DESCRIPTION="Public Key Infrastructure (PKI) is a method to validate the authenticity of an otherwise unknown entity across untrusted networks. PKI works by establishing a chain of trust, rather than trusting each individual host or entity explicitly. In order for a certificate presented by a remote entity to be trusted, that certificate must present a complete chain of certificates that can be validated using the root certificate of a Certificate Authority (CA) that is trusted by the local machine"
 SECTION="postlfs"
 NAME="cacerts"
+VERSION="latest"
 
 #REQ:openssl
 #OPT:java
@@ -19,44 +20,11 @@ NAME="cacerts"
 
 cd $SOURCE_DIR
 
-URL=
+wget -nc http://anduin.linuxfromscratch.org/BLFS/other/make-ca.sh-20161126
+wget -nc http://anduin.linuxfromscratch.org/BLFS/other/certdata.txt
 
-if [ ! -z $URL ]
-then
-
-TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
-if [ -z $(echo $TARBALL | grep ".zip$") ]; then
-	DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$"`
-	tar --no-overwrite-dir -xf $TARBALL
-else
-	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
-	unzip_file $TARBALL $NAME
-fi
-cd $DIRECTORY
-fi
-
-whoami > /tmp/currentuser
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -vm755 make-ca.sh-20170119 /usr/sbin/make-ca.sh
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-/usr/sbin/make-ca.sh
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
+sudo install -vm755 make-ca.sh-20161126 /usr/sbin/make-ca.sh
+sudo /usr/sbin/make-ca.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
