@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="Firefox is a stand-alone browser based on the Mozilla codebase."
 SECTION="xsoft"
-VERSION=51.0.1
+VERSION=53.0
 NAME="firefox"
 
 #REQ:alsa-lib
@@ -141,16 +141,23 @@ sed -e s/_EVENT_SIZEOF/EVENT__SIZEOF/ \
 
 make -f client.mk
 
-sudo make -f client.mk install INSTALL_SDK= &&
-sudo chown -R 0:0 /usr/lib/firefox-$VERSION   &&
-sudo mkdir -pv    /usr/lib/mozilla/plugins  &&
-sudo ln    -sfv   ../../mozilla/plugins /usr/lib/firefox-$VERSION/browser
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+make -f client.mk install INSTALL_SDK= &&
+chown -R 0:0 /usr/lib/firefox-$VERSION   &&
+mkdir -pv    /usr/lib/mozilla/plugins  &&
+ln    -sfv   ../../mozilla/plugins /usr/lib/firefox-$VERSION/browser
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
 
 
 
-sudo mkdir -pv /usr/share/applications &&
-sudo mkdir -pv /usr/share/pixmaps &&
-sudo tee /usr/share/applications/firefox.desktop << "EOF" &&
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+mkdir -pv /usr/share/applications &&
+mkdir -pv /usr/share/pixmaps &&
+cat > /usr/share/applications/firefox.desktop << "EOF" &&
 [Desktop Entry]
 Encoding=UTF-8
 Name=Firefox Web Browser
@@ -164,8 +171,15 @@ Categories=GNOME;GTK;Network;WebBrowser;
 MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
 StartupNotify=true
 EOF
-sudo ln -sfv /usr/lib/firefox-$VERSION/browser/icons/mozicon128.png \
+ln -sfv /usr/lib/firefox-$VERSION/browser/icons/mozicon128.png \
         /usr/share/pixmaps/firefox.png
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

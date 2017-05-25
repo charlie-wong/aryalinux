@@ -18,6 +18,7 @@ wget $URL
 TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
+tar xf $TARBALL
 cd $DIRECTORY
 
 ./configure --prefix=/usr &&
