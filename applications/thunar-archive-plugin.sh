@@ -22,6 +22,7 @@ tar xf $TARBALL
 cd $DIRECTORY
 
 ./autogen.sh --prefix=/usr &&
+./configure --prefix=/usr &&
 make "-j$(nproc)" || make
 sudo make install
 
