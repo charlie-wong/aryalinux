@@ -17,6 +17,7 @@ NAME="networkmanager"
 #REQ:libndp
 #REQ:libnl
 #REQ:nss
+#REQ:python-modules#pygobject3
 #REC:dhcpcd
 #REC:gobject-introspection
 #REC:iptables
@@ -31,7 +32,6 @@ NAME="networkmanager"
 #OPT:gtk-doc
 #OPT:qt5
 #OPT:ModemManager
-#REQ:python-modules#pygobject3
 #OPT:valgrind
 
 

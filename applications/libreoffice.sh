@@ -9,7 +9,10 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak LibreOffice is a full-featuredbr3ak office suite. It is largely compatible with Microsoft Office and is descended frombr3ak OpenOffice.org.br3ak"
 SECTION="xsoft"
-VERSION=5.3.0.3
+VERSION_MAJOR=5.3.0
+VERSION_MINOR=3
+VERSION=$VERSION_MAJOR.$VERSION_MINOR
+PARENT_DIR_URL="http://download.documentfoundation.org/libreoffice/src/$VERSION_MAJOR/"
 NAME="libreoffice"
 
 #REQ:perl-modules#perl-archive-zip
@@ -66,13 +69,13 @@ NAME="libreoffice"
 
 cd $SOURCE_DIR
 
-URL=http://download.documentfoundation.org/libreoffice/src/5.3.0/libreoffice-5.3.0.3.tar.xz
+URL=$PARENT_DIR_URL/libreoffice-$VERSION.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-5.3.0.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-5.3.0.3.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-5.3.0.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-5.3.0.3.tar.xz || wget -nc http://download.documentfoundation.org/libreoffice/src/5.3.0/libreoffice-5.3.0.3.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-5.3.0.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-5.3.0.3.tar.xz
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.3.0.3.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.3.0.3.tar.xz || wget -nc http://download.documentfoundation.org/libreoffice/src/5.3.0/libreoffice-dictionaries-5.3.0.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.3.0.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.3.0.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.3.0.3.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-dictionaries-5.3.0.3.tar.xz
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-translations-5.3.0.3.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-translations-5.3.0.3.tar.xz || wget -nc http://download.documentfoundation.org/libreoffice/src/5.3.0/libreoffice-translations-5.3.0.3.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-translations-5.3.0.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-translations-5.3.0.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-translations-5.3.0.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-translations-5.3.0.3.tar.xz
+wget -nc $URL
+wget -nc $PARENT_DIR_URL/libreoffice-dictionaries-$VERSION.tar.xz
+wget -nc $PARENT_DIR_URL/libreoffice-translations-$VERSION.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -90,24 +93,21 @@ whoami > /tmp/currentuser
 if [ -z "$LANGUAGE" ]; then export LANGUAGE=en-US; fi
 
 install -dm755 external/tarballs &&
-ln -sv ../../../libreoffice-dictionaries-5.3.0.3.tar.xz external/tarballs/ &&
-ln -sv ../../../libreoffice-help-5.3.0.3.tar.xz         external/tarballs/
+ln -sv ../../../libreoffice-dictionaries-$VERSION_MAJOR.$VERSION_MINOR.tar.xz external/tarballs/ &&
+ln -sv ../../../libreoffice-help-$VERSION_MAJOR.$VERSION_MINOR.tar.xz         external/tarballs/
 
 
-ln -sv ../../../libreoffice-translations-5.3.0.3.tar.xz external/tarballs/
-
-
-export LO_PREFIX=/usr
+ln -sv ../../../libreoffice-translations-$VERSION_MAJOR.$VERSION_MINOR.tar.xz external/tarballs/
 
 
 sed -e "/gzip -f/d"   \
     -e "s|.1.gz|.1|g" \
     -i bin/distro-install-desktop-integration &&
 sed -e "/distro-install-file-lists/d" -i Makefile.in &&
-./autogen.sh --prefix=$LO_PREFIX         \
+./autogen.sh --prefix=/usr               \
              --sysconfdir=/etc           \
-             --with-vendor=AryaLinux          \
-             --with-lang="$LANGUAGE"      \
+             --with-vendor=AryaLinux     \
+             --with-lang="$LANGUAGE"     \
              --with-help                 \
              --with-myspell-dicts        \
              --with-alloc=system         \
@@ -138,49 +138,23 @@ sed -e "/distro-install-file-lists/d" -i Makefile.in &&
              --with-system-openldap      \
              --with-system-openssl       \
              --with-system-poppler       \
-             --disable-postgresql-sdbc --without-java    \
+             --disable-postgresql-sdbc   \
+             --without-java              \
              --with-system-redland       \
              --with-system-serf          \
              --with-system-zlib
 
 
 make build-nocheck
+sudo make distro-pack-install
+sudo update-desktop-database
 
+# Create the package
 
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make distro-pack-install
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-update-desktop-database
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-sudo ln -svf /usr/lib/libreoffice/program/soffice /usr/bin/libreoffice
-
-sudo mkdir -vp /usr/share/pixmaps
-for i in /usr/share/icons/hicolor/32x32/apps/*; do
-    sudo ln -svf $i /usr/share/pixmaps
-done
-
-for i in /usr/lib/libreoffice/share/xdg/*; do
-    sudo ln -svf $i /usr/share/applications/libreoffice-$(basename $i)
-done
-
-unset i
-
-
+make distro-pack-install DESTDIR=$BINARY_DIR/libreoffice-$VERSION-$(uname -m)
+pushd $BINARY_DIR/libreoffice-$VERSION-$(uname -m)
+tar -cJvf $BINARY_DIR/libreoffice-$VERSION-$(uname -m).tar.xz *
+popd
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
