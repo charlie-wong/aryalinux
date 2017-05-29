@@ -12,7 +12,7 @@ VERSION="2017.04"
 
 cd $SOURCE_DIR
 
-URL=https://sourceforge.net/projects/aryalinux-bin/files/releases/2017.04/aryalinux-wallpapers-2017.04.tar.xz
+URL=https://sourceforge.net/projects/aryalinux-bin/files/releases/2017.06/aryalinux-wallpapers.tar.xz
 TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 wget -nc $URL
 
