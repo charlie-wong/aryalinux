@@ -23,7 +23,7 @@ URL=http://www.tcpdump.org/release/libpcap-1.8.1.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libpcap/libpcap-1.8.1.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libpcap/libpcap-1.8.1.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libpcap/libpcap-1.8.1.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libpcap/libpcap-1.8.1.tar.gz || wget -nc http://www.tcpdump.org/release/libpcap-1.8.1.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libpcap/libpcap-1.8.1.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libpcap/libpcap-1.8.1.tar.gz
+wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libpcap/libpcap-1.8.1.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libpcap/libpcap-1.8.1.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libpcap/libpcap-1.8.1.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libpcap/libpcap-1.8.1.tar.gz || wget -nc http://www.tcpdump.org/release/libpcap-1.8.1.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libpcap/libpcap-1.8.1.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libpcap/libpcap-1.8.1.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/8.0/libpcap-1.8.1-enable_bluetooth-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/libpcap/libpcap-1.8.1-enable_bluetooth-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`

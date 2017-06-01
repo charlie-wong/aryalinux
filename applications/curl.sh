@@ -29,7 +29,7 @@ URL=https://curl.haxx.se/download/curl-7.52.1.tar.lzma
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/curl/curl-7.52.1.tar.lzma || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/curl/curl-7.52.1.tar.lzma || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/curl/curl-7.52.1.tar.lzma || wget -nc https://curl.haxx.se/download/curl-7.52.1.tar.lzma || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/curl/curl-7.52.1.tar.lzma || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/curl/curl-7.52.1.tar.lzma || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/curl/curl-7.52.1.tar.lzma
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/curl/curl-7.52.1.tar.lzma || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/curl/curl-7.52.1.tar.lzma || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/curl/curl-7.52.1.tar.lzma || wget -nc https://curl.haxx.se/download/curl-7.52.1.tar.lzma || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/curl/curl-7.52.1.tar.lzma || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/curl/curl-7.52.1.tar.lzma || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/curl/curl-7.52.1.tar.lzma
 wget -nc http://www.linuxfromscratch.org/patches/downloads/curl/curl-7.52.1-valgrind_filter-1.patch || wget -nc http://www.linuxfromscratch.org/patches/blfs/8.0/curl-7.52.1-valgrind_filter-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`

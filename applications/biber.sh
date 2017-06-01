@@ -56,7 +56,7 @@ URL=https://github.com/plk/biber/archive/v2.7.tar.gz
 if [ ! -z $URL ]
 then
 wget -nc https://github.com/plk/biber/archive/v2.7.tar.gz
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/biblatex/biblatex-3.7.tds.tgz || wget -nc http://sourceforge.net/projects/biblatex/files/biblatex-3.7/biblatex-3.7.tds.tgz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/biblatex/biblatex-3.7.tds.tgz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/biblatex/biblatex-3.7.tds.tgz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/biblatex/biblatex-3.7.tds.tgz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/biblatex/biblatex-3.7.tds.tgz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/biblatex/biblatex-3.7.tds.tgz
+wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/biblatex/biblatex-3.7.tds.tgz || wget -nc http://sourceforge.net/projects/biblatex/files/biblatex-3.7/biblatex-3.7.tds.tgz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/biblatex/biblatex-3.7.tds.tgz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/biblatex/biblatex-3.7.tds.tgz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/biblatex/biblatex-3.7.tds.tgz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/biblatex/biblatex-3.7.tds.tgz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/biblatex/biblatex-3.7.tds.tgz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
