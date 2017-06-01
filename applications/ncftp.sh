@@ -20,7 +20,7 @@ URL=ftp://ftp.ncftp.com/ncftp/ncftp-3.2.6-src.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/ncftp/ncftp-3.2.6-src.tar.xz || wget -nc ftp://ftp.ncftp.com/ncftp/ncftp-3.2.6-src.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/ncftp/ncftp-3.2.6-src.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/ncftp/ncftp-3.2.6-src.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/ncftp/ncftp-3.2.6-src.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/ncftp/ncftp-3.2.6-src.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/ncftp/ncftp-3.2.6-src.tar.xz
+wget -nc ftp://ftp.ncftp.com/ncftp/ncftp-3.2.6-src.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/ncftp/ncftp-3.2.6-src.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/ncftp/ncftp-3.2.6-src.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/ncftp/ncftp-3.2.6-src.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/ncftp/ncftp-3.2.6-src.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/ncftp/ncftp-3.2.6-src.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/ncftp/ncftp-3.2.6-src.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

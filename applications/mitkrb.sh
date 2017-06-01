@@ -27,7 +27,7 @@ URL=http://web.mit.edu/kerberos/dist/krb5/1.15/krb5-1.15.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/krb5/krb5-1.15.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/krb5/krb5-1.15.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/krb5/krb5-1.15.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/krb5/krb5-1.15.tar.gz || wget -nc http://web.mit.edu/kerberos/dist/krb5/1.15/krb5-1.15.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/krb5/krb5-1.15.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/krb5/krb5-1.15.tar.gz
+wget -nc http://web.mit.edu/kerberos/dist/krb5/1.15/krb5-1.15.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/krb5/krb5-1.15.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/krb5/krb5-1.15.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/krb5/krb5-1.15.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/krb5/krb5-1.15.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/krb5/krb5-1.15.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/krb5/krb5-1.15.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/8.0/mitkrb-1.15-fix_ipv4_only-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/mitkrb/mitkrb-1.15-fix_ipv4_only-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`

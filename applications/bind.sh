@@ -35,8 +35,8 @@ URL=ftp://ftp.isc.org/isc/bind9/9.11.0-P3/bind-9.11.0-P3.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/bind/bind-9.11.0-P3.tar.gz || wget -nc ftp://ftp.isc.org/isc/bind9/9.11.0-P3/bind-9.11.0-P3.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/bind/bind-9.11.0-P3.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/bind/bind-9.11.0-P3.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/bind/bind-9.11.0-P3.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/bind/bind-9.11.0-P3.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/bind/bind-9.11.0-P3.tar.gz
-wget -nc http://www.linuxfromscratch.org/patches/downloads/bind/bind-9.11.0-P3-use_iproute2-1.patch || wget -nc http://www.linuxfromscratch.org/patches/blfs/8.0/bind-9.11.0-P3-use_iproute2-1.patch
+wget -nc ftp://ftp.isc.org/isc/bind9/9.11.0-P3/bind-9.11.0-P3.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/bind/bind-9.11.0-P3.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/bind/bind-9.11.0-P3.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/bind/bind-9.11.0-P3.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/bind/bind-9.11.0-P3.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/bind/bind-9.11.0-P3.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/bind/bind-9.11.0-P3.tar.gz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/8.0/bind-9.11.0-P3-use_iproute2-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/bind/bind-9.11.0-P3-use_iproute2-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

@@ -37,7 +37,7 @@ URL=http://ftp.gnome.org/pub/gnome/sources/evince/3.22/evince-3.22.1.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/evince/evince-3.22.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/evince/evince-3.22.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/evince/evince-3.22.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/evince/evince-3.22.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/evince/evince-3.22.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/evince/evince-3.22.1.tar.xz || wget -nc http://ftp.gnome.org/pub/gnome/sources/evince/3.22/evince-3.22.1.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evince/3.22/evince-3.22.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/evince/3.22/evince-3.22.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/evince/evince-3.22.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/evince/evince-3.22.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/evince/evince-3.22.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/evince/evince-3.22.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/evince/evince-3.22.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/evince/evince-3.22.1.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evince/3.22/evince-3.22.1.tar.xz
 wget -nc http://www.ibiblio.org/pub/Linux/libs/graphics/t1lib-5.1.2.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
