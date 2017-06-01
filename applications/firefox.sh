@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="Firefox is a stand-alone browser based on the Mozilla codebase."
 SECTION="xsoft"
-VERSION=53.0
+VERSION=51.0.1
 NAME="firefox"
 
 #REQ:alsa-lib

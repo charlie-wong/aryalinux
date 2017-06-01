@@ -22,7 +22,7 @@ URL=https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libevent/libevent-2.1.8-stable.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libevent/libevent-2.1.8-stable.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libevent/libevent-2.1.8-stable.tar.gz || wget -nc https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libevent/libevent-2.1.8-stable.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libevent/libevent-2.1.8-stable.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libevent/libevent-2.1.8-stable.tar.gz
+wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libevent/libevent-2.1.8-stable.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libevent/libevent-2.1.8-stable.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libevent/libevent-2.1.8-stable.tar.gz || wget -nc https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libevent/libevent-2.1.8-stable.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libevent/libevent-2.1.8-stable.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libevent/libevent-2.1.8-stable.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
