@@ -73,7 +73,7 @@ VERSION=4.12
 #REQ:compton
 
 cd $SOURCE_DIR
-wget -nc https://sourceforge.net/projects/aryalinux-bin/releases/2017.06/bin/aryalinux-xfce-config.tar.xz
+wget -nc https://sourceforge.net/projects/aryalinux-bin/files/releases/2017.06/bin/aryalinux-xfce-config.tar.xz
 tar xf aryalinux-xfce-config.tar.xz -C ~
 sudo tar xf aryalinux-xfce-config.tar.xz -C /etc/skel/
 
