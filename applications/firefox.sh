@@ -165,6 +165,36 @@ sudo ln -sfv /usr/lib/firefox-$VERSION/browser/icons/mozicon128.png \
         /usr/share/pixmaps/firefox.png
 
 
+# Create package...
+
+make -f client.mk install INSTALL_SDK= DESTDIR=$BINARY_DIR/firefox-$VERSION-$(uname -m) &&
+sudo chown -R 0:0 $BINARY_DIR/firefox-$VERSION-$(uname -m)/usr/lib/firefox-$VERSION   &&
+sudo mkdir -pv    $BINARY_DIR/firefox-$VERSION-$(uname -m)/usr/lib/mozilla/plugins  &&
+sudo ln    -sfv   ../../mozilla/plugins $BINARY_DIR/firefox-$VERSION-$(uname -m)/usr/lib/firefox-$VERSION/browser
+
+sudo mkdir -pv $BINARY_DIR/firefox-$VERSION-$(uname -m)/usr/share/applications &&
+sudo mkdir -pv $BINARY_DIR/firefox-$VERSION-$(uname -m)/usr/share/pixmaps &&
+sudo tee $BINARY_DIR/firefox-$VERSION-$(uname -m)/usr/share/applications/firefox.desktop << "EOF" &&
+[Desktop Entry]
+Encoding=UTF-8
+Name=Firefox Web Browser
+Comment=Browse the World Wide Web
+GenericName=Web Browser
+Exec=firefox %u
+Terminal=false
+Type=Application
+Icon=firefox
+Categories=GNOME;GTK;Network;WebBrowser;
+MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
+StartupNotify=true
+EOF
+sudo ln -sfv /usr/lib/firefox-$VERSION/browser/icons/mozicon128.png \
+        $BINARY_DIR/firefox-$VERSION-$(uname -m)/usr/share/pixmaps/firefox.png
+pushd $BINARY_DIR/firefox-$VERSION-$(uname -m)
+sudo tar -cJvf ../firefox-$VERSION-$(uname -m).tar.xz *
+popd
+sudo rm -r $BINARY_DIR/firefox-$VERSION-$(uname -m)
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
