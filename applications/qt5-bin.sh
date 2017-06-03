@@ -55,4 +55,17 @@ cd $SOURCE_DIR
 wget -nc $URL
 sudo tar xf $TARBALL -C /
 
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+cat >> /etc/ld.so.conf << EOF
+# Begin Qt addition
+/opt/qt5/lib
+# End Qt addition
+EOF
+ldconfig
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
 register_installed "qt5" "$VERSION" "$INSTALLED_LIST"
