@@ -67,7 +67,17 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -v -dm700 /srv/pgsql/data &&
+su - postgres -c '/usr/bin/initdb -D /srv/pgsql/data'
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
+
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+#install -v -dm700 /srv/pgsql/data &&
 install -v -dm755 /run/postgresql &&
 groupadd -g 41 postgres &&
 useradd -c "PostgreSQL Server" -g postgres -d /srv/pgsql/data \
@@ -82,16 +92,9 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-su - postgres -c '/usr/bin/initdb -D /srv/pgsql/data'
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+if grep "postgres" /etc/passwd; then
+	userdel -r postgres
+fi
 su - postgres -c '/usr/bin/postgres -D /srv/pgsql/data > \
                   /srv/pgsql/data/logfile 2>&1 &'
 
