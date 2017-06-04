@@ -47,7 +47,7 @@ the major users of Qt is KDE Frameworks 5 (KF5)."
 #OPT:pulseaudio
 #OPT:unixodbc
 
-URL=https://sourceforge.net/projects/aryalinux-bin/files/releases/2017.06/bin/qt5.tar.xz
+URL=https://sourceforge.net/projects/aryalinux-bin/files/releases/2017.06/bin/qt-$VERSION-$(uname -m).tar.xz
 TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 
 cd $SOURCE_DIR

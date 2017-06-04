@@ -69,9 +69,10 @@ NAME="libreoffice"
 
 cd $SOURCE_DIR
 
-URL=https://sourceforge.net/projects/aryalinux-bin/files/releases/2017.06/bin/libreoffice-5.3.0.3-x86_64.tar.xz
+URL=https://sourceforge.net/projects/aryalinux-bin/files/releases/2017.06/bin/libreoffice-$VERSION-$(uname -m).tar.xz
 TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 sudo tar xf $TARBALL -C /
+sudo rm /gid_Module*
 sudo update-desktop-database
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
