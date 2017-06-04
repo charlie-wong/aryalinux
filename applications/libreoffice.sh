@@ -151,9 +151,10 @@ sudo update-desktop-database
 
 # Create the package
 
-sudo make distro-pack-install DESTDIR=$BINARY_DIR/libreoffice-$VERSION-$(uname -m)
+sudo rm -r /tmp/LibreOffice
+make distro-pack-install DESTDIR=$BINARY_DIR/libreoffice-$VERSION-$(uname -m)
 pushd $BINARY_DIR/libreoffice-$VERSION-$(uname -m)
-sudo tar -cJvf $BINARY_DIR/libreoffice-$VERSION-$(uname -m).tar.xz * --exclude="gid_Module_*"
+tar -cJvf $BINARY_DIR/libreoffice-$VERSION-$(uname -m).tar.xz * --exclude="gid_Module_*"
 popd
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
