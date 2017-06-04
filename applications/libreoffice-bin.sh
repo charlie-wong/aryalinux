@@ -71,6 +71,8 @@ cd $SOURCE_DIR
 
 URL=https://sourceforge.net/projects/aryalinux-bin/files/releases/2017.06/bin/libreoffice-$VERSION-$(uname -m).tar.xz
 TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
+
+wget -nc $URL
 sudo tar xf $TARBALL -C /
 sudo rm /gid_Module*
 sudo update-desktop-database
