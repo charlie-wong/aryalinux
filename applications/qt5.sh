@@ -257,10 +257,7 @@ sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
-# Create package
-pushd /
-sudo tar -cJvf $BINARY_DIR/qt-$VERSION-$(uname -m).tar.xz /opt/qt* /etc/profile.d/qt5.sh /usr/bin/*qt5 /usr/share/applications/*qt5* /usr/share/pixmaps/*qt5*
-popd
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
