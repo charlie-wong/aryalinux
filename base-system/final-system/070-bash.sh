@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="049-binutils.sh"
-TARBALL="binutils-2.27.tar.bz2"
+STEPNAME="070-bash.sh"
+TARBALL="bash-4.4.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,18 +29,15 @@ then
 	cd $DIRECTORY
 fi
 
-expect -c "spawn ls"
-mkdir -v build
-cd       build
-../configure --prefix=/usr       \
-             --enable-gold       \
-             --enable-ld=default \
-             --enable-plugins    \
-             --enable-shared     \
-             --disable-werror    \
-             --with-system-zlib
-make tooldir=/usr
-make tooldir=/usr install
+patch -Np1 -i ../bash-4.4-upstream_fixes-1.patch
+./configure --prefix=/usr                       \
+            --docdir=/usr/share/doc/bash-4.4 \
+            --without-bash-malloc               \
+            --with-installed-readline
+make
+chown -Rv nobody .
+make install
+mv -vf /usr/bin/bash /bin
 
 
 cd $SOURCE_DIR

@@ -12,7 +12,7 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="056-ncurses.sh"
+STEPNAME="059-ncurses.sh"
 TARBALL="ncurses-6.0.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track

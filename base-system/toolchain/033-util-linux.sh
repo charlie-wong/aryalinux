@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="033-util-linux.sh"
-TARBALL="util-linux-2.29.1.tar.xz"
+TARBALL="util-linux-2.30.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,11 +29,11 @@ then
 	cd $DIRECTORY
 fi
 
-./configure --prefix=/tools                   \
-            --without-python                  \
-            --disable-makeinstall-chown       \
-            --without-systemdsystemunitdir    \
-            --enable-libmount-force-mountinfo \
+./configure --prefix=/tools                \
+            --without-python               \
+            --disable-makeinstall-chown    \
+            --without-systemdsystemunitdir \
+            --without-ncurses              \
             PKG_CONFIG=""
 make
 make install

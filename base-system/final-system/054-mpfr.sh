@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="065-bison.sh"
-TARBALL="bison-3.0.4.tar.xz"
+STEPNAME="054-mpfr.sh"
+TARBALL="mpfr-3.1.5.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,9 +29,14 @@ then
 	cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --docdir=/usr/share/doc/bison-3.0.4
+./configure --prefix=/usr        \
+            --disable-static     \
+            --enable-thread-safe \
+            --docdir=/usr/share/doc/mpfr-3.1.5
 make
+make html
 make install
+make install-html
 
 
 cd $SOURCE_DIR

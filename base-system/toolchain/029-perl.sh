@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="029-perl.sh"
-TARBALL="perl-5.24.1.tar.bz2"
+TARBALL="perl-5.26.0.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,11 +29,14 @@ then
 	cd $DIRECTORY
 fi
 
+sed -e '9751 a#ifndef PERL_IN_XSUB_RE' \
+    -e '9808 a#endif'                  \
+    -i regexec.c
 sh Configure -des -Dprefix=/tools -Dlibs=-lm
 make
 cp -v perl cpan/podlators/scripts/pod2man /tools/bin
-mkdir -pv /tools/lib/perl5/5.24.1
-cp -Rv lib/* /tools/lib/perl5/5.24.1
+mkdir -pv /tools/lib/perl5/5.26.0
+cp -Rv lib/* /tools/lib/perl5/5.26.0
 
 
 cd $SOURCE_DIR

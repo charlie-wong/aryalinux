@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="055-pkg-config.sh"
-TARBALL="pkg-config-0.29.1.tar.gz"
+STEPNAME="065-psmisc.sh"
+TARBALL="psmisc-23.1.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,13 +29,11 @@ then
 	cd $DIRECTORY
 fi
 
-./configure --prefix=/usr              \
-            --with-internal-glib       \
-            --disable-compile-warnings \
-            --disable-host-tool        \
-            --docdir=/usr/share/doc/pkg-config-0.29.1
+./configure --prefix=/usr
 make
 make install
+mv -v /usr/bin/fuser   /bin
+mv -v /usr/bin/killall /bin
 
 
 cd $SOURCE_DIR

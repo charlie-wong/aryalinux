@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="054-bzip2.sh"
-TARBALL="bzip2-1.0.6.tar.gz"
+STEPNAME="060-attr.sh"
+TARBALL="attr-2.4.47.src.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,19 +29,15 @@ then
 	cd $DIRECTORY
 fi
 
-patch -Np1 -i ../bzip2-1.0.6-install_docs-1.patch
-sed -i 's@\(ln -s -f \)$(PREFIX)/bin/@\1@' Makefile
-sed -i "s@(PREFIX)/man@(PREFIX)/share/man@g" Makefile
-make -f Makefile-libbz2_so
-make clean
+sed -i -e 's|/@pkg_name@|&-@pkg_version@|' include/builddefs.in
+sed -i -e "/SUBDIRS/s|man[25]||g" man/Makefile
+./configure --prefix=/usr \
+            --disable-static
 make
-make PREFIX=/usr install
-cp -v bzip2-shared /bin/bzip2
-cp -av libbz2.so* /lib
-ln -sv ../../lib/libbz2.so.1.0 /usr/lib/libbz2.so
-rm -v /usr/bin/{bunzip2,bzcat,bzip2}
-ln -sv bzip2 /bin/bunzip2
-ln -sv bzip2 /bin/bzcat
+make install install-dev install-lib
+chmod -v 755 /usr/lib/libattr.so
+mv -v /usr/lib/libattr.so.* /lib
+ln -sfv ../../lib/$(readlink /usr/lib/libattr.so) /usr/lib/libattr.so
 
 
 cd $SOURCE_DIR

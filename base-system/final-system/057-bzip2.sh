@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="051-mpfr.sh"
-TARBALL="mpfr-3.1.5.tar.xz"
+STEPNAME="057-bzip2.sh"
+TARBALL="bzip2-1.0.6.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,14 +29,19 @@ then
 	cd $DIRECTORY
 fi
 
-./configure --prefix=/usr        \
-            --disable-static     \
-            --enable-thread-safe \
-            --docdir=/usr/share/doc/mpfr-3.1.5
+patch -Np1 -i ../bzip2-1.0.6-install_docs-1.patch
+sed -i 's@\(ln -s -f \)$(PREFIX)/bin/@\1@' Makefile
+sed -i "s@(PREFIX)/man@(PREFIX)/share/man@g" Makefile
+make -f Makefile-libbz2_so
+make clean
 make
-make html
-make install
-make install-html
+make PREFIX=/usr install
+cp -v bzip2-shared /bin/bzip2
+cp -av libbz2.so* /lib
+ln -sv ../../lib/libbz2.so.1.0 /usr/lib/libbz2.so
+rm -v /usr/bin/{bunzip2,bzcat,bzip2}
+ln -sv bzip2 /bin/bunzip2
+ln -sv bzip2 /bin/bzcat
 
 
 cd $SOURCE_DIR
