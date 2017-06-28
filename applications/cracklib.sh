@@ -49,6 +49,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install                      &&
 mv -v /usr/lib/libcrack.so.* /lib &&
 ln -sfv ../../lib/$(readlink /usr/lib/libcrack.so) /usr/lib/libcrack.so
+ldconfig
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
