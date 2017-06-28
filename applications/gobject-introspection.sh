@@ -42,7 +42,7 @@ whoami > /tmp/currentuser
 
 ./configure --prefix=/usr --disable-static &&
 make "-j`nproc`" || make
-sudo make PKG_CONFIG_PATH=/usr/lib64/pkgconfig:/usr/lib/pkgconfig install
+sudo make install
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
