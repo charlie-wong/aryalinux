@@ -42,19 +42,7 @@ whoami > /tmp/currentuser
 
 ./configure --prefix=/usr --disable-static &&
 make "-j`nproc`" || make
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make install
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-
+sudo make install
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
