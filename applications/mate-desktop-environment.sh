@@ -147,6 +147,14 @@ sudo rm -rf $directory_name
 
 done
 
+pushd /opt/mate/share/applications/
+for f in *.desktop; do
+	sudo ln -svf "/opt/mate/share/applications/$f" "/usr/share/applications/mate-$f"
+done
+popd
+
+sudo ln -svf "/mate/share/xsessions/mate.desktop" "/usr/share/xsessions/mate.desktop"
+
 sudo tee /etc/gtk-2.0/gtkrc <<"EOF"
 include "/usr/share/themes/Clearlooks/gtk-2.0/gtkrc"
 gtk-icon-theme-name = "elementary"
