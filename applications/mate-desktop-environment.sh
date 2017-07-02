@@ -120,30 +120,35 @@ for line in $(cat mate-packages.list); do
 package_name=$(echo $line | cut -d ' ' -f1)
 version=$(echo $line | cut -d ' ' -f2)
 full_version=$(echo $line | cut -d ' ' -f3)
-url="http://pub.mate-desktop.org/releases/$version/$package_name-$full_version.tar.xz"
-wget -nc $url
-tarball_name=$(echo $url | rev | cut -d/ -f1 | rev)
-directory_name=$(tar tf $tarball_name | cut -d/ -f1 | uniq)
 
-tar xf $tarball_name
-cd $directory_name
+if ! grep "$package_name" $INSTALLED_LIST; then
+	url="http://pub.mate-desktop.org/releases/$version/$package_name-$full_version.tar.xz"
+	wget -nc $url
+	tarball_name=$(echo $url | rev | cut -d/ -f1 | rev)
+	directory_name=$(tar tf $tarball_name | cut -d/ -f1 | uniq)
 
-export PKG_CONFIG_PATH=/opt/mate/usr/lib/pkgconfig
+	tar xf $tarball_name
+	cd $directory_name
 
-if [ "$line" == "mate-power-manager" ]; then
-	./configure --prefix=/opt/mate --disable-static --with-gtk=3.0 --without-keyring
-elif [ "$line" == "libmatewnck" ]; then
-	./configure --prefix=/opt/mate --disable-static
-else
-	./configure --prefix=/opt/mate --disable-static --with-gtk=3.0
+	export PKG_CONFIG_PATH=/opt/mate/usr/lib/pkgconfig
+
+	if [ "$line" == "mate-power-manager" ]; then
+		./configure --prefix=/opt/mate --disable-static --with-gtk=3.0 --without-keyring
+	elif [ "$line" == "libmatewnck" ]; then
+		./configure --prefix=/opt/mate --disable-static
+	else
+		./configure --prefix=/opt/mate --disable-static --with-gtk=3.0
+	fi
+	make "-j`nproc`"
+	sudo make install
+
+	sudo ldconfig
+
+	cd $SOURCE_DIR
+	sudo rm -rf $directory_name
+
+	register_installed "$package_name" "$full_version" "$INSTALLED_LIST"
 fi
-make "-j`nproc`"
-sudo make install
-
-sudo ldconfig
-
-cd $SOURCE_DIR
-sudo rm -rf $directory_name
 
 done
 
