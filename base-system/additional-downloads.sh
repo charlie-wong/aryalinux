@@ -9,7 +9,7 @@ pushd ~/sources
 
 wget -nc http://pkgs.fedoraproject.org/lookaside/pkgs/dosfstools/dosfstools-3.0.26.tar.xz/45012f5f56f2aae3afcd62120b9e5a08/dosfstools-3.0.26.tar.xz
 wget -nc http://ftp.gnu.org/gnu/which/which-2.21.tar.gz
-wget -nc http://ftp.de.debian.org/debian/pool/main/o/os-prober/os-prober_1.74.tar.xz
+wget -nc http://http.kali.org/pool/main/o/os-prober/os-prober_1.74.tar.xz
 wget -nc https://github.com/rhinstaller/efivar/releases/download/31/efivar-31.tar.bz2
 wget -nc https://github.com/rhinstaller/efibootmgr/releases/download/15/efibootmgr-15.tar.bz2
 wget -nc http://downloads.sourceforge.net/freetype/freetype-2.6.3.tar.bz2
