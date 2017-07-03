@@ -12,7 +12,7 @@ VERSION=2.1.3
 
 cd $SOURCE_DIR
 
-URL=http://pkgs.fedoraproject.org/repo/pkgs/galculator/galculator-2.1.3.tar.bz2/a7a333cc4c321507434fe3f8e48fcd0a/galculator-2.1.3.tar.bz2
+URL=https://sourceforge.net/projects/galculator/files/galculator/2.1.3/galculator-2.1.3.tar.bz2
 wget -nc $URL
 TARBALL=galculator-2.1.3.tar.bz2
 DIRECTORY=`tar -tf $TARBALL | sed -e 's@/.*@@' | uniq `
