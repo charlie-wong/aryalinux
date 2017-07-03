@@ -74,12 +74,12 @@ VERSION=1.18
 cd $SOURCE_DIR
 
 sudo mkdir -pv /etc/profile.d
-sudo cat > /etc/profile.d/mate.sh <<EOF
+sudo tee /etc/profile.d/mate.sh <<EOF
 export PATH=$PATH:/opt/mate/bin
 export PKG_CONFIG_PATH=/opt/mate/usr/lib/pkgconfig
 EOF
 
-sudo cat >> /etc/ld.so.conf <<EOF
+sudo tee -a /etc/ld.so.conf <<EOF
 /opt/mate/lib
 /opt/mate/usr/lib
 EOF
