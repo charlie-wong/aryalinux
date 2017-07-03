@@ -102,7 +102,6 @@ mate-screensaver:1.18:1.18.1
 mate-terminal:1.18:1.18.1
 caja:1.18:1.18.3
 caja-extensions:1.18:1.18.1
-caja-dropbox:1.18:1.18.0
 pluma:1.18:1.18.2
 eom:1.18:1.18.2
 engrampa:1.18:1.18.2
