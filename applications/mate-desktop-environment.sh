@@ -69,7 +69,7 @@ VERSION=1.18
 #REQ:net-tools
 #REQ:usb_modeswitch
 #REQ:compton
-#REQ:vte2
+#REQ:vte
 
 
 cd $SOURCE_DIR
