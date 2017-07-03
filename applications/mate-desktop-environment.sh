@@ -130,7 +130,7 @@ if ! grep "$package_name" $INSTALLED_LIST; then
 	tar xf $tarball_name
 	cd $directory_name
 
-	export PKG_CONFIG_PATH=/opt/mate/usr/lib/pkgconfig
+	export PKG_CONFIG_PATH=/opt/mate/lib/pkgconfig
 
 	if [ "$line" == "mate-power-manager" ]; then
 		./configure --prefix=/opt/mate --disable-static --with-gtk=3.0 --without-keyring
