@@ -116,7 +116,6 @@ mate-media:1.18:1.18.1
 EOF
 
 for line in $(cat mate-packages.list); do
-echo "Installing $line"
 package_name=$(echo $line | cut -d: -f1)
 version=$(echo $line | cut -d: -f2)
 full_version=$(echo $line | cut -d: -f3)
