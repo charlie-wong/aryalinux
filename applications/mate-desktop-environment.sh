@@ -85,42 +85,42 @@ sudo tee -a /etc/ld.so.conf <<EOF
 EOF
 
 cat > mate-packages.list <<"EOF"
-mate-common 1.18 1.18.0
-mate-desktop 1.18 1.18.0
-libmatekbd 1.18 1.18.2
-libmatewnck 1.6 1.6.1
-libmateweather 1.18 1.18.1
-mate-icon-theme 1.18 1.18.2
-caja 1.18 1.18.1
-marco 1.18 1.18.1
-mate-settings-daemon 1.18 1.18.1
-mate-session-manager 1.18 1.18.0
-mate-menus 1.18 1.18.0
-mate-panel 1.18 1.18.3
-mate-control-center 1.18 1.18.2
-mate-screensaver 1.18 1.18.1
-mate-terminal 1.18 1.18.1
-caja 1.18 1.18.3
-caja-extensions 1.18 1.18.1
-caja-dropbox 1.18 1.18.0
-pluma 1.18 1.18.2
-eom 1.18 1.18.2
-engrampa 1.18 1.18.2
-atril 1.18 1.18.0
-mate-utils 1.18 1.18.2
-mate-system-monitor 1.18 1.18.0
-mate-power-manager 1.18 1.18.0
-marco 1.18 1.18.1
-mozo 1.18 1.18.0
-mate-backgrounds 1.18 1.18.0
-mate-media 1.18 1.18.1
+mate-common:1.18:1.18.0
+mate-desktop:1.18:1.18.0
+libmatekbd:1.18:1.18.2
+libmatewnck:1.6:1.6.1
+libmateweather:1.18:1.18.1
+mate-icon-theme:1.18:1.18.2
+caja:1.18:1.18.1
+marco:1.18:1.18.1
+mate-settings-daemon:1.18:1.18.1
+mate-session-manager:1.18:1.18.0
+mate-menus:1.18:1.18.0
+mate-panel:1.18:1.18.3
+mate-control-center:1.18:1.18.2
+mate-screensaver:1.18:1.18.1
+mate-terminal:1.18:1.18.1
+caja:1.18:1.18.3
+caja-extensions:1.18:1.18.1
+caja-dropbox:1.18:1.18.0
+pluma:1.18:1.18.2
+eom:1.18:1.18.2
+engrampa:1.18:1.18.2
+atril:1.18:1.18.0
+mate-utils:1.18:1.18.2
+mate-system-monitor:1.18:1.18.0
+mate-power-manager:1.18:1.18.0
+marco:1.18:1.18.1
+mozo:1.18:1.18.0
+mate-backgrounds:1.18:1.18.0
+mate-media:1.18:1.18.1
 EOF
 
 for line in $(cat mate-packages.list); do
 echo "Installing $line"
-package_name=$(echo $line | cut -d " " -f1)
-version=$(echo $line | cut -d " " -f2)
-full_version=$(echo $line | cut -d " " -f3)
+package_name=$(echo $line | cut -d: -f1)
+version=$(echo $line | cut -d: -f2)
+full_version=$(echo $line | cut -d: -f3)
 
 if ! grep "$package_name" $INSTALLED_LIST; then
 	url="http://pub.mate-desktop.org/releases/$version/$package_name-$full_version.tar.xz"
