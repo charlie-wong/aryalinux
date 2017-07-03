@@ -117,9 +117,9 @@ mate-media 1.18 1.18.1
 EOF
 
 for line in $(cat mate-packages.list); do
-package_name=$(echo $line | cut -d ' ' -f1)
-version=$(echo $line | cut -d ' ' -f2)
-full_version=$(echo $line | cut -d ' ' -f3)
+package_name=$(echo $line | cut -d " " -f1)
+version=$(echo $line | cut -d " " -f2)
+full_version=$(echo $line | cut -d " " -f3)
 
 if ! grep "$package_name" $INSTALLED_LIST; then
 	url="http://pub.mate-desktop.org/releases/$version/$package_name-$full_version.tar.xz"
