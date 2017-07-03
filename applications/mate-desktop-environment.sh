@@ -151,6 +151,12 @@ fi
 
 done
 
+pushd /opt/mate/share/icons/
+for f in *; do
+	sudo ln -svf "/opt/mate/share/icons/$f" "/usr/share/icons/$f"
+done
+popd
+
 pushd /opt/mate/share/applications/
 for f in *.desktop; do
 	sudo ln -svf "/opt/mate/share/applications/$f" "/usr/share/applications/mate-$f"
