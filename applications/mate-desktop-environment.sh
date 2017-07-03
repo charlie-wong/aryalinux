@@ -76,12 +76,11 @@ cd $SOURCE_DIR
 sudo mkdir -pv /etc/profile.d
 sudo tee /etc/profile.d/mate.sh <<EOF
 export PATH=$PATH:/opt/mate/bin
-export PKG_CONFIG_PATH=/opt/mate/usr/lib/pkgconfig
+export PKG_CONFIG_PATH=/opt/mate/lib/pkgconfig
 EOF
 
 sudo tee -a /etc/ld.so.conf <<EOF
 /opt/mate/lib
-/opt/mate/usr/lib
 EOF
 
 cat > mate-packages.list <<"EOF"
