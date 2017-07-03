@@ -69,6 +69,7 @@ VERSION=1.18
 #REQ:net-tools
 #REQ:usb_modeswitch
 #REQ:compton
+#REQ:vte2
 
 
 cd $SOURCE_DIR
@@ -129,7 +130,7 @@ if ! grep "$package_name" $INSTALLED_LIST; then
 	tar xf $tarball_name
 	cd $directory_name
 
-	export PKG_CONFIG_PATH=/opt/mate/lib/pkgconfig
+	export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/opt/mate/lib/pkgconfig
 
 	if [ "$line" == "mate-power-manager" ]; then
 		./configure --prefix=/opt/mate --disable-static --with-gtk=3.0 --without-keyring
