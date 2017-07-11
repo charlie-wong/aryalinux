@@ -9,7 +9,7 @@ export MAKEFLAGS="-j `nproc`"
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="019-sudo.sh"
-TARBALL="sudo-1.8.16.tar.gz"
+TARBALL="sudo-1.8.20p2.tar.gz"
 
 if ! grep "$STEPNAME" $LOGFILE &> /dev/null
 then

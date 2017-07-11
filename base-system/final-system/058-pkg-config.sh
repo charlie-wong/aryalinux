@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="054-bzip2.sh"
-TARBALL="bzip2-1.0.6.tar.gz"
+STEPNAME="058-pkg-config.sh"
+TARBALL="pkg-config-0.29.2.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,19 +29,12 @@ then
 	cd $DIRECTORY
 fi
 
-patch -Np1 -i ../bzip2-1.0.6-install_docs-1.patch
-sed -i 's@\(ln -s -f \)$(PREFIX)/bin/@\1@' Makefile
-sed -i "s@(PREFIX)/man@(PREFIX)/share/man@g" Makefile
-make -f Makefile-libbz2_so
-make clean
+./configure --prefix=/usr              \
+            --with-internal-glib       \
+            --disable-host-tool        \
+            --docdir=/usr/share/doc/pkg-config-0.29.2
 make
-make PREFIX=/usr install
-cp -v bzip2-shared /bin/bzip2
-cp -av libbz2.so* /lib
-ln -sv ../../lib/libbz2.so.1.0 /usr/lib/libbz2.so
-rm -v /usr/bin/{bunzip2,bzcat,bzip2}
-ln -sv bzip2 /bin/bunzip2
-ln -sv bzip2 /bin/bzcat
+make install
 
 
 cd $SOURCE_DIR

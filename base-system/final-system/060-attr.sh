@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="059-libcap.sh"
-TARBALL="libcap-2.25.tar.xz"
+STEPNAME="060-attr.sh"
+TARBALL="attr-2.4.47.src.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,12 +29,16 @@ then
 	cd $DIRECTORY
 fi
 
-sed -i '/install.*STALIBNAME/d' libcap/Makefile
+sed -i -e 's|/@pkg_name@|&-@pkg_version@|' include/builddefs.in
+sed -i -e "/SUBDIRS/s|man[25]||g" man/Makefile
+sed -i 's:{(:\\{(:' test/run
+./configure --prefix=/usr \
+            --disable-static
 make
-make RAISE_SETFCAP=no lib=lib prefix=/usr install
-chmod -v 755 /usr/lib/libcap.so
-mv -v /usr/lib/libcap.so.* /lib
-ln -sfv ../../lib/$(readlink /usr/lib/libcap.so) /usr/lib/libcap.so
+make install install-dev install-lib
+chmod -v 755 /usr/lib/libattr.so
+mv -v /usr/lib/libattr.so.* /lib
+ln -sfv ../../lib/$(readlink /usr/lib/libattr.so) /usr/lib/libattr.so
 
 
 cd $SOURCE_DIR

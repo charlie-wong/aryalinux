@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="057-attr.sh"
-TARBALL="attr-2.4.47.src.tar.gz"
+STEPNAME="063-sed.sh"
+TARBALL="sed-4.4.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,15 +29,14 @@ then
 	cd $DIRECTORY
 fi
 
-sed -i -e 's|/@pkg_name@|&-@pkg_version@|' include/builddefs.in
-sed -i -e "/SUBDIRS/s|man[25]||g" man/Makefile
-./configure --prefix=/usr \
-            --disable-static
+sed -i 's/usr/tools/'                 build-aux/help2man
+sed -i 's/testsuite.panic-tests.sh//' Makefile.in
+./configure --prefix=/usr --bindir=/bin
 make
-make install install-dev install-lib
-chmod -v 755 /usr/lib/libattr.so
-mv -v /usr/lib/libattr.so.* /lib
-ln -sfv ../../lib/$(readlink /usr/lib/libattr.so) /usr/lib/libattr.so
+make html
+make install
+install -d -m755           /usr/share/doc/sed-4.4
+install -m644 doc/sed.html /usr/share/doc/sed-4.4
 
 
 cd $SOURCE_DIR

@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="076-perl.sh"
-TARBALL="perl-5.24.1.tar.bz2"
+TARBALL="perl-5.26.0.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -37,7 +37,8 @@ sh Configure -des -Dprefix=/usr                 \
                   -Dman1dir=/usr/share/man/man1 \
                   -Dman3dir=/usr/share/man/man3 \
                   -Dpager="/usr/bin/less -isR"  \
-                  -Duseshrplib
+                  -Duseshrplib                  \
+                  -Dusethreads
 make
 make install
 unset BUILD_ZLIB BUILD_BZIP2

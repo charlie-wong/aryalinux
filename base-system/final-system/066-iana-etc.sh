@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="052-mpc.sh"
-TARBALL="mpc-1.0.3.tar.gz"
+STEPNAME="066-iana-etc.sh"
+TARBALL="iana-etc-2.30.tar.bz2"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,13 +29,8 @@ then
 	cd $DIRECTORY
 fi
 
-./configure --prefix=/usr    \
-            --disable-static \
-            --docdir=/usr/share/doc/mpc-1.0.3
 make
-make html
 make install
-make install-html
 
 
 cd $SOURCE_DIR

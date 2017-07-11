@@ -9,7 +9,7 @@ export MAKEFLAGS="-j `nproc`"
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="004-dosfs-tools.sh"
-TARBALL="dosfstools-3.0.26.tar.xz"
+TARBALL="dosfstools-4.1.tar.xz"
 
 if ! grep "$STEPNAME" $LOGFILE &> /dev/null
 then

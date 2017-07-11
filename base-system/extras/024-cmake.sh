@@ -9,7 +9,7 @@ export MAKEFLAGS="-j `nproc`"
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="024-cmake.sh"
-TARBALL="cmake-3.5.0.tar.gz"
+TARBALL="cmake-3.8.2.tar.gz"
 
 if ! grep "$STEPNAME" $LOGFILE &> /dev/null
 then

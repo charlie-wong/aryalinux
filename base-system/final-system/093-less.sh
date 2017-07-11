@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="093-less.sh"
-TARBALL="less-481.tar.gz"
+TARBALL="less-487.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 

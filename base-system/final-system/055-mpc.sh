@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="070-bc.sh"
-TARBALL="bc-1.06.95.tar.bz2"
+STEPNAME="055-mpc.sh"
+TARBALL="mpc-1.0.3.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,13 +29,13 @@ then
 	cd $DIRECTORY
 fi
 
-patch -Np1 -i ../bc-1.06.95-memory_leak-1.patch
-./configure --prefix=/usr           \
-            --with-readline         \
-            --mandir=/usr/share/man \
-            --infodir=/usr/share/info
+./configure --prefix=/usr    \
+            --disable-static \
+            --docdir=/usr/share/doc/mpc-1.0.3
 make
+make html
 make install
+make install-html
 
 
 cd $SOURCE_DIR

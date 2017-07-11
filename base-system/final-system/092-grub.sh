@@ -9,7 +9,7 @@ export MAKEFLAGS="-j `nproc`"
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="092-grub.sh"
-TARBALL="grub-2.02~beta3.tar.xz"
+TARBALL="grub-2.02.tar.xz"
 
 if ! grep "$STEPNAME" $LOGFILE &> /dev/null
 then

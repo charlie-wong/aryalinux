@@ -9,7 +9,7 @@ export MAKEFLAGS="-j `nproc`"
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="003-os-prober.sh"
-TARBALL="os-prober_1.74.tar.xz"
+TARBALL="os-prober_1.76.tar.xz"
 
 if ! grep "$STEPNAME" $LOGFILE &> /dev/null
 then

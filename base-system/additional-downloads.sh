@@ -7,9 +7,9 @@ VERSION=2017.08
 
 pushd ~/sources
 
-wget -nc http://pkgs.fedoraproject.org/lookaside/pkgs/dosfstools/dosfstools-3.0.26.tar.xz/45012f5f56f2aae3afcd62120b9e5a08/dosfstools-3.0.26.tar.xz
+wget -nc https://src.fedoraproject.org/repo/pkgs/dosfstools/dosfstools-4.1.tar.xz/sha512/e7a8aab34255d15e6865a7b031971352af1255134fab83389673bcc3cbd6ba255241bd2429070aeb4b927f8d7d73ccf1aeafe94566b133e88e7586897c317b78/dosfstools-4.1.tar.xz
 wget -nc http://ftp.gnu.org/gnu/which/which-2.21.tar.gz
-wget -nc http://http.kali.org/pool/main/o/os-prober/os-prober_1.74.tar.xz
+wget -nc http://http.debian.net/debian/pool/main/o/os-prober/os-prober_1.76.tar.xz
 wget -nc https://github.com/rhinstaller/efivar/releases/download/31/efivar-31.tar.bz2
 wget -nc https://github.com/rhinstaller/efibootmgr/releases/download/15/efibootmgr-15.tar.bz2
 wget -nc http://downloads.sourceforge.net/freetype/freetype-2.6.3.tar.bz2
@@ -22,15 +22,15 @@ wget -nc http://pkgs.fedoraproject.org/repo/pkgs/redhat-lsb/lsb-release-1.4.tar.
 wget -nc https://busybox.net/downloads/fixes-1.20.2/busybox-1.20.2-sys-resource.patch
 wget -nc https://busybox.net/downloads/busybox-1.20.2.tar.bz2
 wget -nc https://ftp.gnu.org/gnu/nettle/nettle-3.3.tar.gz
-wget -nc http://ftp.gnu.org/gnu/libtasn1/libtasn1-4.10.tar.gz
-wget -nc http://p11-glue.freedesktop.org/releases/p11-kit-0.23.1.tar.gz
-wget -nc ftp://ftp.gnutls.org/gcrypt/gnutls/v3.4/gnutls-3.4.3.tar.xz
-wget -nc http://ftp.gnu.org/gnu/wget/wget-1.16.3.tar.xz
-wget -nc http://www.sudo.ws/dist/sudo-1.8.16.tar.gz
+wget -nc http://ftp.gnu.org/gnu/libtasn1/libtasn1-4.12.tar.gz
+wget -nc https://github.com/p11-glue/p11-kit/releases/download/0.23.7/p11-kit-0.23.7.tar.gz
+wget -nc https://www.gnupg.org/ftp/gcrypt/gnutls/v3.5/gnutls-3.5.14.tar.xz
+wget -nc http://ftp.gnu.org/gnu/wget/wget-1.19.1.tar.xz
+wget -nc http://www.sudo.ws/dist/sudo-1.8.20p2.tar.gz
 wget -nc ftp://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz
-wget -nc https://www.python.org/ftp/python/2.7.10/Python-2.7.10.tar.xz
-wget -nc http://anduin.linuxfromscratch.org/sources/other/certdata.txt
-wget -nc http://www.openssl.org/source/openssl-1.0.1i.tar.gz
+wget -nc https://www.python.org/ftp/python/2.7.13/Python-2.7.13.tar.xz
+wget -nc https://hg.mozilla.org/projects/nss/raw-file/tip/lib/ckfw/builtins/certdata.txt
+wget -nc https://openssl.org/source/openssl-1.1.0f.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/7.6-systemd/openssl-1.0.1i-fix_parallel_build-1.patch
 wget -nc http://www.kernel.org/pub/linux/utils/boot/syslinux/syslinux-4.06.tar.xz
 wget -nc https://sources.voidlinux.eu/dash-0.5.9.1/dash-0.5.9.1.tar.gz
@@ -59,7 +59,7 @@ mv -f ~/aryalinux/applications/alps-scripts-$VERSION.tar.gz .
 
 wget -nc https://sourceforge.net/projects/cdrtools/files/cdrtools-3.01.tar.bz2
 wget -nc https://launchpad.net/ubuntu/+archive/primary/+files/cdrkit_1.1.11.orig.tar.gz
-wget -nc http://www.cmake.org/files/v3.5/cmake-3.5.0.tar.gz
+wget -nc http://www.cmake.org/files/v3.8/cmake-3.8.2.tar.gz
 wget -nc http://pkgs.fedoraproject.org/repo/pkgs/squashfs-tools/squashfs4.3.tar.gz/370d0470f3c823bf408a3b7a1f145746/squashfs4.3.tar.gz
 wget -nc aryalinux.org/releases/2016.08/bootx64.efi
 wget -nc http://downloads.sourceforge.net/infozip/unzip60.tar.gz

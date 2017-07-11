@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="088-diffutils.sh"
-TARBALL="diffutils-3.5.tar.xz"
+TARBALL="diffutils-3.6.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,7 +29,6 @@ then
 	cd $DIRECTORY
 fi
 
-sed -i 's:= @mkdir_p@:= /bin/mkdir -p:' po/Makefile.in.in
 ./configure --prefix=/usr
 make
 make install

@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="064-m4.sh"
-TARBALL="m4-1.4.18.tar.xz"
+STEPNAME="067-bison.sh"
+TARBALL="bison-3.0.4.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,7 +29,7 @@ then
 	cd $DIRECTORY
 fi
 
-./configure --prefix=/usr
+./configure --prefix=/usr --docdir=/usr/share/doc/bison-3.0.4
 make
 make install
 

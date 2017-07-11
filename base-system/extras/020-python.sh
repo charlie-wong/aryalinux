@@ -9,7 +9,7 @@ export MAKEFLAGS="-j `nproc`"
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="020-python.sh"
-TARBALL="Python-2.7.10.tar.xz"
+TARBALL="Python-2.7.13.tar.xz"
 
 if ! grep "$STEPNAME" $LOGFILE &> /dev/null
 then

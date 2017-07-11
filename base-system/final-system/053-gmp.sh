@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="068-readline.sh"
-TARBALL="readline-7.0.tar.gz"
+STEPNAME="053-gmp.sh"
+TARBALL="gmp-6.1.2.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,17 +29,14 @@ then
 	cd $DIRECTORY
 fi
 
-sed -i '/MV.*old/d' Makefile.in
-sed -i '/{OLDSUFF}/c:' support/shlib-install
 ./configure --prefix=/usr    \
+            --enable-cxx     \
             --disable-static \
-            --docdir=/usr/share/doc/readline-7.0
-make SHLIB_LIBS=-lncurses
-make SHLIB_LIBS=-lncurses install
-mv -v /usr/lib/lib{readline,history}.so.* /lib
-ln -sfv ../../lib/$(readlink /usr/lib/libreadline.so) /usr/lib/libreadline.so
-ln -sfv ../../lib/$(readlink /usr/lib/libhistory.so ) /usr/lib/libhistory.so
-install -v -m644 doc/*.{ps,pdf,html,dvi} /usr/share/doc/readline-7.0
+            --docdir=/usr/share/doc/gmp-6.1.2
+make
+make html
+make install
+make install-html
 
 
 cd $SOURCE_DIR

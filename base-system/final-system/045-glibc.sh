@@ -30,20 +30,26 @@ then
 fi
 
 patch -Np1 -i ../glibc-2.25-fhs-1.patch
+ln -sfv /tools/lib/gcc /usr/lib
 case $(uname -m) in
-    x86) ln -s ld-linux.so.2 /lib/ld-lsb.so.3
+    i?86)    GCC_INCDIR=/usr/lib/gcc/$(uname -m)-pc-linux-gnu/7.1.0/include
+            ln -s ld-linux.so.2 /lib/ld-lsb.so.3
     ;;
-    x86_64) ln -s ../lib/ld-linux-x86-64.so.2 /lib64
+    x86_64) GCC_INCDIR=/usr/lib/gcc/x86_64-pc-linux-gnu/7.1.0/include
+            ln -s ../lib/ld-linux-x86-64.so.2 /lib64
             ln -s ../lib/ld-linux-x86-64.so.2 /lib64/ld-lsb-x86-64.so.3
     ;;
 esac
 mkdir -v build
 cd       build
-../configure --prefix=/usr                   \
-             --enable-kernel=2.6.32          \
-             --enable-obsolete-rpc           \
-             --enable-stack-protector=strong \
+CC="gcc -isystem $GCC_INCDIR -isystem /usr/include" \
+../configure --prefix=/usr                          \
+             --disable-werror                       \
+             --enable-kernel=2.6.32                 \
+             --enable-obsolete-rpc                  \
+             --enable-stack-protector=strong        \
              libc_cv_slibdir=/lib
+unset GCC_INCDIR
 make
 touch /etc/ld.so.conf
 make install
@@ -87,7 +93,7 @@ ethers: files
 rpc: files
 # End /etc/nsswitch.conf
 EOF
-tar -xf ../../tzdata2016j.tar.gz
+tar -xf ../../tzdata2017b.tar.gz
 ZONEINFO=/usr/share/zoneinfo
 mkdir -pv $ZONEINFO/{posix,right}
 for tz in etcetera southamerica northamerica europe africa antarctica  \

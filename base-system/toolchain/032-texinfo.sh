@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="032-texinfo.sh"
-TARBALL="texinfo-6.3.tar.xz"
+TARBALL="texinfo-6.4.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 

@@ -9,7 +9,7 @@ export MAKEFLAGS="-j `nproc`"
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="016-p11kit.sh"
-TARBALL="p11-kit-0.23.1.tar.gz"
+TARBALL="p11-kit-0.23.7.tar.gz"
 
 if ! grep "$STEPNAME" $LOGFILE &> /dev/null
 then

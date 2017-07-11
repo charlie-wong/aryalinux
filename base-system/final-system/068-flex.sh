@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="067-grep.sh"
-TARBALL="grep-3.0.tar.xz"
+STEPNAME="068-flex.sh"
+TARBALL="flex-2.6.4.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,9 +29,11 @@ then
 	cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --bindir=/bin
+HELP2MAN=/tools/bin/true \
+./configure --prefix=/usr --docdir=/usr/share/doc/flex-2.6.4
 make
 make install
+ln -sv flex /usr/bin/lex
 
 
 cd $SOURCE_DIR

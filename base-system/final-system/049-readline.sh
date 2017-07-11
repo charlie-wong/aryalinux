@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="072-gdbm.sh"
-TARBALL="gdbm-1.13.tar.gz"
+STEPNAME="049-readline.sh"
+TARBALL="readline-7.0.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,11 +29,17 @@ then
 	cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
+sed -i '/MV.*old/d' Makefile.in
+sed -i '/{OLDSUFF}/c:' support/shlib-install
+./configure --prefix=/usr    \
             --disable-static \
-            --enable-libgdbm-compat
-make
-make install
+            --docdir=/usr/share/doc/readline-7.0
+make SHLIB_LIBS="-L/tools/lib -lncursesw"
+make SHLIB_LIBS="-L/tools/lib -lncurses" install
+mv -v /usr/lib/lib{readline,history}.so.* /lib
+ln -sfv ../../lib/$(readlink /usr/lib/libreadline.so) /usr/lib/libreadline.so
+ln -sfv ../../lib/$(readlink /usr/lib/libhistory.so ) /usr/lib/libhistory.so
+install -v -m644 doc/*.{ps,pdf,html,dvi} /usr/share/doc/readline-7.0
 
 
 cd $SOURCE_DIR
